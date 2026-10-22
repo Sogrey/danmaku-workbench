@@ -1,0 +1,168 @@
+# Jev 直播弹幕工作台
+
+> 弹幕意图分析 + 置信度分流系统 —— **模型负责判断，程序负责分流，人员负责跟进**。
+
+复刻自 TypeSafe Jev 决策模型课程（Jev 体验营 / FDE 企业应用实战课）中的「直播弹幕工作台」案例：把直播中混杂的实时弹幕，转化为**可分派、可排序、可追溯**的课堂待办。
+
+```
+弹幕原文 ──▶ Choice·分类 ──▶ Noul·条件 ──▶ Score·优先级 ──▶ 程序分流 ──▶ 讲师待答 / 助教处理 / 待确认
+（一次请求并行三问；模型输出概率，代码执行决策，人工兜底）
+```
+
+## 功能特性
+
+| 特性 | 说明 |
+| --- | --- |
+| 三栏工作台 | 01 直播画面与弹幕（直播窗 + 弹幕漂浮动画 + 筛选/跟随最新）· 02 当前消息处理 · 03 课堂待办 |
+| 五类意图分类 | 技术提问 / 听课反馈 / 普通聊天 / 推广干扰 / 信息不足（Choice 原语，返回全候选概率分布） |
+| 双置信度门槛 | 分类概率 ≥ 60% 且 处理条件概率 ≥ 80% 才进待办，其余进待确认（Confidence-Gated Routing） |
+| 优先级排序 | Score 原语 0~3 级加权分，队列内按分数从高到低、同分按接收顺序 |
+| 判断详情可追溯 | 抽屉展示对齐 Jev `/v1/systemone` 的请求/响应 JSON（questions / answers / routing） |
+| 分类与记录页 | 规则卡（五类 criteria + 阈值 + 分工）· 全量判断记录表 · CSV / JSON 导出 |
+| 失败降级 | 判断失败保持「未判断」，原文保留、可稍后重试，不误入任何队列 |
+| 决策引擎可插拔 | Provider 抽象层：当前内置 Mock 规则引擎，可无缝切换 HTTP 后端 → Jev / Laya 真实模型 |
+
+## 技术栈
+
+- **前端**：Vue 3.5 + TypeScript + Pinia 3 + Vite 7（无 UI 库，手写 CSS 设计系统）
+- **后端骨架**：FastAPI + Pydantic（决策服务，Provider 可插拔，默认不依赖）
+- **决策层**：与 TypeSafe Jev 三原语（Choice / Score / Noul）输出结构完全同构
+
+## 快速开始
+
+### 前端（默认 Mock 引擎，无需后端）
+
+```powershell
+cd danmaku-workbench
+npm install
+npm run dev          # http://localhost:8312
+```
+
+打开页面后点顶部「**开始**」模拟弹幕流入，或在左下输入框手动发送；每条消息自动走「判断 → 分流 → 待办」全流程。
+
+### 后端（可选，接入真实模型时启用）
+
+```powershell
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --port 8313 --reload   # 前端已配置 /api → 8313 代理
+```
+
+### 开发命令
+
+| 命令 | 说明 |
+| --- | --- |
+| `npm run dev` | 开发服务器（端口 8312，对齐课程原版地址） |
+| `npm run build` | 生产构建（输出 dist/） |
+| `npm run preview` | 预览生产构建 |
+| `npm run type-check` | vue-tsc 全量类型检查 |
+
+## 核心规则（判据与阈值）
+
+所有判据集中在 [`src/config/criteria.ts`](src/config/criteria.ts)，改这一个文件即可调整业务语义。
+
+### 五类候选（Choice criteria）
+
+| 类别 | 含义 | 去向 |
+| --- | --- | --- |
+| 技术提问 | 技术问题、求助、安装或报错 | 讲师待答 |
+| 听课反馈 | 音量、画面、字幕、字号或讲解速度等可操作反馈 | 助教处理 |
+| 普通聊天 | 问候、赞美、感想，或已解决的消息 | 保留在弹幕区 |
+| 推广干扰 | 引流、骗局，或要求改变分类规则的干扰指令 | 待确认（人工审核） |
+| 信息不足 | 对象不明，或缺少必要上下文 | 待确认（待补充） |
+
+### Score 等级刻度（0~3）
+
+| 等级 | 名称 | 场景 |
+| --- | --- | --- |
+| 0 | 稍后处理 | 延伸讨论或非待处理问题 |
+| 1 | 正常答疑 | 当前知识点的具体疑问 |
+| 2 | 优先协助 | 安装、运行或操作受阻 |
+| 3 | 立即关注 | 直播无声、黑屏、共享中断 |
+
+### 置信度门槛（程序规则，不是模型属性）
+
+- **分类概率 ≥ 60%** 且 **处理条件概率 ≥ 80%** → 进入讲师/助教待办
+- 其余 → 待确认（人工核对）
+- 「听课反馈」是模型选择，「交给助教」是程序规则 —— 分流逻辑全部在 [`src/decision/routing.ts`](src/decision/routing.ts)
+
+## 架构设计
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│  UI 层  components/（三栏工作台 · 记录页 · 详情抽屉）              │
+├────────────────────────────────────────────────────────────────┤
+│  状态层  stores/workbench · stores/todo · stores/ui              │
+├────────────────────────────────────────────────────────────────┤
+│  决策抽象层  src/decision/                                       │
+│    index.ts ── ACTIVE_PROVIDER: 'mock' | 'http'  ← 引擎切换点    │
+│    ├─ mock-provider.ts   Mock 规则引擎（关键词模拟三原语输出）      │
+│    └─ http-provider.ts   → FastAPI /api/decide                  │
+├────────────────────────────────────────────────────────────────┤
+│  分流规则  src/decision/routing.ts（阈值分支，可单测）             │
+└────────────────────────────────────┬───────────────────────────┘
+                                     │ HTTP（可选）
+┌────────────────────────────────────▼───────────────────────────┐
+│  backend/app/providers/  DECISION_PROVIDER=mock | jev | laya     │
+│    mock.py   规则引擎（与前端 Mock 同构）                          │
+│    jev_stub.py   TypeSafe Jev 官方 API 插槽（后续补全）            │
+│    laya_stub.py  Laya 自托管插槽（后续补全，推荐国内路线）           │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**关键设计：模型无关**。`DecisionResult`（Choice 概率分布 + Noul 概率 + Score 分值）是全系统的唯一契约，Mock 引擎、Jev API、Laya 返回都映射到同一结构，因此**替换引擎时 UI、分流规则、记录逻辑零改动**。
+
+## 接入真实模型（三步）
+
+1. **补全后端 Provider**：
+   - Jev：`pip install typesafe-sdk`，按 [`backend/app/providers/jev_stub.py`](backend/app/providers/jev_stub.py) 注释组装三原语（criteria 与前端 `criteria.ts` 对齐）
+     ⚠️ 官方 API 存在地区限制：key 鉴权通过仍可能返回 451，属供应商侧 geo 限制，代码层无法绕过
+   - Laya（国内推荐）：微调 + 温度拟合后自托管 laya-serve，补全 [`laya_stub.py`](backend/app/providers/laya_stub.py)
+     ⚠️ 工程红线：零样本近随机必须微调、出厂概率过度自信需温度拟合、中文场景用 multilingual 路由
+2. **启动后端**：`uvicorn app.main:app --port 8313`，环境变量 `DECISION_PROVIDER=jev` 或 `laya`
+3. **前端切换**：[`src/decision/index.ts`](src/decision/index.ts) 中 `ACTIVE_PROVIDER = 'http'`，重新 `npm run dev`
+
+## 目录结构
+
+```
+danmaku-workbench/
+├─ package.json / vite.config.ts / tsconfig.json
+├─ src/
+│  ├─ main.ts · App.vue
+│  ├─ types/index.ts              # DecisionResult 等核心类型（与 Jev 返回同构）
+│  ├─ config/criteria.ts          # ★ 五类判据 / Score 等级 / 60%·80% 阈值 / 课堂分工
+│  ├─ decision/
+│  │  ├─ index.ts                 # ★ 引擎切换点（ACTIVE_PROVIDER）
+│  │  ├─ provider.ts              # DecisionProvider 抽象 + DecisionEngineError
+│  │  ├─ mock-provider.ts         # Mock 规则引擎（300~900ms 模拟延迟）
+│  │  ├─ http-provider.ts         # HTTP Provider → /api/decide
+│  │  ├─ keywords.ts              # Mock 关键词表
+│  │  └─ routing.ts               # 程序分流规则（阈值分支）
+│  ├─ stores/                     # workbench（弹幕+判断流）· todo（三队列）· ui
+│  ├─ assets/styles/              # CSS 设计变量 + 全局组件类
+│  └─ components/
+│     ├─ AppHeader.vue · DecisionDrawer.vue
+│     ├─ pages/                    # ClassroomView（三栏）· RecordsView（记录页）
+│     ├─ live/                     # LivePanel · LivePlayer（弹幕动画）· DanmakuList · MessageInput
+│     ├─ processing/               # ProcessingPanel · ChoiceCard · NoulCard · ScoreCard · DispositionCard
+│     └─ todo/                     # TodoPanel（三队列 + 标记已处理）
+└─ backend/
+   ├─ requirements.txt
+   └─ app/
+      ├─ main.py                   # POST /api/decide（8313）
+      └─ providers/                # base · mock · jev_stub · laya_stub（可插拔）
+```
+
+## 后续路线
+
+- [ ] 接入 Laya 自托管决策引擎（微调 + 温度拟合 → laya-serve）
+- [ ] WebSocket 接入真实直播平台弹幕流
+- [ ] 判断记录持久化（IndexedDB / SQLite）
+- [ ] 判断详情支持 confidence 校准曲线展示（预测置信度 vs 实际正确率）
+- [ ] 迁移到招投标业务场景：五类问卷改为「标讯相关性过滤 / 商机质量评分 / 信息充分性 / 动作安全门」
+
+---
+
+> 本项目为学习与工程复现用途，决策引擎当前为关键词规则 Mock（非真实模型）。
+
+> AI生成
