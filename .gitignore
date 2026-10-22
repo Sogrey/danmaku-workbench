@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+
+# Agent/skill temp files（技能审计日志、断点状态、临时脚本）
+.temp/
+
+# Environment & secrets
+.env
+.env.*
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njs
+*.njk
+
+# OS
+Thumbs.db
+.DS_Store
