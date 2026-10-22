@@ -1,0 +1,12 @@
+# Jev 直播弹幕工作台 · 决策服务（可选）
+# 当前阶段前端默认使用内置 Mock 引擎（无需启动本服务）；
+# 接入真实模型（Jev / Laya）时按需安装。
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+
+# ---- 后续接入真实模型时按需追加（以下为可选，默认不安装） ----
+# TypeSafe Jev 官方 SDK（注意：官方 API 存在地区限制，key 有效仍可能返回 451）
+# typesafe-sdk>=0.7.0
+# Laya 开源决策引擎（自托管，与 Jev 同协议）
+# laya[serve]>=0.3.3
