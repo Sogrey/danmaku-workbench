@@ -1,0 +1,46 @@
+{
+  "train": {
+    "total": 322,
+    "category": {
+      "technical": 90,
+      "feedback": 66,
+      "chat": 63,
+      "spam": 40,
+      "insufficient": 63
+    },
+    "impact_level": {
+      "0": 139,
+      "1": 108,
+      "2": 63,
+      "3": 12
+    },
+    "actionable": {
+      "true": 219,
+      "false": 103
+    }
+  },
+  "eval": {
+    "total": 45,
+    "category": {
+      "technical": 10,
+      "feedback": 10,
+      "chat": 8,
+      "spam": 8,
+      "insufficient": 9
+    },
+    "impact_level": {
+      "0": 20,
+      "1": 16,
+      "2": 7,
+      "3": 2
+    },
+    "actionable": {
+      "true": 28,
+      "false": 17
+    }
+  },
+  "train_source": {
+    "seed": 114,
+    "variant": 208
+  }
+}

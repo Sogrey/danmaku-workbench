@@ -1,0 +1,45 @@
+{"id": "ev-0001", "text": "Jev 会自己写出一段回复吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": "能力边界询问（课件原版示例）"}}
+{"id": "ev-0002", "text": "Choice 和 Noul 能放在同一次请求里吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0003", "text": "官方 API 在国内能直接访问吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0004", "text": "怎么给 Noul 写 criteria 才不歧义", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0005", "text": "批量请求返回的顺序和发送一致吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0006", "text": "模型会把弹幕里的指令当真吗，会不会被注入", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0007", "text": "demo 项目的代码能开源到内网 git 吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0008", "text": "评分置信度低的时候程序该怎么处理", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0009", "text": "老师的声音有点小", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": "课件原版示例"}}
+{"id": "ev-0010", "text": "画面卡住不动了，但是声音还在", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0011", "text": "能不能把讲解速度放慢一点，新手跟不上", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0012", "text": "直播突然断了，现在只有封面图", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0013", "text": "共享的代码区反光了，看不清关键字", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0014", "text": "音轨只有左边耳朵有声音", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0015", "text": "讲义字号调大点吧，后排截图看不清", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0016", "text": "视频一直 480p，切不上 1080", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0017", "text": "麦克风声音断了，能听到回声", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0018", "text": "老师辛苦，今晚收获很大", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0019", "text": "潜水了很久，今天必须冒个泡", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0020", "text": "这才是我想要的课，讲得透", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0021", "text": "下期直播什么时候开", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": "候选缺口观察样本：运营询问"}}
+{"id": "ev-0022", "text": "666", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0023", "text": "已经跟着做完 demo 了，很有成就感", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": "已完成"}}
+{"id": "ev-0024", "text": "散会去吃饭，回放见", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0025", "text": "这直播间氛围真好", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0026", "text": "内部价卖课，比官网便宜一半，私我", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0027", "text": "薇信号同手机号，送全套付费课程", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0028", "text": "刚进来，有没有人拉我进学习群，有偿", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0029", "text": "点我主页有惊喜，今天免费送资料", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0030", "text": "全网最低价接毕设软著，欢迎比价", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0031", "text": "某多多搜 xxx 同款课程九块九", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0032", "text": "招聘打字员，日入三百，无押金", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0033", "text": "长按下图二维码，回复关键词领福利", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0034", "text": "这个", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": "纯指代"}}
+{"id": "ev-0035", "text": "就是这个报错，帮我看看", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval", "note": "指向不明（未贴报错）"}}
+{"id": "ev-0036", "text": "到第三步就不行了", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "eval", "note": "未说明第三步是什么、现象是什么"}}
+{"id": "ev-0037", "text": "为什么我的和演示不一样", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval", "note": "差异无描述"}}
+{"id": "ev-0038", "text": "同样的操作，别人可以我不行", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "eval", "note": "环境差异信息缺失"}}
+{"id": "ev-0039", "text": "我也有问题", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval", "note": ""}}
+{"id": "ev-0040", "text": "看一下我的报错", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval", "note": "声称有报错但未贴出"}}
+{"id": "ev-0041", "text": "跟上上一位同学的问题一样", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval", "note": "依赖前文"}}
+{"id": "ev-0042", "text": "这一页过一下，太快了", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval", "note": "'这一页'未定位（无画面引用）"}}
+{"id": "ev-0043", "text": "报错截图发了，帮我看看", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "eval", "note": "边界对照：声称已发截图，内容存在但弹幕通道不可见——标注 technical，运行时依赖人工核对"}}
+{"id": "ev-0044", "text": "刚才那段代码跑到第三行报错了", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "eval", "note": "边界对照：对象定位具体（第三行、报错）"}}
+{"id": "ev-0045", "text": "麦克风没声音，背景音乐能听见", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval", "note": "课件原版示例：无声级"}}

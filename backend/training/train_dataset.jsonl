@@ -1,0 +1,322 @@
+{"id": "dm-0001", "text": "SDK 怎么安装，官方文档入口在哪", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "安装求助"}}
+{"id": "dm-0002", "text": "Python 版本有要求吗？我本地是 3.10", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "环境咨询"}}
+{"id": "dm-0003", "text": "报错 ModuleNotFoundError: No module named typesafe_sdk", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "带完整报错信息，受阻"}}
+{"id": "dm-0004", "text": "Choice 的 criteria 最多能定义多少个选项", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "参数咨询"}}
+{"id": "dm-0005", "text": "SDK 异步调用和同步调用有什么差别", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "概念提问"}}
+{"id": "dm-0006", "text": "API 的并发限制是多少，会不会被限流", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0007", "text": "Windows 上 pip 装不上，报编译错误", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "环境受阻"}}
+{"id": "dm-0008", "text": "confidence 是怎么算出来的", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "原理提问"}}
+{"id": "dm-0009", "text": "print(1) 这种代码 Jev 能识别是什么语言吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "能力边界询问，不影响跟课"}}
+{"id": "dm-0010", "text": "Noul 的 0.5 到底代表什么意思", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "课程核心概念"}}
+{"id": "dm-0011", "text": "能不能自定义 Score 的等级数量", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0012", "text": "请求超时了，重试几次比较合适", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0013", "text": "typesafe_sdk 有没有离线文档可以下载", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "资料询问"}}
+{"id": "dm-0014", "text": "返回的 JSON 怎么在业务代码里解析", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "集成问题"}}
+{"id": "dm-0015", "text": "微调 Laya 大概需要多少显存", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "部署咨询"}}
+{"id": "dm-0016", "text": "为什么我的 score 一直是 0", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "结果异常，需排查"}}
+{"id": "dm-0017", "text": "RetryPolicy 的参数怎么配置", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0018", "text": "这个模型能部署在纯内网环境吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0019", "text": "API 返回 451 是什么原因", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "地区限制，部署受阻"}}
+{"id": "dm-0020", "text": "state 里最多能放多少 token", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0021", "text": "怎么把分类结果接到自己的业务系统", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "集成咨询"}}
+{"id": "dm-0022", "text": "判据要怎么写才不会被弹幕里的指令误导", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "防注入相关提问"}}
+{"id": "dm-0023", "text": "SDK 有 changelog 吗，想知道最近更新了啥", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "资料询问"}}
+{"id": "dm-0024", "text": "五个类别如果都不匹配会返回什么", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "边界行为询问"}}
+{"id": "dm-0025", "text": "Laya 本地部署对显卡有硬性要求吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "部署咨询"}}
+{"id": "dm-0026", "text": "概率分布是全类别都返回还是只返回 top1", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0027", "text": "老师的麦没声音，只有背景音乐在响", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "seed", "note": "无法接收授课内容"}}
+{"id": "dm-0028", "text": "直播黑屏了，画面一直加载不出来", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "seed", "note": "断流级"}}
+{"id": "dm-0029", "text": "共享的屏幕看不到了", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "seed", "note": "共享中断"}}
+{"id": "dm-0030", "text": "声音断了，一直在转圈缓冲", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "seed", "note": "断流"}}
+{"id": "dm-0031", "text": "画面太糊了，代码完全看不清", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "影响跟课"}}
+{"id": "dm-0032", "text": "卡得厉害，一卡一卡的", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "卡顿"}}
+{"id": "dm-0033", "text": "音量忽大忽小的，听着难受", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0034", "text": "延迟好高，画面和声音不同步", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0035", "text": "麦克风有杂音，电流声很明显", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0036", "text": "声音卡成机器人音了", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0037", "text": "共享窗口选错了，看不到终端", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "影响当前练习"}}
+{"id": "dm-0038", "text": "老师说话声音有点小，调高一点吧", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "音量反馈，课件原版示例"}}
+{"id": "dm-0039", "text": "终端的字太小了，麻烦放大一点", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "字号反馈，课件原版示例"}}
+{"id": "dm-0040", "text": "字幕和讲解对不上", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0041", "text": "讲太快了，能不能慢一点", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "速度反馈"}}
+{"id": "dm-0042", "text": "弹幕把代码挡住了", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0043", "text": "能不能切到高清画质", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0044", "text": "PPT 那一页翻太快，没看清就过去了", "labels": {"category": "feedback", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "轻微，可回看"}}
+{"id": "dm-0045", "text": "这个颜色太浅了，看不清重点", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0046", "text": "老师那边是不是没戴耳机，回声很大", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0047", "text": "字有点小，看久了眼睛疼", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0048", "text": "画面闪了几下，现在又正常了", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "间歇性异常"}}
+{"id": "dm-0049", "text": "你好", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "问候"}}
+{"id": "dm-0050", "text": "666，这个阈值设计讲明白了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "赞叹；含技术词但语义是赞美"}}
+{"id": "dm-0051", "text": "讲得真好，通俗易懂", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0052", "text": "这个例子终于看懂了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "已解决"}}
+{"id": "dm-0053", "text": "打卡，今天第一", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0054", "text": "前排支持，晚了就没了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0055", "text": "哈哈这个比喻太绝了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0056", "text": "感谢老师，辛苦了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0057", "text": "今天加班刚赶上，直播真及时", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0058", "text": "来了来了，刚下课", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0059", "text": "大佬牛，膜拜", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0060", "text": "学到很多，点个赞", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0061", "text": "课程什么时候有回放", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "候选缺口观察样本：课程运营询问，现有五类无专属候选"}}
+{"id": "dm-0062", "text": "课间休息一下呀，讲一小时了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0063", "text": "老师辛苦了，先喝口水", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0064", "text": "希望以后多讲点实战案例", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "内容建议，非当前可操作反馈"}}
+{"id": "dm-0065", "text": "今晚人真多啊", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0066", "text": "弹幕好热闹，大家都很积极", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0067", "text": "回见，先撤了，明天上班", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0068", "text": "笔记记不过来了，课后慢慢消化", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0069", "text": "这个课比官方文档清楚多了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "seed", "note": "赞美"}}
+{"id": "dm-0070", "text": "加微信 ds_ai123 领取完整源码", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "引流"}}
+{"id": "dm-0071", "text": "点击链接参与抽奖，百分百中奖", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "骗局"}}
+{"id": "dm-0072", "text": "兼职日结，手机就能做，私聊我", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0073", "text": "免费领取课程资料，进群自取", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "引流"}}
+{"id": "dm-0074", "text": "我有内部渠道，包过包拿证", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "骗局"}}
+{"id": "dm-0075", "text": "刷礼物解锁下一节完整版内容", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0076", "text": "低价接单，网站小程序都能做，需要的私", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0077", "text": "投资理财稳赚不赔，跟上车队稳稳的", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "金融骗局"}}
+{"id": "dm-0078", "text": "复制这条口令打开某 app 领大额红包", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0079", "text": "代刷等级代涨粉，信誉保证", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0080", "text": "出二手显卡，九成新，私聊详聊", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "无关广告"}}
+{"id": "dm-0081", "text": "扫码进福利群，里面天天发资料", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "引流"}}
+{"id": "dm-0082", "text": "老师帮忙推荐下我的店铺呗，卖课程周边的", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "请求推广"}}
+{"id": "dm-0083", "text": "求大家关注下我的公众号，每天更新干货", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "引流"}}
+{"id": "dm-0084", "text": "带做毕业设计，价格美丽，包答辩", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "代做广告"}}
+{"id": "dm-0085", "text": "邀请大家看另一个直播间，比这个精彩", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "挖墙脚引流"}}
+{"id": "dm-0086", "text": "加我拉你进资料群，全部免费不收钱", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0087", "text": "课程录屏打包出售，九块九包邮，私信我", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "侵权倒卖"}}
+{"id": "dm-0088", "text": "本直播间抽奖请认准唯一官方账号 xx扣扣", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "仿冒诈骗"}}
+{"id": "dm-0089", "text": "机构保过班了解一下，不过全额退", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0090", "text": "这个怎么弄", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "课件原版示例：无对象无诉求"}}
+{"id": "dm-0091", "text": "刚才你说的那里没听懂", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "边界样本：指代无具体对象"}}
+{"id": "dm-0092", "text": "它又报错了", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "seed", "note": "无报错内容，无法定位"}}
+{"id": "dm-0093", "text": "同上，我也是这个问题", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "seed", "note": "依赖前文上下文"}}
+{"id": "dm-0094", "text": "那个打不开啊", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "seed", "note": "对象不明"}}
+{"id": "dm-0095", "text": "怎么不行啊", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "seed", "note": "无具体内容"}}
+{"id": "dm-0096", "text": "刚才那个", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "纯指代"}}
+{"id": "dm-0097", "text": "我的和楼上一样", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "依赖前文"}}
+{"id": "dm-0098", "text": "这里看不懂", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "seed", "note": "'这里'无定位"}}
+{"id": "dm-0099", "text": "这步卡住了", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "seed", "note": "受阻但无步骤与报错信息"}}
+{"id": "dm-0100", "text": "报错了", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "seed", "note": "边界样本：有报错信号无内容"}}
+{"id": "dm-0101", "text": "卡在这个界面", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "seed", "note": "无截图无描述"}}
+{"id": "dm-0102", "text": "为什么不行", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0103", "text": "求看下我的", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0104", "text": "对，就是我刚才说的那个问题", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "依赖历史消息"}}
+{"id": "dm-0105", "text": "这个参数", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": "纯名词指代"}}
+{"id": "dm-0106", "text": "打不开", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "seed", "note": "无对象（链接/文件/页面不明）"}}
+{"id": "dm-0107", "text": "一直失败，试了好几次", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "seed", "note": "无失败内容"}}
+{"id": "dm-0108", "text": "连不上", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "seed", "note": "连接对象不明"}}
+{"id": "dm-0109", "text": "配置好了但是不对", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "seed", "note": "'不对'无具体现象"}}
+{"id": "dm-0110", "text": "和我一样情况的一起看下", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "seed", "note": ""}}
+{"id": "dm-0111", "text": "pip install 报错了", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "边界对照样本：有具体环节（pip install），区别于'报错了'"}}
+{"id": "dm-0112", "text": "刚才讲的 confidence 那段没听懂", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "seed", "note": "边界对照样本：指代具体知识点，区别于'刚才你说的那里'"}}
+{"id": "dm-0113", "text": "安装 typesafe-sdk 的时候一直报错装不上", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "边界对照样本：完整对象与现象"}}
+{"id": "dm-0114", "text": "终端里执行 uv run 直接闪退，没有任何输出", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "seed", "note": "边界对照样本：现象完整，可开始排查"}}
+{"id": "dm-0115", "text": "老师，SDK 怎么安装，官方文档入口在哪谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0001", "note": "安装求助"}}
+{"id": "dm-0116", "text": "问一下，SDK 怎么安装，官方文档入口在哪！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0001", "note": "安装求助"}}
+{"id": "dm-0117", "text": "请问Python 版本有要求吗？我本地是 3.10！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0002", "note": "环境咨询"}}
+{"id": "dm-0118", "text": "老师，Python 版本有要求吗？我本地是 3.10，急", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0002", "note": "环境咨询"}}
+{"id": "dm-0119", "text": "up主，报错 ModuleNotFoundError: No module named typesafe_sdk谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0003", "note": "带完整报错信息，受阻"}}
+{"id": "dm-0120", "text": "up主，报错 ModuleNotFoundError: No module named typesafe_sdk麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0003", "note": "带完整报错信息，受阻"}}
+{"id": "dm-0121", "text": "老师，Choice 的 criteria 最多能定义多少个选项谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0004", "note": "参数咨询"}}
+{"id": "dm-0122", "text": "老师，Choice 的 criteria 最多能定义多少个选项！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0004", "note": "参数咨询"}}
+{"id": "dm-0123", "text": "请问SDK 异步调用和同步调用有什么差别~", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0005", "note": "概念提问"}}
+{"id": "dm-0124", "text": "up主，SDK 异步调用和同步调用有什么差别谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0005", "note": "概念提问"}}
+{"id": "dm-0125", "text": "up主，API 的并发限制是多少，会不会被限流！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0006", "note": ""}}
+{"id": "dm-0126", "text": "up主，API 的并发限制是多少，会不会被限流麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0006", "note": ""}}
+{"id": "dm-0127", "text": "请问Windows 上 pip 装不上，报编译错误麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0007", "note": "环境受阻"}}
+{"id": "dm-0128", "text": "up主，Windows 上 pip 装不上，报编译错误谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0007", "note": "环境受阻"}}
+{"id": "dm-0129", "text": "老师，confidence 是怎么算出来的！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0008", "note": "原理提问"}}
+{"id": "dm-0130", "text": "弱弱问一句，confidence 是怎么算出来的谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0008", "note": "原理提问"}}
+{"id": "dm-0131", "text": "问一下，print(1) 这种代码 Jev 能识别是什么语言吗！！", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0009", "note": "能力边界询问，不影响跟课"}}
+{"id": "dm-0132", "text": "请问print(1) 这种代码 Jev 能识别是什么语言吗谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0009", "note": "能力边界询问，不影响跟课"}}
+{"id": "dm-0133", "text": "老师，Noul 的 0.5 到底代表什么意思谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0010", "note": "课程核心概念"}}
+{"id": "dm-0134", "text": "弱弱问一句，Noul 的 0.5 到底代表什么意思谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0010", "note": "课程核心概念"}}
+{"id": "dm-0135", "text": "问一下，能不能自定义 Score 的等级数量谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0011", "note": ""}}
+{"id": "dm-0136", "text": "up主，能不能自定义 Score 的等级数量谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0011", "note": ""}}
+{"id": "dm-0137", "text": "老师，请求超时了，重试几次比较合适，急", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0012", "note": ""}}
+{"id": "dm-0138", "text": "弱弱问一句，请求超时了，重试几次比较合适~", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0012", "note": ""}}
+{"id": "dm-0139", "text": "老师，typesafe_sdk 有没有离线文档可以下载麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0013", "note": "资料询问"}}
+{"id": "dm-0140", "text": "老师，typesafe_sdk 有没有离线文档可以下载~", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0013", "note": "资料询问"}}
+{"id": "dm-0141", "text": "问一下，返回的 JSON 怎么在业务代码里解析，急", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0014", "note": "集成问题"}}
+{"id": "dm-0142", "text": "up主，返回的 JSON 怎么在业务代码里解析谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0014", "note": "集成问题"}}
+{"id": "dm-0143", "text": "up主，微调 Laya 大概需要多少显存！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0015", "note": "部署咨询"}}
+{"id": "dm-0144", "text": "老师，微调 Laya 大概需要多少显存谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0015", "note": "部署咨询"}}
+{"id": "dm-0145", "text": "请问为什么我的 score 一直是 0谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0016", "note": "结果异常，需排查"}}
+{"id": "dm-0146", "text": "老师，为什么我的 score 一直是 0！！", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0016", "note": "结果异常，需排查"}}
+{"id": "dm-0147", "text": "老师，RetryPolicy 的参数怎么配置麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0017", "note": ""}}
+{"id": "dm-0148", "text": "问一下，RetryPolicy 的参数怎么配置麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0017", "note": ""}}
+{"id": "dm-0149", "text": "问一下，这个模型能部署在纯内网环境吗！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0018", "note": ""}}
+{"id": "dm-0150", "text": "问一下，这个模型能部署在纯内网环境吗谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0018", "note": ""}}
+{"id": "dm-0151", "text": "请问API 返回 451 是什么原因，急", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0019", "note": "地区限制，部署受阻"}}
+{"id": "dm-0152", "text": "问一下，API 返回 451 是什么原因，急", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0019", "note": "地区限制，部署受阻"}}
+{"id": "dm-0153", "text": "老师，state 里最多能放多少 token~", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0020", "note": ""}}
+{"id": "dm-0154", "text": "请问state 里最多能放多少 token~", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0020", "note": ""}}
+{"id": "dm-0155", "text": "请问怎么把分类结果接到自己的业务系统！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0021", "note": "集成咨询"}}
+{"id": "dm-0156", "text": "弱弱问一句，怎么把分类结果接到自己的业务系统麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0021", "note": "集成咨询"}}
+{"id": "dm-0157", "text": "问一下，判据要怎么写才不会被弹幕里的指令误导，急", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0022", "note": "防注入相关提问"}}
+{"id": "dm-0158", "text": "up主，判据要怎么写才不会被弹幕里的指令误导！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0022", "note": "防注入相关提问"}}
+{"id": "dm-0159", "text": "问一下，SDK 有 changelog 吗，想知道最近更新了啥谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0023", "note": "资料询问"}}
+{"id": "dm-0160", "text": "请问SDK 有 changelog 吗，想知道最近更新了啥谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0023", "note": "资料询问"}}
+{"id": "dm-0161", "text": "问一下，五个类别如果都不匹配会返回什么麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0024", "note": "边界行为询问"}}
+{"id": "dm-0162", "text": "问一下，五个类别如果都不匹配会返回什么谢谢", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0024", "note": "边界行为询问"}}
+{"id": "dm-0163", "text": "请问Laya 本地部署对显卡有硬性要求吗~", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0025", "note": "部署咨询"}}
+{"id": "dm-0164", "text": "问一下，Laya 本地部署对显卡有硬性要求吗！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0025", "note": "部署咨询"}}
+{"id": "dm-0165", "text": "弱弱问一句，概率分布是全类别都返回还是只返回 top1麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0026", "note": ""}}
+{"id": "dm-0166", "text": "弱弱问一句，概率分布是全类别都返回还是只返回 top1！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0026", "note": ""}}
+{"id": "dm-0167", "text": "问一下，老师的麦没声音，只有背景音乐在响！！", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "variant", "base_id": "dm-0027", "note": "无法接收授课内容"}}
+{"id": "dm-0168", "text": "请问老师的麦没声音，只有背景音乐在响，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "variant", "base_id": "dm-0027", "note": "无法接收授课内容"}}
+{"id": "dm-0169", "text": "up主，直播黑屏了，画面一直加载不出来~", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "variant", "base_id": "dm-0028", "note": "断流级"}}
+{"id": "dm-0170", "text": "问一下，直播黑屏了，画面一直加载不出来，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "variant", "base_id": "dm-0028", "note": "断流级"}}
+{"id": "dm-0171", "text": "up主，共享的屏幕看不到了麻烦了", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "variant", "base_id": "dm-0029", "note": "共享中断"}}
+{"id": "dm-0172", "text": "问一下，共享的屏幕看不到了！！", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "variant", "base_id": "dm-0029", "note": "共享中断"}}
+{"id": "dm-0173", "text": "请问声音断了，一直在转圈缓冲~", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "variant", "base_id": "dm-0030", "note": "断流"}}
+{"id": "dm-0174", "text": "弱弱问一句，声音断了，一直在转圈缓冲谢谢", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "variant", "base_id": "dm-0030", "note": "断流"}}
+{"id": "dm-0175", "text": "老师，画面太糊了，代码完全看不清谢谢", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0031", "note": "影响跟课"}}
+{"id": "dm-0176", "text": "请问画面太糊了，代码完全看不清，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0031", "note": "影响跟课"}}
+{"id": "dm-0177", "text": "请问卡得厉害，一卡一卡的，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0032", "note": "卡顿"}}
+{"id": "dm-0178", "text": "弱弱问一句，卡得厉害，一卡一卡的~", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0032", "note": "卡顿"}}
+{"id": "dm-0179", "text": "老师，音量忽大忽小的，听着难受麻烦了", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0033", "note": ""}}
+{"id": "dm-0180", "text": "弱弱问一句，音量忽大忽小的，听着难受~", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0033", "note": ""}}
+{"id": "dm-0181", "text": "弱弱问一句，延迟好高，画面和声音不同步~", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0034", "note": ""}}
+{"id": "dm-0182", "text": "问一下，延迟好高，画面和声音不同步~", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0034", "note": ""}}
+{"id": "dm-0183", "text": "老师，麦克风有杂音，电流声很明显，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0035", "note": ""}}
+{"id": "dm-0184", "text": "up主，麦克风有杂音，电流声很明显谢谢老师", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0035", "note": ""}}
+{"id": "dm-0185", "text": "问一下，声音卡成机器人音了谢谢", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0036", "note": ""}}
+{"id": "dm-0186", "text": "问一下，声音卡成机器人音了麻烦了", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0036", "note": ""}}
+{"id": "dm-0187", "text": "请问共享窗口选错了，看不到终端麻烦了", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0037", "note": "影响当前练习"}}
+{"id": "dm-0188", "text": "老师，共享窗口选错了，看不到终端，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0037", "note": "影响当前练习"}}
+{"id": "dm-0189", "text": "问一下，老师说话声音有点小，调高一点吧~", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0038", "note": "音量反馈，课件原版示例"}}
+{"id": "dm-0190", "text": "请问老师说话声音有点小，调高一点吧~", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0038", "note": "音量反馈，课件原版示例"}}
+{"id": "dm-0191", "text": "老师，终端的字太小了，麻烦放大一点，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0039", "note": "字号反馈，课件原版示例"}}
+{"id": "dm-0192", "text": "问一下，终端的字太小了，麻烦放大一点，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0039", "note": "字号反馈，课件原版示例"}}
+{"id": "dm-0193", "text": "up主，字幕和讲解对不上~", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0040", "note": ""}}
+{"id": "dm-0194", "text": "请问字幕和讲解对不上！！", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0040", "note": ""}}
+{"id": "dm-0195", "text": "问一下，讲太快了，能不能慢一点！！", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0041", "note": "速度反馈"}}
+{"id": "dm-0196", "text": "up主，讲太快了，能不能慢一点~", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0041", "note": "速度反馈"}}
+{"id": "dm-0197", "text": "老师，弹幕把代码挡住了~", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0042", "note": ""}}
+{"id": "dm-0198", "text": "问一下，弹幕把代码挡住了麻烦了", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0042", "note": ""}}
+{"id": "dm-0199", "text": "老师，能不能切到高清画质谢谢", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0043", "note": ""}}
+{"id": "dm-0200", "text": "问一下，能不能切到高清画质谢谢老师", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0043", "note": ""}}
+{"id": "dm-0201", "text": "请问PPT 那一页翻太快，没看清就过去了谢谢", "labels": {"category": "feedback", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0044", "note": "轻微，可回看"}}
+{"id": "dm-0202", "text": "请问PPT 那一页翻太快，没看清就过去了~", "labels": {"category": "feedback", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0044", "note": "轻微，可回看"}}
+{"id": "dm-0203", "text": "老师，这个颜色太浅了，看不清重点谢谢", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0045", "note": ""}}
+{"id": "dm-0204", "text": "弱弱问一句，这个颜色太浅了，看不清重点谢谢", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0045", "note": ""}}
+{"id": "dm-0205", "text": "up主，老师那边是不是没戴耳机，回声很大！！", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0046", "note": ""}}
+{"id": "dm-0206", "text": "请问老师那边是不是没戴耳机，回声很大，急", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0046", "note": ""}}
+{"id": "dm-0207", "text": "弱弱问一句，字有点小，看久了眼睛疼~", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0047", "note": ""}}
+{"id": "dm-0208", "text": "请问字有点小，看久了眼睛疼谢谢老师", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0047", "note": ""}}
+{"id": "dm-0209", "text": "up主，画面闪了几下，现在又正常了~", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0048", "note": "间歇性异常"}}
+{"id": "dm-0210", "text": "弱弱问一句，画面闪了几下，现在又正常了！！", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0048", "note": "间歇性异常"}}
+{"id": "dm-0211", "text": "老师，你好谢谢老师", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0049", "note": "问候"}}
+{"id": "dm-0212", "text": "up主，你好谢谢老师", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0049", "note": "问候"}}
+{"id": "dm-0213", "text": "up主，666，这个阈值设计讲明白了~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0050", "note": "赞叹；含技术词但语义是赞美"}}
+{"id": "dm-0214", "text": "老师，666，这个阈值设计讲明白了！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0050", "note": "赞叹；含技术词但语义是赞美"}}
+{"id": "dm-0215", "text": "老师，讲得真好，通俗易懂谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0051", "note": ""}}
+{"id": "dm-0216", "text": "up主，讲得真好，通俗易懂谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0051", "note": ""}}
+{"id": "dm-0217", "text": "老师，这个例子终于看懂了！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0052", "note": "已解决"}}
+{"id": "dm-0218", "text": "老师，这个例子终于看懂了谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0052", "note": "已解决"}}
+{"id": "dm-0219", "text": "老师，打卡，今天第一！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0053", "note": ""}}
+{"id": "dm-0220", "text": "老师，打卡，今天第一谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0053", "note": ""}}
+{"id": "dm-0221", "text": "up主，前排支持，晚了就没了谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0054", "note": ""}}
+{"id": "dm-0222", "text": "老师，前排支持，晚了就没了谢谢老师", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0054", "note": ""}}
+{"id": "dm-0223", "text": "up主，哈哈这个比喻太绝了！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0055", "note": ""}}
+{"id": "dm-0224", "text": "老师，哈哈这个比喻太绝了~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0055", "note": ""}}
+{"id": "dm-0225", "text": "老师，感谢老师，辛苦了~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0056", "note": ""}}
+{"id": "dm-0226", "text": "up主，感谢老师，辛苦了！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0056", "note": ""}}
+{"id": "dm-0227", "text": "老师，今天加班刚赶上，直播真及时谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0057", "note": ""}}
+{"id": "dm-0228", "text": "up主，今天加班刚赶上，直播真及时谢谢老师", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0057", "note": ""}}
+{"id": "dm-0229", "text": "up主，来了来了，刚下课~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0058", "note": ""}}
+{"id": "dm-0230", "text": "up主，来了来了，刚下课谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0058", "note": ""}}
+{"id": "dm-0231", "text": "老师，大佬牛，膜拜谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0059", "note": ""}}
+{"id": "dm-0232", "text": "up主，大佬牛，膜拜谢谢老师", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0059", "note": ""}}
+{"id": "dm-0233", "text": "老师，学到很多，点个赞！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0060", "note": ""}}
+{"id": "dm-0234", "text": "up主，学到很多，点个赞！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0060", "note": ""}}
+{"id": "dm-0235", "text": "up主，课程什么时候有回放！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0061", "note": "候选缺口观察样本：课程运营询问，现有五类无专属候选"}}
+{"id": "dm-0236", "text": "up主，课程什么时候有回放~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0061", "note": "候选缺口观察样本：课程运营询问，现有五类无专属候选"}}
+{"id": "dm-0237", "text": "老师，课间休息一下呀，讲一小时了谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0062", "note": ""}}
+{"id": "dm-0238", "text": "up主，课间休息一下呀，讲一小时了谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0062", "note": ""}}
+{"id": "dm-0239", "text": "老师，老师辛苦了，先喝口水谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0063", "note": ""}}
+{"id": "dm-0240", "text": "老师，老师辛苦了，先喝口水！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0063", "note": ""}}
+{"id": "dm-0241", "text": "老师，希望以后多讲点实战案例~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0064", "note": "内容建议，非当前可操作反馈"}}
+{"id": "dm-0242", "text": "up主，希望以后多讲点实战案例~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0064", "note": "内容建议，非当前可操作反馈"}}
+{"id": "dm-0243", "text": "老师，今晚人真多啊~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0065", "note": ""}}
+{"id": "dm-0244", "text": "老师，今晚人真多啊！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0065", "note": ""}}
+{"id": "dm-0245", "text": "up主，弹幕好热闹，大家都很积极谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0066", "note": ""}}
+{"id": "dm-0246", "text": "up主，弹幕好热闹，大家都很积极谢谢老师", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0066", "note": ""}}
+{"id": "dm-0247", "text": "up主，回见，先撤了，明天上班谢谢老师", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0067", "note": ""}}
+{"id": "dm-0248", "text": "up主，回见，先撤了，明天上班~", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0067", "note": ""}}
+{"id": "dm-0249", "text": "老师，笔记记不过来了，课后慢慢消化！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0068", "note": ""}}
+{"id": "dm-0250", "text": "up主，笔记记不过来了，课后慢慢消化！！", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0068", "note": ""}}
+{"id": "dm-0251", "text": "老师，这个课比官方文档清楚多了谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0069", "note": "赞美"}}
+{"id": "dm-0252", "text": "up主，这个课比官方文档清楚多了谢谢", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0069", "note": "赞美"}}
+{"id": "dm-0253", "text": "加微信 ds_ai123 领取完整源码速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0070", "note": "引流"}}
+{"id": "dm-0254", "text": "点击链接参与抽奖，百分百中奖限时", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0071", "note": "骗局"}}
+{"id": "dm-0255", "text": "兼职日结，手机就能做，私聊我速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0072", "note": ""}}
+{"id": "dm-0256", "text": "免费领取课程资料，进群自取速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0073", "note": "引流"}}
+{"id": "dm-0257", "text": "我有内部渠道，包过包拿证速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0074", "note": "骗局"}}
+{"id": "dm-0258", "text": "刷礼物解锁下一节完整版内容速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0075", "note": ""}}
+{"id": "dm-0259", "text": "低价接单，网站小程序都能做，需要的私速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0076", "note": ""}}
+{"id": "dm-0260", "text": "投资理财稳赚不赔，跟上车队稳稳的速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0077", "note": "金融骗局"}}
+{"id": "dm-0261", "text": "复制这条口令打开某 app 领大额红包速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0078", "note": ""}}
+{"id": "dm-0262", "text": "代刷等级代涨粉，信誉保证限时", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0079", "note": ""}}
+{"id": "dm-0263", "text": "出二手显卡，九成新，私聊详聊速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0080", "note": "无关广告"}}
+{"id": "dm-0264", "text": "扫码进福利群，里面天天发资料速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0081", "note": "引流"}}
+{"id": "dm-0265", "text": "老师帮忙推荐下我的店铺呗，卖课程周边的速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0082", "note": "请求推广"}}
+{"id": "dm-0266", "text": "求大家关注下我的公众号，每天更新干货速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0083", "note": "引流"}}
+{"id": "dm-0267", "text": "带做毕业设计，价格美丽，包答辩限时", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0084", "note": "代做广告"}}
+{"id": "dm-0268", "text": "邀请大家看另一个直播间，比这个精彩限时", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0085", "note": "挖墙脚引流"}}
+{"id": "dm-0269", "text": "加我拉你进资料群，全部免费不收钱限时", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0086", "note": ""}}
+{"id": "dm-0270", "text": "课程录屏打包出售，九块九包邮，私信我速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0087", "note": "侵权倒卖"}}
+{"id": "dm-0271", "text": "本直播间抽奖请认准唯一官方账号 xx扣扣限时", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0088", "note": "仿冒诈骗"}}
+{"id": "dm-0272", "text": "机构保过班了解一下，不过全额退速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0089", "note": ""}}
+{"id": "dm-0273", "text": "问一下，这个怎么弄，急", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0090", "note": "课件原版示例：无对象无诉求"}}
+{"id": "dm-0274", "text": "请问这个怎么弄~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0090", "note": "课件原版示例：无对象无诉求"}}
+{"id": "dm-0275", "text": "弱弱问一句，刚才你说的那里没听懂~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0091", "note": "边界样本：指代无具体对象"}}
+{"id": "dm-0276", "text": "老师，刚才你说的那里没听懂谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0091", "note": "边界样本：指代无具体对象"}}
+{"id": "dm-0277", "text": "弱弱问一句，它又报错了谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0092", "note": "无报错内容，无法定位"}}
+{"id": "dm-0278", "text": "老师，它又报错了！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0092", "note": "无报错内容，无法定位"}}
+{"id": "dm-0279", "text": "问一下，同上，我也是这个问题！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0093", "note": "依赖前文上下文"}}
+{"id": "dm-0280", "text": "问一下，同上，我也是这个问题谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0093", "note": "依赖前文上下文"}}
+{"id": "dm-0281", "text": "请问那个打不开啊~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0094", "note": "对象不明"}}
+{"id": "dm-0282", "text": "问一下，那个打不开啊！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0094", "note": "对象不明"}}
+{"id": "dm-0283", "text": "弱弱问一句，怎么不行啊~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0095", "note": "无具体内容"}}
+{"id": "dm-0284", "text": "老师，怎么不行啊~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0095", "note": "无具体内容"}}
+{"id": "dm-0285", "text": "老师，刚才那个！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0096", "note": "纯指代"}}
+{"id": "dm-0286", "text": "问一下，刚才那个谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0096", "note": "纯指代"}}
+{"id": "dm-0287", "text": "老师，我的和楼上一样！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0097", "note": "依赖前文"}}
+{"id": "dm-0288", "text": "问一下，我的和楼上一样~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0097", "note": "依赖前文"}}
+{"id": "dm-0289", "text": "请问这里看不懂~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0098", "note": "'这里'无定位"}}
+{"id": "dm-0290", "text": "弱弱问一句，这里看不懂~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0098", "note": "'这里'无定位"}}
+{"id": "dm-0291", "text": "老师，这步卡住了谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0099", "note": "受阻但无步骤与报错信息"}}
+{"id": "dm-0292", "text": "弱弱问一句，这步卡住了~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0099", "note": "受阻但无步骤与报错信息"}}
+{"id": "dm-0293", "text": "老师，报错了谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0100", "note": "边界样本：有报错信号无内容"}}
+{"id": "dm-0294", "text": "问一下，报错了！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0100", "note": "边界样本：有报错信号无内容"}}
+{"id": "dm-0295", "text": "问一下，卡在这个界面！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0101", "note": "无截图无描述"}}
+{"id": "dm-0296", "text": "弱弱问一句，卡在这个界面，急", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0101", "note": "无截图无描述"}}
+{"id": "dm-0297", "text": "老师，为什么不行谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0102", "note": ""}}
+{"id": "dm-0298", "text": "老师，为什么不行！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0102", "note": ""}}
+{"id": "dm-0299", "text": "老师，求看下我的~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0103", "note": ""}}
+{"id": "dm-0300", "text": "请问求看下我的，急", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0103", "note": ""}}
+{"id": "dm-0301", "text": "请问对，就是我刚才说的那个问题谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0104", "note": "依赖历史消息"}}
+{"id": "dm-0302", "text": "问一下，对，就是我刚才说的那个问题~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0104", "note": "依赖历史消息"}}
+{"id": "dm-0303", "text": "老师，这个参数~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0105", "note": "纯名词指代"}}
+{"id": "dm-0304", "text": "请问这个参数！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0105", "note": "纯名词指代"}}
+{"id": "dm-0305", "text": "老师，打不开~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0106", "note": "无对象（链接/文件/页面不明）"}}
+{"id": "dm-0306", "text": "弱弱问一句，打不开！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0106", "note": "无对象（链接/文件/页面不明）"}}
+{"id": "dm-0307", "text": "请问一直失败，试了好几次！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0107", "note": "无失败内容"}}
+{"id": "dm-0308", "text": "请问一直失败，试了好几次，急", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0107", "note": "无失败内容"}}
+{"id": "dm-0309", "text": "老师，连不上！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0108", "note": "连接对象不明"}}
+{"id": "dm-0310", "text": "问一下，连不上，急", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0108", "note": "连接对象不明"}}
+{"id": "dm-0311", "text": "请问配置好了但是不对~", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0109", "note": "'不对'无具体现象"}}
+{"id": "dm-0312", "text": "请问配置好了但是不对谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0109", "note": "'不对'无具体现象"}}
+{"id": "dm-0313", "text": "弱弱问一句，和我一样情况的一起看下谢谢", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0110", "note": ""}}
+{"id": "dm-0314", "text": "弱弱问一句，和我一样情况的一起看下！！", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "variant", "base_id": "dm-0110", "note": ""}}
+{"id": "dm-0315", "text": "请问pip install 报错了麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0111", "note": "边界对照样本：有具体环节（pip install），区别于'报错了'"}}
+{"id": "dm-0316", "text": "问一下，pip install 报错了谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0111", "note": "边界对照样本：有具体环节（pip install），区别于'报错了'"}}
+{"id": "dm-0317", "text": "请问刚才讲的 confidence 那段没听懂！！", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0112", "note": "边界对照样本：指代具体知识点，区别于'刚才你说的那里'"}}
+{"id": "dm-0318", "text": "老师，刚才讲的 confidence 那段没听懂，急", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "variant", "base_id": "dm-0112", "note": "边界对照样本：指代具体知识点，区别于'刚才你说的那里'"}}
+{"id": "dm-0319", "text": "请问安装 typesafe-sdk 的时候一直报错装不上麻烦了", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0113", "note": "边界对照样本：完整对象与现象"}}
+{"id": "dm-0320", "text": "问一下，安装 typesafe-sdk 的时候一直报错装不上谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0113", "note": "边界对照样本：完整对象与现象"}}
+{"id": "dm-0321", "text": "老师，终端里执行 uv run 直接闪退，没有任何输出谢谢老师", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0114", "note": "边界对照样本：现象完整，可开始排查"}}
+{"id": "dm-0322", "text": "问一下，终端里执行 uv run 直接闪退，没有任何输出，急", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "variant", "base_id": "dm-0114", "note": "边界对照样本：现象完整，可开始排查"}}
