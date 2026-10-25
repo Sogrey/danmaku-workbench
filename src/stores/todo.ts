@@ -46,6 +46,19 @@ export const useTodoStore = defineStore('todo', () => {
     }
   }
 
+  /**
+   * 从全量记录重建队列（持久化恢复时调用）：
+   * 队列 = records 中 target≠none 且未标记完成的子集，排序规则与实时一致。
+   */
+  function rehydrate(records: WorkRecord[]) {
+    $reset()
+    for (const r of records) {
+      if (r.disposition?.target && r.disposition.target !== 'none' && !r.done) {
+        pushRecord(r)
+      }
+    }
+  }
+
   const activeQueue = computed(() => {
     const map = { instructor, assistant, confirm } as const
     return map[activeTab.value].value
@@ -74,6 +87,7 @@ export const useTodoStore = defineStore('todo', () => {
     counts,
     pushRecord,
     markDone,
+    rehydrate,
     $reset,
   }
 })

@@ -10,6 +10,7 @@ import { getProvider, DecisionEngineError } from '@/decision'
 import { routeDecision } from '@/decision/routing'
 import { SCORE_LEVEL_NAMES } from '@/config/criteria'
 import { formatClock } from '@/decision/keywords'
+import { clearSnapshot, type PersistSnapshot } from '@/utils/persist'
 import { useTodoStore } from './todo'
 
 let seq = 0
@@ -201,7 +202,34 @@ export const useWorkbenchStore = defineStore('workbench', () => {
     records.value = []
     selectedId.value = null
     liveElapsed.value = 0
+    seq = 0
     useTodoStore().$reset()
+    void clearSnapshot()
+  }
+
+  /**
+   * 从快照恢复（应用启动时由 main.ts 调用，一次完成）：
+   *  - 恢复消息流 / 判断记录 / 直播计时；消息 id 序号接续，不重复
+   *  - 判断中/待判断的消息按「失败」恢复（刷新即中断，可点重试）
+   *  - todo 队列由 records 重建（不入库，永远与 records 一致）
+   */
+  function $hydrate(snap: PersistSnapshot) {
+    messages.value = snap.messages
+    records.value = snap.records
+    liveElapsed.value = snap.liveElapsed ?? 0
+
+    let maxSeq = 0
+    for (const m of snap.messages) {
+      const n = Number(m.id.split('-')[1])
+      if (Number.isFinite(n)) maxSeq = Math.max(maxSeq, n)
+      if (m.status === 'pending' || m.status === 'judging') m.status = 'failed'
+    }
+    seq = maxSeq
+
+    if (messages.value.length > 0) {
+      selectedId.value = messages.value[messages.value.length - 1].id
+    }
+    useTodoStore().rehydrate(records.value)
   }
 
   return {
@@ -229,5 +257,6 @@ export const useWorkbenchStore = defineStore('workbench', () => {
     startLive,
     stopLive,
     resetAll,
+    $hydrate,
   }
 })
