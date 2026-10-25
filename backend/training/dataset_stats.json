@@ -1,9 +1,9 @@
 {
   "train": {
-    "total": 322,
+    "total": 379,
     "category": {
       "technical": 90,
-      "feedback": 66,
+      "feedback": 123,
       "chat": 63,
       "spam": 40,
       "insufficient": 63
@@ -11,36 +11,36 @@
     "impact_level": {
       "0": 139,
       "1": 108,
-      "2": 63,
-      "3": 12
+      "2": 72,
+      "3": 60
     },
     "actionable": {
-      "true": 219,
+      "true": 276,
       "false": 103
     }
   },
   "eval": {
-    "total": 45,
+    "total": 230,
     "category": {
-      "technical": 10,
-      "feedback": 10,
-      "chat": 8,
-      "spam": 8,
-      "insufficient": 9
+      "technical": 60,
+      "feedback": 60,
+      "chat": 48,
+      "spam": 23,
+      "insufficient": 39
     },
     "impact_level": {
-      "0": 20,
-      "1": 16,
-      "2": 7,
-      "3": 2
+      "0": 96,
+      "1": 91,
+      "2": 21,
+      "3": 22
     },
     "actionable": {
-      "true": 28,
-      "false": 17
+      "true": 168,
+      "false": 62
     }
   },
   "train_source": {
-    "seed": 114,
-    "variant": 208
+    "seed": 133,
+    "variant": 246
   }
 }
