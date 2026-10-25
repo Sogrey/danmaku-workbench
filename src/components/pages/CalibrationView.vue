@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import {
+  AB_COMPARISON,
   CHOICE_THRESHOLD,
   CONFUSION_LABELS,
   CONFUSION_MATRIX,
   ERROR_PROFILE,
   EVAL_REPLAY,
   NOUL_THRESHOLD_OPTIONS,
+  RELIABILITY,
   TEMPERATURE_BUCKETS,
   TRAINING_SUMMARY,
+  type ReliabilityBin,
 } from '@/data/calibration'
 import { THRESHOLDS } from '@/config/criteria'
 
@@ -16,6 +19,46 @@ const pct = (v: number) => (v * 100).toFixed(1) + '%'
 
 /** 混淆矩阵行/列总数，用于显示每类命中占比 */
 const rowTotals = computed(() => CONFUSION_MATRIX.map((row) => row.reduce((a, b) => a + b, 0)))
+
+// ---------- 可靠性曲线（SVG 坐标换算） ----------
+const PLOT = { size: 220, pad: 28 }
+const plotArea = PLOT.size - PLOT.pad * 2
+
+interface RelPoint {
+  x: number
+  y: number
+  r: number
+  n: number
+  conf: number
+  acc: number
+}
+
+function relPoints(bins: ReliabilityBin[]): RelPoint[] {
+  return bins
+    .filter((b): b is ReliabilityBin & { avgConfidence: number; accuracy: number } =>
+      b.n > 0 && b.avgConfidence !== null && b.accuracy !== null)
+    .map((b) => ({
+      x: PLOT.pad + b.avgConfidence * plotArea,
+      y: PLOT.size - PLOT.pad - b.accuracy * plotArea,
+      r: 3.2 + b.n * 0.42,
+      n: b.n,
+      conf: b.avgConfidence,
+      acc: b.accuracy,
+    }))
+}
+
+const choicePoints = computed(() => relPoints(RELIABILITY.choice.bins))
+const noulPoints = computed(() => relPoints(RELIABILITY.noul.bins))
+const poly = (pts: RelPoint[]) => pts.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')
+
+// ---------- A/B 对比 ----------
+const AB = AB_COMPARISON
+const abMetrics = [
+  { label: 'Choice top-1 准确率', a: AB.engineA.choiceAcc, b: AB.engineB.choiceAcc },
+  { label: 'Noul 区间准确率', a: AB.engineA.noulAcc, b: AB.engineB.noulAcc },
+  { label: 'Score ±1 容差命中', a: AB.engineA.scoreWithin1, b: AB.engineB.scoreWithin1 },
+  { label: 'Score exact 命中', a: AB.engineA.scoreExact, b: AB.engineB.scoreExact },
+]
 </script>
 
 <template>
@@ -135,6 +178,99 @@ const rowTotals = computed(() => CONFUSION_MATRIX.map((row) => row.reduce((a, b)
       </div>
     </section>
 
+    <!-- 校准可靠性曲线 -->
+    <section class="card">
+      <header class="sec-head">
+        <div>
+          <h2>校准可靠性曲线（{{ RELIABILITY.binsCount }} 等宽桶）</h2>
+          <p>
+            模型概率（x）与实际频率（y）越贴近对角线校准越好；ECE = Σ n/N × |acc − conf|，
+            置信度门槛建立在该概率语义之上 · 详见 backend/evals/reports/eval-report.md
+          </p>
+        </div>
+        <span class="badge badge-ok">Choice ECE {{ RELIABILITY.choice.ece.toFixed(4) }} ≤ 0.1</span>
+      </header>
+
+      <div class="rel-grid">
+        <figure class="rel-fig">
+          <figcaption>
+            <span>Choice · top-1 概率 vs 实际正确率</span>
+            <span class="badge badge-plain">
+              ECE {{ RELIABILITY.choice.ece.toFixed(4) }} · Brier {{ RELIABILITY.choice.brier.toFixed(4) }}
+            </span>
+          </figcaption>
+          <svg :viewBox="`0 0 ${PLOT.size} ${PLOT.size}`" class="rel-svg" role="img">
+            <line :x1="PLOT.pad + plotArea / 2" :y1="PLOT.pad" :x2="PLOT.pad + plotArea / 2" :y2="PLOT.size - PLOT.pad" class="grid-line" />
+            <line :x1="PLOT.pad" :y1="PLOT.pad + plotArea / 2" :x2="PLOT.size - PLOT.pad" :y2="PLOT.pad + plotArea / 2" class="grid-line" />
+            <line :x1="PLOT.pad" :y1="PLOT.size - PLOT.pad" :x2="PLOT.size - PLOT.pad" :y2="PLOT.pad" class="diag" />
+            <polyline :points="poly(choicePoints)" class="rel-line" />
+            <circle v-for="(p, i) in choicePoints" :key="i" :cx="p.x" :cy="p.y" :r="p.r" class="rel-dot">
+              <title>n={{ p.n }}，conf {{ pct(p.conf) }}，acc {{ pct(p.acc) }}</title>
+            </circle>
+            <text x="10" y="16" class="axis-label axis-left">实际频率 ↑</text>
+            <text :x="PLOT.size / 2" :y="PLOT.size - 8" class="axis-label">模型概率 →</text>
+          </svg>
+          <p class="fig-note">
+            0.6–0.8 区间略有过度自信（实际 63.6%），高置信区（0.8–1.0）对齐良好（91.3%）；
+            点面积 ∝ 样本数，悬停查看明细。
+          </p>
+        </figure>
+
+        <figure class="rel-fig">
+          <figcaption>
+            <span>Noul · 可处理概率 vs 实际可处理率</span>
+            <span class="badge badge-plain">
+              ECE {{ RELIABILITY.noul.ece.toFixed(4) }} · Brier {{ RELIABILITY.noul.brier.toFixed(4) }}
+            </span>
+          </figcaption>
+          <svg :viewBox="`0 0 ${PLOT.size} ${PLOT.size}`" class="rel-svg" role="img">
+            <line :x1="PLOT.pad + plotArea / 2" :y1="PLOT.pad" :x2="PLOT.pad + plotArea / 2" :y2="PLOT.size - PLOT.pad" class="grid-line" />
+            <line :x1="PLOT.pad" :y1="PLOT.pad + plotArea / 2" :x2="PLOT.size - PLOT.pad" :y2="PLOT.pad + plotArea / 2" class="grid-line" />
+            <line :x1="PLOT.pad" :y1="PLOT.size - PLOT.pad" :x2="PLOT.size - PLOT.pad" :y2="PLOT.pad" class="diag" />
+            <polyline :points="poly(noulPoints)" class="rel-line" />
+            <circle v-for="(p, i) in noulPoints" :key="i" :cx="p.x" :cy="p.y" :r="p.r" class="rel-dot">
+              <title>n={{ p.n }}，prob {{ pct(p.conf) }}，实际 {{ pct(p.acc) }}</title>
+            </circle>
+            <text x="10" y="16" class="axis-label axis-left">实际频率 ↑</text>
+            <text :x="PLOT.size / 2" :y="PLOT.size - 8" class="axis-label">模型概率 →</text>
+          </svg>
+          <p class="fig-note">
+            低概率区判「不可处理」可靠（实际 17~20%）；≥0.65 通过区间实际 81.8%~94.1%，与门槛量化结论吻合
+            （0.4–0.6 边界样本仅 1 条，统计意义有限）。
+          </p>
+        </figure>
+      </div>
+
+      <div class="score-calib">
+        <h3>Score 分箱校准（按预测等级分组：预测均值 vs 实际等级均值）</h3>
+        <div class="table-wrap">
+          <table class="temp-table">
+            <thead>
+              <tr>
+                <th>预测等级</th>
+                <th>n</th>
+                <th>预测均值</th>
+                <th>实际等级均值</th>
+                <th>MAE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="s in RELIABILITY.scoreByPredLevel" :key="s.predLevel">
+                <td>{{ s.predLevel }} · {{ ['稍后处理', '正常答疑', '优先协助', '立即关注'][s.predLevel] }}</td>
+                <td class="mono">{{ s.n }}</td>
+                <td class="mono">{{ s.meanPred.toFixed(2) }}</td>
+                <td class="mono">{{ s.meanTruth.toFixed(2) }}</td>
+                <td class="mono">{{ s.mae.toFixed(2) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="foot-note">
+          45 条中无样本被判等级 3（立即关注）：模型对最高优先级偏保守，生产环境建议补「直播中断类」样本迭代。
+        </p>
+      </div>
+    </section>
+
     <!-- 评估回放 -->
     <section class="card">
       <header class="sec-head">
@@ -212,6 +348,66 @@ const rowTotals = computed(() => CONFUSION_MATRIX.map((row) => row.reduce((a, b)
           </p>
         </div>
       </div>
+    </section>
+
+    <!-- A/B 引擎对比 -->
+    <section class="card">
+      <header class="sec-head">
+        <div>
+          <h2>A/B 引擎对比 · 零样本基线 vs 微调</h2>
+          <p>
+            45 条独立评估集 · ab_runner.py 顺序跑批（判据与温度各自生效）· {{ AB.generatedAt }} ·
+            详见 backend/evals/reports/ab-report.md
+          </p>
+        </div>
+        <div class="ab-badges">
+          <span class="badge badge-plain">分歧样本 {{ AB.agreement.diffCount }}/45 条</span>
+        </div>
+      </header>
+
+      <div class="ab-engines">
+        <div class="ab-engine">
+          <span class="badge badge-plain">A · {{ AB.engineA.name }}</span>
+          <p>{{ AB.engineA.desc }} · 平均 {{ AB.engineA.latencyMs }}ms/条</p>
+        </div>
+        <div class="ab-engine">
+          <span class="badge badge-ok">B · {{ AB.engineB.name }}</span>
+          <p>{{ AB.engineB.desc }} · 平均 {{ AB.engineB.latencyMs }}ms/条</p>
+        </div>
+      </div>
+
+      <div class="ab-metrics">
+        <div v-for="m in abMetrics" :key="m.label" class="ab-metric">
+          <div class="metric-head">
+            <span>{{ m.label }}</span>
+            <b>A {{ pct(m.a) }} → B {{ pct(m.b) }}</b>
+          </div>
+          <div class="bar-track slim">
+            <div class="bar-fill ab-a" :style="{ width: pct(m.a) }"></div>
+          </div>
+          <div class="bar-track slim">
+            <div class="bar-fill" :style="{ width: pct(m.b) }"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ab-eces">
+        <span>校准与偏差（越小越好）：</span>
+        <span class="badge badge-plain">Choice ECE {{ AB.engineA.choiceEce.toFixed(4) }} → {{ AB.engineB.choiceEce.toFixed(4) }}</span>
+        <span class="badge badge-plain">Noul ECE {{ AB.engineA.noulEce.toFixed(4) }} → {{ AB.engineB.noulEce.toFixed(4) }}</span>
+        <span class="badge badge-plain">Score MAE {{ AB.engineA.mae.toFixed(2) }} → {{ AB.engineB.mae.toFixed(2) }}</span>
+      </div>
+
+      <div class="ab-agreement">
+        <span class="chip chip-technical">类别一致 {{ pct(AB.agreement.choice) }}</span>
+        <span class="chip chip-feedback">Noul 判定一致 {{ pct(AB.agreement.noul) }}</span>
+        <span class="chip chip-chat">Score ±1 一致 {{ pct(AB.agreement.scoreWithin1) }}</span>
+        <span class="chip chip-insufficient">分歧 {{ AB.agreement.diffCount }} 条</span>
+      </div>
+
+      <ul class="error-list">
+        <li v-for="(f, i) in AB.findings" :key="i">{{ f }}</li>
+      </ul>
     </section>
   </div>
 </template>
@@ -339,4 +535,53 @@ td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--tex
 /* 错误画像 */
 .error-list { margin: 0 0 8px; padding-left: 18px; display: flex; flex-direction: column; gap: 5px; }
 .error-list li { font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
+
+/* 可靠性曲线 */
+.rel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.rel-fig { margin: 0; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; background: #fbfcfe; }
+.rel-fig figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-2);
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.rel-svg {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.diag { stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 4 3; }
+.grid-line { stroke: #eef2f8; stroke-width: 1; }
+.rel-line { fill: none; stroke: var(--primary); stroke-width: 1.8; }
+.rel-dot { fill: rgba(47, 107, 255, 0.5); stroke: var(--primary); stroke-width: 1.5; }
+.axis-label { font-size: 10px; fill: var(--text-3); text-anchor: middle; }
+.axis-label.axis-left { text-anchor: start; }
+.fig-note { margin-top: 8px; font-size: 11.5px; color: var(--text-3); line-height: 1.55; }
+.score-calib { margin-top: 14px; }
+.score-calib h3 { font-size: 13px; font-weight: 700; color: var(--text-2); margin-bottom: 8px; }
+
+/* A/B 引擎对比 */
+.ab-engines { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.ab-engine { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; background: #fbfcfe; }
+.ab-engine p { margin-top: 6px; font-size: 12px; color: var(--text-2); line-height: 1.5; }
+.ab-badges { display: flex; gap: 8px; align-items: center; }
+.ab-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px 18px; margin-bottom: 12px; }
+.ab-metric { display: flex; flex-direction: column; gap: 4px; }
+.ab-metric .metric-head { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--text-2); flex-wrap: wrap; }
+.ab-metric .metric-head b { color: var(--text); font-variant-numeric: tabular-nums; }
+.bar-track.slim { height: 7px; }
+.bar-fill.ab-a { background: linear-gradient(90deg, #cbd5e1, #94a3b8); }
+.ab-eces { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12px; color: var(--text-2); margin-bottom: 12px; }
+.ab-agreement { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.ab-metrics + .ab-eces,
+.ab-agreement + .error-list { margin-top: 2px; }
 </style>

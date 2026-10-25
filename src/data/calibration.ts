@@ -124,3 +124,107 @@ export const ERROR_PROFILE = {
     'Score ±1 容差命中 97.8%，等级方向基本不偏，exact 弱与官方结论一致',
   ],
 }
+
+/**
+ * 校准可靠性分桶（5 等宽桶，来自 replay_eval.py --local 重跑，2026-10-25）：
+ * x = 模型输出概率，y = 实际频率；对角线为完美校准；ECE = Σ n/N × |acc − conf|。
+ */
+export interface ReliabilityBin {
+  range: [number, number]
+  n: number
+  /** 桶内平均模型概率 */
+  avgConfidence: number | null
+  /** 桶内实际频率（choice=正确率；noul=真值可处理率） */
+  accuracy: number | null
+}
+
+export const RELIABILITY = {
+  binsCount: 5,
+  choice: {
+    ece: 0.099,
+    brier: 0.0676,
+    bins: [
+      { range: [0, 0.2] as [number, number], n: 0, avgConfidence: null, accuracy: null },
+      { range: [0.2, 0.4] as [number, number], n: 2, avgConfidence: 0.3563, accuracy: 1.0 },
+      { range: [0.4, 0.6] as [number, number], n: 9, avgConfidence: 0.5197, accuracy: 0.7778 },
+      { range: [0.6, 0.8] as [number, number], n: 11, avgConfidence: 0.694, accuracy: 0.6364 },
+      { range: [0.8, 1.0] as [number, number], n: 23, avgConfidence: 0.9221, accuracy: 0.913 },
+    ] as ReliabilityBin[],
+  },
+  noul: {
+    ece: 0.1172,
+    brier: 0.1258,
+    bins: [
+      { range: [0, 0.2] as [number, number], n: 10, avgConfidence: 0.0765, accuracy: 0.2 },
+      { range: [0.2, 0.4] as [number, number], n: 6, avgConfidence: 0.2662, accuracy: 0.1667 },
+      { range: [0.4, 0.6] as [number, number], n: 1, avgConfidence: 0.4433, accuracy: 0.0 },
+      { range: [0.6, 0.8] as [number, number], n: 11, avgConfidence: 0.6817, accuracy: 0.8182 },
+      { range: [0.8, 1.0] as [number, number], n: 17, avgConfidence: 0.8531, accuracy: 0.9412 },
+    ] as ReliabilityBin[],
+  },
+  /** 按预测等级分组：预测均值 vs 实际等级均值（无样本被判等级 3） */
+  scoreByPredLevel: [
+    { predLevel: 0, n: 21, meanPred: 0.3, meanTruth: 0.381, mae: 0.438 },
+    { predLevel: 1, n: 15, meanPred: 1.014, meanTruth: 0.733, mae: 0.617 },
+    { predLevel: 2, n: 9, meanPred: 1.725, meanTruth: 1.889, mae: 0.685 },
+  ],
+}
+
+/** A/B 引擎对比（45 条独立评估集，ab_runner.py，2026-10-25） */
+export interface AbEngine {
+  name: string
+  desc: string
+  choiceAcc: number
+  noulAcc: number
+  noulCoverage: number
+  scoreExact: number
+  scoreWithin1: number
+  mae: number
+  choiceEce: number
+  noulEce: number
+  latencyMs: number
+}
+
+export const AB_COMPARISON = {
+  generatedAt: '2026-10-25',
+  engineA: {
+    name: 'laya-baseline',
+    desc: '零样本 multilingual 基线（出厂温度 1.0，未微调）',
+    choiceAcc: 0.444,
+    noulAcc: 0.556,
+    noulCoverage: 0.844,
+    scoreExact: 0.156,
+    scoreWithin1: 0.556,
+    mae: 1.19,
+    choiceEce: 0.1966,
+    noulEce: 0.2986,
+    latencyMs: 114,
+  } as AbEngine,
+  engineB: {
+    name: 'laya-finetuned',
+    desc: 'LoRA 微调 + 分桶温度校准（danmaku-dm-v0.2）',
+    choiceAcc: 0.822,
+    noulAcc: 0.867,
+    noulCoverage: 0.578,
+    scoreExact: 0.556,
+    scoreWithin1: 0.978,
+    mae: 0.55,
+    choiceEce: 0.099,
+    noulEce: 0.1172,
+    latencyMs: 79,
+  } as AbEngine,
+  agreement: {
+    choice: 0.533,
+    noul: 0.556,
+    scoreExact: 0.2,
+    scoreWithin1: 0.533,
+    diffCount: 34,
+  },
+  findings: [
+    '微调增益：choice +37.8pp、noul 区间 +31.1pp、score ±1 55.6%→97.8%（MAE 1.19→0.55）',
+    '校准增益：choice ECE 0.197→0.099、noul ECE 0.299→0.117（准确率与校准质量同步改善）',
+    '基线系统性缺陷：score 几乎全部坍缩在等级 2（45 条无一命中 0/3 级）——零样本对 Score 原语几乎无理解',
+    '基线 noul 覆盖率 84.4% 但区间准确率仅 55.6%：近乎「全判可处理」的鲁莽策略；微调后收敛到 57.8%/86.7%',
+    'spam 检测两引擎均可靠（类别 8/8 全对）；分歧集中在 insufficient / 闲聊短句边界',
+  ],
+}
