@@ -25,6 +25,8 @@
 
 ### 1.1 Laya 自托管接入 ✅（2026-10-25 完成）
 
+> 完整训练流程文档（环境/数据/训练/校准/应用/调优）见 **[TRAINING.md](TRAINING.md)**。
+
 - [x] 标注集构建：114 种子 + 208 变体 = 322 训练样本，45 条独立评估集，含 10 组成对边界对照样本
 - [x] 微调：multilingual checkpoint + LoRA r=8/alpha=32（target Wqkv）+ 决策头全训 + 严格恰当评分损失（log+spherical+RPS）+ bf16 + 梯度检查点，RTX 3060 4.5 分钟 / 12 epochs，**eval_acc 0.770**
 - [x] 温度拟合校准：分桶 NLL 拟合（choice 3.07 / noul 3.81 / score 4.54），已写入 checkpoint
