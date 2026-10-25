@@ -133,6 +133,62 @@ def evaluate(rows: list[dict]) -> dict:
     within1 = sum(1 for r in rows if abs(r["pred"]["level_index"] - r["truth"]["impact_level"]) <= 1)
     mae = sum(abs(r["pred"]["score"] - r["truth"]["impact_level"]) for r in rows) / n
 
+    # ---------- 校准（reliability 分桶 / ECE / Brier）----------
+    N_BINS = 5  # 45 条样本用 5 等宽桶，每桶约 9 条，避免过稀
+
+    def _bins(conf_fn, correct_fn):
+        out = []
+        for i in range(N_BINS):
+            lo, hi = i / N_BINS, (i + 1) / N_BINS
+            members = [
+                r for r in rows
+                if (lo <= conf_fn(r) < hi) or (i == N_BINS - 1 and conf_fn(r) >= hi)
+            ]
+            if members:
+                confs = [conf_fn(r) for r in members]
+                accs = [1.0 if correct_fn(r) else 0.0 for r in members]
+                out.append({
+                    "range": [round(lo, 2), round(hi, 2)],
+                    "n": len(members),
+                    "avg_confidence": round(sum(confs) / len(confs), 4),
+                    "accuracy": round(sum(accs) / len(accs), 4),
+                })
+            else:
+                out.append({"range": [round(lo, 2), round(hi, 2)], "n": 0, "avg_confidence": None, "accuracy": None})
+        ece = sum(
+            b["n"] / n * abs(b["accuracy"] - b["avg_confidence"]) for b in out if b["n"] > 0
+        )
+        return out, ece
+
+    choice_bins, choice_ece = _bins(
+        lambda r: r["pred"]["probabilities"][r["pred"]["category"]],
+        lambda r: r["pred"]["category"] == r["truth"]["category"],
+    )
+    noul_bins, noul_ece = _bins(
+        lambda r: r["pred"]["noul"],
+        lambda r: bool(r["truth"]["actionable"]),
+    )
+    # 多类 Brier（choice）：1/K × Σ(p_c − y_c)²；二类 Brier（noul）：(p − y)²
+    choice_brier = sum(
+        sum((r["pred"]["probabilities"][c] - (1.0 if c == r["truth"]["category"] else 0.0)) ** 2 for c in CATEGORIES)
+        for r in rows
+    ) / (n * len(CATEGORIES))
+    noul_brier = sum(
+        (r["pred"]["noul"] - (1.0 if r["truth"]["actionable"] else 0.0)) ** 2 for r in rows
+    ) / n
+    # score 按预测等级分组：预测均值 vs 实际等级均值（分箱校准的等级版）
+    score_by_level = []
+    for lv in range(4):
+        members = [r for r in rows if r["pred"]["level_index"] == lv]
+        if members:
+            score_by_level.append({
+                "pred_level": lv,
+                "n": len(members),
+                "mean_truth": round(sum(r["truth"]["impact_level"] for r in members) / len(members), 3),
+                "mean_pred": round(sum(r["pred"]["score"] for r in members) / len(members), 3),
+                "mae": round(sum(abs(r["pred"]["score"] - r["truth"]["impact_level"]) for r in members) / len(members), 3),
+            })
+
     errors = [
         {
             "id": r["id"],
@@ -176,6 +232,12 @@ def evaluate(rows: list[dict]) -> dict:
             "within1_accuracy": within1 / n,
             "mae": mae,
         },
+        "reliability": {
+            "bins_count": N_BINS,
+            "choice": {"bins": choice_bins, "ece": round(choice_ece, 4), "brier": round(choice_brier, 4)},
+            "noul": {"bins": noul_bins, "ece": round(noul_ece, 4), "brier": round(noul_brier, 4)},
+            "score_by_pred_level": score_by_level,
+        },
         "errors": errors,
         "latency_ms_avg": sum(r["pred"]["latency_ms"] for r in rows) / n,
         "sample_count": n,
@@ -211,6 +273,14 @@ def render_markdown(meta: dict, s: dict) -> str:
     a(f"| Score | 等级 exact 命中 | **{sc['exact_accuracy']:.1%}** |")
     a(f"| Score | 等级 ±1 容差命中 | {sc['within1_accuracy']:.1%} |")
     a(f"| Score | 与真值等级的 MAE | {sc['mae']:.2f} |")
+    rel = s.get("reliability") or {}
+    if rel:
+        ch_r = rel["choice"]
+        no_r = rel["noul"]
+        a(f"| Choice | ECE（{rel['bins_count']} 等宽桶） | **{ch_r['ece']:.4f}** |")
+        a(f"| Choice | 多类 Brier | {ch_r['brier']:.4f} |")
+        a(f"| Noul | ECE（{rel['bins_count']} 等宽桶） | **{no_r['ece']:.4f}** |")
+        a(f"| Noul | Brier | {no_r['brier']:.4f} |")
     a("")
     a("## Choice 混淆矩阵（行=真值，列=预测）")
     a("")
@@ -233,6 +303,39 @@ def render_markdown(meta: dict, s: dict) -> str:
     else:
         a("无——choice / noul / score(±1) 全部命中。")
     a("")
+
+    if rel:
+        a(f"## 校准可靠性（{rel['bins_count']} 等宽桶）")
+        a("")
+        a("可靠性分桶：模型输出概率（x）与实际频率（y）越对齐 ECE 越小，")
+        a("对角线为完美校准；置信度门槛建立在该概率语义之上。")
+        a("")
+        a("### Choice（top-1 概率 vs 实际正确率）")
+        a("")
+        a("| 概率区间 | n | 平均置信度 | 实际正确率 | 差距(acc−conf) |")
+        a("| --- | --- | --- | --- | --- |")
+        for b in rel["choice"]["bins"]:
+            if b["n"] > 0:
+                gap = b["accuracy"] - b["avg_confidence"]
+                a(f"| {b['range'][0]:.1f}–{b['range'][1]:.1f} | {b['n']} | {b['avg_confidence']:.3f} | {b['accuracy']:.3f} | {gap:+.3f} |")
+        a("")
+        a("### Noul（可处理概率 vs 实际可处理率）")
+        a("")
+        a("| 概率区间 | n | 平均概率 | 实际可处理率 | 差距 |")
+        a("| --- | --- | --- | --- | --- |")
+        for b in rel["noul"]["bins"]:
+            if b["n"] > 0:
+                gap = b["accuracy"] - b["avg_confidence"]
+                a(f"| {b['range'][0]:.1f}–{b['range'][1]:.1f} | {b['n']} | {b['avg_confidence']:.3f} | {b['accuracy']:.3f} | {gap:+.3f} |")
+        a("")
+        if rel.get("score_by_pred_level"):
+            a("### Score（按预测等级分组：预测均值 vs 实际等级均值）")
+            a("")
+            a("| 预测等级 | n | 预测均值 | 实际均值 | MAE |")
+            a("| --- | --- | --- | --- | --- |")
+            for b in rel["score_by_pred_level"]:
+                a(f"| {b['pred_level']} | {b['n']} | {b['mean_pred']:.2f} | {b['mean_truth']:.2f} | {b['mae']:.2f} |")
+            a("")
     return "\n".join(lines)
 
 
