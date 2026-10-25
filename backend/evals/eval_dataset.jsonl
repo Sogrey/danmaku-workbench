@@ -43,3 +43,188 @@
 {"id": "ev-0043", "text": "报错截图发了，帮我看看", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "eval", "note": "边界对照：声称已发截图，内容存在但弹幕通道不可见——标注 technical，运行时依赖人工核对"}}
 {"id": "ev-0044", "text": "刚才那段代码跑到第三行报错了", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "eval", "note": "边界对照：对象定位具体（第三行、报错）"}}
 {"id": "ev-0045", "text": "麦克风没声音，背景音乐能听见", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval", "note": "课件原版示例：无声级"}}
+{"id": "ev-0046", "text": "温度校准是在哪一步做的，训练完还要单独跑吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0047", "text": "LoRA 的 rank 设多少合适，显存不够怎么办", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0048", "text": "决策头的输出和主干模型是怎么接起来的", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0049", "text": "ECE 0.1 这条线是业界通用标准吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "能力边界/概念询问"}}
+{"id": "ev-0050", "text": "训练数据里加变体样本会不会造成过拟合", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0051", "text": "把判据从直播课换成客服工单，代码要改多少", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0052", "text": "三个原语的提问顺序会影响概率输出吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0053", "text": "criteria 里的描述写多长合适，有 token 上限吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0054", "text": "state 上下文里放课程主题有什么讲究", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0055", "text": "概率分布能反映出类别之间的相近程度吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0056", "text": "阈值 60% 和 65% 是跟着模型走还是跟着业务走", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0057", "text": "拒绝服务的情况前端应该展示什么给用户", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0058", "text": "中英文混着的弹幕，模型能正常处理吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0059", "text": "如果两个类别的概率一样高，程序该选哪个", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0060", "text": "API 鉴权 token 过期了会返回什么错误码", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0061", "text": "官方有没有提供批量异步的调用接口", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0062", "text": "响应里带处理耗时这类元数据吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0063", "text": "想把决策日志全量落库，推荐什么存储方案", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0064", "text": "单卡 8G 显存能跑微调吗，还是必须上云端", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0065", "text": "checkpoint 目录里除了权重还有什么配置文件", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0066", "text": "微调完之后想回滚到出厂模型，怎么操作", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0067", "text": "两个引擎灰度切换具体应该怎么做", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0068", "text": "有没有现成的 SDK mock 方便本地联调", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0069", "text": "请求里的 examples 字段必须传吗，不传会怎样", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0070", "text": "评估集和训练集的比例多少比较合理", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0071", "text": "概率数值一般能保留几位有效数字", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0072", "text": "弹幕带 emoji 和颜文字会影响分类结果吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0073", "text": "想接到公司内部的工单系统，用哪个回调钩子", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0074", "text": "请求文本最大支持多少字，超长会截断吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0075", "text": "解析响应时 probabilities 里缺了类别算错误吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0076", "text": "我的脚本跑到一半抛了 KeyError: answers", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "明确受阻报错"}}
+{"id": "ev-0077", "text": "服务器时间不准会导致 token 校验失败吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0078", "text": "同步阻塞调用会不会把异步事件循环卡死", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0079", "text": "官方 SDK 出 Python 版之外的绑定吗，比如 Go", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0080", "text": "有没有压测数据，单实例能扛多少 QPS", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0081", "text": "服务跑一天内存涨了 2G，这种泄漏怎么排查", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "明确受阻报错"}}
+{"id": "ev-0082", "text": "Docker 镜像里缺 CUDA 依赖，容器起不来", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "明确受阻报错"}}
+{"id": "ev-0083", "text": "走了代理之后请求头被改，一直返回 401", "labels": {"category": "technical", "actionable": true, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "明确受阻报错"}}
+{"id": "ev-0084", "text": "单元测试里怎么把 decision provider mock 掉", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0085", "text": "业务侧想拿到 top3 类别，接口支持吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0086", "text": "判据支持热更新吗，不想每次都重启服务", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0087", "text": "多个直播间并发调用会互相影响置信度吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "概念边界"}}
+{"id": "ev-0088", "text": "训练时显存爆了，batch size 该怎么调", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0089", "text": "评估脚本在纯 CPU 的机器上能跑吗", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0090", "text": "返回的 confidence 是校准前还是校准后的值", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0091", "text": "微调会不会把模型原有的通用能力练没了", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "概念边界"}}
+{"id": "ev-0092", "text": "内网穿透访问 API 延迟 800ms 正常吗", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0093", "text": "有 curl 的调用示例吗，python 环境还没搭", "labels": {"category": "technical", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0094", "text": "我的回放脚本跑两次结果居然不一样", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0095", "text": "决策结果想带上审计字段做合规留痕，怎么加", "labels": {"category": "technical", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0096", "text": "画面全黑了，什么也看不到", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0097", "text": "直播没声音了，画面还在动", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0098", "text": "画面定格不动了，声音也没有了", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0099", "text": "又掉线了，一直显示重新连接中", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0100", "text": "画面卡在最后一帧，进度也不动了", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0101", "text": "我这边彻底听不到了，群里说还有声", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0102", "text": "共享屏幕中断了，只剩老师的摄像头画面", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0103", "text": "画面全花了，一片绿色拖影", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0104", "text": "直播间加载失败，刷新也没用", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0105", "text": "声音延迟好几秒，根本没法跟着敲代码", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：音画严重错位"}}
+{"id": "ev-0106", "text": "画面转圈加载五分钟了还没进去", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0107", "text": "直播中断了，页面上提示网络错误", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0108", "text": "只能听到回声，老师的声音完全听不见", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0109", "text": "声音消失快一分钟了，画面还动着", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0110", "text": "老师是不是掉线了，画面完全静止不动", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0111", "text": "弹幕能发出去，但直播画面是黑的", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0112", "text": "声音断断续续，一句话漏一半", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：接收严重受损"}}
+{"id": "ev-0113", "text": "手机看直播直接闪退，重进还是黑屏", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：无法正常接收内容"}}
+{"id": "ev-0114", "text": "画质糊成一团，编辑器行号都数不清", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：内容不可辨认"}}
+{"id": "ev-0115", "text": "声画完全对不上，差了十几秒", "labels": {"category": "feedback", "actionable": true, "impact_level": 3}, "meta": {"source": "eval-expansion-2026", "note": "直播中断类：音画严重错位"}}
+{"id": "ev-0116", "text": "能把字号再调大一点吗，投屏看不清", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0117", "text": "语速稍微慢一点，新手记笔记跟不上", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0118", "text": "麦克风有电流声，听着耳朵疼", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0119", "text": "背景音乐比老师说话声音还大", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0120", "text": "字幕错别字有点多，影响理解", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0121", "text": "讲义配色太浅，后排看不清代码", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0122", "text": "能把摄像头画面关小点吗，挡住代码区了", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0123", "text": "弹幕刷得太快，提问一下就被顶没了", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "可操作的听课反馈（弹幕体验）"}}
+{"id": "ev-0124", "text": "老师能不能重复一下刚才那个参数名", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0125", "text": "画面比例不对，代码区只显示了一半", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "明显受阻但可部分跟随"}}
+{"id": "ev-0126", "text": "投影仪分辨率低，代码看得眼睛疼", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0127", "text": "能不能共享全屏，窗口边缘看不到", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0128", "text": "翻页太快了，思维还停在上一页", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0129", "text": "麦克风离嘴太远，听不清楚在说什么", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0130", "text": "音质有点闷，像蒙了层布", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0131", "text": "画面偶尔花一下，不影响听内容", "labels": {"category": "feedback", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "不影响跟课的轻微问题"}}
+{"id": "ev-0132", "text": "回声挺明显，建议老师戴个耳机", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0133", "text": "屏幕共享太模糊，字母 i 和 l 都分不清", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "明显受阻但可部分跟随"}}
+{"id": "ev-0134", "text": "讲课节奏前松后紧，后半有点赶", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0135", "text": "鼠标指针太小，看不清指到哪一行", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0136", "text": "音量整体偏小，手机外放听不清", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0137", "text": "直播间标题写错时间了，白等半小时", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0138", "text": "弹幕面板挡住命令行了，能调透明度吗", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0139", "text": "老师语调太平了，容易走神", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0140", "text": "窗外反光照到屏幕上了，能关下窗帘吗", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0141", "text": "网页版比客户端画质差好多", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0142", "text": "讲义能不能提前发一下，好跟着记笔记", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0143", "text": "推流帧率太低，滚动代码全是拖影", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "明显受阻但可部分跟随"}}
+{"id": "ev-0144", "text": "中午一直缓冲，换了网络才好一点", "labels": {"category": "feedback", "actionable": true, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "明显受阻但可部分跟随"}}
+{"id": "ev-0145", "text": "老师能共享桌面而不是幻灯片吗，想看实际操作", "labels": {"category": "feedback", "actionable": true, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0146", "text": "晚上好呀，今天人真多", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0147", "text": "这节讲得比上次清楚多了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0148", "text": "弹幕里终于有人聊技术了哈哈", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0149", "text": "打卡打卡，连听三周了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0150", "text": "老师加油，今天状态很好", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0151", "text": "笑死，这个比喻太形象了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0152", "text": "第一次来，感觉讲得真好", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0153", "text": "今晚的作业量大吗，想提前安排时间", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0154", "text": "明年还有进阶班吗，先蹲一个", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0155", "text": "一路跟下来，感谢整理的课程路线", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0156", "text": "这个直播间讨论质量真高", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0157", "text": "大家安静点，老师在讲重点", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0158", "text": "弹幕里都是大佬，就我一个小白", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0159", "text": "能听懂七成，满足了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0160", "text": "老师这个口头禅有点上头", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0161", "text": "今天的案例选得好，特别贴近工作", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0162", "text": "下播记得发笔记链接呀", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0163", "text": "提前祝大家周末愉快", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0164", "text": "迟到十分钟，前面讲了啥", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "请求复述但无具体技术点，chat 边界"}}
+{"id": "ev-0165", "text": "大家猜猜今天有没有彩蛋环节", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0166", "text": "这个课让我想起了大学课堂", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0167", "text": "弹幕礼仪：不打广告不刷屏", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "提及规则但是自律性质，非干扰指令"}}
+{"id": "ev-0168", "text": "老师声音真适合念 ASMR，开玩笑的哈哈", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0169", "text": "连麦互动环节什么时候安排", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0170", "text": "前排围观，今天要讲大案例", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0171", "text": "这周加班没跟上，周末补回放", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0172", "text": "好消息，我司项目今天用上了讲的东西", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0173", "text": "难得一次没掉链子的直播", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0174", "text": "老师多喝水，保护嗓子", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0175", "text": "同学们晚安，我先下了", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0176", "text": "今天讲到这个程度，值回票价", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0177", "text": "我领导也在看这个直播，哈哈", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0178", "text": "弹幕区有没有华南的朋友", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0179", "text": "蹲完整版课件的老铁举个手", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0180", "text": "这波讲解直接封神", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0181", "text": "课程官方群怎么加呀，没找到入口", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "提及群但为官方课程群，chat/spam 边界对照"}}
+{"id": "ev-0182", "text": "打卡下班，路上听回放", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0183", "text": "今天收获最大的一小时", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0184", "text": "感谢助教刚才帮我处理了报错", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "已解决的消息"}}
+{"id": "ev-0185", "text": "这弹幕氛围我愿称之为最佳", "labels": {"category": "chat", "actionable": true, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0186", "text": "稳定出U渠道，价优速回", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0187", "text": "无抵押贷款秒批，需要的私聊", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0188", "text": "注册就送体验金，老玩家回归有惊喜", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0189", "text": "出售各类考试原题答案，包过", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0190", "text": "一元夺宝赢手机，点击主页参与", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0191", "text": "收徒带做短视频账号，月入五位数", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0192", "text": "会员充值内部价，官方直充五折", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0193", "text": "代考证书包过，不过全额退", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0194", "text": "主页更新了破解软件合集，需要自取", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0195", "text": "出售各类平台账号，量大从优", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0196", "text": "刷单返现一单一结，学生党优先", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0197", "text": "加速器免费试用，海外线路稳定", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0198", "text": "毕业论文包发表，期刊任选", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0199", "text": "产地直销茶叶，老板看过来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": ""}}
+{"id": "ev-0200", "text": "加Q群领全套源码和录屏，速来", "labels": {"category": "spam", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "与官方课程群对照的引流干扰"}}
+{"id": "ev-0201", "text": "还是没好", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "指代不明"}}
+{"id": "ev-0202", "text": "按你说的改了，还是那个问题", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺上下文"}}
+{"id": "ev-0203", "text": "这里是不是少了一步", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "指代不明"}}
+{"id": "ev-0204", "text": "我这边不行", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "缺上下文"}}
+{"id": "ev-0205", "text": "为什么不匹配", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺对象"}}
+{"id": "ev-0206", "text": "教一下", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "缺对象"}}
+{"id": "ev-0207", "text": "就刚才那个地方", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "指代不明"}}
+{"id": "ev-0208", "text": "参数填了但是没反应", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺对象与现象细节"}}
+{"id": "ev-0209", "text": "有人遇到一样的吗", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "缺上下文"}}
+{"id": "ev-0210", "text": "我也碰到过，后来怎么解决的", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺上下文（虽语气像求助）"}}
+{"id": "ev-0211", "text": "上面那段没看懂", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "指代不明"}}
+{"id": "ev-0212", "text": "这步之前都顺，之后全错", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "受阻但缺上下文"}}
+{"id": "ev-0213", "text": "帮忙看下我发的截图", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "截图内容未说明"}}
+{"id": "ev-0214", "text": "是不是少个括号", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "有具体猜测但缺位置上下文"}}
+{"id": "ev-0215", "text": "复制过去就报错", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺报错内容"}}
+{"id": "ev-0216", "text": "一启动就出问题", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "受阻但缺细节"}}
+{"id": "ev-0217", "text": "求大佬带一带", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "缺对象"}}
+{"id": "ev-0218", "text": "我也一样，要怎么办", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺上下文"}}
+{"id": "ev-0219", "text": "第二步后面跟讲的不一样", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺差异细节"}}
+{"id": "ev-0220", "text": "配置文件改了没效果", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺对象与目标效果"}}
+{"id": "ev-0221", "text": "跑不通啊", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺上下文"}}
+{"id": "ev-0222", "text": "我电脑上没有这个按钮", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "受阻但缺环境信息"}}
+{"id": "ev-0223", "text": "提示框里的那个选项我没有", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "指代不明"}}
+{"id": "ev-0224", "text": "卡住了，跟弹幕说的不太一样", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "受阻但缺差异细节"}}
+{"id": "ev-0225", "text": "按文档来的，到我这就不行", "labels": {"category": "insufficient", "actionable": false, "impact_level": 2}, "meta": {"source": "eval-expansion-2026", "note": "受阻但缺环境信息"}}
+{"id": "ev-0226", "text": "有没有那个流程图，发一下", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "对象不明（哪个流程图）"}}
+{"id": "ev-0227", "text": "版本号好像对不上", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "缺对象"}}
+{"id": "ev-0228", "text": "布局跟老师截图差好多，是我版本不对吗", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "有猜测但缺环境信息"}}
+{"id": "ev-0229", "text": "文档有吗，发我一下", "labels": {"category": "insufficient", "actionable": false, "impact_level": 0}, "meta": {"source": "eval-expansion-2026", "note": "对象不明（哪个文档）"}}
+{"id": "ev-0230", "text": "再演示一遍刚才那个报错的地方", "labels": {"category": "insufficient", "actionable": false, "impact_level": 1}, "meta": {"source": "eval-expansion-2026", "note": "指代不明（哪个报错）"}}
