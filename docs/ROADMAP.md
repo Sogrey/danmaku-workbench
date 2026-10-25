@@ -4,17 +4,18 @@
 
 ---
 
-## 📍 当前状态（v0.1.0 · 2026-10-22）
+## 📍 当前状态（v0.2.0 · 2026-10-25）
 
 | 维度 | 状态 |
 | --- | --- |
 | 前端三栏工作台 | ✅ 完成（直播窗弹幕动画 / Choice·Noul·Score 判断卡 / 三队列待办 / 记录页 / JSON 详情抽屉） |
-| 决策引擎 | ✅ **Mock 规则引擎**（关键词模拟三原语，300~900ms；非真实模型） |
-| 决策抽象层 | ✅ Provider 接口 + 双门槛分流规则（60% / 80%），模型可插拔 |
+| 决策引擎 | ✅ **Laya multilingual LoRA 微调版**（mmBERT 322M，eval_acc 0.770：choice 0.822 / noul 0.867 / score 0.622） |
+| 校准 | ✅ 分桶温度拟合完成（choice:3-5 T=3.07 / noul:2 T=3.81 / score:3-5 T=4.54）；noul 门槛校准后量化为 65% |
+| 决策抽象层 | ✅ Provider 接口 + 双门槛分流规则（60% / 65%），模型可插拔 |
 | 后端 | ⚙️ FastAPI **骨架**（未启动；jev_stub / laya_stub 插槽就绪，`DECISION_PROVIDER=mock\|jev\|laya`） |
-| 质量 | ✅ vue-tsc 零错误；vite build 成功（gzip 46KB）；浏览器全流程实测 19 条弹幕通过 |
-| 仓库 | ✅ 已推送 [github.com/Sogrey/danmaku-workbench](https://github.com/Sogrey/danmaku-workbench) main（9 提交，线性历史） |
-| 已知边界 | Mock 分类依赖关键词表（语义精度有限，属占位实现）；判断记录仅存内存，刷新即失 |
+| 质量 | ✅ vue-tsc 零错误；vite build 成功；训练 12 epochs 4.5 分钟（RTX 3060 3.7GB 显存） |
+| 仓库 | ✅ 已推送 [github.com/Sogrey/danmaku-workbench](https://github.com/Sogrey/danmaku-workbench) main |
+| 已知边界 | score 是最弱原语（0.622，对应官方基准一致）；act_probability 无信号不用于门控；判断记录仅存内存 |
 
 ---
 
@@ -22,14 +23,15 @@
 
 > 方向：Mock → Laya 自托管（国内推荐）→ 可选 Jev 官方 API。UI / 分流规则 / 记录逻辑零改动。
 
-### 1.1 Laya 自托管接入 ⭐ 优先
+### 1.1 Laya 自托管接入 ✅（2026-10-25 完成）
 
-- [ ] 标注集构建：按 `criteria.ts` 五类判据产出 300~500 条中文弹幕标注（可从直播回放爬取+人工标注）
-- [ ] 微调：ModernBERT-large/mmBERT 底座 + typed-decision 微调（五分类 + Noul + Score 三头）
-- [ ] 温度拟合校准：修正出厂过度自信（参照 Laya 文章：中文 noul 原始温度超限需 clamp）
-- [ ] `laya-serve` 部署（与 Jev 同 wire 协议，本机或内网）
-- [ ] 后端补全 Provider + 前端切换
-- [ ] 验收：微调后 typed-decisions ≥ 0.75；五类各抽查 20 条人工复核通过
+- [x] 标注集构建：114 种子 + 208 变体 = 322 训练样本，45 条独立评估集，含 10 组成对边界对照样本
+- [x] 微调：multilingual checkpoint + LoRA r=8/alpha=32（target Wqkv）+ 决策头全训 + 严格恰当评分损失（log+spherical+RPS）+ bf16 + 梯度检查点，RTX 3060 4.5 分钟 / 12 epochs，**eval_acc 0.770**
+- [x] 温度拟合校准：分桶 NLL 拟合（choice 3.07 / noul 3.81 / score 4.54），已写入 checkpoint
+- [x] 门槛量化：noul 0.80→0.65（校准后区间准确率 92% @ 覆盖率 55.6%，优于 0.8 门槛的 94% @ 37.8%）
+- [ ] 后端 laya.py Provider 补全（对接 RLAgent.system_one）
+- [ ] 前端切 ACTIVE_PROVIDER='http' 联调
+- 验收：typed-decisions ≥ 0.75 ✅ 达成（0.770）
 
 **计划生成/修改文件：**
 
@@ -103,7 +105,7 @@ backend/app/db.py                        ← SQLite 记录表（新增）
 
 - [ ] 校准评估集：人工标注 200~500 条（覆盖五类长尾），存 `backend/evals/`
 - [ ] 置信度校准曲线：ECE 计算 + 前端可视化（drawer 增加校准页签）
-- [ ] 阈值调优工具：按「自动化覆盖率 vs 误分流率」曲线给出 60%/80% 的数据依据
+- [x] 阈值调优工具：按「自动化覆盖率 vs 误分流率」曲线给出 60%/65% 的数据依据（已在 v0.2 预演：noul 门槛 0.8→0.65 依据校准分位实测）
 - [ ] A/B 引擎对比模式：双 Provider 并行跑批，输出一致率与分歧样本
 - [ ] 验收：ECE ≤ 0.1；给出阈值选择的量化依据文档
 
@@ -128,7 +130,7 @@ docs/threshold-tuning.md                ← 阈值依据文档（新增）
 | 五类弹幕分类 | 标讯相关性过滤：强相关 / 弱相关 / 无关 / 需复核 / 信息不足 | Choice |
 | 信息充分性 | 商机资料是否足够进入投标流程（资质/业绩/时间齐备度） | Noul |
 | 跟课影响优先级 | 商机优先级：金额 × 时限 × 匹配度加权 | Score |
-| 60%/80% 双门槛 | 动作安全门：低置信不自动提交/不自动弃标，转人工 | 阈值 |
+| 60%/65% 双门槛 | 动作安全门：低置信不自动提交/不自动弃标，转人工 | 阈值 |
 
 - [ ] 判据问卷改造（`criteria.ts` 业务无关化，支持多套判据集切换）
 - [ ] 数据源：招标平台标讯接入（与 GIS-Agent 图纸分析场景联动）

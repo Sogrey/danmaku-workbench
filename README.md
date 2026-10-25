@@ -15,7 +15,7 @@
 | --- | --- |
 | 三栏工作台 | 01 直播画面与弹幕（直播窗 + 弹幕漂浮动画 + 筛选/跟随最新）· 02 当前消息处理 · 03 课堂待办 |
 | 五类意图分类 | 技术提问 / 听课反馈 / 普通聊天 / 推广干扰 / 信息不足（Choice 原语，返回全候选概率分布） |
-| 双置信度门槛 | 分类概率 ≥ 60% 且 处理条件概率 ≥ 80% 才进待办，其余进待确认（Confidence-Gated Routing） |
+| 双置信度门槛 | 分类概率 ≥ 60% 且 处理条件概率 ≥ 65% 才进待办，其余进待确认（Confidence-Gated Routing；65% 为 Laya 微调校准后的量化最优值） |
 | 优先级排序 | Score 原语 0~3 级加权分，队列内按分数从高到低、同分按接收顺序 |
 | 判断详情可追溯 | 抽屉展示对齐 Jev `/v1/systemone` 的请求/响应 JSON（questions / answers / routing） |
 | 分类与记录页 | 规则卡（五类 criteria + 阈值 + 分工）· 全量判断记录表 · CSV / JSON 导出 |
@@ -82,7 +82,7 @@ uvicorn app.main:app --port 8313 --reload   # 前端已配置 /api → 8313 代�
 
 ### 置信度门槛（程序规则，不是模型属性）
 
-- **分类概率 ≥ 60%** 且 **处理条件概率 ≥ 80%** → 进入讲师/助教待办
+- **分类概率 ≥ 60%** 且 **处理条件概率 ≥ 65%** → 进入讲师/助教待办
 - 其余 → 待确认（人工核对）
 - 「听课反馈」是模型选择，「交给助教」是程序规则 —— 分流逻辑全部在 [`src/decision/routing.ts`](src/decision/routing.ts)
 
@@ -130,7 +130,7 @@ danmaku-workbench/
 ├─ src/
 │  ├─ main.ts · App.vue
 │  ├─ types/index.ts              # DecisionResult 等核心类型（与 Jev 返回同构）
-│  ├─ config/criteria.ts          # ★ 五类判据 / Score 等级 / 60%·80% 阈值 / 课堂分工
+      │  ├─ config/criteria.ts          # ★ 五类判据 / Score 等级 / 双阈值门槛 / 课堂分工
 │  ├─ decision/
 │  │  ├─ index.ts                 # ★ 引擎切换点（ACTIVE_PROVIDER）
 │  │  ├─ provider.ts              # DecisionProvider 抽象 + DecisionEngineError
