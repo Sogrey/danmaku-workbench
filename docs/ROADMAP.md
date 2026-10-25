@@ -14,6 +14,7 @@
 | 决策抽象层 | ✅ Provider 接口 + 双门槛分流规则（60% / 65%），模型可插拔 |
 | 后端 | ✅ FastAPI 决策服务接入（laya.py 进程内 GPU 推理 + 分桶校准温度；lifespan 预热 ~90ms/条；`DECISION_PROVIDER=mock\|laya\|jev`） |
 | 工程化 | ✅ 判断记录 IndexedDB 持久化（刷新不丢）；npm run e2e 本地 CI；评估集回放（45 条：choice 82.2% / noul 86.7% / score ±1 97.8%）；校准与阈值可视化页 |
+| 决策质量 | ✅ ECE 可靠性曲线（choice ECE 0.099 ≤ 0.1 / noul 0.117，Brier 0.068/0.126）；A/B 引擎对比（零样本 choice 44.4% → 微调 82.2%，分歧 34/45 条） |
 | 质量 | ✅ vue-tsc 零错误；vite build 成功；训练 12 epochs 4.5 分钟（RTX 3060 3.7GB 显存） |
 | 仓库 | ✅ 已推送 [github.com/Sogrey/danmaku-workbench](https://github.com/Sogrey/danmaku-workbench) main |
 | 已知边界 | score 是最弱原语（exact 55.6% 但 ±1 容差 97.8%）；边界混淆集中在 insufficient（上下文依赖型短消息）；act_probability 无信号不用于门控 |
@@ -108,22 +109,23 @@ backend/app/db.py                         ← SQLite 记录表（待做；当前
 
 > 方向：把 Laya/Jev 文章的评估体系落进系统——阈值不是拍的，是校准出来的。
 
-- [ ] 校准评估集：扩充至 200~500 条人工标注（当前 45 条独立集已回放：choice 82.2% / noul 86.7% / score ±1 97.8%，报告存 backend/evals/reports/）
+- [ ] 校准评估集：扩充至 200~500 条人工标注（当前 45 条独立集已回放：choice 82.2% / noul 86.7% / score ±1 97.8%，报告存 backend/evals/reports/；待补「直播中断类」——当前无样本被判等级 3）
 - [x] 评估集回放工具：backend/evals/replay_eval.py（http/local 双模式，provider 校验防误测，产出 JSON+MD 报告）✅ 2026-10-25
 - [x] 校准与阈值可视化：CalibrationView（分桶温度表 / noul 门槛 0.80↔0.65 量化对比 / 回放指标与混淆矩阵；数据源 src/data/calibration.ts）✅ 2026-10-25
+- [x] ECE 校准曲线：replay_eval.py 增加 reliability 分桶 + ECE/Brier（5 等宽桶：choice ECE **0.099 ≤ 0.1 达标** / noul 0.117 / Brier 0.068、0.126），校准页新增 SVG 可靠性曲线与 Score 分箱校准 ✅ 2026-10-25
+- [x] A/B 引擎对比模式：ab_runner.py（零样本基线 vs 微调，顺序加载各自温度生效；choice 44.4%→82.2%、noul 55.6%→86.7%、分歧 34/45 条，基线 score 坍缩在 L2）；校准页新增对比卡 ✅ 2026-10-25
 - [x] 阈值调优工具：按「自动化覆盖率 vs 误分流率」曲线给出 60%/65% 的数据依据（已在 v0.2 预演：noul 门槛 0.8→0.65 依据校准分位实测）
-- [ ] ECE 校准曲线：当前页面呈现分桶温度与 NLL；ECE 曲线与可分性散点待补
-- [ ] A/B 引擎对比模式：双 Provider 并行跑批，输出一致率与分歧样本
-- [ ] 验收：ECE ≤ 0.1；给出阈值选择的量化依据文档（noul 门槛量化依据已达成）
+- [ ] 验收：ECE ≤ 0.1（choice 0.099 已达标；noul 0.117 接近）；阈值选择量化依据已达成（TRAINING.md + 校准页）
 
 **计划生成/修改文件：**
 
 ```
-backend/evals/replay_eval.py              ← 评估回放（新增 ✅）
-backend/evals/reports/eval-report.*       ← 回放报告 JSON+MD（新增 ✅）
-src/data/calibration.ts                   ← 校准/评估实测数据模块（新增 ✅）
-src/components/pages/CalibrationView.vue  ← 校准与阈值页（新增 ✅）
-backend/evals/ab_runner.py                ← 双引擎对比（待做）
+backend/evals/replay_eval.py              ← 评估回放 + ECE/Brier/可靠性分桶（✅）
+backend/evals/ab_runner.py                ← 双引擎对比（✅）
+backend/evals/reports/eval-report.*       ← 回放报告 JSON+MD（✅）
+backend/evals/reports/ab-report.*         ← A/B 对比报告（✅）
+src/data/calibration.ts                   ← 校准/评估实测数据模块（✅）
+src/components/pages/CalibrationView.vue  ← 校准与阈值页（含可靠性曲线 + A/B 卡）（✅）
 docs/threshold-tuning.md                  ← 阈值依据文档（待做；量化依据已并入 TRAINING.md 与校准页）
 ```
 
