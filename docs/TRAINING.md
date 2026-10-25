@@ -320,6 +320,41 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
 - 记录页导出 CSV/JSON → 定期计算：分原语准确率（人工标记回流后）、ECE、待确认队列占比（覆盖率漂移预警）
 - ROADMAP v0.4 将内置校准曲线页与 A/B 引擎对比（mock vs laya 分歧样本分析）
 
+### 7.5 重训迭代工作流（补样本迭代 SOP）
+
+> 当评估回放暴露某类系统性问题（如某类准确率低、某等级零命中）时，
+> 按本 SOP 完成一轮「补样本 → 重建 → 训练 → 校准 → 验证 → 采纳」，全程约 15 分钟（RTX 3060）。
+
+**七个步骤与命令**（工作目录已标注，注意 finetune/calibrate 在项目根跑，build/replay 在 backend 跑）：
+
+| 步 | 操作 | 命令（workdir） | 预期输出 / 判断标准 |
+| --- | --- | --- | --- |
+| 1 | 补训练种子 | 手工编辑 `backend/training/seed_samples.json` 的 `train_seeds`（扁平格式） | 新种子措辞不得与 `eval_samples`（230 条）重复；针对性补弱类 |
+| 2 | 重建数据集 | `backend` 目录：`.venv\Scripts\python.exe training\build_dataset.py` | **评估集必须仍为 230 条且 id 顺序不变**，否则立即停止排查 |
+| 3 | 训练 | 项目根：`backend\.venv\Scripts\python.exe backend\training\finetune.py --out-dir D:/AI/laya/danmaku-dm-v0.N` | **--out-dir 必须新目录**，防覆盖；eval_acc 不回退（≥上轮 -2pp） |
+| 4 | 温度校准（必做） | 项目根：`backend\.venv\Scripts\python.exe backend\training\calibrate.py --model-dir D:/AI/laya/danmaku-dm-v0.N` | 三个分桶温度写入新目录 rl_agent_config.json |
+| 5 | 回放验证 | `backend` 目录：`.venv\Scripts\python.exe evals\replay_eval.py --local --model-dir D:/AI/laya/danmaku-dm-v0.N` | 看 `reports/eval-report.md`：目标问题类是否修复；choice/noul 不显著回退 |
+| 6 | 阈值复扫 | `backend` 目录：`.venv\Scripts\python.exe evals\threshold_scan.py` | 新概率分布下门槛是否需要调整 |
+| 7 | 采纳 / 回退 | 启动服务时 `$env:LAYA_MODEL_DIR='D:/AI/laya/danmaku-dm-v0.N'` | 旧 checkpoint 原样保留，指回即回退 |
+
+**实战案例（v0.3 = L3 补强）**：
+
+- 背景：230 条评估集上 22 条等级 3（直播中断类）真值样本 **0 命中**（19 条判 L2）；
+  归因：训练集 322 条中 L3 仅 4 种子（含变体约 12 条，占 3.7%）。
+- 措施：train_seeds 追加 16 条 L3 种子（黑屏/无声/断流/音画错位等全新措辞）
+  + 3 条 L2 对照（受阻可部分跟随 vs 无法接收的边界教学）；L3 占比升至约 12%。
+- 判定：eval_acc ≥ 0.77 不回退；回放 Score 分箱表出现「3 · 立即关注」行且 mean_truth ≥ 2。
+- 若两轮后 L3 仍零命中：种子加至 25~30 条或 `--epochs 16`。
+
+**两个已踩过的坑（重训前必读）**：
+
+1. **build 会覆盖评估集**：`build_dataset.py` 每次用 `seed_samples.json` 的 `eval_samples`
+   重写 `eval_dataset.jsonl`——扩充评估集后必须把新样本同步进 `eval_samples`（2026-10-25
+   已同步至 230 条），否则扩充结果会被旧数据冲掉。
+2. **RoPE inv_freq 污染权重文件**：transformers/peft 升级后，`named_buffers()` 会包含
+   rotary_emb 的 `*_inv_freq`，写入文件导致 strict 加载报 unexpected key
+   （已在 finetune.py 保存侧过滤修复，2026-10-25）。
+
 ---
 
 ## 8. 问题排查速查
@@ -333,6 +368,7 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
 | `pip install torch` 装成 CPU 版 | Windows PyPI 默认 CPU 轮子；必须 `--index-url https://download.pytorch.org/whl/cu126` |
 | HF/镜像下载慢 | LFS 走 hf-mirror 会失败（CDN 域名解析问题）；用 ModelScope resolve 直链（17MB/s） |
 | noul 输出恒偏一侧 | 官方 issue #156；本项目已用自定义 true/false 描述缓解，仍异常则改写为 2-option choice |
+| `Unexpected key(s): ...rotary_emb...inv_freq` | transformers/peft 升级后 inv_freq 进 named_buffers 被写入文件；finetune.py 保存侧已过滤（2026-10-25），存量脏文件用 safetensors load→过滤 inv_freq→save 清洗 |
 
 ---
 
@@ -340,7 +376,7 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
 
 | 文件 | 职责 |
 | --- | --- |
-| `backend/training/seed_samples.json` | 标注种子层（159 条手工样本 + 标注规则文档） |
+| `backend/training/seed_samples.json` | 标注种子层（train_seeds + eval_samples 手工样本与标注规则，单一数据源） |
 | `backend/training/build_dataset.py` | 数据构建：一致性校验 + 变体扩充 + 分割 + 统计 |
 | `backend/training/finetune.py` | LoRA 微调：注入/损失/批处理/快照/merge 保存 |
 | `backend/training/calibrate.py` | 分桶温度拟合（golden-section NLL）+ ECE 对比 + 写回 |
