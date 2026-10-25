@@ -4,7 +4,7 @@
 
 ---
 
-## 📍 当前状态（v0.2.0 · 2026-10-25）
+## 📍 当前状态（v0.2.1 · 2026-10-25）
 
 | 维度 | 状态 |
 | --- | --- |
@@ -12,10 +12,11 @@
 | 决策引擎 | ✅ **Laya multilingual LoRA 微调版**（mmBERT 322M，eval_acc 0.770：choice 0.822 / noul 0.867 / score 0.622） |
 | 校准 | ✅ 分桶温度拟合完成（choice:3-5 T=3.07 / noul:2 T=3.81 / score:3-5 T=4.54）；noul 门槛校准后量化为 65% |
 | 决策抽象层 | ✅ Provider 接口 + 双门槛分流规则（60% / 65%），模型可插拔 |
-| 后端 | ⚙️ FastAPI **骨架**（未启动；jev_stub / laya_stub 插槽就绪，`DECISION_PROVIDER=mock\|jev\|laya`） |
+| 后端 | ✅ FastAPI 决策服务接入（laya.py 进程内 GPU 推理 + 分桶校准温度；lifespan 预热 ~90ms/条；`DECISION_PROVIDER=mock\|laya\|jev`） |
+| 工程化 | ✅ 判断记录 IndexedDB 持久化（刷新不丢）；npm run e2e 本地 CI；评估集回放（45 条：choice 82.2% / noul 86.7% / score ±1 97.8%）；校准与阈值可视化页 |
 | 质量 | ✅ vue-tsc 零错误；vite build 成功；训练 12 epochs 4.5 分钟（RTX 3060 3.7GB 显存） |
 | 仓库 | ✅ 已推送 [github.com/Sogrey/danmaku-workbench](https://github.com/Sogrey/danmaku-workbench) main |
-| 已知边界 | score 是最弱原语（0.622，对应官方基准一致）；act_probability 无信号不用于门控；判断记录仅存内存 |
+| 已知边界 | score 是最弱原语（exact 55.6% 但 ±1 容差 97.8%）；边界混淆集中在 insufficient（上下文依赖型短消息）；act_probability 无信号不用于门控 |
 
 ---
 
@@ -83,20 +84,22 @@ backend/app/main.py                          ← 挂载 ws 路由（修改）
 
 ## 🧰 阶段三：工程化完善（v0.3 并行）
 
-- [ ] 判断记录持久化：IndexedDB（前端）或 SQLite（后端），刷新不丢
-- [ ] E2E 测试：Playwright 关键路径（发送→判断→分流→待办→标记完成）
+- [x] 判断记录持久化：IndexedDB 快照（src/utils/persist.ts；判断中断的消息恢复为「失败可重试」，待办队列由记录重建）✅ 2026-10-25
+- [x] E2E 检查：npm run e2e（scripts/e2e-check.ps1：后端语法 + 前端类型/构建 + mock API 契约 8 项断言 + laya 服务探测）✅ 2026-10-25
+- [ ] Playwright UI 用例：关键路径（发送→判断→分流→待办→标记完成）
 - [ ] CI：GitHub Actions（push 触发 `vue-tsc` + `vite build` + ruff 检查后端）
 - [ ] Docker 部署（前端静态 + 后端服务编排）
-- [ ] 验收：CI 绿；E2E 通过率 100%
+- [ ] 验收：CI 绿；E2E 通过率 100%（本地 E2E 已达成；云端 CI 待接入）
 
 **计划生成/修改文件：**
 
 ```
-src/stores/persistence.ts                ← IndexedDB 持久化（新增）
-tests/e2e/*.spec.ts                     ← Playwright 用例（新增）
-.github/workflows/ci.yml                 ← CI 流水线（新增）
-Dockerfile / docker-compose.yml          ← 容器编排（新增）
-backend/app/db.py                        ← SQLite 记录表（新增）
+src/utils/persist.ts                      ← IndexedDB 快照存取（新增 ✅）
+scripts/e2e-check.ps1                     ← npm run e2e 本地检查（新增 ✅）
+tests/e2e/*.spec.ts                       ← Playwright 用例（待做）
+.github/workflows/ci.yml                   ← CI 流水线（待做）
+Dockerfile / docker-compose.yml            ← 容器编排（待做）
+backend/app/db.py                         ← SQLite 记录表（待做；当前为前端 IndexedDB 方案）
 ```
 
 ---
@@ -105,20 +108,23 @@ backend/app/db.py                        ← SQLite 记录表（新增）
 
 > 方向：把 Laya/Jev 文章的评估体系落进系统——阈值不是拍的，是校准出来的。
 
-- [ ] 校准评估集：人工标注 200~500 条（覆盖五类长尾），存 `backend/evals/`
-- [ ] 置信度校准曲线：ECE 计算 + 前端可视化（drawer 增加校准页签）
+- [ ] 校准评估集：扩充至 200~500 条人工标注（当前 45 条独立集已回放：choice 82.2% / noul 86.7% / score ±1 97.8%，报告存 backend/evals/reports/）
+- [x] 评估集回放工具：backend/evals/replay_eval.py（http/local 双模式，provider 校验防误测，产出 JSON+MD 报告）✅ 2026-10-25
+- [x] 校准与阈值可视化：CalibrationView（分桶温度表 / noul 门槛 0.80↔0.65 量化对比 / 回放指标与混淆矩阵；数据源 src/data/calibration.ts）✅ 2026-10-25
 - [x] 阈值调优工具：按「自动化覆盖率 vs 误分流率」曲线给出 60%/65% 的数据依据（已在 v0.2 预演：noul 门槛 0.8→0.65 依据校准分位实测）
+- [ ] ECE 校准曲线：当前页面呈现分桶温度与 NLL；ECE 曲线与可分性散点待补
 - [ ] A/B 引擎对比模式：双 Provider 并行跑批，输出一致率与分歧样本
-- [ ] 验收：ECE ≤ 0.1；给出阈值选择的量化依据文档
+- [ ] 验收：ECE ≤ 0.1；给出阈值选择的量化依据文档（noul 门槛量化依据已达成）
 
 **计划生成/修改文件：**
 
 ```
-backend/evals/calibration_report.md      ← 校准分析报告（新增）
-backend/evals/ab_runner.py               ← 双引擎对比（新增）
-src/components/CalibrationView.vue       ← 校准曲线页（新增）
-src/components/pages/RecordsView.vue     ← 挂校准入口（修改）
-docs/threshold-tuning.md                ← 阈值依据文档（新增）
+backend/evals/replay_eval.py              ← 评估回放（新增 ✅）
+backend/evals/reports/eval-report.*       ← 回放报告 JSON+MD（新增 ✅）
+src/data/calibration.ts                   ← 校准/评估实测数据模块（新增 ✅）
+src/components/pages/CalibrationView.vue  ← 校准与阈值页（新增 ✅）
+backend/evals/ab_runner.py                ← 双引擎对比（待做）
+docs/threshold-tuning.md                  ← 阈值依据文档（待做；量化依据已并入 TRAINING.md 与校准页）
 ```
 
 ---
