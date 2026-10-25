@@ -1,7 +1,7 @@
 """Mock 决策引擎（后端版）—— 关键词规则模拟 Jev 三原语输出。
 
-与前端 src/decision/mock-provider.ts 保持同构，输出 camelCase JSON
-（DecisionResult 序列化后的字段名与前端 TS 类型一一对应）。
+与前端 src/decision/mock-provider.ts 保持同构；返回 DecisionResult
+（dataclass），由 main.py 统一映射为前端期望的 camelCase JSON。
 """
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ import re
 import time
 from datetime import datetime, timezone
 
-from .base import DecisionResult, IncomingMessage
+from .base import ChoiceResult, DecisionResult, IncomingMessage, NoulResult, ScoreResult
 
 CATEGORY_ORDER = ["technical", "feedback", "chat", "spam", "insufficient"]
 
@@ -73,9 +73,8 @@ def _judge(text: str) -> tuple[str, float, float]:
     return "chat", random.uniform(0.7, 0.9), random.uniform(0.0, 0.4)
 
 
-@dataclass
 class MockProvider:
-    name: str = "mock-rule-engine"
+    name = "mock-rule-engine"
 
     def decide(self, message: IncomingMessage) -> DecisionResult:
         started = time.perf_counter()
@@ -97,17 +96,17 @@ class MockProvider:
         return DecisionResult(
             message_id=message.id,
             provider=self.name,
-            choice={
-                "category": category,
-                "probabilities": probs,
-                "confidence": confidence,
-            },
-            noul={"probability": noul},
-            score={
-                "value": round(score, 2),
-                "level": SCORE_LEVEL_NAMES[level_index],
-                "levelIndex": level_index,
-            },
+            choice=ChoiceResult(
+                category=category,
+                probabilities=probs,
+                confidence=confidence,
+            ),
+            noul=NoulResult(probability=noul),
+            score=ScoreResult(
+                value=round(score, 2),
+                level=SCORE_LEVEL_NAMES[level_index],
+                level_index=level_index,
+            ),
             latency_ms=int((time.perf_counter() - started) * 1000),
             judged_at=datetime.now(timezone.utc).isoformat(),
         )
