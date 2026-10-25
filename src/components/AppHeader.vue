@@ -35,6 +35,13 @@ function toggleLive() {
         >
           分类与记录
         </button>
+        <button
+          class="nav-item"
+          :class="{ active: ui.activeView === 'calibration' }"
+          @click="ui.switchView('calibration')"
+        >
+          校准与阈值
+        </button>
       </nav>
 
       <!-- 状态 + 操作 -->

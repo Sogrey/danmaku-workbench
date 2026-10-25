@@ -5,7 +5,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import type { WorkRecord } from '@/types'
 
-export type ViewName = 'classroom' | 'records'
+export type ViewName = 'classroom' | 'records' | 'calibration'
 
 export const useUiStore = defineStore('ui', () => {
   const activeView = ref<ViewName>('classroom')

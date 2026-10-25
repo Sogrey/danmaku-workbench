@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppHeader from '@/components/AppHeader.vue'
+import CalibrationView from '@/components/pages/CalibrationView.vue'
 import ClassroomView from '@/components/pages/ClassroomView.vue'
 import RecordsView from '@/components/pages/RecordsView.vue'
 import DecisionDrawer from '@/components/DecisionDrawer.vue'
@@ -16,7 +17,8 @@ const wb = useWorkbenchStore()
 
     <main class="app-main">
       <ClassroomView v-if="ui.activeView === 'classroom'" />
-      <RecordsView v-else />
+      <RecordsView v-else-if="ui.activeView === 'records'" />
+      <CalibrationView v-else />
     </main>
 
     <footer class="app-footer">
