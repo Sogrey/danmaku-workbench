@@ -356,9 +356,15 @@ def merged_native_state_dict(model) -> dict:
         if any(name.startswith(pre) for pre in lora_prefixes):
             continue
         sd[name] = p.detach().cpu().clone()
-    # buffers（如 temperature）不在 named_parameters 中，需单独收集
+    # buffers（如 temperature）不在 named_parameters 中，需单独收集。
+    # 注意排除 RoPE inv_freq：它由模型配置确定性推导，不承载训练信息；
+    # 新版 transformers/peft 会把 rotary_emb 的 inv_freq 注册进 named_buffers，
+    # 若写入文件会导致 calibrate/RLAgent 的 strict 加载报 unexpected key
+    # （2026-10-25 v0.3 实测踩坑，与 v0.2 的 170-key 契约保持一致）。
     for name, buf in model.named_buffers():
         if any(name.startswith(pre) for pre in lora_prefixes):
+            continue
+        if "inv_freq" in name:
             continue
         sd[name] = buf.detach().cpu().clone()
     print(f"   💾 已 merge {n_merged} 层 LoRA → 原生键名 state_dict（{len(sd)} 项）")
