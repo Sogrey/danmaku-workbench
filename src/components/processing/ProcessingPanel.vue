@@ -6,7 +6,7 @@ import ScoreCard from './ScoreCard.vue'
 import DispositionCard from './DispositionCard.vue'
 import { useWorkbenchStore } from '@/stores/workbench'
 import { useUiStore } from '@/stores/ui'
-import { TARGET_NAMES } from '@/config/criteria'
+import { TARGET_NAMES, THRESHOLDS } from '@/config/criteria'
 
 const wb = useWorkbenchStore()
 const ui = useUiStore()
@@ -65,7 +65,7 @@ function goRecords() {
         <button class="retry-btn" @click="wb.retryMessage(msg!.id)">稍后重试判断</button>
       </div>
       <div class="rule-bar">
-        <p>分类概率 ≥ 60% 且处理条件概率 ≥ 80%，进入讲师/助教待办；其余进入待确认流程。</p>
+        <p>分类概率 ≥ {{ THRESHOLDS.classifyProbability * 100 }}% 且处理条件概率 ≥ {{ THRESHOLDS.actionableProbability * 100 }}%，进入讲师/助教待办；其余进入待确认流程。</p>
       </div>
     </template>
 
@@ -88,7 +88,7 @@ function goRecords() {
       <DispositionCard :disposition="msg.disposition!" :score="msg.decision.score" @chain="openDetails" />
       <div class="rule-bar">
         <p>
-          分类概率 ≥ 60% 且处理条件概率 ≥ 80%，进入讲师/助教待办；其余进入用户确认流程。
+          分类概率 ≥ {{ THRESHOLDS.classifyProbability * 100 }}% 且处理条件概率 ≥ {{ THRESHOLDS.actionableProbability * 100 }}%，进入讲师/助教待办；其余进入用户确认流程。
         </p>
         <span class="link" @click="goRecords">查看分类规则与记录 ↗</span>
       </div>

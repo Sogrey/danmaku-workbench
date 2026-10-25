@@ -1,8 +1,8 @@
 /**
  * 程序分流规则 —— 「模型判断，代码决策」的代码侧
  *
- * 规则（对齐课程原版）：
- *   分类概率 ≥ 60% 且 处理条件概率 ≥ 80% → 进入讲师/助教待办
+ * 规则（阈值常量见 criteria.ts，随校准数据更新）：
+ *   分类概率 ≥ 60% 且 处理条件概率 ≥ 65% → 进入讲师/助教待办
  *   其余 → 待确认（人工核对）
  * 普通聊天保留在直播弹幕区，不进入待办。
  */
@@ -10,6 +10,8 @@ import type { DecisionResult, Disposition } from '@/types'
 import { CATEGORIES, THRESHOLDS } from '@/config/criteria'
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`
+const ACT_PCT = `${THRESHOLDS.actionableProbability * 100}%`
+const CLS_PCT = `${THRESHOLDS.classifyProbability * 100}%`
 
 export function routeDecision(decision: DecisionResult): Disposition {
   const { choice, noul } = decision
@@ -20,7 +22,7 @@ export function routeDecision(decision: DecisionResult): Disposition {
   if (mainP < THRESHOLDS.classifyProbability) {
     return {
       target: 'confirm',
-      reason: `识别为「${def.name}」但分类概率 ${pct(mainP)} 未达 60% 门槛，先进入待确认人工核对。`,
+      reason: `识别为「${def.name}」但分类概率 ${pct(mainP)} 未达 ${CLS_PCT} 门槛，先进入待确认人工核对。`,
     }
   }
 
@@ -29,24 +31,24 @@ export function routeDecision(decision: DecisionResult): Disposition {
       if (noul.probability >= THRESHOLDS.actionableProbability) {
         return {
           target: 'instructor',
-          reason: `技术提问（${pct(mainP)}）且信息充分（${pct(noul.probability)} ≥ 80%），进入讲师待答。`,
+          reason: `技术提问（${pct(mainP)}）且信息充分（${pct(noul.probability)} ≥ ${ACT_PCT}），进入讲师待答。`,
         }
       }
       return {
         target: 'confirm',
-        reason: `技术提问（${pct(mainP)}）但处理条件概率 ${pct(noul.probability)} < 80%，先待确认、等待补充上下文。`,
+        reason: `技术提问（${pct(mainP)}）但处理条件概率 ${pct(noul.probability)} < ${ACT_PCT}，先待确认、等待补充上下文。`,
       }
 
     case 'feedback':
       if (noul.probability >= THRESHOLDS.actionableProbability) {
         return {
           target: 'assistant',
-          reason: `听课反馈（${pct(mainP)}）且信息充分（${pct(noul.probability)} ≥ 80%），进入助教处理。`,
+          reason: `听课反馈（${pct(mainP)}）且信息充分（${pct(noul.probability)} ≥ ${ACT_PCT}），进入助教处理。`,
         }
       }
       return {
         target: 'confirm',
-        reason: `听课反馈（${pct(mainP)}）但处理条件概率 ${pct(noul.probability)} < 80%，先待确认。`,
+        reason: `听课反馈（${pct(mainP)}）但处理条件概率 ${pct(noul.probability)} < ${ACT_PCT}，先待确认。`,
       }
 
     case 'chat':

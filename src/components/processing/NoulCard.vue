@@ -23,7 +23,7 @@ const pass = computed(() => prob.value >= THRESHOLDS.actionableProbability)
         </div>
       </div>
       <span v-if="!loading && decision" class="badge" :class="pass ? 'badge-ok' : 'badge-plain'">
-        {{ pass ? '≥ 80% 可入待办' : '< 80% 先确认' }}
+        {{ pass ? `≥ ${THRESHOLDS.actionableProbability * 100}% 可入待办` : `< ${THRESHOLDS.actionableProbability * 100}% 先确认` }}
       </span>
     </div>
 
@@ -43,7 +43,7 @@ const pass = computed(() => prob.value >= THRESHOLDS.actionableProbability)
         <span class="threshold-mark" :style="{ left: THRESHOLDS.actionableProbability * 100 + '%' }"></span>
       </div>
       <p class="desc">
-        Noul 表示「信息足够开始处理」的概率；达到 80% 才进入讲师或助教待办，其余先确认。
+        Noul 表示「信息足够开始处理」的概率；达到 {{ THRESHOLDS.actionableProbability * 100 }}% 才进入讲师或助教待办，其余先确认。
       </p>
     </template>
 

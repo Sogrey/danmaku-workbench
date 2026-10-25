@@ -44,7 +44,7 @@ export interface ChoiceResult {
 
 /** Noul 原语：信息充分性概率 */
 export interface NoulResult {
-  /** P(信息足够开始处理)，达到 80% 才进入讲师/助教待办 */
+  /** P(信息足够开始处理)，达到阈值（criteria.ts THRESHOLDS.actionableProbability）才进入讲师/助教待办 */
   probability: number
 }
 
