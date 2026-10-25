@@ -1,0 +1,12 @@
+# 训练栈依赖（backend/.venv，Python 3.12）
+# 安装顺序（torch 必须先装 CUDA 版，避免被 PyPI CPU 轮子覆盖）：
+#   1. backend\.venv\Scripts\pip.exe install torch --index-url https://download.pytorch.org/whl/cu126
+#   2. backend\.venv\Scripts\pip.exe install -r backend\training\requirements.txt
+torch==2.14.1+cu126        # CUDA 版；已通过 --index-url download.pytorch.org/whl/cu126 安装
+transformers>=5.0.0       # ModernBERT 架构需要（multilingual/encoder/config: transformers 5.0.0+）
+peft>=0.16                # LoRA（r=8 / alpha=32 / target Wqkv,o_proj）
+safetensors>=0.4
+numpy>=1.26
+accelerate>=1.0           # （可选）混合精度/设备调度兜底
+# laya>=0.3.20             # 运行时包（laya-serve 部署阶段安装，含 transformers/推理封装）
+#                           # 微调直接复用 D:\AI\laya\repo-laya-hf 的 rl_common.py 官方基建

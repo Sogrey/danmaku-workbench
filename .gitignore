@@ -5,6 +5,11 @@ node_modules/
 dist/
 dist-ssr/
 
+# Python（venv 与字节码缓存）
+.venv/
+__pycache__/
+*.pyc
+
 # Agent/skill temp files（技能审计日志、断点状态、临时脚本）
 .temp/
 
