@@ -22,9 +22,10 @@
 | 失败降级 | 判断失败保持「未判断」，原文保留、可稍后重试，不误入任何队列 |
 | 决策引擎可插拔 | Provider 抽象层：当前接入 Laya 微调模型（eval_acc 77% · 分桶温度校准），可一键切回 Mock 规则引擎 |
 | 判断记录持久化 | IndexedDB 快照，刷新/重启页面记录不丢；判断中断的消息恢复为「失败可重试」，待办由记录自动重建 |
-| 校准与阈值页 | 分桶温度、Noul 门槛量化（0.80→0.65）、ECE 可靠性曲线（SVG）、45 条回放指标与混淆矩阵、A/B 引擎对比可视化 |
-| 评估集回放 | `backend/evals/replay_eval.py` 批量回放评估集并产出准确率报告（choice 82.2% / noul 86.7% / score ±1 97.8%；ECE choice 0.099 / noul 0.117，Brier 0.068/0.126） |
-| A/B 引擎对比 | `backend/evals/ab_runner.py`：零样本基线 vs 微调双引擎对比（choice 44.4%→82.2%，一致率与分歧样本清单） |
+| 校准与阈值页 | 分桶温度、Noul 门槛量化（0.80→0.65）、ECE 可靠性曲线（SVG）、230 条回放指标与混淆矩阵、A/B 引擎对比可视化 |
+| 评估集回放 | `backend/evals/replay_eval.py` 回放 230 条独立评估集（choice 76.5% / noul 85.7% / score ±1 96.1%；ECE choice 0.059 / noul 0.099） |
+| A/B 引擎对比 | `backend/evals/ab_runner.py`：零样本基线 vs 微调双引擎对比（choice 43.5%→76.5%，一致率与分歧样本清单） |
+| 阈值调优 | `backend/evals/threshold_scan.py` 扫描覆盖率-准确率曲线；量化依据见 [docs/threshold-tuning.md](docs/threshold-tuning.md) |
 | 本地 E2E | `npm run e2e`：后端语法 + 前端类型/构建 + mock API 契约断言 + laya 服务探测 |
 
 ## 技术栈
@@ -125,7 +126,7 @@ npm run dev          # http://localhost:8312（默认 ACTIVE_PROVIDER='http'）
 
 v0.2 已完成：Laya multilingual（mmBERT-base 322M）LoRA 微调（eval_acc 77%，choice 82.2%）+ 分桶温度校准（choice 3.07 / noul 3.81 / score 4.54），checkpoint 位于 `D:/AI/laya/danmaku-dm-v0.2`，由 [`backend/app/providers/laya.py`](backend/app/providers/laya.py) 进程内 GPU 推理。
 
-- 训练 / 校准 / 阈值量化全流程：**[docs/TRAINING.md](docs/TRAINING.md)**
+- 训练 / 校准 / 阈值量化全流程：**[docs/TRAINING.md](docs/TRAINING.md)** + **[docs/threshold-tuning.md](docs/threshold-tuning.md)**
 - 校准与评估实测数据：[`src/data/calibration.ts`](src/data/calibration.ts)（页面「校准与阈值」可视化）
 - Jev 官方 API：`jev_stub.py` 插槽保留（key 鉴权通过仍可能返回 451 地区限制，暂缓）
 - 切回 Mock：后端 `DECISION_PROVIDER=mock`；前端把 [`src/decision/index.ts`](src/decision/index.ts) 的 `ACTIVE_PROVIDER` 改为 `'mock'`

@@ -14,10 +14,10 @@
 | 决策抽象层 | ✅ Provider 接口 + 双门槛分流规则（60% / 65%），模型可插拔 |
 | 后端 | ✅ FastAPI 决策服务接入（laya.py 进程内 GPU 推理 + 分桶校准温度；lifespan 预热 ~90ms/条；`DECISION_PROVIDER=mock\|laya\|jev`） |
 | 工程化 | ✅ 判断记录 IndexedDB 持久化（刷新不丢）；npm run e2e 本地 CI；评估集回放（45 条：choice 82.2% / noul 86.7% / score ±1 97.8%）；校准与阈值可视化页 |
-| 决策质量 | ✅ ECE 可靠性曲线（choice ECE 0.099 ≤ 0.1 / noul 0.117，Brier 0.068/0.126）；A/B 引擎对比（零样本 choice 44.4% → 微调 82.2%，分歧 34/45 条） |
+| 决策质量 | ✅ 230 条评估集回放（choice 76.5% / noul 85.7% / score ±1 96.1%）；ECE 可靠性曲线（choice 0.059 / noul 0.099）；A/B 引擎对比（零样本 43.5% → 微调 76.5%，分歧 164/230）；阈值扫描工具与量化文档 |
 | 质量 | ✅ vue-tsc 零错误；vite build 成功；训练 12 epochs 4.5 分钟（RTX 3060 3.7GB 显存） |
 | 仓库 | ✅ 已推送 [github.com/Sogrey/danmaku-workbench](https://github.com/Sogrey/danmaku-workbench) main |
-| 已知边界 | score 是最弱原语（exact 55.6% 但 ±1 容差 97.8%）；边界混淆集中在 insufficient（上下文依赖型短消息）；act_probability 无信号不用于门控 |
+| 已知边界 | ★ 22 条等级 3（直播中断类）真值 0 命中（19 条判 L2）——训练集 L3 占比不足，重训需补强；低置信区（choice 0.2–0.4）过度自信（实际 28.6% vs 置信 36.5%，由 60% 门槛拦下人工兑底）；边界混淆集中在 insufficient / 闲聊短句 |
 
 ---
 
@@ -109,24 +109,27 @@ backend/app/db.py                         ← SQLite 记录表（待做；当前
 
 > 方向：把 Laya/Jev 文章的评估体系落进系统——阈值不是拍的，是校准出来的。
 
-- [ ] 校准评估集：扩充至 200~500 条人工标注（当前 45 条独立集已回放：choice 82.2% / noul 86.7% / score ±1 97.8%，报告存 backend/evals/reports/；待补「直播中断类」——当前无样本被判等级 3）
+- [x] 校准评估集：扩充至 230 条（45 初版 + 185 新种子，与训练集零重复；含 22 条直播中断类等级 3）✅ 2026-10-25
 - [x] 评估集回放工具：backend/evals/replay_eval.py（http/local 双模式，provider 校验防误测，产出 JSON+MD 报告）✅ 2026-10-25
 - [x] 校准与阈值可视化：CalibrationView（分桶温度表 / noul 门槛 0.80↔0.65 量化对比 / 回放指标与混淆矩阵；数据源 src/data/calibration.ts）✅ 2026-10-25
-- [x] ECE 校准曲线：replay_eval.py 增加 reliability 分桶 + ECE/Brier（5 等宽桶：choice ECE **0.099 ≤ 0.1 达标** / noul 0.117 / Brier 0.068、0.126），校准页新增 SVG 可靠性曲线与 Score 分箱校准 ✅ 2026-10-25
-- [x] A/B 引擎对比模式：ab_runner.py（零样本基线 vs 微调，顺序加载各自温度生效；choice 44.4%→82.2%、noul 55.6%→86.7%、分歧 34/45 条，基线 score 坍缩在 L2）；校准页新增对比卡 ✅ 2026-10-25
-- [x] 阈值调优工具：按「自动化覆盖率 vs 误分流率」曲线给出 60%/65% 的数据依据（已在 v0.2 预演：noul 门槛 0.8→0.65 依据校准分位实测）
-- [ ] 验收：ECE ≤ 0.1（choice 0.099 已达标；noul 0.117 接近）；阈值选择量化依据已达成（TRAINING.md + 校准页）
+- [x] ECE 校准曲线：replay_eval.py 增加 reliability 分桶 + ECE/Brier（230 条：choice ECE **0.0593** / noul 0.0992），校准页 SVG 可靠性曲线与 Score 分箱校准 ✅ 2026-10-25
+- [x] A/B 引擎对比模式：ab_runner.py（零样本基线 vs 微调：choice 43.5%→76.5%、noul 64.3%→85.7%、分歧 164/230；基线 score 坍缩）；校准页对比卡 ✅ 2026-10-25
+- [x] 阈值调优工具：threshold_scan.py（noul/choice 双门槛扫描 + 端到端分流模拟）；量化文档 **[docs/threshold-tuning.md](threshold-tuning.md)**（含 0.50–0.60 一致率 87% 平台与 noul 可降至 0.60 的建议）✅ 2026-10-25
+- [x] 验收：ECE ≤ 0.1（choice 0.059 / noul 0.099 双双达标）；阈值选择量化依据已达成（threshold-tuning.md）
+- [ ] 后续：重训补强等级 3 样本（22 条直播中断类 0 命中，最高优先模型迭代项）；noul 门槛 0.65→0.60 待业务确认
 
-**计划生成/修改文件：**
+**阶段四完成。文件清单：**
 
 ```
-backend/evals/replay_eval.py              ← 评估回放 + ECE/Brier/可靠性分桶（✅）
-backend/evals/ab_runner.py                ← 双引擎对比（✅）
-backend/evals/reports/eval-report.*       ← 回放报告 JSON+MD（✅）
-backend/evals/reports/ab-report.*         ← A/B 对比报告（✅）
-src/data/calibration.ts                   ← 校准/评估实测数据模块（✅）
-src/components/pages/CalibrationView.vue  ← 校准与阈值页（含可靠性曲线 + A/B 卡）（✅）
-docs/threshold-tuning.md                  ← 阈值依据文档（待做；量化依据已并入 TRAINING.md 与校准页）
+backend/evals/eval_dataset.jsonl            ← 230 条评估集（✅）
+backend/evals/expansion_seeds.jsonl         ← 扩充种子 185 条来源（✅）
+backend/evals/replay_eval.py                ← 评估回放 + ECE/Brier/可靠性分桶（✅）
+backend/evals/ab_runner.py                  ← 双引擎对比（✅）
+backend/evals/threshold_scan.py             ← 阈值扫描工具（✅）
+backend/evals/reports/                     ← eval-report / ab-report / threshold-scan（✅）
+src/data/calibration.ts                     ← 校准/评估实测数据模块（✅）
+src/components/pages/CalibrationView.vue    ← 校准与阈值页（✅）
+docs/threshold-tuning.md                    ← 阈值量化依据文档（✅）
 ```
 
 ---
