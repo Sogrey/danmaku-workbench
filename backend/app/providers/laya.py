@@ -64,18 +64,20 @@ def build_questions() -> dict[str, dict[str, Any]]:
 
 
 class LayaProvider:
-    """微调 Laya 决策引擎（eval_acc 0.770 · 分桶温度已校准）。"""
-
-    name = "laya-finetuned-v0.2"
+    """微调 Laya 决策引擎（进程内 GPU 推理 · 分桶温度随 checkpoint 生效）。"""
 
     def __init__(self) -> None:
         repo = Path(os.environ.get("LAYA_REPO", "D:/AI/laya/repo-laya-hf"))
-        model_dir = Path(os.environ.get("LAYA_MODEL_DIR", "D:/AI/laya/danmaku-dm-v0.2"))
+        model_dir = Path(os.environ.get("LAYA_MODEL_DIR", "D:/AI/laya/danmaku-dm-v0.3"))
         if not (model_dir / "model.safetensors").exists():
             raise RuntimeError(
                 f"Laya checkpoint 不存在：{model_dir}（请先完成 finetune.py + calibrate.py，"
                 "或设置 LAYA_MODEL_DIR 指向可用 checkpoint）"
             )
+        # provider 名随 checkpoint 目录自动跟随版本（danmaku-dm-v0.3 → laya-finetuned-v0.3），
+        # /api/health 与 replay_eval 的 provider 校验均基于 "laya" 前缀，兼容任意版本目录
+        suffix = model_dir.name.replace("danmaku-dm-", "")
+        self.name = f"laya-finetuned-{suffix}" if suffix != model_dir.name else f"laya-{model_dir.name}"
         if str(repo) not in sys.path:
             sys.path.insert(0, str(repo))
         from rl_agent_api import RLAgent
