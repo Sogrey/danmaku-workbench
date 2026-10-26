@@ -11,19 +11,20 @@
  * T>1 会拉平概率分布，ECE 变化仅作参考。
  */
 
-/** 微调训练概要（finetune_history.json / TRAINING.md） */
+/** 微调训练概要（finetune_history.json / TRAINING.md）—— v0.3 = L3 补强版 */
 export const TRAINING_SUMMARY = {
-  model: 'laya-finetuned-v0.2',
+  model: 'laya-finetuned-v0.3',
   baseModel: 'Laya multilingual（mmBERT-base 322M）',
-  method: 'LoRA r=8 / α=32（target Wqkv）+ 决策头全训',
+  method: 'LoRA r=8 / α=32 + 决策头全训 · L3 补强（379 条，L3 占 15.8%）',
   epochs: 12,
-  trainSamples: 322,
-  evalAcc: 0.77,
-  evalAccByPrimitive: { choice: 0.822, noul: 0.867, score: 0.622 },
+  bestEpoch: 7,
+  trainSamples: 379,
+  evalAcc: 0.7667,
+  evalAccByPrimitive: { choice: 0.7565, noul: 0.8957, score: 0.6478 },
   calibratedAt: '2026-10-25',
 }
 
-/** 分桶温度（calibrate.py 分桶 NLL 黄金分割拟合；出厂温度全部为 1.0） */
+/** 分桶温度（calibrate.py 分桶 NLL 黄金分割拟合；出厂温度全部为 1.0）—— v0.3 校准 */
 export interface TemperatureBucket {
   /** 原语与候选规模标识，如 choice:3-5 */
   bucket: string
@@ -38,9 +39,9 @@ export interface TemperatureBucket {
 }
 
 export const TEMPERATURE_BUCKETS: TemperatureBucket[] = [
-  { bucket: 'choice:3-5', primitive: 'choice', name: 'Choice 五分类', n: 45, temperature: 3.0665, nll: 0.7072 },
-  { bucket: 'noul:2', primitive: 'noul', name: 'Noul 信息充分性', n: 45, temperature: 3.8094, nll: 0.4562 },
-  { bucket: 'score:3-5', primitive: 'score', name: 'Score 优先级', n: 45, temperature: 4.5357, nll: 0.9531 },
+  { bucket: 'choice:3-5', primitive: 'choice', name: 'Choice 五分类', n: 230, temperature: 2.8837, nll: 0.7599 },
+  { bucket: 'noul:2', primitive: 'noul', name: 'Noul 信息充分性', n: 230, temperature: 1.7171, nll: 0.3733 },
+  { bucket: 'score:3-5', primitive: 'score', name: 'Score 优先级', n: 230, temperature: 3.6716, nll: 0.901 },
 ]
 
 /** Noul 门槛量化对比（校准后在独立评估分位上的测算） */
@@ -58,71 +59,71 @@ export interface ThresholdOption {
 export const NOUL_THRESHOLD_OPTIONS: ThresholdOption[] = [
   {
     threshold: 0.65,
-    coverage: 0.556,
-    accuracy: 0.92,
+    coverage: 0.704,
+    accuracy: 0.896,
     adopted: true,
-    note: '量化最优平衡：多放行 18% 覆盖率，仅损失 2% 区间准确率',
+    note: '当前采用（v0.3 实测）：覆盖 70.4%，区间一致 89.6%，通过内实际 94.4%',
   },
   {
     threshold: 0.8,
-    coverage: 0.378,
-    accuracy: 0.94,
+    coverage: 0.639,
+    accuracy: 0.83,
     adopted: false,
-    note: '更保守：区间准确率 +2%，但 62% 的消息被推向人工确认',
+    note: '对照：v0.3 下覆盖降至 63.9% 且一致率跌至 83.0%——大样本两度证伪',
   },
 ]
 
 /** Choice 门槛说明（60% 保持不变） */
 export const CHOICE_THRESHOLD = {
   threshold: 0.6,
-  passRate: 0.687,
-  medianTopProb: 0.83,
-  note: '230 条评估上 60% 门槛覆盖 68.7%，区间内分类准确率 83.5%，沿用课程原版门槛',
+  passRate: 0.7,
+  medianTopProb: 0.9163,
+  note: 'v0.3 实测：60% 门槛覆盖 70.0%，区间内分类准确率 86.3%，仍处膝点，沿用课程原版门槛',
 }
 
-/** 评估回放摘要（230 条独立评估集 = 45 初版 + 185 扩充（含 22 条直播中断类），2026-10-25，--local 回放） */
+/** 评估回放摘要（v0.3 · 230 条独立评估集，2026-10-26，--local 回放） */
 export const EVAL_REPLAY = {
-  generatedAt: '2026-10-25',
+  generatedAt: '2026-10-26',
   sampleCount: 230,
-  avgLatencyMs: 101,
+  avgLatencyMs: 92,
   choice: {
-    accuracy: 0.765,
-    confPassCoverage: 0.413,
-    confPassAccuracy: 0.916,
+    accuracy: 0.748,
+    confPassCoverage: 0.4,
+    confPassAccuracy: 0.902,
   },
   noul: {
-    intervalAccuracy: 0.857,
-    coverage: 0.665,
-    passedAccuracy: 0.941,
-    meanProbTruthActionable: 0.764,
-    meanProbTruthInsufficient: 0.305,
+    intervalAccuracy: 0.896,
+    coverage: 0.704,
+    passedAccuracy: 0.944,
+    meanProbTruthActionable: 0.874,
+    meanProbTruthInsufficient: 0.329,
   },
   score: {
-    exactAccuracy: 0.574,
-    within1Accuracy: 0.961,
-    mae: 0.56,
+    exactAccuracy: 0.587,
+    within1Accuracy: 0.957,
+    mae: 0.55,
   },
 }
 
-/** Choice 混淆矩阵（行=真值，列=预测；顺序同 CATEGORY_ORDER） */
+/** Choice 混淆矩阵（v0.3，行=真值，列=预测；顺序同 CATEGORY_ORDER） */
 export const CONFUSION_LABELS = ['technical', 'feedback', 'chat', 'spam', 'insufficient'] as const
 export const CONFUSION_MATRIX: number[][] = [
-  [58, 2, 0, 0, 0],
-  [12, 46, 0, 0, 2],
-  [9, 2, 28, 5, 4],
-  [3, 0, 1, 19, 0],
-  [10, 3, 1, 0, 25],
+  [57, 1, 0, 0, 2],
+  [10, 49, 0, 0, 1],
+  [8, 10, 23, 2, 5],
+  [2, 0, 1, 20, 0],
+  [8, 6, 2, 0, 23],
 ]
 
-/** 错误样本画像（74 条错误的分布结论，2026-10-25） */
+/** 错误样本画像（70 条错误，v0.3） */
 export const ERROR_PROFILE = {
-  total: 74,
+  total: 70,
   findings: [
-    'technical 58/60、spam 19/23 全对，主力类别可靠',
-    '★ 22 条等级 3（直播中断类）真值样本 0 条被判中（19 条判 L2）——训练集 L3 占比不足，重训需补该类样本',
-    'feedback 12 条被判 technical（黑屏/闪退/报错类描述常带技术词）；insufficient 10 条判 technical（上下文依赖型）',
-    'chat 48 条中 9 判 technical、5 判 spam（如「课程官方群怎么加」被误判引流）',
-    'Score ±1 容差命中 96.1%，等级方向基本不偏，exact 弱与官方结论一致',
+    '★ L3 突破：22 条直播中断类真值样本 0 → 9 命中（41%）且零误报（9 条被判 L3 的真值全部为 3）——L3 补强训练生效',
+    '剩余 12 条 L3 判为 L2：仍进「优先协助」队列不漏处理，仅排序略低；下一步补 L2/L3 对照种子可继续提升',
+    'technical 57/60、spam 20/23 保持主力可靠；insufficient→technical 降至 8（v0.2 为 10）',
+    'chat 25 条外溢（8 判 technical、10 判 feedback——节奏/语速类闲聊被误判为听课反馈、5 判 insufficient）',
+    'Score ±1 容差命中 95.7%；ECE choice 0.030 / noul 0.043，校准质量较 v0.2 翻倍改善',
   ],
 }
 
@@ -142,36 +143,37 @@ export interface ReliabilityBin {
 export const RELIABILITY = {
   binsCount: 5,
   choice: {
-    ece: 0.0593,
-    brier: 0.0739,
+    ece: 0.0303,
+    brier: 0.0738,
     bins: [
       { range: [0, 0.2] as [number, number], n: 0, avgConfidence: null, accuracy: null },
-      { range: [0.2, 0.4] as [number, number], n: 14, avgConfidence: 0.3654, accuracy: 0.2857 },
-      { range: [0.4, 0.6] as [number, number], n: 58, avgConfidence: 0.5062, accuracy: 0.6897 },
-      { range: [0.6, 0.8] as [number, number], n: 60, avgConfidence: 0.705, accuracy: 0.7167 },
-      { range: [0.8, 1.0] as [number, number], n: 98, avgConfidence: 0.9203, accuracy: 0.9082 },
+      { range: [0.2, 0.4] as [number, number], n: 17, avgConfidence: 0.358, accuracy: 0.2941 },
+      { range: [0.4, 0.6] as [number, number], n: 52, avgConfidence: 0.521, accuracy: 0.5385 },
+      { range: [0.6, 0.8] as [number, number], n: 60, avgConfidence: 0.7095, accuracy: 0.7833 },
+      { range: [0.8, 1.0] as [number, number], n: 101, avgConfidence: 0.9163, accuracy: 0.9109 },
     ] as ReliabilityBin[],
   },
   noul: {
-    ece: 0.0992,
-    brier: 0.1092,
+    ece: 0.0429,
+    brier: 0.0867,
     bins: [
-      { range: [0, 0.2] as [number, number], n: 35, avgConfidence: 0.0762, accuracy: 0.1714 },
-      { range: [0.2, 0.4] as [number, number], n: 17, avgConfidence: 0.2975, accuracy: 0.2353 },
-      { range: [0.4, 0.6] as [number, number], n: 16, avgConfidence: 0.4815, accuracy: 0.5 },
-      { range: [0.6, 0.8] as [number, number], n: 52, avgConfidence: 0.7216, accuracy: 0.8846 },
-      { range: [0.8, 1.0] as [number, number], n: 110, avgConfidence: 0.8578, accuracy: 0.9455 },
+      { range: [0, 0.2] as [number, number], n: 30, avgConfidence: 0.0932, accuracy: 0.0667 },
+      { range: [0.2, 0.4] as [number, number], n: 21, avgConfidence: 0.2929, accuracy: 0.3333 },
+      { range: [0.4, 0.6] as [number, number], n: 13, avgConfidence: 0.5126, accuracy: 0.2308 },
+      { range: [0.6, 0.8] as [number, number], n: 19, avgConfidence: 0.7111, accuracy: 0.9474 },
+      { range: [0.8, 1.0] as [number, number], n: 147, avgConfidence: 0.9393, accuracy: 0.9388 },
     ] as ReliabilityBin[],
   },
-  /** 按预测等级分组：预测均值 vs 实际等级均值（无样本被判等级 3） */
+  /** 按预测等级分组（v0.3）：L3 分箱首次出现，n=9 且实际均值 3.0 */
   scoreByPredLevel: [
-    { predLevel: 0, n: 69, meanPred: 0.308, meanTruth: 0.275, mae: 0.44 },
-    { predLevel: 1, n: 119, meanPred: 1.025, meanTruth: 0.798, mae: 0.514 },
-    { predLevel: 2, n: 42, meanPred: 1.762, meanTruth: 2.024, mae: 0.906 },
+    { predLevel: 0, n: 66, meanPred: 0.299, meanTruth: 0.212, mae: 0.401 },
+    { predLevel: 1, n: 111, meanPred: 0.956, meanTruth: 0.802, mae: 0.524 },
+    { predLevel: 2, n: 44, meanPred: 1.891, meanTruth: 1.568, mae: 0.896 },
+    { predLevel: 3, n: 9, meanPred: 2.618, meanTruth: 3.0, mae: 0.382 },
   ],
 }
 
-/** A/B 引擎对比（230 条独立评估集，ab_runner.py，2026-10-25） */
+/** A/B 引擎对比（v0.2 → v0.3 迭代验证，230 条独立评估集，ab_runner.py，2026-10-26） */
 export interface AbEngine {
   name: string
   desc: string
@@ -187,23 +189,10 @@ export interface AbEngine {
 }
 
 export const AB_COMPARISON = {
-  generatedAt: '2026-10-25',
+  generatedAt: '2026-10-26',
   engineA: {
-    name: 'laya-baseline',
-    desc: '零样本 multilingual 基线（出厂温度 1.0，未微调）',
-    choiceAcc: 0.435,
-    noulAcc: 0.643,
-    noulCoverage: 0.791,
-    scoreExact: 0.096,
-    scoreWithin1: 0.591,
-    mae: 1.19,
-    choiceEce: 0.2227,
-    noulEce: 0.1834,
-    latencyMs: 96,
-  } as AbEngine,
-  engineB: {
-    name: 'laya-finetuned',
-    desc: 'LoRA 微调 + 分桶温度校准（danmaku-dm-v0.2）',
+    name: 'laya-v0.2',
+    desc: '上一代微调 checkpoint（L3 补强前，322 条训练集）',
     choiceAcc: 0.765,
     noulAcc: 0.857,
     noulCoverage: 0.665,
@@ -212,20 +201,33 @@ export const AB_COMPARISON = {
     mae: 0.56,
     choiceEce: 0.0593,
     noulEce: 0.0992,
-    latencyMs: 100,
+    latencyMs: 91,
+  } as AbEngine,
+  engineB: {
+    name: 'laya-v0.3（当前）',
+    desc: 'L3 补强版（379 条训练集，L3 占 15.8%）+ 重新校准',
+    choiceAcc: 0.748,
+    noulAcc: 0.896,
+    noulCoverage: 0.704,
+    scoreExact: 0.587,
+    scoreWithin1: 0.957,
+    mae: 0.55,
+    choiceEce: 0.0303,
+    noulEce: 0.0429,
+    latencyMs: 82,
   } as AbEngine,
   agreement: {
-    choice: 0.543,
-    noul: 0.63,
-    scoreExact: 0.196,
-    scoreWithin1: 0.704,
-    diffCount: 164,
+    choice: 0.861,
+    noul: 0.9,
+    scoreExact: 0.73,
+    scoreWithin1: 0.991,
+    diffCount: 47,
   },
   findings: [
-    '微调增益：choice 43.5%→76.5%（+33.0pp）、noul 64.3%→85.7%（+21.4pp）、score exact 9.6%→57.4%（MAE 1.19→0.56）',
-    '校准增益：choice ECE 0.223→0.059、noul ECE 0.183→0.099（准确率与校准质量同步改善）',
-    '基线系统性缺陷：score exact 仅 9.6% 且等级分布坍缩，对 Score 原语几乎无理解',
-    '基线 noul 覆盖 79.1% 但区间准确率仅 64.3%：近乎「全判可处理」；微调后收敛到 66.5%/85.7%',
-    '分歧 164/230 条（71%）：微调实质改变了决策分布，分歧集中在 insufficient / 闲聊 / 直播中断类边界',
+    '★ L3 突破：22 条直播中断类真值 0 → 9 命中（41%）且零误报；剩余 12 条判 L2 进「优先协助」，不漏处理',
+    'noul 区间准确 85.7% → 89.6%（+3.9pp），覆盖 66.5% → 70.4%；校准质量翻倍（ECE choice 0.059→0.030、noul 0.099→0.043）',
+    'choice 76.5% → 74.8%（-1.7pp 容差内）；technical 57/60 主力保持，chat→feedback 误判 10 条为新增噪声',
+    '迭代稳定性：一致率 choice 86.1% / noul 90.0% / score±1 99.1%，分歧仅 47/230——两代模型行为高度连续',
+    '相对零样本基线（choice 43.5%）微调路线整体增益 +31.3pp，且 v0.3 首次具备最高优先级识别能力',
   ],
 }

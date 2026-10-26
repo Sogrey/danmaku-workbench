@@ -211,8 +211,8 @@ const abMetrics = [
             <text :x="PLOT.size / 2" :y="PLOT.size - 8" class="axis-label">模型概率 →</text>
           </svg>
           <p class="fig-note">
-            低置信区（0.2–0.4）实际仅 28.6%（过度自信的犹豫地带）；中高置信区基本对齐
-            （0.6–0.8 实际 71.7%、0.8–1.0 实际 90.8%）；点面积 ∝ 样本数，悬停查看明细。
+            低置信区（0.2–0.4）实际仅 29.4%（犹豫地带仍过度自信，恰好被 60% 门槛拦下）；
+            中高置信区对齐良好（0.6–0.8 实际 78.3%、0.8–1.0 实际 91.1%）；点面积 ∝ 样本数。
           </p>
         </figure>
 
@@ -235,8 +235,8 @@ const abMetrics = [
             <text :x="PLOT.size / 2" :y="PLOT.size - 8" class="axis-label">模型概率 →</text>
           </svg>
           <p class="fig-note">
-            低概率区判「不可处理」可靠（实际 17~24%）；0.6–0.8 区间实际 88.5%、
-            0.8–1.0 区间实际 94.6%，与 0.65 门槛量化结论吻合。
+            低概率区判「不可处理」更准（0–0.2 实际仅 6.7%）；0.6–0.8 区间实际 94.7%、
+            0.8–1.0 区间实际 93.9%，与 0.65 门槛语义吻合（中段 0.4–0.6 样本稀疏仅 13 条）。
           </p>
         </figure>
       </div>
@@ -266,8 +266,8 @@ const abMetrics = [
           </table>
         </div>
         <p class="foot-note">
-          22 条等级 3（直播中断类）真值样本 0 条被判中（19 条判 L2）——训练集 L3 样本不足，
-          下一次重训需补强该类；当前生产环境由「优先协助」队列承接（排序略后于应有的最高优先）。
+          ★ L3 分箱首次出现：9 条被判「立即关注」且实际均值 3.0（零误报）——L3 补强训练生效；
+          12 条直播中断类仍判 L2 进「优先协助」不漏处理，补 L2/L3 对照种子可继续提升。
         </p>
       </div>
     </section>
@@ -355,14 +355,14 @@ const abMetrics = [
     <section class="card">
       <header class="sec-head">
         <div>
-          <h2>A/B 引擎对比 · 零样本基线 vs 微调</h2>
+          <h2>A/B 引擎对比 · v0.2 → v0.3 迭代</h2>
           <p>
-            45 条独立评估集 · ab_runner.py 顺序跑批（判据与温度各自生效）· {{ AB.generatedAt }} ·
+            230 条独立评估集 · ab_runner.py 顺序跑批（判据与温度各自生效）· {{ AB.generatedAt }} ·
             详见 backend/evals/reports/ab-report.md
           </p>
         </div>
         <div class="ab-badges">
-          <span class="badge badge-plain">分歧样本 {{ AB.agreement.diffCount }}/45 条</span>
+          <span class="badge badge-plain">分歧样本 {{ AB.agreement.diffCount }}/230 条</span>
         </div>
       </header>
 
