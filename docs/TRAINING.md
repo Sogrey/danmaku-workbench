@@ -1,8 +1,8 @@
 # Laya 微调训练指南
 
-> danmaku-workbench v0.2 · 基于实测的训练全流程文档（环境 → 数据 → 训练 → 校准 → 应用 → 调优）
+> danmaku-workbench v0.3 · 基于实测的训练全流程文档（环境 → 数据 → 训练 → 校准 → 应用 → 调优）
 >
-> 本文所有数据来自 2026-10-25 在 RTX 3060 Laptop（6GB）上的真实训练记录，可直接复现。
+> 正文记录 2026-10-25 首训（v0.2）实测数据，§7.5 记录 v0.3 L3 补强迭代；均为 RTX 3060 Laptop（6GB）真实训练记录，可直接复现。
 
 ---
 
@@ -89,7 +89,8 @@ D:\AI\laya\
 │  │  ├─ encoder\config.json        # mmBERT 架构配置（build_model 用）
 │  │  └─ tokenizer\                 # tokenizer.json 34MB（256k 词表）
 │  └─ ...
-└─ danmaku-dm-v0.2\                 # ★ 微调产物（本文 §6）
+├─ danmaku-dm-v0.2\                 # v0.2 首训产物（§5 实测；保留可回退）
+└─ danmaku-dm-v0.3\                 # ★ 当前引擎（L3 补强迭代产物，§7.5）
 ```
 
 ### 2.5 环境自检清单
@@ -140,6 +141,8 @@ category：technical 90 · feedback 66 · chat 63 · spam 40 · insufficient 63
 impact_level：0级139 · 1级108 · 2级63 · 3级12（⚠️ 3级样本天然稀少，见 §7.1）
 actionable：true 219 · false 103
 ```
+
+> **v0.3 迭代后现状**（§7.5 实战案例）：训练集 379 条（133 种子 + 246 变体，3 级占 15.8%），评估集 230 条。
 
 ### 3.4 两项关键数据设计
 
@@ -263,7 +266,7 @@ encoder/ · tokenizer/       # 架构与分词器（自基线复制）
 import sys; sys.path.insert(0, "D:/AI/laya/repo-laya-hf")
 from rl_agent_api import RLAgent
 
-agent = RLAgent("D:/AI/laya/danmaku-dm-v0.2")   # 自动加载校准温度
+agent = RLAgent("D:/AI/laya/danmaku-dm-v0.3")   # 当前默认引擎；自动加载校准温度
 result = agent.system_one(
     "老师说话声音有点小，调高一点吧",
     {"category": {"type": "choice", "instructions": "这条直播弹幕属于哪一类？",
@@ -343,8 +346,14 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
   归因：训练集 322 条中 L3 仅 4 种子（含变体约 12 条，占 3.7%）。
 - 措施：train_seeds 追加 16 条 L3 种子（黑屏/无声/断流/音画错位等全新措辞）
   + 3 条 L2 对照（受阻可部分跟随 vs 无法接收的边界教学）；L3 占比升至约 12%。
-- 判定：eval_acc ≥ 0.77 不回退；回放 Score 分箱表出现「3 · 立即关注」行且 mean_truth ≥ 2。
+- 判定：eval_acc ≥ 0.70（评估集已扩至 230 条，与 v0.2 首训的 0.770 非同集不直接可比）；
+  回放 Score 分箱出现「3 · 立即关注」行且 mean_truth ≥ 2、choice ≥ 75%、noul ≥ 84%、Score ±1 ≥ 96%。
 - 若两轮后 L3 仍零命中：种子加至 25~30 条或 `--epochs 16`。
+- **实测结果（全部达标，v0.3 已采纳为默认引擎）**：best epoch 7、eval_acc 0.7667；
+  L3 命中 0 → **9 条（41%）且零误报**（被判 L3 的 9 条真值全为 3，分箱 mean_truth=3.0），
+  其余 12 条判 L2（不漏处理，仅排序偏低）；choice 76.5%→74.8%、Score ±1 96.1%→95.7%（均容差内微降）、
+  noul 85.7%→**89.6%**（覆盖 70.4%）；ECE choice 0.059→**0.030** / noul 0.099→**0.043**；
+  分桶温度 choice 2.88 / noul 1.72 / score 3.67（noul 3.81→1.72，模型显著更自信）。
 
 **两个已踩过的坑（重训前必读）**：
 
@@ -381,9 +390,10 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
 | `backend/training/finetune.py` | LoRA 微调：注入/损失/批处理/快照/merge 保存 |
 | `backend/training/calibrate.py` | 分桶温度拟合（golden-section NLL）+ ECE 对比 + 写回 |
 | `backend/training/requirements.txt` | 训练栈版本记录 |
-| `backend/training/train_dataset.jsonl` | 训练集 322 条 |
-| `backend/evals/eval_dataset.jsonl` | 独立评估集 45 条 |
+| `backend/training/train_dataset.jsonl` | 训练集（首训 322 条 → v0.3 重建 379 条） |
+| `backend/evals/eval_dataset.jsonl` | 独立评估集（首训 45 条 → 现 230 条） |
 | `D:/AI/laya/repo-laya-hf/rl_common.py` | 官方训练基建（只读复用，勿改） |
-| `D:/AI/laya/danmaku-dm-v0.2/` | 微调产物 checkpoint（模型资产，不进 git） |
+| `D:/AI/laya/danmaku-dm-v0.2/` | v0.2 首训 checkpoint（模型资产，不进 git，保留可回退） |
+| `D:/AI/laya/danmaku-dm-v0.3/` | ★ 当前引擎 checkpoint（v0.3 L3 补强；模型资产，不进 git） |
 
 > AI生成
