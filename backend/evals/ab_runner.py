@@ -1,13 +1,13 @@
 """A/B 引擎对比：双决策引擎在评估集上顺序跑批，输出一致率与分歧样本。
 
 默认对比（模型迭代验证）：
-  A = laya-v0.2   上一代微调 checkpoint（L3 补强前）
-  B = laya-v0.3   当前微调 checkpoint（L3 补强版）
+  A = laya-v0.3   上一代默认 checkpoint（阶段四收官版）
+  B = laya-v0.6   当前微调 checkpoint（L3 补强 + chat 口径修正版）
 
 用法（backend 目录下）：
-  .venv/Scripts/python.exe evals/ab_runner.py                    # 默认 v0.2 vs v0.3
+  .venv/Scripts/python.exe evals/ab_runner.py                    # 默认 v0.3 vs v0.6
   .venv/Scripts/python.exe evals/ab_runner.py --a laya-baseline # 与零样本基线对比
-  引擎可选：laya-baseline / laya-v0.2 / laya-v0.3 / laya-v0.4 / mock
+  引擎可选：laya-baseline / laya-v0.2 / laya-v0.3 / laya-v0.4 / laya-v0.5 / laya-v0.6 / mock
 
 显存管理：两引擎顺序加载跑批，切换时 del + torch.cuda.empty_cache()，
 峰值只占一个模型（RTX 3060 6GB 可跑）。
@@ -39,6 +39,8 @@ ENGINE_DIRS = {
     "laya-v0.2": "D:/AI/laya/danmaku-dm-v0.2",
     "laya-v0.3": "D:/AI/laya/danmaku-dm-v0.3",
     "laya-v0.4": "D:/AI/laya/danmaku-dm-v0.4",
+    "laya-v0.5": "D:/AI/laya/danmaku-dm-v0.5",
+    "laya-v0.6": "D:/AI/laya/danmaku-dm-v0.6",
 }
 
 
@@ -221,8 +223,8 @@ def render_markdown(meta: dict, sa: dict, sb: dict, ag: dict) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="A/B 引擎对比")
-    parser.add_argument("--a", default="laya-v0.2", help="A 引擎：laya-baseline / laya-v0.2 / laya-v0.3 / laya-v0.4 / mock")
-    parser.add_argument("--b", default="laya-v0.3", help="B 引擎：laya-baseline / laya-v0.2 / laya-v0.3 / laya-v0.4 / mock")
+    parser.add_argument("--a", default="laya-v0.3", help="A 引擎：laya-baseline / laya-v0.2 / laya-v0.3 / laya-v0.4 / laya-v0.5 / laya-v0.6 / mock")
+    parser.add_argument("--b", default="laya-v0.6", help="B 引擎：laya-baseline / laya-v0.2 / laya-v0.3 / laya-v0.4 / laya-v0.5 / laya-v0.6 / mock")
     args = parser.parse_args()
     if args.a == args.b:
         raise SystemExit("A 与 B 引擎相同，无需对比")

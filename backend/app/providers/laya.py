@@ -1,13 +1,13 @@
-"""Laya Provider —— 对接微调后的 RLAgent（danmaku-dm-v0.2 checkpoint），进程内 GPU 推理。
+"""Laya Provider —— 对接微调后的 RLAgent（danmaku-dm-v0.6 checkpoint），进程内 GPU 推理。
 
-v0.2 阶段一收尾实现：
-  - 加载 D:/AI/laya/danmaku-dm-v0.2（LoRA 微调 + 分桶温度校准后的 checkpoint）
+演进（阶段一收尾实现，随模型迭代更新默认目录）：
+  - 加载 D:/AI/laya/danmaku-dm-v0.6（LoRA 微调 + 分桶温度校准后的 checkpoint）
   - 复用官方 rl_agent_api.RLAgent（Jev 兼容的 system_one 推理，自动套用 temperature_by_options）
   - 判据与训练时（finetune.py）完全一致 —— 判据即模型契约，改判据必须重训/重校准
 
 配置（环境变量）：
   LAYA_REPO      官方基建目录（rl_agent_api.py / rl_common.py），默认 D:/AI/laya/repo-laya-hf
-  LAYA_MODEL_DIR 微调 checkpoint 目录，默认 D:/AI/laya/danmaku-dm-v0.2
+  LAYA_MODEL_DIR 微调 checkpoint 目录，默认 D:/AI/laya/danmaku-dm-v0.6
   LAYA_DEVICE     cuda | cpu，默认自动（cuda 可用则 cuda）
 """
 from __future__ import annotations
@@ -68,13 +68,13 @@ class LayaProvider:
 
     def __init__(self) -> None:
         repo = Path(os.environ.get("LAYA_REPO", "D:/AI/laya/repo-laya-hf"))
-        model_dir = Path(os.environ.get("LAYA_MODEL_DIR", "D:/AI/laya/danmaku-dm-v0.3"))
+        model_dir = Path(os.environ.get("LAYA_MODEL_DIR", "D:/AI/laya/danmaku-dm-v0.6"))
         if not (model_dir / "model.safetensors").exists():
             raise RuntimeError(
                 f"Laya checkpoint 不存在：{model_dir}（请先完成 finetune.py + calibrate.py，"
                 "或设置 LAYA_MODEL_DIR 指向可用 checkpoint）"
             )
-        # provider 名随 checkpoint 目录自动跟随版本（danmaku-dm-v0.3 → laya-finetuned-v0.3），
+        # provider 名随 checkpoint 目录自动跟随版本（danmaku-dm-v0.6 → laya-finetuned-v0.6），
         # /api/health 与 replay_eval 的 provider 校验均基于 "laya" 前缀，兼容任意版本目录
         suffix = model_dir.name.replace("danmaku-dm-", "")
         self.name = f"laya-finetuned-{suffix}" if suffix != model_dir.name else f"laya-{model_dir.name}"
