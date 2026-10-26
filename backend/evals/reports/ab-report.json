@@ -1,985 +1,11 @@
 {
   "meta": {
-    "generated_at": "2026-10-26T15:37:18.738268+00:00",
-    "engine_a": "laya-v0.2",
-    "engine_b": "laya-v0.3",
+    "generated_at": "2026-10-26T16:14:01.096358+00:00",
+    "engine_a": "laya-v0.3",
+    "engine_b": "laya-v0.4",
     "eval_dataset": "evals/eval_dataset.jsonl"
   },
   "summary_a": {
-    "thresholds": {
-      "choice_confidence_min": 0.6,
-      "noul_actionable_min": 0.6
-    },
-    "choice": {
-      "accuracy": 0.7652173913043478,
-      "confusion": {
-        "technical": {
-          "technical": 58,
-          "feedback": 2,
-          "chat": 0,
-          "spam": 0,
-          "insufficient": 0
-        },
-        "feedback": {
-          "technical": 12,
-          "feedback": 46,
-          "chat": 0,
-          "spam": 0,
-          "insufficient": 2
-        },
-        "chat": {
-          "technical": 9,
-          "feedback": 2,
-          "chat": 28,
-          "spam": 5,
-          "insufficient": 4
-        },
-        "spam": {
-          "technical": 3,
-          "feedback": 0,
-          "chat": 1,
-          "spam": 19,
-          "insufficient": 0
-        },
-        "insufficient": {
-          "technical": 10,
-          "feedback": 3,
-          "chat": 1,
-          "spam": 0,
-          "insufficient": 25
-        }
-      },
-      "conf_pass_count": 95,
-      "conf_pass_coverage": 0.41304347826086957,
-      "conf_pass_accuracy": 0.9157894736842105
-    },
-    "noul": {
-      "interval_accuracy": 0.8695652173913043,
-      "coverage": 0.7043478260869566,
-      "interval_accuracy_when_passed": 0.9259259259259259,
-      "mean_prob_truth_actionable": 0.764222619047619,
-      "mean_prob_truth_insufficient": 0.30524193548387096
-    },
-    "score": {
-      "exact_accuracy": 0.5739130434782609,
-      "within1_accuracy": 0.9608695652173913,
-      "mae": 0.5633821739130435
-    },
-    "reliability": {
-      "bins_count": 5,
-      "choice": {
-        "bins": [
-          {
-            "range": [
-              0.0,
-              0.2
-            ],
-            "n": 0,
-            "avg_confidence": null,
-            "accuracy": null
-          },
-          {
-            "range": [
-              0.2,
-              0.4
-            ],
-            "n": 14,
-            "avg_confidence": 0.3654,
-            "accuracy": 0.2857
-          },
-          {
-            "range": [
-              0.4,
-              0.6
-            ],
-            "n": 58,
-            "avg_confidence": 0.5062,
-            "accuracy": 0.6897
-          },
-          {
-            "range": [
-              0.6,
-              0.8
-            ],
-            "n": 60,
-            "avg_confidence": 0.705,
-            "accuracy": 0.7167
-          },
-          {
-            "range": [
-              0.8,
-              1.0
-            ],
-            "n": 98,
-            "avg_confidence": 0.9203,
-            "accuracy": 0.9082
-          }
-        ],
-        "ece": 0.0593,
-        "brier": 0.0739
-      },
-      "noul": {
-        "bins": [
-          {
-            "range": [
-              0.0,
-              0.2
-            ],
-            "n": 35,
-            "avg_confidence": 0.0762,
-            "accuracy": 0.1714
-          },
-          {
-            "range": [
-              0.2,
-              0.4
-            ],
-            "n": 17,
-            "avg_confidence": 0.2975,
-            "accuracy": 0.2353
-          },
-          {
-            "range": [
-              0.4,
-              0.6
-            ],
-            "n": 16,
-            "avg_confidence": 0.4815,
-            "accuracy": 0.5
-          },
-          {
-            "range": [
-              0.6,
-              0.8
-            ],
-            "n": 52,
-            "avg_confidence": 0.7216,
-            "accuracy": 0.8846
-          },
-          {
-            "range": [
-              0.8,
-              1.0
-            ],
-            "n": 110,
-            "avg_confidence": 0.8578,
-            "accuracy": 0.9455
-          }
-        ],
-        "ece": 0.0992,
-        "brier": 0.1092
-      },
-      "score_by_pred_level": [
-        {
-          "pred_level": 0,
-          "n": 69,
-          "mean_truth": 0.275,
-          "mean_pred": 0.308,
-          "mae": 0.44
-        },
-        {
-          "pred_level": 1,
-          "n": 119,
-          "mean_truth": 0.798,
-          "mean_pred": 1.025,
-          "mae": 0.514
-        },
-        {
-          "pred_level": 2,
-          "n": 42,
-          "mean_truth": 2.024,
-          "mean_pred": 1.762,
-          "mae": 0.906
-        }
-      ]
-    },
-    "errors": [
-      {
-        "id": "ev-0007",
-        "text": "demo 项目的代码能开源到内网 git 吗",
-        "truth_category": "technical",
-        "pred_category": "technical",
-        "confidence": 0.6726,
-        "noul_ok": false,
-        "noul": 0.3891,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0013",
-        "text": "共享的代码区反光了，看不清关键字",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.7253,
-        "noul_ok": true,
-        "noul": 0.8542,
-        "truth_impact": 1,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0019",
-        "text": "潜水了很久，今天必须冒个泡",
-        "truth_category": "chat",
-        "pred_category": "insufficient",
-        "confidence": 0.373,
-        "noul_ok": true,
-        "noul": 0.8354,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0021",
-        "text": "下期直播什么时候开",
-        "truth_category": "chat",
-        "pred_category": "chat",
-        "confidence": 0.2159,
-        "noul_ok": false,
-        "noul": 0.0268,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0022",
-        "text": "666",
-        "truth_category": "chat",
-        "pred_category": "insufficient",
-        "confidence": 0.4319,
-        "noul_ok": true,
-        "noul": 0.6657,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0024",
-        "text": "散会去吃饭，回放见",
-        "truth_category": "chat",
-        "pred_category": "chat",
-        "confidence": 0.1159,
-        "noul_ok": false,
-        "noul": 0.0354,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0035",
-        "text": "就是这个报错，帮我看看",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.5059,
-        "noul_ok": true,
-        "noul": 0.2667,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0036",
-        "text": "到第三步就不行了",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.3787,
-        "noul_ok": true,
-        "noul": 0.0721,
-        "truth_impact": 2,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0037",
-        "text": "为什么我的和演示不一样",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.1433,
-        "noul_ok": false,
-        "noul": 0.732,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0038",
-        "text": "同样的操作，别人可以我不行",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1346,
-        "noul_ok": true,
-        "noul": 0.1129,
-        "truth_impact": 2,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0040",
-        "text": "看一下我的报错",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.3896,
-        "noul_ok": false,
-        "noul": 0.606,
-        "truth_impact": 1,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0041",
-        "text": "跟上上一位同学的问题一样",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.2191,
-        "noul_ok": true,
-        "noul": 0.089,
-        "truth_impact": 1,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0042",
-        "text": "这一页过一下，太快了",
-        "truth_category": "insufficient",
-        "pred_category": "feedback",
-        "confidence": 0.8484,
-        "noul_ok": false,
-        "noul": 0.8214,
-        "truth_impact": 1,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0052",
-        "text": "三个原语的提问顺序会影响概率输出吗",
-        "truth_category": "technical",
-        "pred_category": "feedback",
-        "confidence": 0.4983,
-        "noul_ok": true,
-        "noul": 0.8612,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0069",
-        "text": "请求里的 examples 字段必须传吗，不传会怎样",
-        "truth_category": "technical",
-        "pred_category": "feedback",
-        "confidence": 0.5025,
-        "noul_ok": true,
-        "noul": 0.7817,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0099",
-        "text": "又掉线了，一直显示重新连接中",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.4779,
-        "noul_ok": true,
-        "noul": 0.8617,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0101",
-        "text": "我这边彻底听不到了，群里说还有声",
-        "truth_category": "feedback",
-        "pred_category": "insufficient",
-        "confidence": 0.2779,
-        "noul_ok": false,
-        "noul": 0.0379,
-        "truth_impact": 3,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0103",
-        "text": "画面全花了，一片绿色拖影",
-        "truth_category": "feedback",
-        "pred_category": "feedback",
-        "confidence": 0.9296,
-        "noul_ok": true,
-        "noul": 0.9023,
-        "truth_impact": 3,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0104",
-        "text": "直播间加载失败，刷新也没用",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.6845,
-        "noul_ok": true,
-        "noul": 0.8464,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0107",
-        "text": "直播中断了，页面上提示网络错误",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.6091,
-        "noul_ok": true,
-        "noul": 0.857,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0108",
-        "text": "只能听到回声，老师的声音完全听不见",
-        "truth_category": "feedback",
-        "pred_category": "feedback",
-        "confidence": 0.4973,
-        "noul_ok": false,
-        "noul": 0.4034,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0110",
-        "text": "老师是不是掉线了，画面完全静止不动",
-        "truth_category": "feedback",
-        "pred_category": "feedback",
-        "confidence": 0.9276,
-        "noul_ok": true,
-        "noul": 0.8371,
-        "truth_impact": 3,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0111",
-        "text": "弹幕能发出去，但直播画面是黑的",
-        "truth_category": "feedback",
-        "pred_category": "feedback",
-        "confidence": 0.9541,
-        "noul_ok": false,
-        "noul": 0.5146,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0113",
-        "text": "手机看直播直接闪退，重进还是黑屏",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.2913,
-        "noul_ok": false,
-        "noul": 0.4762,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0121",
-        "text": "讲义配色太浅，后排看不清代码",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.132,
-        "noul_ok": true,
-        "noul": 0.8975,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0123",
-        "text": "弹幕刷得太快，提问一下就被顶没了",
-        "truth_category": "feedback",
-        "pred_category": "feedback",
-        "confidence": 0.44,
-        "noul_ok": false,
-        "noul": 0.3446,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0124",
-        "text": "老师能不能重复一下刚才那个参数名",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.2764,
-        "noul_ok": true,
-        "noul": 0.7364,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0129",
-        "text": "麦克风离嘴太远，听不清楚在说什么",
-        "truth_category": "feedback",
-        "pred_category": "insufficient",
-        "confidence": 0.3073,
-        "noul_ok": false,
-        "noul": 0.5501,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0135",
-        "text": "鼠标指针太小，看不清指到哪一行",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.2338,
-        "noul_ok": true,
-        "noul": 0.8437,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0142",
-        "text": "讲义能不能提前发一下，好跟着记笔记",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.1643,
-        "noul_ok": true,
-        "noul": 0.7558,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0143",
-        "text": "推流帧率太低，滚动代码全是拖影",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.7099,
-        "noul_ok": true,
-        "noul": 0.8612,
-        "truth_impact": 2,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0144",
-        "text": "中午一直缓冲，换了网络才好一点",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.2429,
-        "noul_ok": true,
-        "noul": 0.8786,
-        "truth_impact": 2,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0145",
-        "text": "老师能共享桌面而不是幻灯片吗，想看实际操作",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.4203,
-        "noul_ok": true,
-        "noul": 0.7859,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0153",
-        "text": "今晚的作业量大吗，想提前安排时间",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1356,
-        "noul_ok": true,
-        "noul": 0.8241,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0154",
-        "text": "明年还有进阶班吗，先蹲一个",
-        "truth_category": "chat",
-        "pred_category": "insufficient",
-        "confidence": 0.1881,
-        "noul_ok": false,
-        "noul": 0.5195,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0158",
-        "text": "弹幕里都是大佬，就我一个小白",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.2145,
-        "noul_ok": true,
-        "noul": 0.7874,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0162",
-        "text": "下播记得发笔记链接呀",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1674,
-        "noul_ok": false,
-        "noul": 0.2624,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0164",
-        "text": "迟到十分钟，前面讲了啥",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1054,
-        "noul_ok": false,
-        "noul": 0.3859,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0165",
-        "text": "大家猜猜今天有没有彩蛋环节",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1228,
-        "noul_ok": false,
-        "noul": 0.4672,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0167",
-        "text": "弹幕礼仪：不打广告不刷屏",
-        "truth_category": "chat",
-        "pred_category": "spam",
-        "confidence": 0.3668,
-        "noul_ok": false,
-        "noul": 0.4373,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0168",
-        "text": "老师声音真适合念 ASMR，开玩笑的哈哈",
-        "truth_category": "chat",
-        "pred_category": "spam",
-        "confidence": 0.1653,
-        "noul_ok": true,
-        "noul": 0.8502,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0170",
-        "text": "前排围观，今天要讲大案例",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1698,
-        "noul_ok": true,
-        "noul": 0.8128,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0171",
-        "text": "这周加班没跟上，周末补回放",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1041,
-        "noul_ok": true,
-        "noul": 0.8333,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0172",
-        "text": "好消息，我司项目今天用上了讲的东西",
-        "truth_category": "chat",
-        "pred_category": "chat",
-        "confidence": 0.3099,
-        "noul_ok": true,
-        "noul": 0.7824,
-        "truth_impact": 0,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0174",
-        "text": "老师多喝水，保护嗓子",
-        "truth_category": "chat",
-        "pred_category": "feedback",
-        "confidence": 0.7778,
-        "noul_ok": true,
-        "noul": 0.8612,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0178",
-        "text": "弹幕区有没有华南的朋友",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1472,
-        "noul_ok": true,
-        "noul": 0.7618,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0179",
-        "text": "蹲完整版课件的老铁举个手",
-        "truth_category": "chat",
-        "pred_category": "spam",
-        "confidence": 0.1389,
-        "noul_ok": true,
-        "noul": 0.6229,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0180",
-        "text": "这波讲解直接封神",
-        "truth_category": "chat",
-        "pred_category": "spam",
-        "confidence": 0.2066,
-        "noul_ok": false,
-        "noul": 0.4581,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0181",
-        "text": "课程官方群怎么加呀，没找到入口",
-        "truth_category": "chat",
-        "pred_category": "spam",
-        "confidence": 0.9177,
-        "noul_ok": false,
-        "noul": 0.077,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0182",
-        "text": "打卡下班，路上听回放",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.0897,
-        "noul_ok": false,
-        "noul": 0.1052,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0183",
-        "text": "今天收获最大的一小时",
-        "truth_category": "chat",
-        "pred_category": "chat",
-        "confidence": 0.2242,
-        "noul_ok": false,
-        "noul": 0.0506,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0184",
-        "text": "感谢助教刚才帮我处理了报错",
-        "truth_category": "chat",
-        "pred_category": "insufficient",
-        "confidence": 0.3961,
-        "noul_ok": true,
-        "noul": 0.623,
-        "truth_impact": 0,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0185",
-        "text": "这弹幕氛围我愿称之为最佳",
-        "truth_category": "chat",
-        "pred_category": "feedback",
-        "confidence": 0.3791,
-        "noul_ok": true,
-        "noul": 0.7198,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0186",
-        "text": "稳定出U渠道，价优速回",
-        "truth_category": "spam",
-        "pred_category": "technical",
-        "confidence": 0.3496,
-        "noul_ok": false,
-        "noul": 0.9561,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0193",
-        "text": "代考证书包过，不过全额退",
-        "truth_category": "spam",
-        "pred_category": "chat",
-        "confidence": 0.3566,
-        "noul_ok": true,
-        "noul": 0.5698,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0196",
-        "text": "刷单返现一单一结，学生党优先",
-        "truth_category": "spam",
-        "pred_category": "technical",
-        "confidence": 0.146,
-        "noul_ok": false,
-        "noul": 0.8458,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0197",
-        "text": "加速器免费试用，海外线路稳定",
-        "truth_category": "spam",
-        "pred_category": "technical",
-        "confidence": 0.4187,
-        "noul_ok": true,
-        "noul": 0.0207,
-        "truth_impact": 0,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0206",
-        "text": "教一下",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.2145,
-        "noul_ok": false,
-        "noul": 0.8285,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0210",
-        "text": "我也碰到过，后来怎么解决的",
-        "truth_category": "insufficient",
-        "pred_category": "chat",
-        "confidence": 0.1739,
-        "noul_ok": true,
-        "noul": 0.361,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0213",
-        "text": "帮忙看下我发的截图",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1601,
-        "noul_ok": false,
-        "noul": 0.6932,
-        "truth_impact": 1,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0214",
-        "text": "是不是少个括号",
-        "truth_category": "insufficient",
-        "pred_category": "feedback",
-        "confidence": 0.391,
-        "noul_ok": false,
-        "noul": 0.6055,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0217",
-        "text": "求大佬带一带",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.3942,
-        "noul_ok": true,
-        "noul": 0.4197,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0218",
-        "text": "我也一样，要怎么办",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.3233,
-        "noul_ok": true,
-        "noul": 0.3066,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0220",
-        "text": "配置文件改了没效果",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.6572,
-        "noul_ok": true,
-        "noul": 0.5036,
-        "truth_impact": 1,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0224",
-        "text": "卡住了，跟弹幕说的不太一样",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1612,
-        "noul_ok": true,
-        "noul": 0.3999,
-        "truth_impact": 2,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0225",
-        "text": "按文档来的，到我这就不行",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.4141,
-        "noul_ok": true,
-        "noul": 0.4979,
-        "truth_impact": 2,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0226",
-        "text": "有没有那个流程图，发一下",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.0522,
-        "noul_ok": false,
-        "noul": 0.6324,
-        "truth_impact": 0,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0227",
-        "text": "版本号好像对不上",
-        "truth_category": "insufficient",
-        "pred_category": "feedback",
-        "confidence": 0.5711,
-        "noul_ok": true,
-        "noul": 0.1038,
-        "truth_impact": 1,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0228",
-        "text": "布局跟老师截图差好多，是我版本不对吗",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1734,
-        "noul_ok": false,
-        "noul": 0.802,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0229",
-        "text": "文档有吗，发我一下",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1781,
-        "noul_ok": false,
-        "noul": 0.839,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0230",
-        "text": "再演示一遍刚才那个报错的地方",
-        "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.4851,
-        "noul_ok": false,
-        "noul": 0.6761,
-        "truth_impact": 1,
-        "pred_impact": 2
-      }
-    ],
-    "latency_ms_avg": 86.56086956521739,
-    "sample_count": 230
-  },
-  "summary_b": {
     "thresholds": {
       "choice_confidence_min": 0.6,
       "noul_actionable_min": 0.6
@@ -1946,16 +972,1190 @@
         "pred_impact": 2
       }
     ],
-    "latency_ms_avg": 98.2,
+    "latency_ms_avg": 108.67391304347827,
+    "sample_count": 230
+  },
+  "summary_b": {
+    "thresholds": {
+      "choice_confidence_min": 0.6,
+      "noul_actionable_min": 0.6
+    },
+    "choice": {
+      "accuracy": 0.7652173913043478,
+      "confusion": {
+        "technical": {
+          "technical": 55,
+          "feedback": 2,
+          "chat": 0,
+          "spam": 0,
+          "insufficient": 3
+        },
+        "feedback": {
+          "technical": 9,
+          "feedback": 49,
+          "chat": 1,
+          "spam": 0,
+          "insufficient": 1
+        },
+        "chat": {
+          "technical": 8,
+          "feedback": 7,
+          "chat": 26,
+          "spam": 3,
+          "insufficient": 4
+        },
+        "spam": {
+          "technical": 2,
+          "feedback": 0,
+          "chat": 0,
+          "spam": 21,
+          "insufficient": 0
+        },
+        "insufficient": {
+          "technical": 8,
+          "feedback": 6,
+          "chat": 0,
+          "spam": 0,
+          "insufficient": 25
+        }
+      },
+      "conf_pass_count": 97,
+      "conf_pass_coverage": 0.4217391304347826,
+      "conf_pass_accuracy": 0.9175257731958762
+    },
+    "noul": {
+      "interval_accuracy": 0.7956521739130434,
+      "coverage": 0.6739130434782609,
+      "interval_accuracy_when_passed": 0.8903225806451613,
+      "mean_prob_truth_actionable": 0.7355226190476191,
+      "mean_prob_truth_insufficient": 0.3456064516129032
+    },
+    "score": {
+      "exact_accuracy": 0.6608695652173913,
+      "within1_accuracy": 0.9652173913043478,
+      "mae": 0.49327130434782607
+    },
+    "reliability": {
+      "bins_count": 5,
+      "choice": {
+        "bins": [
+          {
+            "range": [
+              0.0,
+              0.2
+            ],
+            "n": 0,
+            "avg_confidence": null,
+            "accuracy": null
+          },
+          {
+            "range": [
+              0.2,
+              0.4
+            ],
+            "n": 11,
+            "avg_confidence": 0.3503,
+            "accuracy": 0.3636
+          },
+          {
+            "range": [
+              0.4,
+              0.6
+            ],
+            "n": 46,
+            "avg_confidence": 0.5033,
+            "accuracy": 0.5
+          },
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "n": 64,
+            "avg_confidence": 0.704,
+            "accuracy": 0.7969
+          },
+          {
+            "range": [
+              0.8,
+              1.0
+            ],
+            "n": 109,
+            "avg_confidence": 0.9149,
+            "accuracy": 0.8991
+          }
+        ],
+        "ece": 0.0346,
+        "brier": 0.0702
+      },
+      "noul": {
+        "bins": [
+          {
+            "range": [
+              0.0,
+              0.2
+            ],
+            "n": 36,
+            "avg_confidence": 0.075,
+            "accuracy": 0.2222
+          },
+          {
+            "range": [
+              0.2,
+              0.4
+            ],
+            "n": 20,
+            "avg_confidence": 0.3012,
+            "accuracy": 0.4
+          },
+          {
+            "range": [
+              0.4,
+              0.6
+            ],
+            "n": 19,
+            "avg_confidence": 0.4855,
+            "accuracy": 0.7368
+          },
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "n": 44,
+            "avg_confidence": 0.7225,
+            "accuracy": 0.8182
+          },
+          {
+            "range": [
+              0.8,
+              1.0
+            ],
+            "n": 111,
+            "avg_confidence": 0.8582,
+            "accuracy": 0.9189
+          }
+        ],
+        "ece": 0.1,
+        "brier": 0.1414
+      },
+      "score_by_pred_level": [
+        {
+          "pred_level": 0,
+          "n": 82,
+          "mean_truth": 0.244,
+          "mean_pred": 0.281,
+          "mae": 0.393
+        },
+        {
+          "pred_level": 1,
+          "n": 95,
+          "mean_truth": 0.779,
+          "mean_pred": 0.973,
+          "mae": 0.474
+        },
+        {
+          "pred_level": 2,
+          "n": 35,
+          "mean_truth": 1.571,
+          "mean_pred": 1.872,
+          "mae": 0.838
+        },
+        {
+          "pred_level": 3,
+          "n": 18,
+          "mean_truth": 2.778,
+          "mean_pred": 2.717,
+          "mae": 0.378
+        }
+      ]
+    },
+    "errors": [
+      {
+        "id": "ev-0001",
+        "text": "Jev 会自己写出一段回复吗",
+        "truth_category": "technical",
+        "pred_category": "insufficient",
+        "confidence": 0.2892,
+        "noul_ok": true,
+        "noul": 0.6024,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0005",
+        "text": "批量请求返回的顺序和发送一致吗",
+        "truth_category": "technical",
+        "pred_category": "insufficient",
+        "confidence": 0.1872,
+        "noul_ok": true,
+        "noul": 0.8851,
+        "truth_impact": 1,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0006",
+        "text": "模型会把弹幕里的指令当真吗，会不会被注入",
+        "truth_category": "technical",
+        "pred_category": "technical",
+        "confidence": 0.475,
+        "noul_ok": false,
+        "noul": 0.5768,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0007",
+        "text": "demo 项目的代码能开源到内网 git 吗",
+        "truth_category": "technical",
+        "pred_category": "technical",
+        "confidence": 0.6529,
+        "noul_ok": false,
+        "noul": 0.5138,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0011",
+        "text": "能不能把讲解速度放慢一点，新手跟不上",
+        "truth_category": "feedback",
+        "pred_category": "feedback",
+        "confidence": 0.2453,
+        "noul_ok": false,
+        "noul": 0.2991,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0013",
+        "text": "共享的代码区反光了，看不清关键字",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.5825,
+        "noul_ok": true,
+        "noul": 0.8723,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0014",
+        "text": "音轨只有左边耳朵有声音",
+        "truth_category": "feedback",
+        "pred_category": "feedback",
+        "confidence": 0.838,
+        "noul_ok": true,
+        "noul": 0.8881,
+        "truth_impact": 1,
+        "pred_impact": 3
+      },
+      {
+        "id": "ev-0019",
+        "text": "潜水了很久，今天必须冒个泡",
+        "truth_category": "chat",
+        "pred_category": "insufficient",
+        "confidence": 0.389,
+        "noul_ok": true,
+        "noul": 0.801,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0020",
+        "text": "这才是我想要的课，讲得透",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.0847,
+        "noul_ok": true,
+        "noul": 0.7223,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0022",
+        "text": "666",
+        "truth_category": "chat",
+        "pred_category": "insufficient",
+        "confidence": 0.5241,
+        "noul_ok": true,
+        "noul": 0.8242,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0023",
+        "text": "已经跟着做完 demo 了，很有成就感",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.3558,
+        "noul_ok": false,
+        "noul": 0.0723,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0025",
+        "text": "这直播间氛围真好",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.8485,
+        "noul_ok": false,
+        "noul": 0.2191,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0031",
+        "text": "某多多搜 xxx 同款课程九块九",
+        "truth_category": "spam",
+        "pred_category": "spam",
+        "confidence": 0.7837,
+        "noul_ok": false,
+        "noul": 0.8475,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0035",
+        "text": "就是这个报错，帮我看看",
+        "truth_category": "insufficient",
+        "pred_category": "technical",
+        "confidence": 0.5877,
+        "noul_ok": true,
+        "noul": 0.2767,
+        "truth_impact": 1,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0038",
+        "text": "同样的操作，别人可以我不行",
+        "truth_category": "insufficient",
+        "pred_category": "technical",
+        "confidence": 0.2233,
+        "noul_ok": true,
+        "noul": 0.282,
+        "truth_impact": 2,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0040",
+        "text": "看一下我的报错",
+        "truth_category": "insufficient",
+        "pred_category": "technical",
+        "confidence": 0.3414,
+        "noul_ok": false,
+        "noul": 0.7388,
+        "truth_impact": 1,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0042",
+        "text": "这一页过一下，太快了",
+        "truth_category": "insufficient",
+        "pred_category": "feedback",
+        "confidence": 0.8866,
+        "noul_ok": false,
+        "noul": 0.754,
+        "truth_impact": 1,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0052",
+        "text": "三个原语的提问顺序会影响概率输出吗",
+        "truth_category": "technical",
+        "pred_category": "feedback",
+        "confidence": 0.3702,
+        "noul_ok": true,
+        "noul": 0.8673,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0069",
+        "text": "请求里的 examples 字段必须传吗，不传会怎样",
+        "truth_category": "technical",
+        "pred_category": "feedback",
+        "confidence": 0.7937,
+        "noul_ok": true,
+        "noul": 0.7915,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0073",
+        "text": "想接到公司内部的工单系统，用哪个回调钩子",
+        "truth_category": "technical",
+        "pred_category": "technical",
+        "confidence": 0.5055,
+        "noul_ok": false,
+        "noul": 0.3351,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0076",
+        "text": "我的脚本跑到一半抛了 KeyError: answers",
+        "truth_category": "technical",
+        "pred_category": "insufficient",
+        "confidence": 0.468,
+        "noul_ok": true,
+        "noul": 0.8937,
+        "truth_impact": 2,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0083",
+        "text": "走了代理之后请求头被改，一直返回 401",
+        "truth_category": "technical",
+        "pred_category": "technical",
+        "confidence": 0.4982,
+        "noul_ok": true,
+        "noul": 0.8655,
+        "truth_impact": 2,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0087",
+        "text": "多个直播间并发调用会互相影响置信度吗",
+        "truth_category": "technical",
+        "pred_category": "technical",
+        "confidence": 0.2333,
+        "noul_ok": true,
+        "noul": 0.8664,
+        "truth_impact": 0,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0099",
+        "text": "又掉线了，一直显示重新连接中",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.2171,
+        "noul_ok": true,
+        "noul": 0.8685,
+        "truth_impact": 3,
+        "pred_impact": 3
+      },
+      {
+        "id": "ev-0101",
+        "text": "我这边彻底听不到了，群里说还有声",
+        "truth_category": "feedback",
+        "pred_category": "feedback",
+        "confidence": 0.891,
+        "noul_ok": false,
+        "noul": 0.014,
+        "truth_impact": 3,
+        "pred_impact": 3
+      },
+      {
+        "id": "ev-0104",
+        "text": "直播间加载失败，刷新也没用",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.2682,
+        "noul_ok": true,
+        "noul": 0.8621,
+        "truth_impact": 3,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0117",
+        "text": "语速稍微慢一点，新手记笔记跟不上",
+        "truth_category": "feedback",
+        "pred_category": "feedback",
+        "confidence": 0.5851,
+        "noul_ok": false,
+        "noul": 0.4248,
+        "truth_impact": 1,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0123",
+        "text": "弹幕刷得太快，提问一下就被顶没了",
+        "truth_category": "feedback",
+        "pred_category": "feedback",
+        "confidence": 0.6286,
+        "noul_ok": false,
+        "noul": 0.3988,
+        "truth_impact": 1,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0124",
+        "text": "老师能不能重复一下刚才那个参数名",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.2365,
+        "noul_ok": true,
+        "noul": 0.8384,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0129",
+        "text": "麦克风离嘴太远，听不清楚在说什么",
+        "truth_category": "feedback",
+        "pred_category": "insufficient",
+        "confidence": 0.5411,
+        "noul_ok": true,
+        "noul": 0.8332,
+        "truth_impact": 1,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0137",
+        "text": "直播间标题写错时间了，白等半小时",
+        "truth_category": "feedback",
+        "pred_category": "chat",
+        "confidence": 0.2577,
+        "noul_ok": true,
+        "noul": 0.8787,
+        "truth_impact": 1,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0138",
+        "text": "弹幕面板挡住命令行了，能调透明度吗",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.35,
+        "noul_ok": true,
+        "noul": 0.8579,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0142",
+        "text": "讲义能不能提前发一下，好跟着记笔记",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.1344,
+        "noul_ok": true,
+        "noul": 0.8491,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0143",
+        "text": "推流帧率太低，滚动代码全是拖影",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.4566,
+        "noul_ok": true,
+        "noul": 0.871,
+        "truth_impact": 2,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0144",
+        "text": "中午一直缓冲，换了网络才好一点",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.3094,
+        "noul_ok": true,
+        "noul": 0.846,
+        "truth_impact": 2,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0145",
+        "text": "老师能共享桌面而不是幻灯片吗，想看实际操作",
+        "truth_category": "feedback",
+        "pred_category": "technical",
+        "confidence": 0.3909,
+        "noul_ok": true,
+        "noul": 0.8179,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0146",
+        "text": "晚上好呀，今天人真多",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.7743,
+        "noul_ok": false,
+        "noul": 0.5019,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0147",
+        "text": "这节讲得比上次清楚多了",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.7149,
+        "noul_ok": false,
+        "noul": 0.4525,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0148",
+        "text": "弹幕里终于有人聊技术了哈哈",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.3498,
+        "noul_ok": false,
+        "noul": 0.4007,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0150",
+        "text": "老师加油，今天状态很好",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.7039,
+        "noul_ok": false,
+        "noul": 0.5713,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0152",
+        "text": "第一次来，感觉讲得真好",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.8585,
+        "noul_ok": false,
+        "noul": 0.2075,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0154",
+        "text": "明年还有进阶班吗，先蹲一个",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.0659,
+        "noul_ok": true,
+        "noul": 0.6606,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0155",
+        "text": "一路跟下来，感谢整理的课程路线",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.327,
+        "noul_ok": false,
+        "noul": 0.1645,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0156",
+        "text": "这个直播间讨论质量真高",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.6402,
+        "noul_ok": false,
+        "noul": 0.3232,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0157",
+        "text": "大家安静点，老师在讲重点",
+        "truth_category": "chat",
+        "pred_category": "insufficient",
+        "confidence": 0.088,
+        "noul_ok": true,
+        "noul": 0.7,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0158",
+        "text": "弹幕里都是大佬，就我一个小白",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.2808,
+        "noul_ok": false,
+        "noul": 0.5182,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0159",
+        "text": "能听懂七成，满足了",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.3717,
+        "noul_ok": false,
+        "noul": 0.4162,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0161",
+        "text": "今天的案例选得好，特别贴近工作",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.7238,
+        "noul_ok": false,
+        "noul": 0.3199,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0162",
+        "text": "下播记得发笔记链接呀",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.1302,
+        "noul_ok": false,
+        "noul": 0.4833,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0163",
+        "text": "提前祝大家周末愉快",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.4429,
+        "noul_ok": false,
+        "noul": 0.0805,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0164",
+        "text": "迟到十分钟，前面讲了啥",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.1453,
+        "noul_ok": false,
+        "noul": 0.4679,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0165",
+        "text": "大家猜猜今天有没有彩蛋环节",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.11,
+        "noul_ok": false,
+        "noul": 0.5404,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0167",
+        "text": "弹幕礼仪：不打广告不刷屏",
+        "truth_category": "chat",
+        "pred_category": "spam",
+        "confidence": 0.1386,
+        "noul_ok": false,
+        "noul": 0.1268,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0168",
+        "text": "老师声音真适合念 ASMR，开玩笑的哈哈",
+        "truth_category": "chat",
+        "pred_category": "spam",
+        "confidence": 0.428,
+        "noul_ok": true,
+        "noul": 0.6765,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0170",
+        "text": "前排围观，今天要讲大案例",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.2332,
+        "noul_ok": true,
+        "noul": 0.6794,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0171",
+        "text": "这周加班没跟上，周末补回放",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.1219,
+        "noul_ok": true,
+        "noul": 0.8209,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0173",
+        "text": "难得一次没掉链子的直播",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.3107,
+        "noul_ok": true,
+        "noul": 0.8853,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0174",
+        "text": "老师多喝水，保护嗓子",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.2878,
+        "noul_ok": true,
+        "noul": 0.8311,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0177",
+        "text": "我领导也在看这个直播，哈哈",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.2789,
+        "noul_ok": true,
+        "noul": 0.6021,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0178",
+        "text": "弹幕区有没有华南的朋友",
+        "truth_category": "chat",
+        "pred_category": "insufficient",
+        "confidence": 0.2413,
+        "noul_ok": false,
+        "noul": 0.432,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0179",
+        "text": "蹲完整版课件的老铁举个手",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.0334,
+        "noul_ok": true,
+        "noul": 0.8285,
+        "truth_impact": 0,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0180",
+        "text": "这波讲解直接封神",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.2578,
+        "noul_ok": false,
+        "noul": 0.1325,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0181",
+        "text": "课程官方群怎么加呀，没找到入口",
+        "truth_category": "chat",
+        "pred_category": "spam",
+        "confidence": 0.9154,
+        "noul_ok": false,
+        "noul": 0.1882,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0182",
+        "text": "打卡下班，路上听回放",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.449,
+        "noul_ok": true,
+        "noul": 0.8763,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0183",
+        "text": "今天收获最大的一小时",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.214,
+        "noul_ok": false,
+        "noul": 0.2719,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0184",
+        "text": "感谢助教刚才帮我处理了报错",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.3928,
+        "noul_ok": false,
+        "noul": 0.5831,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0185",
+        "text": "这弹幕氛围我愿称之为最佳",
+        "truth_category": "chat",
+        "pred_category": "chat",
+        "confidence": 0.1111,
+        "noul_ok": false,
+        "noul": 0.0957,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0186",
+        "text": "稳定出U渠道，价优速回",
+        "truth_category": "spam",
+        "pred_category": "spam",
+        "confidence": 0.3091,
+        "noul_ok": false,
+        "noul": 0.8579,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0193",
+        "text": "代考证书包过，不过全额退",
+        "truth_category": "spam",
+        "pred_category": "technical",
+        "confidence": 0.1407,
+        "noul_ok": false,
+        "noul": 0.7856,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0196",
+        "text": "刷单返现一单一结，学生党优先",
+        "truth_category": "spam",
+        "pred_category": "technical",
+        "confidence": 0.3401,
+        "noul_ok": false,
+        "noul": 0.8026,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0204",
+        "text": "我这边不行",
+        "truth_category": "insufficient",
+        "pred_category": "insufficient",
+        "confidence": 0.6436,
+        "noul_ok": true,
+        "noul": 0.0386,
+        "truth_impact": 0,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0205",
+        "text": "为什么不匹配",
+        "truth_category": "insufficient",
+        "pred_category": "insufficient",
+        "confidence": 0.6714,
+        "noul_ok": false,
+        "noul": 0.7785,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0206",
+        "text": "教一下",
+        "truth_category": "insufficient",
+        "pred_category": "insufficient",
+        "confidence": 0.2541,
+        "noul_ok": false,
+        "noul": 0.8395,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0213",
+        "text": "帮忙看下我发的截图",
+        "truth_category": "insufficient",
+        "pred_category": "insufficient",
+        "confidence": 0.0255,
+        "noul_ok": false,
+        "noul": 0.8819,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0214",
+        "text": "是不是少个括号",
+        "truth_category": "insufficient",
+        "pred_category": "feedback",
+        "confidence": 0.5166,
+        "noul_ok": false,
+        "noul": 0.6472,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0216",
+        "text": "一启动就出问题",
+        "truth_category": "insufficient",
+        "pred_category": "technical",
+        "confidence": 0.3756,
+        "noul_ok": true,
+        "noul": 0.2787,
+        "truth_impact": 2,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0217",
+        "text": "求大佬带一带",
+        "truth_category": "insufficient",
+        "pred_category": "technical",
+        "confidence": 0.2514,
+        "noul_ok": true,
+        "noul": 0.4646,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0220",
+        "text": "配置文件改了没效果",
+        "truth_category": "insufficient",
+        "pred_category": "technical",
+        "confidence": 0.4204,
+        "noul_ok": false,
+        "noul": 0.8712,
+        "truth_impact": 1,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0222",
+        "text": "我电脑上没有这个按钮",
+        "truth_category": "insufficient",
+        "pred_category": "feedback",
+        "confidence": 0.2222,
+        "noul_ok": true,
+        "noul": 0.4293,
+        "truth_impact": 2,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0223",
+        "text": "提示框里的那个选项我没有",
+        "truth_category": "insufficient",
+        "pred_category": "insufficient",
+        "confidence": 0.4006,
+        "noul_ok": true,
+        "noul": 0.0541,
+        "truth_impact": 2,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0224",
+        "text": "卡住了，跟弹幕说的不太一样",
+        "truth_category": "insufficient",
+        "pred_category": "insufficient",
+        "confidence": 0.5157,
+        "noul_ok": false,
+        "noul": 0.7036,
+        "truth_impact": 2,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0225",
+        "text": "按文档来的，到我这就不行",
+        "truth_category": "insufficient",
+        "pred_category": "technical",
+        "confidence": 0.7079,
+        "noul_ok": true,
+        "noul": 0.0815,
+        "truth_impact": 2,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0226",
+        "text": "有没有那个流程图，发一下",
+        "truth_category": "insufficient",
+        "pred_category": "feedback",
+        "confidence": 0.3617,
+        "noul_ok": false,
+        "noul": 0.8247,
+        "truth_impact": 0,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0227",
+        "text": "版本号好像对不上",
+        "truth_category": "insufficient",
+        "pred_category": "feedback",
+        "confidence": 0.9471,
+        "noul_ok": false,
+        "noul": 0.7837,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0228",
+        "text": "布局跟老师截图差好多，是我版本不对吗",
+        "truth_category": "insufficient",
+        "pred_category": "feedback",
+        "confidence": 0.8974,
+        "noul_ok": false,
+        "noul": 0.8761,
+        "truth_impact": 1,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0229",
+        "text": "文档有吗，发我一下",
+        "truth_category": "insufficient",
+        "pred_category": "insufficient",
+        "confidence": 0.1943,
+        "noul_ok": false,
+        "noul": 0.8277,
+        "truth_impact": 0,
+        "pred_impact": 0
+      },
+      {
+        "id": "ev-0230",
+        "text": "再演示一遍刚才那个报错的地方",
+        "truth_category": "insufficient",
+        "pred_category": "technical",
+        "confidence": 0.6573,
+        "noul_ok": false,
+        "noul": 0.7922,
+        "truth_impact": 1,
+        "pred_impact": 2
+      }
+    ],
+    "latency_ms_avg": 84.05217391304348,
     "sample_count": 230
   },
   "agreement": {
-    "choice_agreement": 0.8608695652173913,
-    "noul_agreement": 0.8956521739130435,
-    "score_agreement": 0.7304347826086957,
-    "score_agreement_within1": 0.991304347826087,
-    "diff_count": 48,
+    "choice_agreement": 0.8695652173913043,
+    "noul_agreement": 0.8565217391304348,
+    "score_agreement": 0.7478260869565218,
+    "score_agreement_within1": 0.9956521739130435,
+    "diff_count": 55,
     "diffs": [
+      {
+        "id": "ev-0001",
+        "text": "Jev 会自己写出一段回复吗",
+        "truth_category": "technical",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "technical",
+          "noul": 0.765,
+          "level_index": 0
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.602,
+          "level_index": 1
+        }
+      },
       {
         "id": "ev-0003",
         "text": "官方 API 在国内能直接访问吗",
@@ -1964,12 +2164,63 @@
         "truth_impact": 1,
         "a": {
           "category": "technical",
-          "noul": 0.61,
-          "level_index": 0
+          "noul": 0.533,
+          "level_index": 1
         },
         "b": {
           "category": "technical",
-          "noul": 0.533,
+          "noul": 0.799,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0005",
+        "text": "批量请求返回的顺序和发送一致吗",
+        "truth_category": "technical",
+        "truth_actionable": true,
+        "truth_impact": 1,
+        "a": {
+          "category": "technical",
+          "noul": 0.894,
+          "level_index": 0
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.885,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0006",
+        "text": "模型会把弹幕里的指令当真吗，会不会被注入",
+        "truth_category": "technical",
+        "truth_actionable": true,
+        "truth_impact": 1,
+        "a": {
+          "category": "technical",
+          "noul": 0.934,
+          "level_index": 1
+        },
+        "b": {
+          "category": "technical",
+          "noul": 0.577,
+          "level_index": 1
+        }
+      },
+      {
+        "id": "ev-0011",
+        "text": "能不能把讲解速度放慢一点，新手跟不上",
+        "truth_category": "feedback",
+        "truth_actionable": true,
+        "truth_impact": 1,
+        "a": {
+          "category": "feedback",
+          "noul": 0.921,
+          "level_index": 1
+        },
+        "b": {
+          "category": "feedback",
+          "noul": 0.299,
           "level_index": 1
         }
       },
@@ -1981,30 +2232,13 @@
         "truth_impact": 0,
         "a": {
           "category": "insufficient",
-          "noul": 0.835,
-          "level_index": 1
+          "noul": 0.248,
+          "level_index": 2
         },
         "b": {
           "category": "insufficient",
-          "noul": 0.248,
-          "level_index": 2
-        }
-      },
-      {
-        "id": "ev-0020",
-        "text": "这才是我想要的课，讲得透",
-        "truth_category": "chat",
-        "truth_actionable": true,
-        "truth_impact": 0,
-        "a": {
-          "category": "chat",
-          "noul": 0.862,
-          "level_index": 0
-        },
-        "b": {
-          "category": "technical",
-          "noul": 0.909,
-          "level_index": 0
+          "noul": 0.801,
+          "level_index": 1
         }
       },
       {
@@ -2014,14 +2248,31 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "chat",
-          "noul": 0.027,
-          "level_index": 1
-        },
-        "b": {
           "category": "technical",
           "noul": 0.952,
           "level_index": 2
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.812,
+          "level_index": 1
+        }
+      },
+      {
+        "id": "ev-0023",
+        "text": "已经跟着做完 demo 了，很有成就感",
+        "truth_category": "chat",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "chat",
+          "noul": 0.965,
+          "level_index": 0
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.072,
+          "level_index": 0
         }
       },
       {
@@ -2031,14 +2282,65 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "chat",
-          "noul": 0.035,
-          "level_index": 0
-        },
-        "b": {
           "category": "technical",
           "noul": 0.341,
           "level_index": 0
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.664,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0025",
+        "text": "这直播间氛围真好",
+        "truth_category": "chat",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "chat",
+          "noul": 0.969,
+          "level_index": 0
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.219,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0031",
+        "text": "某多多搜 xxx 同款课程九块九",
+        "truth_category": "spam",
+        "truth_actionable": false,
+        "truth_impact": 0,
+        "a": {
+          "category": "spam",
+          "noul": 0.183,
+          "level_index": 0
+        },
+        "b": {
+          "category": "spam",
+          "noul": 0.848,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0036",
+        "text": "到第三步就不行了",
+        "truth_category": "insufficient",
+        "truth_actionable": false,
+        "truth_impact": 2,
+        "a": {
+          "category": "technical",
+          "noul": 0.167,
+          "level_index": 1
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.063,
+          "level_index": 1
         }
       },
       {
@@ -2048,14 +2350,31 @@
         "truth_actionable": false,
         "truth_impact": 1,
         "a": {
-          "category": "technical",
-          "noul": 0.732,
-          "level_index": 1
-        },
-        "b": {
           "category": "chat",
           "noul": 0.828,
           "level_index": 1
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.581,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0038",
+        "text": "同样的操作，别人可以我不行",
+        "truth_category": "insufficient",
+        "truth_actionable": false,
+        "truth_impact": 2,
+        "a": {
+          "category": "insufficient",
+          "noul": 0.201,
+          "level_index": 1
+        },
+        "b": {
+          "category": "technical",
+          "noul": 0.282,
+          "level_index": 0
         }
       },
       {
@@ -2065,31 +2384,14 @@
         "truth_actionable": false,
         "truth_impact": 1,
         "a": {
-          "category": "insufficient",
-          "noul": 0.606,
-          "level_index": 2
-        },
-        "b": {
           "category": "technical",
           "noul": 0.438,
           "level_index": 2
-        }
-      },
-      {
-        "id": "ev-0041",
-        "text": "跟上上一位同学的问题一样",
-        "truth_category": "insufficient",
-        "truth_actionable": false,
-        "truth_impact": 1,
-        "a": {
-          "category": "technical",
-          "noul": 0.089,
-          "level_index": 0
         },
         "b": {
-          "category": "insufficient",
-          "noul": 0.095,
-          "level_index": 0
+          "category": "technical",
+          "noul": 0.739,
+          "level_index": 2
         }
       },
       {
@@ -2099,14 +2401,14 @@
         "truth_actionable": true,
         "truth_impact": 2,
         "a": {
-          "category": "technical",
-          "noul": 0.804,
-          "level_index": 2
-        },
-        "b": {
           "category": "insufficient",
           "noul": 0.953,
           "level_index": 1
+        },
+        "b": {
+          "category": "technical",
+          "noul": 0.881,
+          "level_index": 2
         }
       },
       {
@@ -2116,218 +2418,184 @@
         "truth_actionable": true,
         "truth_impact": 1,
         "a": {
-          "category": "feedback",
-          "noul": 0.782,
-          "level_index": 1
-        },
-        "b": {
           "category": "technical",
           "noul": 0.768,
           "level_index": 1
-        }
-      },
-      {
-        "id": "ev-0073",
-        "text": "想接到公司内部的工单系统，用哪个回调钩子",
-        "truth_category": "technical",
-        "truth_actionable": true,
-        "truth_impact": 1,
-        "a": {
-          "category": "technical",
-          "noul": 0.649,
-          "level_index": 0
         },
         "b": {
-          "category": "technical",
-          "noul": 0.257,
+          "category": "feedback",
+          "noul": 0.791,
           "level_index": 1
         }
       },
       {
-        "id": "ev-0076",
-        "text": "我的脚本跑到一半抛了 KeyError: answers",
-        "truth_category": "technical",
-        "truth_actionable": true,
-        "truth_impact": 2,
-        "a": {
-          "category": "technical",
-          "noul": 0.861,
-          "level_index": 1
-        },
-        "b": {
-          "category": "insufficient",
-          "noul": 0.64,
-          "level_index": 1
-        }
-      },
-      {
-        "id": "ev-0101",
-        "text": "我这边彻底听不到了，群里说还有声",
+        "id": "ev-0099",
+        "text": "又掉线了，一直显示重新连接中",
         "truth_category": "feedback",
         "truth_actionable": true,
         "truth_impact": 3,
         "a": {
-          "category": "insufficient",
-          "noul": 0.038,
-          "level_index": 0
+          "category": "technical",
+          "noul": 0.987,
+          "level_index": 1
         },
         "b": {
-          "category": "feedback",
-          "noul": 0.005,
+          "category": "technical",
+          "noul": 0.869,
           "level_index": 3
         }
       },
       {
-        "id": "ev-0108",
-        "text": "只能听到回声，老师的声音完全听不见",
+        "id": "ev-0107",
+        "text": "直播中断了，页面上提示网络错误",
         "truth_category": "feedback",
         "truth_actionable": true,
         "truth_impact": 3,
         "a": {
-          "category": "feedback",
-          "noul": 0.403,
-          "level_index": 2
-        },
-        "b": {
-          "category": "feedback",
-          "noul": 0.946,
+          "category": "technical",
+          "noul": 0.991,
           "level_index": 3
-        }
-      },
-      {
-        "id": "ev-0111",
-        "text": "弹幕能发出去，但直播画面是黑的",
-        "truth_category": "feedback",
-        "truth_actionable": true,
-        "truth_impact": 3,
-        "a": {
-          "category": "feedback",
-          "noul": 0.515,
-          "level_index": 2
         },
         "b": {
           "category": "feedback",
-          "noul": 0.999,
-          "level_index": 3
-        }
-      },
-      {
-        "id": "ev-0113",
-        "text": "手机看直播直接闪退，重进还是黑屏",
-        "truth_category": "feedback",
-        "truth_actionable": true,
-        "truth_impact": 3,
-        "a": {
-          "category": "technical",
-          "noul": 0.476,
-          "level_index": 2
-        },
-        "b": {
-          "category": "feedback",
-          "noul": 0.999,
+          "noul": 0.797,
           "level_index": 2
         }
       },
       {
-        "id": "ev-0121",
-        "text": "讲义配色太浅，后排看不清代码",
-        "truth_category": "feedback",
-        "truth_actionable": true,
-        "truth_impact": 1,
-        "a": {
-          "category": "technical",
-          "noul": 0.897,
-          "level_index": 1
-        },
-        "b": {
-          "category": "feedback",
-          "noul": 0.984,
-          "level_index": 1
-        }
-      },
-      {
-        "id": "ev-0129",
-        "text": "麦克风离嘴太远，听不清楚在说什么",
-        "truth_category": "feedback",
-        "truth_actionable": true,
-        "truth_impact": 1,
-        "a": {
-          "category": "insufficient",
-          "noul": 0.55,
-          "level_index": 1
-        },
-        "b": {
-          "category": "insufficient",
-          "noul": 0.888,
-          "level_index": 2
-        }
-      },
-      {
-        "id": "ev-0135",
-        "text": "鼠标指针太小，看不清指到哪一行",
-        "truth_category": "feedback",
-        "truth_actionable": true,
-        "truth_impact": 1,
-        "a": {
-          "category": "technical",
-          "noul": 0.844,
-          "level_index": 1
-        },
-        "b": {
-          "category": "feedback",
-          "noul": 0.722,
-          "level_index": 2
-        }
-      },
-      {
-        "id": "ev-0138",
-        "text": "弹幕面板挡住命令行了，能调透明度吗",
+        "id": "ev-0117",
+        "text": "语速稍微慢一点，新手记笔记跟不上",
         "truth_category": "feedback",
         "truth_actionable": true,
         "truth_impact": 1,
         "a": {
           "category": "feedback",
-          "noul": 0.834,
+          "noul": 0.959,
           "level_index": 1
         },
         "b": {
-          "category": "technical",
-          "noul": 0.976,
+          "category": "feedback",
+          "noul": 0.425,
           "level_index": 2
         }
       },
       {
-        "id": "ev-0153",
-        "text": "今晚的作业量大吗，想提前安排时间",
+        "id": "ev-0137",
+        "text": "直播间标题写错时间了，白等半小时",
+        "truth_category": "feedback",
+        "truth_actionable": true,
+        "truth_impact": 1,
+        "a": {
+          "category": "feedback",
+          "noul": 0.997,
+          "level_index": 1
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.879,
+          "level_index": 2
+        }
+      },
+      {
+        "id": "ev-0146",
+        "text": "晚上好呀，今天人真多",
         "truth_category": "chat",
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "technical",
-          "noul": 0.824,
+          "category": "chat",
+          "noul": 0.833,
           "level_index": 0
         },
         "b": {
           "category": "chat",
-          "noul": 0.901,
+          "noul": 0.502,
           "level_index": 0
         }
       },
       {
-        "id": "ev-0154",
-        "text": "明年还有进阶班吗，先蹲一个",
+        "id": "ev-0147",
+        "text": "这节讲得比上次清楚多了",
         "truth_category": "chat",
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "insufficient",
-          "noul": 0.519,
-          "level_index": 1
+          "category": "chat",
+          "noul": 0.986,
+          "level_index": 0
         },
         "b": {
-          "category": "technical",
-          "noul": 0.705,
-          "level_index": 1
+          "category": "feedback",
+          "noul": 0.453,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0148",
+        "text": "弹幕里终于有人聊技术了哈哈",
+        "truth_category": "chat",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "chat",
+          "noul": 0.808,
+          "level_index": 0
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.401,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0150",
+        "text": "老师加油，今天状态很好",
+        "truth_category": "chat",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "chat",
+          "noul": 0.97,
+          "level_index": 0
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.571,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0152",
+        "text": "第一次来，感觉讲得真好",
+        "truth_category": "chat",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "chat",
+          "noul": 0.966,
+          "level_index": 0
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.207,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0155",
+        "text": "一路跟下来，感谢整理的课程路线",
+        "truth_category": "chat",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "chat",
+          "noul": 0.962,
+          "level_index": 0
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.165,
+          "level_index": 0
         }
       },
       {
@@ -2337,14 +2605,31 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "chat",
-          "noul": 0.871,
-          "level_index": 0
-        },
-        "b": {
           "category": "feedback",
           "noul": 0.982,
           "level_index": 2
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.323,
+          "level_index": 1
+        }
+      },
+      {
+        "id": "ev-0157",
+        "text": "大家安静点，老师在讲重点",
+        "truth_category": "chat",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "chat",
+          "noul": 0.9,
+          "level_index": 1
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.7,
+          "level_index": 0
         }
       },
       {
@@ -2354,30 +2639,30 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "technical",
-          "noul": 0.787,
+          "category": "insufficient",
+          "noul": 0.881,
           "level_index": 0
         },
         "b": {
-          "category": "insufficient",
-          "noul": 0.881,
+          "category": "technical",
+          "noul": 0.518,
           "level_index": 0
         }
       },
       {
-        "id": "ev-0161",
-        "text": "今天的案例选得好，特别贴近工作",
+        "id": "ev-0159",
+        "text": "能听懂七成，满足了",
         "truth_category": "chat",
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
           "category": "chat",
-          "noul": 0.88,
+          "noul": 0.845,
           "level_index": 0
         },
         "b": {
           "category": "chat",
-          "noul": 0.596,
+          "noul": 0.416,
           "level_index": 0
         }
       },
@@ -2389,12 +2674,29 @@
         "truth_impact": 0,
         "a": {
           "category": "technical",
-          "noul": 0.262,
+          "noul": 0.783,
           "level_index": 0
         },
         "b": {
           "category": "technical",
-          "noul": 0.783,
+          "noul": 0.483,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0163",
+        "text": "提前祝大家周末愉快",
+        "truth_category": "chat",
+        "truth_actionable": true,
+        "truth_impact": 0,
+        "a": {
+          "category": "chat",
+          "noul": 0.813,
+          "level_index": 0
+        },
+        "b": {
+          "category": "chat",
+          "noul": 0.081,
           "level_index": 0
         }
       },
@@ -2406,29 +2708,12 @@
         "truth_impact": 0,
         "a": {
           "category": "technical",
-          "noul": 0.386,
-          "level_index": 1
-        },
-        "b": {
-          "category": "technical",
           "noul": 0.784,
           "level_index": 1
-        }
-      },
-      {
-        "id": "ev-0165",
-        "text": "大家猜猜今天有没有彩蛋环节",
-        "truth_category": "chat",
-        "truth_actionable": true,
-        "truth_impact": 0,
-        "a": {
-          "category": "technical",
-          "noul": 0.467,
-          "level_index": 0
         },
         "b": {
           "category": "feedback",
-          "noul": 0.467,
+          "noul": 0.468,
           "level_index": 1
         }
       },
@@ -2439,13 +2724,13 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "spam",
-          "noul": 0.85,
+          "category": "feedback",
+          "noul": 0.948,
           "level_index": 0
         },
         "b": {
-          "category": "feedback",
-          "noul": 0.948,
+          "category": "spam",
+          "noul": 0.676,
           "level_index": 0
         }
       },
@@ -2456,48 +2741,14 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "technical",
-          "noul": 0.833,
-          "level_index": 1
-        },
-        "b": {
           "category": "insufficient",
           "noul": 0.953,
           "level_index": 1
-        }
-      },
-      {
-        "id": "ev-0173",
-        "text": "难得一次没掉链子的直播",
-        "truth_category": "chat",
-        "truth_actionable": true,
-        "truth_impact": 0,
-        "a": {
-          "category": "chat",
-          "noul": 0.897,
-          "level_index": 0
         },
         "b": {
-          "category": "feedback",
-          "noul": 0.98,
+          "category": "technical",
+          "noul": 0.821,
           "level_index": 1
-        }
-      },
-      {
-        "id": "ev-0177",
-        "text": "我领导也在看这个直播，哈哈",
-        "truth_category": "chat",
-        "truth_actionable": true,
-        "truth_impact": 0,
-        "a": {
-          "category": "chat",
-          "noul": 0.814,
-          "level_index": 0
-        },
-        "b": {
-          "category": "feedback",
-          "noul": 0.956,
-          "level_index": 0
         }
       },
       {
@@ -2507,14 +2758,14 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "technical",
-          "noul": 0.762,
-          "level_index": 0
-        },
-        "b": {
           "category": "insufficient",
           "noul": 0.859,
           "level_index": 1
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.432,
+          "level_index": 0
         }
       },
       {
@@ -2524,13 +2775,13 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "spam",
-          "noul": 0.623,
-          "level_index": 1
-        },
-        "b": {
           "category": "feedback",
           "noul": 0.818,
+          "level_index": 2
+        },
+        "b": {
+          "category": "technical",
+          "noul": 0.829,
           "level_index": 2
         }
       },
@@ -2541,31 +2792,14 @@
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "spam",
-          "noul": 0.458,
-          "level_index": 0
-        },
-        "b": {
           "category": "feedback",
           "noul": 0.888,
           "level_index": 0
-        }
-      },
-      {
-        "id": "ev-0182",
-        "text": "打卡下班，路上听回放",
-        "truth_category": "chat",
-        "truth_actionable": true,
-        "truth_impact": 0,
-        "a": {
-          "category": "technical",
-          "noul": 0.105,
-          "level_index": 0
         },
         "b": {
-          "category": "feedback",
-          "noul": 0.823,
-          "level_index": 1
+          "category": "chat",
+          "noul": 0.133,
+          "level_index": 0
         }
       },
       {
@@ -2576,30 +2810,47 @@
         "truth_impact": 0,
         "a": {
           "category": "chat",
-          "noul": 0.051,
-          "level_index": 1
+          "noul": 0.9,
+          "level_index": 0
         },
         "b": {
           "category": "chat",
-          "noul": 0.9,
+          "noul": 0.272,
           "level_index": 0
         }
       },
       {
-        "id": "ev-0184",
-        "text": "感谢助教刚才帮我处理了报错",
+        "id": "ev-0185",
+        "text": "这弹幕氛围我愿称之为最佳",
         "truth_category": "chat",
         "truth_actionable": true,
         "truth_impact": 0,
         "a": {
-          "category": "insufficient",
-          "noul": 0.623,
-          "level_index": 2
+          "category": "feedback",
+          "noul": 0.836,
+          "level_index": 0
         },
         "b": {
+          "category": "chat",
+          "noul": 0.096,
+          "level_index": 0
+        }
+      },
+      {
+        "id": "ev-0186",
+        "text": "稳定出U渠道，价优速回",
+        "truth_category": "spam",
+        "truth_actionable": false,
+        "truth_impact": 0,
+        "a": {
           "category": "technical",
-          "noul": 0.387,
+          "noul": 0.814,
           "level_index": 1
+        },
+        "b": {
+          "category": "spam",
+          "noul": 0.858,
+          "level_index": 0
         }
       },
       {
@@ -2610,30 +2861,47 @@
         "truth_impact": 0,
         "a": {
           "category": "chat",
-          "noul": 0.57,
+          "noul": 0.602,
           "level_index": 0
         },
         "b": {
-          "category": "chat",
-          "noul": 0.602,
+          "category": "technical",
+          "noul": 0.786,
           "level_index": 0
         }
       },
       {
-        "id": "ev-0197",
-        "text": "加速器免费试用，海外线路稳定",
-        "truth_category": "spam",
+        "id": "ev-0205",
+        "text": "为什么不匹配",
+        "truth_category": "insufficient",
         "truth_actionable": false,
-        "truth_impact": 0,
+        "truth_impact": 1,
         "a": {
-          "category": "technical",
-          "noul": 0.021,
-          "level_index": 2
+          "category": "insufficient",
+          "noul": 0.373,
+          "level_index": 1
         },
         "b": {
-          "category": "spam",
-          "noul": 0.071,
-          "level_index": 2
+          "category": "insufficient",
+          "noul": 0.778,
+          "level_index": 1
+        }
+      },
+      {
+        "id": "ev-0210",
+        "text": "我也碰到过，后来怎么解决的",
+        "truth_category": "insufficient",
+        "truth_actionable": false,
+        "truth_impact": 1,
+        "a": {
+          "category": "chat",
+          "noul": 0.179,
+          "level_index": 1
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.296,
+          "level_index": 1
         }
       },
       {
@@ -2643,14 +2911,14 @@
         "truth_actionable": false,
         "truth_impact": 1,
         "a": {
-          "category": "insufficient",
-          "noul": 0.693,
-          "level_index": 0
-        },
-        "b": {
           "category": "feedback",
           "noul": 0.982,
           "level_index": 0
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.882,
+          "level_index": 1
         }
       },
       {
@@ -2661,13 +2929,47 @@
         "truth_impact": 1,
         "a": {
           "category": "feedback",
-          "noul": 0.606,
+          "noul": 0.585,
           "level_index": 1
         },
         "b": {
           "category": "feedback",
-          "noul": 0.585,
+          "noul": 0.647,
           "level_index": 1
+        }
+      },
+      {
+        "id": "ev-0216",
+        "text": "一启动就出问题",
+        "truth_category": "insufficient",
+        "truth_actionable": false,
+        "truth_impact": 2,
+        "a": {
+          "category": "insufficient",
+          "noul": 0.188,
+          "level_index": 1
+        },
+        "b": {
+          "category": "technical",
+          "noul": 0.279,
+          "level_index": 2
+        }
+      },
+      {
+        "id": "ev-0218",
+        "text": "我也一样，要怎么办",
+        "truth_category": "insufficient",
+        "truth_actionable": false,
+        "truth_impact": 1,
+        "a": {
+          "category": "technical",
+          "noul": 0.242,
+          "level_index": 1
+        },
+        "b": {
+          "category": "insufficient",
+          "noul": 0.264,
+          "level_index": 0
         }
       },
       {
@@ -2677,31 +2979,31 @@
         "truth_actionable": false,
         "truth_impact": 1,
         "a": {
-          "category": "technical",
-          "noul": 0.504,
+          "category": "feedback",
+          "noul": 0.951,
           "level_index": 2
         },
         "b": {
-          "category": "feedback",
-          "noul": 0.951,
+          "category": "technical",
+          "noul": 0.871,
           "level_index": 2
         }
       },
       {
-        "id": "ev-0224",
-        "text": "卡住了，跟弹幕说的不太一样",
+        "id": "ev-0222",
+        "text": "我电脑上没有这个按钮",
         "truth_category": "insufficient",
         "truth_actionable": false,
         "truth_impact": 2,
         "a": {
           "category": "insufficient",
-          "noul": 0.4,
-          "level_index": 0
+          "noul": 0.105,
+          "level_index": 2
         },
         "b": {
-          "category": "insufficient",
-          "noul": 0.945,
-          "level_index": 0
+          "category": "feedback",
+          "noul": 0.429,
+          "level_index": 2
         }
       },
       {
@@ -2712,29 +3014,29 @@
         "truth_impact": 0,
         "a": {
           "category": "technical",
-          "noul": 0.632,
-          "level_index": 1
-        },
-        "b": {
-          "category": "technical",
           "noul": 0.595,
-          "level_index": 1
-        }
-      },
-      {
-        "id": "ev-0228",
-        "text": "布局跟老师截图差好多，是我版本不对吗",
-        "truth_category": "insufficient",
-        "truth_actionable": false,
-        "truth_impact": 1,
-        "a": {
-          "category": "insufficient",
-          "noul": 0.802,
           "level_index": 1
         },
         "b": {
           "category": "feedback",
-          "noul": 0.962,
+          "noul": 0.825,
+          "level_index": 1
+        }
+      },
+      {
+        "id": "ev-0227",
+        "text": "版本号好像对不上",
+        "truth_category": "insufficient",
+        "truth_actionable": false,
+        "truth_impact": 1,
+        "a": {
+          "category": "feedback",
+          "noul": 0.475,
+          "level_index": 1
+        },
+        "b": {
+          "category": "feedback",
+          "noul": 0.784,
           "level_index": 1
         }
       },
@@ -2746,12 +3048,12 @@
         "truth_impact": 0,
         "a": {
           "category": "insufficient",
-          "noul": 0.839,
+          "noul": 0.38,
           "level_index": 0
         },
         "b": {
           "category": "insufficient",
-          "noul": 0.38,
+          "noul": 0.828,
           "level_index": 0
         }
       },
@@ -2763,12 +3065,12 @@
         "truth_impact": 1,
         "a": {
           "category": "technical",
-          "noul": 0.676,
+          "noul": 0.311,
           "level_index": 2
         },
         "b": {
           "category": "technical",
-          "noul": 0.311,
+          "noul": 0.792,
           "level_index": 2
         }
       }
