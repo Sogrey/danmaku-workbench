@@ -1,60 +1,59 @@
 # A/B 引擎对比报告（45 条独立评估集）
 
-- 时间：2026-10-25T14:23:33.372354+00:00
-- A 引擎：**laya-baseline**（D:/AI/laya/repo-laya-hf/multilingual）
-- B 引擎：**laya-finetuned**（D:/AI/laya/danmaku-dm-v0.2）
+- 时间：2026-10-26T15:12:46.382455+00:00
+- A 引擎：**laya-v0.2**（D:/AI/laya/danmaku-dm-v0.2）
+- B 引擎：**laya-v0.3**（D:/AI/laya/danmaku-dm-v0.3）
 - 样本：230 条独立评估集（与训练集零重叠）；顺序加载，判据与温度各自生效
 
 ## 三原语指标对比
 
 | 指标 | A | B |
 | --- | ---: | ---: |
-| Choice top-1 准确率 | 43.5% | **76.5%** |
-| Choice 置信度≥60% 子集准确率（覆盖 A 33% / B 41%） | 68.4% | 91.6% |
-| Noul 区间准确率（≥0.65） | 64.3% | **85.7%** |
-| Noul 覆盖率 | 79.1% | 66.5% |
-| Score exact | 9.6% | **57.4%** |
-| Score ±1 | 59.1% | **96.1%** |
-| Score MAE | 1.19 | 0.56 |
-| Choice ECE | 0.2227 | 0.0593 |
-| Noul ECE | 0.1834 | 0.0992 |
-| 平均延迟 | 96 ms | 100 ms |
+| Choice top-1 准确率 | 76.5% | **74.8%** |
+| Choice 置信度≥60% 子集准确率（覆盖 A 41% / B 40%） | 91.6% | 90.2% |
+| Noul 区间准确率（≥0.65） | 85.7% | **89.6%** |
+| Noul 覆盖率 | 66.5% | 70.4% |
+| Score exact | 57.4% | **58.7%** |
+| Score ±1 | 96.1% | **95.7%** |
+| Score MAE | 0.56 | 0.55 |
+| Choice ECE | 0.0593 | 0.0303 |
+| Noul ECE | 0.0992 | 0.0429 |
+| 平均延迟 | 91 ms | 82 ms |
 
 ## 引擎间一致率
 
-- Choice 类别一致：**54.3%**
-- Noul ≥0.65 判定一致：**63.0%**
-- Score 等级一致：19.6%（±1 一致 70.4%）
-- 分歧样本：**164 条**（任一维度不一致）
+- Choice 类别一致：**86.1%**
+- Noul ≥0.65 判定一致：**90.0%**
+- Score 等级一致：73.0%（±1 一致 99.1%）
+- 分歧样本：**47 条**（任一维度不一致）
 
 ## 分歧样本（前 20 条，全量见 ab-report.json）
 
 | id | 消息 | 真值(类/可处理/等级) | A 判定 | B 判定 |
 | --- | --- | --- | --- | --- |
-| ev-0001 | Jev 会自己写出一段回复吗 | technical / 可 / 0 | insufficient (0.54, L2) | technical (0.66, L0) |
-| ev-0002 | Choice 和 Noul 能放在同一次请求里吗 | technical / 可 / 1 | insufficient (0.51, L2) | technical (0.83, L0) |
-| ev-0003 | 官方 API 在国内能直接访问吗 | technical / 可 / 1 | technical (0.74, L2) | technical (0.61, L0) |
-| ev-0004 | 怎么给 Noul 写 criteria 才不歧义 | technical / 可 / 1 | insufficient (0.46, L2) | technical (0.68, L1) |
-| ev-0005 | 批量请求返回的顺序和发送一致吗 | technical / 可 / 1 | spam (0.66, L2) | technical (0.88, L0) |
-| ev-0006 | 模型会把弹幕里的指令当真吗，会不会被注入 | technical / 可 / 1 | technical (0.58, L2) | technical (0.70, L0) |
-| ev-0007 | demo 项目的代码能开源到内网 git 吗 | technical / 可 / 0 | technical (0.57, L2) | technical (0.39, L0) |
-| ev-0012 | 直播突然断了，现在只有封面图 | feedback / 可 / 3 | insufficient (0.89, L2) | feedback (0.70, L2) |
-| ev-0014 | 音轨只有左边耳朵有声音 | feedback / 可 / 1 | technical (0.80, L2) | feedback (0.88, L2) |
-| ev-0016 | 视频一直 480p，切不上 1080 | feedback / 可 / 2 | technical (0.98, L2) | feedback (0.84, L2) |
-| ev-0017 | 麦克风声音断了，能听到回声 | feedback / 可 / 2 | technical (0.79, L2) | feedback (0.90, L2) |
-| ev-0018 | 老师辛苦，今晚收获很大 | chat / 可 / 0 | chat (0.72, L2) | chat (0.88, L0) |
-| ev-0020 | 这才是我想要的课，讲得透 | chat / 可 / 0 | feedback (0.95, L2) | chat (0.86, L0) |
-| ev-0021 | 下期直播什么时候开 | chat / 可 / 0 | insufficient (0.95, L2) | chat (0.03, L1) |
-| ev-0022 | 666 | chat / 可 / 0 | spam (0.95, L2) | insufficient (0.67, L1) |
-| ev-0023 | 已经跟着做完 demo 了，很有成就感 | chat / 可 / 0 | technical (0.96, L2) | chat (0.85, L0) |
-| ev-0024 | 散会去吃饭，回放见 | chat / 可 / 0 | technical (0.93, L2) | chat (0.04, L0) |
-| ev-0025 | 这直播间氛围真好 | chat / 可 / 0 | spam (0.95, L2) | chat (0.73, L0) |
-| ev-0026 | 内部价卖课，比官网便宜一半，私我 | spam / 不可 / 0 | spam (1.00, L2) | spam (0.30, L1) |
-| ev-0027 | 薇信号同手机号，送全套付费课程 | spam / 不可 / 0 | spam (1.00, L2) | spam (0.04, L0) |
+| ev-0019 | 潜水了很久，今天必须冒个泡 | chat / 可 / 0 | insufficient (0.83, L1) | insufficient (0.25, L2) |
+| ev-0020 | 这才是我想要的课，讲得透 | chat / 可 / 0 | chat (0.86, L0) | technical (0.91, L0) |
+| ev-0021 | 下期直播什么时候开 | chat / 可 / 0 | chat (0.03, L1) | technical (0.95, L2) |
+| ev-0022 | 666 | chat / 可 / 0 | insufficient (0.67, L1) | insufficient (0.62, L1) |
+| ev-0024 | 散会去吃饭，回放见 | chat / 可 / 0 | chat (0.04, L0) | technical (0.34, L0) |
+| ev-0037 | 为什么我的和演示不一样 | insufficient / 不可 / 1 | technical (0.73, L1) | chat (0.83, L1) |
+| ev-0040 | 看一下我的报错 | insufficient / 不可 / 1 | insufficient (0.61, L2) | technical (0.44, L2) |
+| ev-0041 | 跟上上一位同学的问题一样 | insufficient / 不可 / 1 | technical (0.09, L0) | insufficient (0.10, L0) |
+| ev-0044 | 刚才那段代码跑到第三行报错了 | technical / 可 / 2 | technical (0.80, L2) | insufficient (0.95, L1) |
+| ev-0069 | 请求里的 examples 字段必须传吗，不传会怎样 | technical / 可 / 1 | feedback (0.78, L1) | technical (0.77, L1) |
+| ev-0076 | 我的脚本跑到一半抛了 KeyError: answers | technical / 可 / 2 | technical (0.86, L1) | insufficient (0.64, L1) |
+| ev-0084 | 单元测试里怎么把 decision provider mock 掉 | technical / 可 / 1 | technical (0.63, L1) | technical (0.68, L0) |
+| ev-0101 | 我这边彻底听不到了，群里说还有声 | feedback / 可 / 3 | insufficient (0.04, L0) | feedback (0.01, L3) |
+| ev-0108 | 只能听到回声，老师的声音完全听不见 | feedback / 可 / 3 | feedback (0.40, L2) | feedback (0.95, L3) |
+| ev-0111 | 弹幕能发出去，但直播画面是黑的 | feedback / 可 / 3 | feedback (0.52, L2) | feedback (1.00, L3) |
+| ev-0113 | 手机看直播直接闪退，重进还是黑屏 | feedback / 可 / 3 | technical (0.48, L2) | feedback (1.00, L2) |
+| ev-0121 | 讲义配色太浅，后排看不清代码 | feedback / 可 / 1 | technical (0.90, L1) | feedback (0.98, L1) |
+| ev-0129 | 麦克风离嘴太远，听不清楚在说什么 | feedback / 可 / 1 | insufficient (0.55, L1) | insufficient (0.89, L2) |
+| ev-0135 | 鼠标指针太小，看不清指到哪一行 | feedback / 可 / 1 | technical (0.84, L1) | feedback (0.72, L2) |
+| ev-0138 | 弹幕面板挡住命令行了，能调透明度吗 | feedback / 可 / 1 | feedback (0.83, L1) | technical (0.98, L2) |
 
 ## 结论（自动生成）
 
-- Choice 准确率 43.5% → 76.5%（+33.0%）
-- Noul 区间准确率 64.3% → 85.7%（+21.3%）
-- 微调收益显著：基线近随机（五类≈20%），微调后达到可用判别水平
+- Choice 准确率 76.5% → 74.8%（-1.7%）
+- Noul 区间准确率 85.7% → 89.6%（+3.9%）
 - 分歧样本集中在语义边界（insufficient / 闲聊短句），可对照训练集继续补样本迭代

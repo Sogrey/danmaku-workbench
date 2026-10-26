@@ -1,13 +1,13 @@
 """A/B 引擎对比：双决策引擎在评估集上顺序跑批，输出一致率与分歧样本。
 
-默认对比（证明微调价值）：
-  A = laya-baseline   零样本 multilingual 基线（出厂温度 1.0，未微调）
-  B = laya-finetuned  LoRA 微调 + 分桶温度校准（danmaku-dm-v0.2）
+默认对比（模型迭代验证）：
+  A = laya-v0.2   上一代微调 checkpoint（L3 补强前）
+  B = laya-v0.3   当前微调 checkpoint（L3 补强版）
 
 用法（backend 目录下）：
-  .venv/Scripts/python.exe evals/ab_runner.py                        # 默认 baseline vs finetuned
-  .venv/Scripts/python.exe evals/ab_runner.py --a mock --b laya-finetuned
-  引擎可选：laya-baseline / laya-finetuned / mock
+  .venv/Scripts/python.exe evals/ab_runner.py                    # 默认 v0.2 vs v0.3
+  .venv/Scripts/python.exe evals/ab_runner.py --a laya-baseline # 与零样本基线对比
+  引擎可选：laya-baseline / laya-v0.2 / laya-v0.3 / mock
 
 显存管理：两引擎顺序加载跑批，切换时 del + torch.cuda.empty_cache()，
 峰值只占一个模型（RTX 3060 6GB 可跑）。
@@ -36,7 +36,8 @@ from replay_eval import NOUL_ACTIONABLE_MIN, evaluate, load_samples  # noqa: E40
 
 ENGINE_DIRS = {
     "laya-baseline": "D:/AI/laya/repo-laya-hf/multilingual",
-    "laya-finetuned": "D:/AI/laya/danmaku-dm-v0.2",
+    "laya-v0.2": "D:/AI/laya/danmaku-dm-v0.2",
+    "laya-v0.3": "D:/AI/laya/danmaku-dm-v0.3",
 }
 
 
@@ -157,7 +158,7 @@ def render_markdown(meta: dict, sa: dict, sb: dict, ag: dict) -> str:
     a, b = meta["engine_a"], meta["engine_b"]
     lines: list[str] = []
     w = lines.append
-    w("# A/B 引擎对比报告（45 条独立评估集）")
+    w(f"# A/B 引擎对比报告（{sa['sample_count']} 条独立评估集）")
     w("")
     w(f"- 时间：{meta['generated_at']}")
     w(f"- A 引擎：**{a}**（{fmt_engine_dir(a)}）")
@@ -219,8 +220,8 @@ def render_markdown(meta: dict, sa: dict, sb: dict, ag: dict) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="A/B 引擎对比")
-    parser.add_argument("--a", default="laya-baseline", help="A 引擎：laya-baseline / laya-finetuned / mock")
-    parser.add_argument("--b", default="laya-finetuned", help="B 引擎：laya-baseline / laya-finetuned / mock")
+    parser.add_argument("--a", default="laya-v0.2", help="A 引擎：laya-baseline / laya-v0.2 / laya-v0.3 / mock")
+    parser.add_argument("--b", default="laya-v0.3", help="B 引擎：laya-baseline / laya-v0.2 / laya-v0.3 / mock")
     args = parser.parse_args()
     if args.a == args.b:
         raise SystemExit("A 与 B 引擎相同，无需对比")

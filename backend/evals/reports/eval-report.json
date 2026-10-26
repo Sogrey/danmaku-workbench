@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-10-25T14:18:26.228662+00:00",
+    "generated_at": "2026-10-26T14:56:19.476272+00:00",
     "mode": "local",
     "provider": "laya-finetuned-v0.2(local)",
-    "model_dir": "D:/AI/laya/danmaku-dm-v0.2",
+    "model_dir": "D:/AI/laya/danmaku-dm-v0.3",
     "eval_dataset": "evals/eval_dataset.jsonl"
   },
   "summary": {
@@ -12,59 +12,59 @@
       "noul_actionable_min": 0.65
     },
     "choice": {
-      "accuracy": 0.7652173913043478,
+      "accuracy": 0.7478260869565218,
       "confusion": {
         "technical": {
-          "technical": 58,
-          "feedback": 2,
-          "chat": 0,
-          "spam": 0,
-          "insufficient": 0
-        },
-        "feedback": {
-          "technical": 12,
-          "feedback": 46,
+          "technical": 57,
+          "feedback": 1,
           "chat": 0,
           "spam": 0,
           "insufficient": 2
         },
+        "feedback": {
+          "technical": 10,
+          "feedback": 49,
+          "chat": 0,
+          "spam": 0,
+          "insufficient": 1
+        },
         "chat": {
-          "technical": 9,
-          "feedback": 2,
-          "chat": 28,
-          "spam": 5,
-          "insufficient": 4
+          "technical": 8,
+          "feedback": 10,
+          "chat": 23,
+          "spam": 2,
+          "insufficient": 5
         },
         "spam": {
-          "technical": 3,
+          "technical": 2,
           "feedback": 0,
           "chat": 1,
-          "spam": 19,
+          "spam": 20,
           "insufficient": 0
         },
         "insufficient": {
-          "technical": 10,
-          "feedback": 3,
-          "chat": 1,
+          "technical": 8,
+          "feedback": 6,
+          "chat": 2,
           "spam": 0,
-          "insufficient": 25
+          "insufficient": 23
         }
       },
-      "conf_pass_count": 95,
-      "conf_pass_coverage": 0.41304347826086957,
-      "conf_pass_accuracy": 0.9157894736842105
+      "conf_pass_count": 92,
+      "conf_pass_coverage": 0.4,
+      "conf_pass_accuracy": 0.9021739130434783
     },
     "noul": {
-      "interval_accuracy": 0.8565217391304348,
-      "coverage": 0.6652173913043479,
-      "interval_accuracy_when_passed": 0.9411764705882353,
-      "mean_prob_truth_actionable": 0.764222619047619,
-      "mean_prob_truth_insufficient": 0.30524193548387096
+      "interval_accuracy": 0.8956521739130435,
+      "coverage": 0.7043478260869566,
+      "interval_accuracy_when_passed": 0.9444444444444444,
+      "mean_prob_truth_actionable": 0.8736583333333333,
+      "mean_prob_truth_insufficient": 0.3293645161290323
     },
     "score": {
-      "exact_accuracy": 0.5739130434782609,
-      "within1_accuracy": 0.9608695652173913,
-      "mae": 0.5633821739130435
+      "exact_accuracy": 0.5869565217391305,
+      "within1_accuracy": 0.9565217391304348,
+      "mae": 0.5545213043478261
     },
     "reliability": {
       "bins_count": 5,
@@ -84,18 +84,18 @@
               0.2,
               0.4
             ],
-            "n": 14,
-            "avg_confidence": 0.3654,
-            "accuracy": 0.2857
+            "n": 17,
+            "avg_confidence": 0.358,
+            "accuracy": 0.2941
           },
           {
             "range": [
               0.4,
               0.6
             ],
-            "n": 58,
-            "avg_confidence": 0.5062,
-            "accuracy": 0.6897
+            "n": 52,
+            "avg_confidence": 0.521,
+            "accuracy": 0.5385
           },
           {
             "range": [
@@ -103,21 +103,21 @@
               0.8
             ],
             "n": 60,
-            "avg_confidence": 0.705,
-            "accuracy": 0.7167
+            "avg_confidence": 0.7095,
+            "accuracy": 0.7833
           },
           {
             "range": [
               0.8,
               1.0
             ],
-            "n": 98,
-            "avg_confidence": 0.9203,
-            "accuracy": 0.9082
+            "n": 101,
+            "avg_confidence": 0.9163,
+            "accuracy": 0.9109
           }
         ],
-        "ece": 0.0593,
-        "brier": 0.0739
+        "ece": 0.0303,
+        "brier": 0.0738
       },
       "noul": {
         "bins": [
@@ -126,71 +126,78 @@
               0.0,
               0.2
             ],
-            "n": 35,
-            "avg_confidence": 0.0762,
-            "accuracy": 0.1714
+            "n": 30,
+            "avg_confidence": 0.0932,
+            "accuracy": 0.0667
           },
           {
             "range": [
               0.2,
               0.4
             ],
-            "n": 17,
-            "avg_confidence": 0.2975,
-            "accuracy": 0.2353
+            "n": 21,
+            "avg_confidence": 0.2929,
+            "accuracy": 0.3333
           },
           {
             "range": [
               0.4,
               0.6
             ],
-            "n": 16,
-            "avg_confidence": 0.4815,
-            "accuracy": 0.5
+            "n": 13,
+            "avg_confidence": 0.5126,
+            "accuracy": 0.2308
           },
           {
             "range": [
               0.6,
               0.8
             ],
-            "n": 52,
-            "avg_confidence": 0.7216,
-            "accuracy": 0.8846
+            "n": 19,
+            "avg_confidence": 0.7111,
+            "accuracy": 0.9474
           },
           {
             "range": [
               0.8,
               1.0
             ],
-            "n": 110,
-            "avg_confidence": 0.8578,
-            "accuracy": 0.9455
+            "n": 147,
+            "avg_confidence": 0.9393,
+            "accuracy": 0.9388
           }
         ],
-        "ece": 0.0992,
-        "brier": 0.1092
+        "ece": 0.0429,
+        "brier": 0.0867
       },
       "score_by_pred_level": [
         {
           "pred_level": 0,
-          "n": 69,
-          "mean_truth": 0.275,
-          "mean_pred": 0.308,
-          "mae": 0.44
+          "n": 66,
+          "mean_truth": 0.212,
+          "mean_pred": 0.299,
+          "mae": 0.401
         },
         {
           "pred_level": 1,
-          "n": 119,
-          "mean_truth": 0.798,
-          "mean_pred": 1.025,
-          "mae": 0.514
+          "n": 111,
+          "mean_truth": 0.802,
+          "mean_pred": 0.956,
+          "mae": 0.524
         },
         {
           "pred_level": 2,
-          "n": 42,
-          "mean_truth": 2.024,
-          "mean_pred": 1.762,
-          "mae": 0.906
+          "n": 44,
+          "mean_truth": 1.568,
+          "mean_pred": 1.891,
+          "mae": 0.896
+        },
+        {
+          "pred_level": 3,
+          "n": 9,
+          "mean_truth": 3.0,
+          "mean_pred": 2.618,
+          "mae": 0.382
         }
       ]
     },
@@ -200,20 +207,20 @@
         "text": "官方 API 在国内能直接访问吗",
         "truth_category": "technical",
         "pred_category": "technical",
-        "confidence": 0.8929,
+        "confidence": 0.9251,
         "noul_ok": false,
-        "noul": 0.6104,
+        "noul": 0.5335,
         "truth_impact": 1,
-        "pred_impact": 0
+        "pred_impact": 1
       },
       {
         "id": "ev-0007",
         "text": "demo 项目的代码能开源到内网 git 吗",
         "truth_category": "technical",
         "pred_category": "technical",
-        "confidence": 0.6726,
+        "confidence": 0.819,
         "noul_ok": false,
-        "noul": 0.3891,
+        "noul": 0.3667,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -222,42 +229,53 @@
         "text": "共享的代码区反光了，看不清关键字",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.7253,
+        "confidence": 0.3591,
         "noul_ok": true,
-        "noul": 0.8542,
+        "noul": 0.9687,
         "truth_impact": 1,
-        "pred_impact": 2
+        "pred_impact": 1
       },
       {
         "id": "ev-0019",
         "text": "潜水了很久，今天必须冒个泡",
         "truth_category": "chat",
         "pred_category": "insufficient",
-        "confidence": 0.373,
-        "noul_ok": true,
-        "noul": 0.8354,
+        "confidence": 0.2425,
+        "noul_ok": false,
+        "noul": 0.2478,
         "truth_impact": 0,
-        "pred_impact": 1
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0020",
+        "text": "这才是我想要的课，讲得透",
+        "truth_category": "chat",
+        "pred_category": "technical",
+        "confidence": 0.1487,
+        "noul_ok": true,
+        "noul": 0.9094,
+        "truth_impact": 0,
+        "pred_impact": 0
       },
       {
         "id": "ev-0021",
         "text": "下期直播什么时候开",
         "truth_category": "chat",
-        "pred_category": "chat",
-        "confidence": 0.2159,
-        "noul_ok": false,
-        "noul": 0.0268,
+        "pred_category": "technical",
+        "confidence": 0.111,
+        "noul_ok": true,
+        "noul": 0.9518,
         "truth_impact": 0,
-        "pred_impact": 1
+        "pred_impact": 2
       },
       {
         "id": "ev-0022",
         "text": "666",
         "truth_category": "chat",
         "pred_category": "insufficient",
-        "confidence": 0.4319,
-        "noul_ok": true,
-        "noul": 0.6657,
+        "confidence": 0.3343,
+        "noul_ok": false,
+        "noul": 0.6252,
         "truth_impact": 0,
         "pred_impact": 1
       },
@@ -265,10 +283,10 @@
         "id": "ev-0024",
         "text": "散会去吃饭，回放见",
         "truth_category": "chat",
-        "pred_category": "chat",
-        "confidence": 0.1159,
+        "pred_category": "technical",
+        "confidence": 0.0911,
         "noul_ok": false,
-        "noul": 0.0354,
+        "noul": 0.3408,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -277,20 +295,20 @@
         "text": "就是这个报错，帮我看看",
         "truth_category": "insufficient",
         "pred_category": "technical",
-        "confidence": 0.5059,
+        "confidence": 0.4676,
         "noul_ok": true,
-        "noul": 0.2667,
+        "noul": 0.1946,
         "truth_impact": 1,
-        "pred_impact": 1
+        "pred_impact": 0
       },
       {
         "id": "ev-0036",
         "text": "到第三步就不行了",
         "truth_category": "insufficient",
         "pred_category": "technical",
-        "confidence": 0.3787,
+        "confidence": 0.3596,
         "noul_ok": true,
-        "noul": 0.0721,
+        "noul": 0.1668,
         "truth_impact": 2,
         "pred_impact": 1
       },
@@ -298,65 +316,54 @@
         "id": "ev-0037",
         "text": "为什么我的和演示不一样",
         "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.1433,
+        "pred_category": "chat",
+        "confidence": 0.1339,
         "noul_ok": false,
-        "noul": 0.732,
+        "noul": 0.8278,
         "truth_impact": 1,
         "pred_impact": 1
       },
       {
-        "id": "ev-0038",
-        "text": "同样的操作，别人可以我不行",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1346,
-        "noul_ok": true,
-        "noul": 0.1129,
-        "truth_impact": 2,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0041",
-        "text": "跟上上一位同学的问题一样",
+        "id": "ev-0040",
+        "text": "看一下我的报错",
         "truth_category": "insufficient",
         "pred_category": "technical",
-        "confidence": 0.2191,
+        "confidence": 0.3592,
         "noul_ok": true,
-        "noul": 0.089,
+        "noul": 0.4378,
         "truth_impact": 1,
-        "pred_impact": 0
+        "pred_impact": 2
       },
       {
         "id": "ev-0042",
         "text": "这一页过一下，太快了",
         "truth_category": "insufficient",
         "pred_category": "feedback",
-        "confidence": 0.8484,
+        "confidence": 0.7535,
         "noul_ok": false,
-        "noul": 0.8214,
+        "noul": 0.9102,
         "truth_impact": 1,
         "pred_impact": 0
+      },
+      {
+        "id": "ev-0044",
+        "text": "刚才那段代码跑到第三行报错了",
+        "truth_category": "technical",
+        "pred_category": "insufficient",
+        "confidence": 0.0945,
+        "noul_ok": true,
+        "noul": 0.9525,
+        "truth_impact": 2,
+        "pred_impact": 1
       },
       {
         "id": "ev-0052",
         "text": "三个原语的提问顺序会影响概率输出吗",
         "truth_category": "technical",
         "pred_category": "feedback",
-        "confidence": 0.4983,
+        "confidence": 0.263,
         "noul_ok": true,
-        "noul": 0.8612,
-        "truth_impact": 1,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0069",
-        "text": "请求里的 examples 字段必须传吗，不传会怎样",
-        "truth_category": "technical",
-        "pred_category": "feedback",
-        "confidence": 0.5025,
-        "noul_ok": true,
-        "noul": 0.7817,
+        "noul": 0.9402,
         "truth_impact": 1,
         "pred_impact": 1
       },
@@ -365,64 +372,64 @@
         "text": "想接到公司内部的工单系统，用哪个回调钩子",
         "truth_category": "technical",
         "pred_category": "technical",
-        "confidence": 0.3842,
+        "confidence": 0.5309,
         "noul_ok": false,
-        "noul": 0.6487,
-        "truth_impact": 1,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0084",
-        "text": "单元测试里怎么把 decision provider mock 掉",
-        "truth_category": "technical",
-        "pred_category": "technical",
-        "confidence": 0.6742,
-        "noul_ok": false,
-        "noul": 0.6338,
+        "noul": 0.2569,
         "truth_impact": 1,
         "pred_impact": 1
+      },
+      {
+        "id": "ev-0076",
+        "text": "我的脚本跑到一半抛了 KeyError: answers",
+        "truth_category": "technical",
+        "pred_category": "insufficient",
+        "confidence": 0.41,
+        "noul_ok": false,
+        "noul": 0.6397,
+        "truth_impact": 2,
+        "pred_impact": 1
+      },
+      {
+        "id": "ev-0081",
+        "text": "服务跑一天内存涨了 2G，这种泄漏怎么排查",
+        "truth_category": "technical",
+        "pred_category": "technical",
+        "confidence": 0.6788,
+        "noul_ok": true,
+        "noul": 0.9667,
+        "truth_impact": 2,
+        "pred_impact": 0
       },
       {
         "id": "ev-0099",
         "text": "又掉线了，一直显示重新连接中",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.4779,
+        "confidence": 0.3677,
         "noul_ok": true,
-        "noul": 0.8617,
+        "noul": 0.9868,
         "truth_impact": 3,
-        "pred_impact": 2
+        "pred_impact": 1
       },
       {
         "id": "ev-0101",
         "text": "我这边彻底听不到了，群里说还有声",
         "truth_category": "feedback",
-        "pred_category": "insufficient",
-        "confidence": 0.2779,
-        "noul_ok": false,
-        "noul": 0.0379,
-        "truth_impact": 3,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0103",
-        "text": "画面全花了，一片绿色拖影",
-        "truth_category": "feedback",
         "pred_category": "feedback",
-        "confidence": 0.9296,
-        "noul_ok": true,
-        "noul": 0.9023,
+        "confidence": 0.8851,
+        "noul_ok": false,
+        "noul": 0.0055,
         "truth_impact": 3,
-        "pred_impact": 1
+        "pred_impact": 3
       },
       {
         "id": "ev-0104",
         "text": "直播间加载失败，刷新也没用",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.6845,
+        "confidence": 0.4841,
         "noul_ok": true,
-        "noul": 0.8464,
+        "noul": 0.9879,
         "truth_impact": 3,
         "pred_impact": 2
       },
@@ -431,86 +438,31 @@
         "text": "直播中断了，页面上提示网络错误",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.6091,
+        "confidence": 0.414,
         "noul_ok": true,
-        "noul": 0.857,
+        "noul": 0.9905,
         "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0108",
-        "text": "只能听到回声，老师的声音完全听不见",
-        "truth_category": "feedback",
-        "pred_category": "feedback",
-        "confidence": 0.4973,
-        "noul_ok": false,
-        "noul": 0.4034,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0110",
-        "text": "老师是不是掉线了，画面完全静止不动",
-        "truth_category": "feedback",
-        "pred_category": "feedback",
-        "confidence": 0.9276,
-        "noul_ok": true,
-        "noul": 0.8371,
-        "truth_impact": 3,
-        "pred_impact": 1
-      },
-      {
-        "id": "ev-0111",
-        "text": "弹幕能发出去，但直播画面是黑的",
-        "truth_category": "feedback",
-        "pred_category": "feedback",
-        "confidence": 0.9541,
-        "noul_ok": false,
-        "noul": 0.5146,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0113",
-        "text": "手机看直播直接闪退，重进还是黑屏",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.2913,
-        "noul_ok": false,
-        "noul": 0.4762,
-        "truth_impact": 3,
-        "pred_impact": 2
-      },
-      {
-        "id": "ev-0121",
-        "text": "讲义配色太浅，后排看不清代码",
-        "truth_category": "feedback",
-        "pred_category": "technical",
-        "confidence": 0.132,
-        "noul_ok": true,
-        "noul": 0.8975,
-        "truth_impact": 1,
-        "pred_impact": 1
+        "pred_impact": 3
       },
       {
         "id": "ev-0123",
         "text": "弹幕刷得太快，提问一下就被顶没了",
         "truth_category": "feedback",
         "pred_category": "feedback",
-        "confidence": 0.44,
+        "confidence": 0.539,
         "noul_ok": false,
-        "noul": 0.3446,
+        "noul": 0.2983,
         "truth_impact": 1,
-        "pred_impact": 1
+        "pred_impact": 0
       },
       {
         "id": "ev-0124",
         "text": "老师能不能重复一下刚才那个参数名",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.2764,
+        "confidence": 0.2945,
         "noul_ok": true,
-        "noul": 0.7364,
+        "noul": 0.6693,
         "truth_impact": 1,
         "pred_impact": 1
       },
@@ -519,31 +471,31 @@
         "text": "麦克风离嘴太远，听不清楚在说什么",
         "truth_category": "feedback",
         "pred_category": "insufficient",
-        "confidence": 0.3073,
-        "noul_ok": false,
-        "noul": 0.5501,
+        "confidence": 0.4003,
+        "noul_ok": true,
+        "noul": 0.8881,
         "truth_impact": 1,
-        "pred_impact": 1
+        "pred_impact": 2
       },
       {
-        "id": "ev-0135",
-        "text": "鼠标指针太小，看不清指到哪一行",
+        "id": "ev-0138",
+        "text": "弹幕面板挡住命令行了，能调透明度吗",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.2338,
+        "confidence": 0.485,
         "noul_ok": true,
-        "noul": 0.8437,
+        "noul": 0.9762,
         "truth_impact": 1,
-        "pred_impact": 1
+        "pred_impact": 2
       },
       {
         "id": "ev-0142",
         "text": "讲义能不能提前发一下，好跟着记笔记",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.1643,
+        "confidence": 0.2073,
         "noul_ok": true,
-        "noul": 0.7558,
+        "noul": 0.8572,
         "truth_impact": 1,
         "pred_impact": 1
       },
@@ -552,9 +504,9 @@
         "text": "推流帧率太低，滚动代码全是拖影",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.7099,
+        "confidence": 0.4585,
         "noul_ok": true,
-        "noul": 0.8612,
+        "noul": 0.9791,
         "truth_impact": 2,
         "pred_impact": 2
       },
@@ -563,9 +515,9 @@
         "text": "中午一直缓冲，换了网络才好一点",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.2429,
+        "confidence": 0.1825,
         "noul_ok": true,
-        "noul": 0.8786,
+        "noul": 0.988,
         "truth_impact": 2,
         "pred_impact": 1
       },
@@ -574,53 +526,53 @@
         "text": "老师能共享桌面而不是幻灯片吗，想看实际操作",
         "truth_category": "feedback",
         "pred_category": "technical",
-        "confidence": 0.4203,
-        "noul_ok": true,
-        "noul": 0.7859,
+        "confidence": 0.4083,
+        "noul_ok": false,
+        "noul": 0.6387,
         "truth_impact": 1,
         "pred_impact": 1
-      },
-      {
-        "id": "ev-0153",
-        "text": "今晚的作业量大吗，想提前安排时间",
-        "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1356,
-        "noul_ok": true,
-        "noul": 0.8241,
-        "truth_impact": 0,
-        "pred_impact": 0
       },
       {
         "id": "ev-0154",
         "text": "明年还有进阶班吗，先蹲一个",
         "truth_category": "chat",
-        "pred_category": "insufficient",
-        "confidence": 0.1881,
-        "noul_ok": false,
-        "noul": 0.5195,
+        "pred_category": "technical",
+        "confidence": 0.0983,
+        "noul_ok": true,
+        "noul": 0.7045,
         "truth_impact": 0,
         "pred_impact": 1
+      },
+      {
+        "id": "ev-0156",
+        "text": "这个直播间讨论质量真高",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.4356,
+        "noul_ok": true,
+        "noul": 0.9818,
+        "truth_impact": 0,
+        "pred_impact": 2
       },
       {
         "id": "ev-0158",
         "text": "弹幕里都是大佬，就我一个小白",
         "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.2145,
+        "pred_category": "insufficient",
+        "confidence": 0.1861,
         "noul_ok": true,
-        "noul": 0.7874,
+        "noul": 0.8808,
         "truth_impact": 0,
         "pred_impact": 0
       },
       {
-        "id": "ev-0159",
-        "text": "能听懂七成，满足了",
+        "id": "ev-0161",
+        "text": "今天的案例选得好，特别贴近工作",
         "truth_category": "chat",
         "pred_category": "chat",
-        "confidence": 0.3113,
+        "confidence": 0.7191,
         "noul_ok": false,
-        "noul": 0.6011,
+        "noul": 0.5963,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -629,9 +581,9 @@
         "text": "下播记得发笔记链接呀",
         "truth_category": "chat",
         "pred_category": "technical",
-        "confidence": 0.1674,
-        "noul_ok": false,
-        "noul": 0.2624,
+        "confidence": 0.2119,
+        "noul_ok": true,
+        "noul": 0.783,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -640,9 +592,9 @@
         "text": "迟到十分钟，前面讲了啥",
         "truth_category": "chat",
         "pred_category": "technical",
-        "confidence": 0.1054,
-        "noul_ok": false,
-        "noul": 0.3859,
+        "confidence": 0.1003,
+        "noul_ok": true,
+        "noul": 0.7843,
         "truth_impact": 0,
         "pred_impact": 1
       },
@@ -650,21 +602,21 @@
         "id": "ev-0165",
         "text": "大家猜猜今天有没有彩蛋环节",
         "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1228,
+        "pred_category": "feedback",
+        "confidence": 0.3391,
         "noul_ok": false,
-        "noul": 0.4672,
+        "noul": 0.4665,
         "truth_impact": 0,
-        "pred_impact": 0
+        "pred_impact": 1
       },
       {
         "id": "ev-0167",
         "text": "弹幕礼仪：不打广告不刷屏",
         "truth_category": "chat",
         "pred_category": "spam",
-        "confidence": 0.3668,
+        "confidence": 0.2029,
         "noul_ok": false,
-        "noul": 0.4373,
+        "noul": 0.3655,
         "truth_impact": 0,
         "pred_impact": 1
       },
@@ -672,10 +624,10 @@
         "id": "ev-0168",
         "text": "老师声音真适合念 ASMR，开玩笑的哈哈",
         "truth_category": "chat",
-        "pred_category": "spam",
-        "confidence": 0.1653,
+        "pred_category": "feedback",
+        "confidence": 0.2617,
         "noul_ok": true,
-        "noul": 0.8502,
+        "noul": 0.9476,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -684,9 +636,9 @@
         "text": "前排围观，今天要讲大案例",
         "truth_category": "chat",
         "pred_category": "technical",
-        "confidence": 0.1698,
+        "confidence": 0.151,
         "noul_ok": true,
-        "noul": 0.8128,
+        "noul": 0.8684,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -694,10 +646,10 @@
         "id": "ev-0171",
         "text": "这周加班没跟上，周末补回放",
         "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1041,
+        "pred_category": "insufficient",
+        "confidence": 0.14,
         "noul_ok": true,
-        "noul": 0.8333,
+        "noul": 0.9532,
         "truth_impact": 0,
         "pred_impact": 1
       },
@@ -706,53 +658,75 @@
         "text": "好消息，我司项目今天用上了讲的东西",
         "truth_category": "chat",
         "pred_category": "chat",
-        "confidence": 0.3099,
+        "confidence": 0.3577,
         "noul_ok": true,
-        "noul": 0.7824,
+        "noul": 0.9504,
         "truth_impact": 0,
         "pred_impact": 2
+      },
+      {
+        "id": "ev-0173",
+        "text": "难得一次没掉链子的直播",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.6264,
+        "noul_ok": true,
+        "noul": 0.98,
+        "truth_impact": 0,
+        "pred_impact": 1
       },
       {
         "id": "ev-0174",
         "text": "老师多喝水，保护嗓子",
         "truth_category": "chat",
         "pred_category": "feedback",
-        "confidence": 0.7778,
+        "confidence": 0.6078,
         "noul_ok": true,
-        "noul": 0.8612,
+        "noul": 0.907,
         "truth_impact": 0,
         "pred_impact": 1
+      },
+      {
+        "id": "ev-0177",
+        "text": "我领导也在看这个直播，哈哈",
+        "truth_category": "chat",
+        "pred_category": "feedback",
+        "confidence": 0.7133,
+        "noul_ok": true,
+        "noul": 0.9563,
+        "truth_impact": 0,
+        "pred_impact": 0
       },
       {
         "id": "ev-0178",
         "text": "弹幕区有没有华南的朋友",
         "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.1472,
+        "pred_category": "insufficient",
+        "confidence": 0.2555,
         "noul_ok": true,
-        "noul": 0.7618,
+        "noul": 0.8589,
         "truth_impact": 0,
-        "pred_impact": 0
+        "pred_impact": 1
       },
       {
         "id": "ev-0179",
         "text": "蹲完整版课件的老铁举个手",
         "truth_category": "chat",
-        "pred_category": "spam",
-        "confidence": 0.1389,
-        "noul_ok": false,
-        "noul": 0.6229,
+        "pred_category": "feedback",
+        "confidence": 0.2491,
+        "noul_ok": true,
+        "noul": 0.8181,
         "truth_impact": 0,
-        "pred_impact": 1
+        "pred_impact": 2
       },
       {
         "id": "ev-0180",
         "text": "这波讲解直接封神",
         "truth_category": "chat",
-        "pred_category": "spam",
-        "confidence": 0.2066,
-        "noul_ok": false,
-        "noul": 0.4581,
+        "pred_category": "feedback",
+        "confidence": 0.1424,
+        "noul_ok": true,
+        "noul": 0.8884,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -761,31 +735,20 @@
         "text": "课程官方群怎么加呀，没找到入口",
         "truth_category": "chat",
         "pred_category": "spam",
-        "confidence": 0.9177,
+        "confidence": 0.7641,
         "noul_ok": false,
-        "noul": 0.077,
+        "noul": 0.1052,
         "truth_impact": 0,
-        "pred_impact": 0
+        "pred_impact": 1
       },
       {
         "id": "ev-0182",
         "text": "打卡下班，路上听回放",
         "truth_category": "chat",
-        "pred_category": "technical",
-        "confidence": 0.0897,
-        "noul_ok": false,
-        "noul": 0.1052,
-        "truth_impact": 0,
-        "pred_impact": 0
-      },
-      {
-        "id": "ev-0183",
-        "text": "今天收获最大的一小时",
-        "truth_category": "chat",
-        "pred_category": "chat",
-        "confidence": 0.2242,
-        "noul_ok": false,
-        "noul": 0.0506,
+        "pred_category": "feedback",
+        "confidence": 0.5093,
+        "noul_ok": true,
+        "noul": 0.8225,
         "truth_impact": 0,
         "pred_impact": 1
       },
@@ -793,21 +756,21 @@
         "id": "ev-0184",
         "text": "感谢助教刚才帮我处理了报错",
         "truth_category": "chat",
-        "pred_category": "insufficient",
-        "confidence": 0.3961,
+        "pred_category": "technical",
+        "confidence": 0.4557,
         "noul_ok": false,
-        "noul": 0.623,
+        "noul": 0.3871,
         "truth_impact": 0,
-        "pred_impact": 2
+        "pred_impact": 1
       },
       {
         "id": "ev-0185",
         "text": "这弹幕氛围我愿称之为最佳",
         "truth_category": "chat",
         "pred_category": "feedback",
-        "confidence": 0.3791,
+        "confidence": 0.4282,
         "noul_ok": true,
-        "noul": 0.7198,
+        "noul": 0.836,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -816,20 +779,20 @@
         "text": "稳定出U渠道，价优速回",
         "truth_category": "spam",
         "pred_category": "technical",
-        "confidence": 0.3496,
+        "confidence": 0.2623,
         "noul_ok": false,
-        "noul": 0.9561,
+        "noul": 0.8137,
         "truth_impact": 0,
-        "pred_impact": 0
+        "pred_impact": 1
       },
       {
         "id": "ev-0193",
         "text": "代考证书包过，不过全额退",
         "truth_category": "spam",
         "pred_category": "chat",
-        "confidence": 0.3566,
+        "confidence": 0.1324,
         "noul_ok": true,
-        "noul": 0.5698,
+        "noul": 0.6024,
         "truth_impact": 0,
         "pred_impact": 0
       },
@@ -838,9 +801,9 @@
         "text": "刷单返现一单一结，学生党优先",
         "truth_category": "spam",
         "pred_category": "technical",
-        "confidence": 0.146,
+        "confidence": 0.0773,
         "noul_ok": false,
-        "noul": 0.8458,
+        "noul": 0.9627,
         "truth_impact": 0,
         "pred_impact": 1
       },
@@ -848,10 +811,21 @@
         "id": "ev-0197",
         "text": "加速器免费试用，海外线路稳定",
         "truth_category": "spam",
-        "pred_category": "technical",
-        "confidence": 0.4187,
+        "pred_category": "spam",
+        "confidence": 0.545,
         "noul_ok": true,
-        "noul": 0.0207,
+        "noul": 0.0715,
+        "truth_impact": 0,
+        "pred_impact": 2
+      },
+      {
+        "id": "ev-0204",
+        "text": "我这边不行",
+        "truth_category": "insufficient",
+        "pred_category": "insufficient",
+        "confidence": 0.7121,
+        "noul_ok": true,
+        "noul": 0.0108,
         "truth_impact": 0,
         "pred_impact": 2
       },
@@ -860,20 +834,20 @@
         "text": "教一下",
         "truth_category": "insufficient",
         "pred_category": "insufficient",
-        "confidence": 0.2145,
+        "confidence": 0.1095,
         "noul_ok": false,
-        "noul": 0.8285,
+        "noul": 0.8232,
         "truth_impact": 0,
-        "pred_impact": 1
+        "pred_impact": 0
       },
       {
         "id": "ev-0210",
         "text": "我也碰到过，后来怎么解决的",
         "truth_category": "insufficient",
         "pred_category": "chat",
-        "confidence": 0.1739,
+        "confidence": 0.1772,
         "noul_ok": true,
-        "noul": 0.361,
+        "noul": 0.1788,
         "truth_impact": 1,
         "pred_impact": 1
       },
@@ -881,10 +855,10 @@
         "id": "ev-0213",
         "text": "帮忙看下我发的截图",
         "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1601,
+        "pred_category": "feedback",
+        "confidence": 0.4347,
         "noul_ok": false,
-        "noul": 0.6932,
+        "noul": 0.9823,
         "truth_impact": 1,
         "pred_impact": 0
       },
@@ -893,9 +867,9 @@
         "text": "是不是少个括号",
         "truth_category": "insufficient",
         "pred_category": "feedback",
-        "confidence": 0.391,
+        "confidence": 0.0777,
         "noul_ok": true,
-        "noul": 0.6055,
+        "noul": 0.5845,
         "truth_impact": 1,
         "pred_impact": 1
       },
@@ -904,20 +878,20 @@
         "text": "求大佬带一带",
         "truth_category": "insufficient",
         "pred_category": "technical",
-        "confidence": 0.3942,
+        "confidence": 0.6025,
         "noul_ok": true,
-        "noul": 0.4197,
+        "noul": 0.2656,
         "truth_impact": 0,
-        "pred_impact": 1
+        "pred_impact": 0
       },
       {
         "id": "ev-0218",
         "text": "我也一样，要怎么办",
         "truth_category": "insufficient",
         "pred_category": "technical",
-        "confidence": 0.3233,
+        "confidence": 0.2819,
         "noul_ok": true,
-        "noul": 0.3066,
+        "noul": 0.2417,
         "truth_impact": 1,
         "pred_impact": 1
       },
@@ -925,10 +899,10 @@
         "id": "ev-0220",
         "text": "配置文件改了没效果",
         "truth_category": "insufficient",
-        "pred_category": "technical",
-        "confidence": 0.6572,
-        "noul_ok": true,
-        "noul": 0.5036,
+        "pred_category": "feedback",
+        "confidence": 0.4526,
+        "noul_ok": false,
+        "noul": 0.951,
         "truth_impact": 1,
         "pred_impact": 2
       },
@@ -937,9 +911,9 @@
         "text": "卡住了，跟弹幕说的不太一样",
         "truth_category": "insufficient",
         "pred_category": "insufficient",
-        "confidence": 0.1612,
-        "noul_ok": true,
-        "noul": 0.3999,
+        "confidence": 0.2056,
+        "noul_ok": false,
+        "noul": 0.9448,
         "truth_impact": 2,
         "pred_impact": 0
       },
@@ -948,20 +922,20 @@
         "text": "按文档来的，到我这就不行",
         "truth_category": "insufficient",
         "pred_category": "technical",
-        "confidence": 0.4141,
+        "confidence": 0.6003,
         "noul_ok": true,
-        "noul": 0.4979,
+        "noul": 0.0436,
         "truth_impact": 2,
-        "pred_impact": 0
+        "pred_impact": 1
       },
       {
         "id": "ev-0226",
         "text": "有没有那个流程图，发一下",
         "truth_category": "insufficient",
         "pred_category": "technical",
-        "confidence": 0.0522,
+        "confidence": 0.0668,
         "noul_ok": true,
-        "noul": 0.6324,
+        "noul": 0.5949,
         "truth_impact": 0,
         "pred_impact": 1
       },
@@ -970,47 +944,36 @@
         "text": "版本号好像对不上",
         "truth_category": "insufficient",
         "pred_category": "feedback",
-        "confidence": 0.5711,
+        "confidence": 0.768,
         "noul_ok": true,
-        "noul": 0.1038,
+        "noul": 0.4747,
         "truth_impact": 1,
-        "pred_impact": 2
+        "pred_impact": 1
       },
       {
         "id": "ev-0228",
         "text": "布局跟老师截图差好多，是我版本不对吗",
         "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1734,
+        "pred_category": "feedback",
+        "confidence": 0.9057,
         "noul_ok": false,
-        "noul": 0.802,
+        "noul": 0.9618,
         "truth_impact": 1,
         "pred_impact": 1
-      },
-      {
-        "id": "ev-0229",
-        "text": "文档有吗，发我一下",
-        "truth_category": "insufficient",
-        "pred_category": "insufficient",
-        "confidence": 0.1781,
-        "noul_ok": false,
-        "noul": 0.839,
-        "truth_impact": 0,
-        "pred_impact": 0
       },
       {
         "id": "ev-0230",
         "text": "再演示一遍刚才那个报错的地方",
         "truth_category": "insufficient",
         "pred_category": "technical",
-        "confidence": 0.4851,
-        "noul_ok": false,
-        "noul": 0.6761,
+        "confidence": 0.5651,
+        "noul_ok": true,
+        "noul": 0.3113,
         "truth_impact": 1,
         "pred_impact": 2
       }
     ],
-    "latency_ms_avg": 101.26086956521739,
+    "latency_ms_avg": 91.80869565217391,
     "sample_count": 230
   },
   "rows": [
@@ -1026,17 +989,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.731,
-          "feedback": 0.0226,
-          "chat": 0.0694,
-          "spam": 0.0217,
-          "insufficient": 0.1552
+          "technical": 0.5033,
+          "feedback": 0.0402,
+          "chat": 0.0951,
+          "spam": 0.0313,
+          "insufficient": 0.3301
         },
-        "confidence": 0.458,
-        "noul": 0.6575,
-        "score": 0.4834,
+        "confidence": 0.2713,
+        "noul": 0.7646,
+        "score": 0.4362,
         "level_index": 0,
-        "latency_ms": 2369
+        "latency_ms": 2045
       }
     },
     {
@@ -1051,17 +1014,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.623,
-          "feedback": 0.0858,
-          "chat": 0.0559,
-          "spam": 0.0408,
-          "insufficient": 0.1945
+          "technical": 0.7133,
+          "feedback": 0.0507,
+          "chat": 0.0584,
+          "spam": 0.0187,
+          "insufficient": 0.159
         },
-        "confidence": 0.3067,
-        "noul": 0.8291,
-        "score": 0.3748,
-        "level_index": 0,
-        "latency_ms": 99
+        "confidence": 0.4254,
+        "noul": 0.7659,
+        "score": 0.8558,
+        "level_index": 1,
+        "latency_ms": 80
       }
     },
     {
@@ -1076,17 +1039,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9704,
-          "feedback": 0.0048,
-          "chat": 0.0049,
-          "spam": 0.0104,
-          "insufficient": 0.0094
+          "technical": 0.9809,
+          "feedback": 0.0035,
+          "chat": 0.0039,
+          "spam": 0.0052,
+          "insufficient": 0.0066
         },
-        "confidence": 0.8929,
-        "noul": 0.6104,
-        "score": 0.418,
-        "level_index": 0,
-        "latency_ms": 110
+        "confidence": 0.9251,
+        "noul": 0.5335,
+        "score": 0.6884,
+        "level_index": 1,
+        "latency_ms": 93
       }
     },
     {
@@ -1101,17 +1064,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7962,
-          "feedback": 0.0345,
-          "chat": 0.078,
-          "spam": 0.0386,
-          "insufficient": 0.0527
+          "technical": 0.7462,
+          "feedback": 0.0379,
+          "chat": 0.0947,
+          "spam": 0.0344,
+          "insufficient": 0.0868
         },
-        "confidence": 0.5171,
-        "noul": 0.6766,
-        "score": 0.5548,
+        "confidence": 0.4447,
+        "noul": 0.9525,
+        "score": 0.8144,
         "level_index": 1,
-        "latency_ms": 105
+        "latency_ms": 93
       }
     },
     {
@@ -1126,17 +1089,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.5758,
-          "feedback": 0.043,
-          "chat": 0.1294,
-          "spam": 0.0413,
-          "insufficient": 0.2105
+          "technical": 0.5061,
+          "feedback": 0.0581,
+          "chat": 0.1149,
+          "spam": 0.0647,
+          "insufficient": 0.2562
         },
-        "confidence": 0.2684,
-        "noul": 0.8792,
-        "score": 0.3375,
+        "confidence": 0.2018,
+        "noul": 0.8942,
+        "score": 0.151,
         "level_index": 0,
-        "latency_ms": 101
+        "latency_ms": 86
       }
     },
     {
@@ -1151,17 +1114,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8459,
-          "feedback": 0.0232,
-          "chat": 0.0225,
-          "spam": 0.0718,
-          "insufficient": 0.0367
+          "technical": 0.8542,
+          "feedback": 0.0367,
+          "chat": 0.0188,
+          "spam": 0.0513,
+          "insufficient": 0.0389
         },
-        "confidence": 0.612,
-        "noul": 0.7004,
-        "score": 0.4506,
-        "level_index": 0,
-        "latency_ms": 117
+        "confidence": 0.6214,
+        "noul": 0.9342,
+        "score": 0.7049,
+        "level_index": 1,
+        "latency_ms": 75
       }
     },
     {
@@ -1176,17 +1139,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.861,
-          "feedback": 0.0071,
-          "chat": 0.0119,
-          "spam": 0.0988,
-          "insufficient": 0.0212
+          "technical": 0.9418,
+          "feedback": 0.0055,
+          "chat": 0.0073,
+          "spam": 0.0286,
+          "insufficient": 0.0169
         },
-        "confidence": 0.6726,
-        "noul": 0.3891,
-        "score": 0.2718,
+        "confidence": 0.819,
+        "noul": 0.3667,
+        "score": 0.2192,
         "level_index": 0,
-        "latency_ms": 110
+        "latency_ms": 74
       }
     },
     {
@@ -1201,17 +1164,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.975,
-          "feedback": 0.0053,
-          "chat": 0.0072,
-          "spam": 0.005,
-          "insufficient": 0.0075
+          "technical": 0.9125,
+          "feedback": 0.0179,
+          "chat": 0.0321,
+          "spam": 0.0097,
+          "insufficient": 0.0278
         },
-        "confidence": 0.9061,
-        "noul": 0.8171,
-        "score": 1.0011,
+        "confidence": 0.7449,
+        "noul": 0.892,
+        "score": 0.9686,
         "level_index": 1,
-        "latency_ms": 109
+        "latency_ms": 66
       }
     },
     {
@@ -1226,17 +1189,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0095,
-          "feedback": 0.9651,
-          "chat": 0.0091,
-          "spam": 0.0082,
-          "insufficient": 0.0081
+          "technical": 0.0078,
+          "feedback": 0.9737,
+          "chat": 0.0084,
+          "spam": 0.0036,
+          "insufficient": 0.0065
         },
-        "confidence": 0.8759,
-        "noul": 0.8651,
-        "score": 1.3543,
+        "confidence": 0.9026,
+        "noul": 0.9525,
+        "score": 1.4928,
         "level_index": 1,
-        "latency_ms": 99
+        "latency_ms": 56
       }
     },
     {
@@ -1251,17 +1214,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0027,
-          "feedback": 0.9906,
-          "chat": 0.0023,
-          "spam": 0.0021,
-          "insufficient": 0.0023
+          "technical": 0.0005,
+          "feedback": 0.9986,
+          "chat": 0.0004,
+          "spam": 0.0002,
+          "insufficient": 0.0003
         },
-        "confidence": 0.9588,
-        "noul": 0.8858,
-        "score": 1.6988,
+        "confidence": 0.992,
+        "noul": 0.9932,
+        "score": 2.3714,
         "level_index": 2,
-        "latency_ms": 104
+        "latency_ms": 64
       }
     },
     {
@@ -1276,17 +1239,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.2429,
-          "feedback": 0.4616,
-          "chat": 0.1043,
-          "spam": 0.0951,
-          "insufficient": 0.0961
+          "technical": 0.1744,
+          "feedback": 0.4908,
+          "chat": 0.1435,
+          "spam": 0.0808,
+          "insufficient": 0.1106
         },
-        "confidence": 0.1393,
-        "noul": 0.7284,
-        "score": 1.0036,
+        "confidence": 0.1431,
+        "noul": 0.9212,
+        "score": 0.9326,
         "level_index": 1,
-        "latency_ms": 96
+        "latency_ms": 72
       }
     },
     {
@@ -1301,17 +1264,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.1651,
-          "feedback": 0.5761,
-          "chat": 0.0674,
-          "spam": 0.066,
-          "insufficient": 0.1254
+          "technical": 0.011,
+          "feedback": 0.9629,
+          "chat": 0.0083,
+          "spam": 0.0049,
+          "insufficient": 0.013
         },
-        "confidence": 0.2317,
-        "noul": 0.7034,
-        "score": 1.7866,
-        "level_index": 2,
-        "latency_ms": 78
+        "confidence": 0.8707,
+        "noul": 0.9645,
+        "score": 2.6587,
+        "level_index": 3,
+        "latency_ms": 58
       }
     },
     {
@@ -1326,17 +1289,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9054,
-          "feedback": 0.0204,
-          "chat": 0.0233,
-          "spam": 0.0188,
-          "insufficient": 0.032
+          "technical": 0.6611,
+          "feedback": 0.1518,
+          "chat": 0.0338,
+          "spam": 0.026,
+          "insufficient": 0.1273
         },
-        "confidence": 0.7253,
-        "noul": 0.8542,
-        "score": 1.5398,
-        "level_index": 2,
-        "latency_ms": 92
+        "confidence": 0.3591,
+        "noul": 0.9687,
+        "score": 1.4633,
+        "level_index": 1,
+        "latency_ms": 61
       }
     },
     {
@@ -1351,17 +1314,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0205,
-          "feedback": 0.9574,
-          "chat": 0.0074,
-          "spam": 0.007,
-          "insufficient": 0.0077
+          "technical": 0.0224,
+          "feedback": 0.9535,
+          "chat": 0.0086,
+          "spam": 0.0054,
+          "insufficient": 0.01
         },
-        "confidence": 0.8571,
-        "noul": 0.8808,
-        "score": 1.9745,
+        "confidence": 0.8473,
+        "noul": 0.9767,
+        "score": 2.283,
         "level_index": 2,
-        "latency_ms": 83
+        "latency_ms": 64
       }
     },
     {
@@ -1376,17 +1339,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0527,
-          "feedback": 0.8729,
-          "chat": 0.0249,
-          "spam": 0.0247,
-          "insufficient": 0.0249
+          "technical": 0.0309,
+          "feedback": 0.9089,
+          "chat": 0.0198,
+          "spam": 0.0158,
+          "insufficient": 0.0246
         },
-        "confidence": 0.6589,
-        "noul": 0.8065,
-        "score": 1.1174,
+        "confidence": 0.7336,
+        "noul": 0.9745,
+        "score": 0.9665,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 57
       }
     },
     {
@@ -1401,17 +1364,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.4015,
-          "feedback": 0.5233,
-          "chat": 0.0095,
-          "spam": 0.042,
-          "insufficient": 0.0237
+          "technical": 0.1155,
+          "feedback": 0.8717,
+          "chat": 0.0035,
+          "spam": 0.0035,
+          "insufficient": 0.0058
         },
-        "confidence": 0.3963,
-        "noul": 0.8365,
-        "score": 1.7129,
+        "confidence": 0.7277,
+        "noul": 0.9755,
+        "score": 2.4362,
         "level_index": 2,
-        "latency_ms": 84
+        "latency_ms": 71
       }
     },
     {
@@ -1426,17 +1389,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0828,
-          "feedback": 0.8503,
-          "chat": 0.0277,
-          "spam": 0.0196,
-          "insufficient": 0.0196
+          "technical": 0.0209,
+          "feedback": 0.9574,
+          "chat": 0.0101,
+          "spam": 0.0044,
+          "insufficient": 0.0072
         },
-        "confidence": 0.6286,
-        "noul": 0.9027,
-        "score": 1.6798,
+        "confidence": 0.8582,
+        "noul": 0.9835,
+        "score": 1.6623,
         "level_index": 2,
-        "latency_ms": 99
+        "latency_ms": 50
       }
     },
     {
@@ -1451,17 +1414,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.0278,
-          "feedback": 0.0259,
-          "chat": 0.9068,
-          "spam": 0.0197,
-          "insufficient": 0.0199
+          "technical": 0.0288,
+          "feedback": 0.0261,
+          "chat": 0.9135,
+          "spam": 0.0105,
+          "insufficient": 0.021
         },
-        "confidence": 0.7279,
-        "noul": 0.8784,
-        "score": 0.1206,
+        "confidence": 0.7458,
+        "noul": 0.9842,
+        "score": 0.3382,
         "level_index": 0,
-        "latency_ms": 82
+        "latency_ms": 50
       }
     },
     {
@@ -1476,17 +1439,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2173,
-          "feedback": 0.0359,
-          "chat": 0.0573,
-          "spam": 0.0348,
-          "insufficient": 0.6548
+          "technical": 0.1614,
+          "feedback": 0.225,
+          "chat": 0.0457,
+          "spam": 0.0334,
+          "insufficient": 0.5346
         },
-        "confidence": 0.373,
-        "noul": 0.8354,
-        "score": 1.0799,
-        "level_index": 1,
-        "latency_ms": 89
+        "confidence": 0.2425,
+        "noul": 0.2478,
+        "score": 2.2516,
+        "level_index": 2,
+        "latency_ms": 64
       }
     },
     {
@@ -1499,19 +1462,19 @@
       },
       "note": "",
       "pred": {
-        "category": "chat",
+        "category": "technical",
         "probabilities": {
-          "technical": 0.1103,
-          "feedback": 0.0757,
-          "chat": 0.6633,
-          "spam": 0.0322,
-          "insufficient": 0.1185
+          "technical": 0.3755,
+          "feedback": 0.0762,
+          "chat": 0.3464,
+          "spam": 0.0527,
+          "insufficient": 0.1492
         },
-        "confidence": 0.3326,
-        "noul": 0.8617,
-        "score": 0.3344,
+        "confidence": 0.1487,
+        "noul": 0.9094,
+        "score": 0.4575,
         "level_index": 0,
-        "latency_ms": 94
+        "latency_ms": 65
       }
     },
     {
@@ -1524,19 +1487,19 @@
       },
       "note": "候选缺口观察样本：运营询问",
       "pred": {
-        "category": "chat",
+        "category": "technical",
         "probabilities": {
-          "technical": 0.3097,
-          "feedback": 0.059,
-          "chat": 0.4849,
-          "spam": 0.0614,
-          "insufficient": 0.0851
+          "technical": 0.4335,
+          "feedback": 0.1054,
+          "chat": 0.1802,
+          "spam": 0.0778,
+          "insufficient": 0.203
         },
-        "confidence": 0.2159,
-        "noul": 0.0268,
-        "score": 1.3442,
-        "level_index": 1,
-        "latency_ms": 71
+        "confidence": 0.111,
+        "noul": 0.9518,
+        "score": 1.539,
+        "level_index": 2,
+        "latency_ms": 63
       }
     },
     {
@@ -1551,17 +1514,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.231,
-          "feedback": 0.029,
-          "chat": 0.0315,
-          "spam": 0.0287,
-          "insufficient": 0.6798
+          "technical": 0.2772,
+          "feedback": 0.0407,
+          "chat": 0.0474,
+          "spam": 0.0412,
+          "insufficient": 0.5935
         },
-        "confidence": 0.4319,
-        "noul": 0.6657,
-        "score": 1.1073,
+        "confidence": 0.3343,
+        "noul": 0.6252,
+        "score": 0.6867,
         "level_index": 1,
-        "latency_ms": 80
+        "latency_ms": 61
       }
     },
     {
@@ -1576,17 +1539,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.2297,
-          "feedback": 0.0583,
-          "chat": 0.608,
-          "spam": 0.0614,
-          "insufficient": 0.0425
+          "technical": 0.1934,
+          "feedback": 0.0693,
+          "chat": 0.5937,
+          "spam": 0.0407,
+          "insufficient": 0.1029
         },
-        "confidence": 0.3092,
-        "noul": 0.8519,
-        "score": 0.3479,
+        "confidence": 0.269,
+        "noul": 0.9649,
+        "score": 0.2653,
         "level_index": 0,
-        "latency_ms": 75
+        "latency_ms": 54
       }
     },
     {
@@ -1599,19 +1562,19 @@
       },
       "note": "",
       "pred": {
-        "category": "chat",
+        "category": "technical",
         "probabilities": {
-          "technical": 0.301,
-          "feedback": 0.0627,
-          "chat": 0.3269,
-          "spam": 0.0653,
-          "insufficient": 0.2442
+          "technical": 0.3152,
+          "feedback": 0.0703,
+          "chat": 0.289,
+          "spam": 0.0863,
+          "insufficient": 0.2391
         },
-        "confidence": 0.1159,
-        "noul": 0.0354,
-        "score": 0.249,
+        "confidence": 0.0911,
+        "noul": 0.3408,
+        "score": 0.17,
         "level_index": 0,
-        "latency_ms": 83
+        "latency_ms": 60
       }
     },
     {
@@ -1626,17 +1589,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.0153,
-          "feedback": 0.0268,
-          "chat": 0.9378,
-          "spam": 0.0103,
-          "insufficient": 0.0099
+          "technical": 0.0182,
+          "feedback": 0.1699,
+          "chat": 0.7832,
+          "spam": 0.0138,
+          "insufficient": 0.0148
         },
-        "confidence": 0.8052,
-        "noul": 0.7255,
-        "score": 0.1567,
+        "confidence": 0.5732,
+        "noul": 0.9685,
+        "score": 0.1444,
         "level_index": 0,
-        "latency_ms": 92
+        "latency_ms": 58
       }
     },
     {
@@ -1651,17 +1614,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0944,
-          "feedback": 0.0039,
-          "chat": 0.005,
-          "spam": 0.8926,
-          "insufficient": 0.0041
+          "technical": 0.0819,
+          "feedback": 0.0026,
+          "chat": 0.0034,
+          "spam": 0.9085,
+          "insufficient": 0.0035
         },
-        "confidence": 0.7546,
-        "noul": 0.2992,
-        "score": 0.8404,
-        "level_index": 1,
-        "latency_ms": 88
+        "confidence": 0.7842,
+        "noul": 0.492,
+        "score": 0.2185,
+        "level_index": 0,
+        "latency_ms": 74
       }
     },
     {
@@ -1677,16 +1640,16 @@
         "category": "spam",
         "probabilities": {
           "technical": 0.0013,
-          "feedback": 0.0012,
-          "chat": 0.0012,
-          "spam": 0.995,
-          "insufficient": 0.0012
+          "feedback": 0.0005,
+          "chat": 0.0007,
+          "spam": 0.9969,
+          "insufficient": 0.0006
         },
-        "confidence": 0.9763,
-        "noul": 0.0418,
-        "score": 0.3575,
+        "confidence": 0.9843,
+        "noul": 0.2345,
+        "score": 0.1769,
         "level_index": 0,
-        "latency_ms": 117
+        "latency_ms": 66
       }
     },
     {
@@ -1701,17 +1664,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0219,
-          "feedback": 0.0055,
-          "chat": 0.0711,
-          "spam": 0.8875,
-          "insufficient": 0.014
+          "technical": 0.0468,
+          "feedback": 0.0117,
+          "chat": 0.1118,
+          "spam": 0.7957,
+          "insufficient": 0.034
         },
-        "confidence": 0.7105,
-        "noul": 0.2172,
-        "score": 0.1687,
+        "confidence": 0.5419,
+        "noul": 0.2313,
+        "score": 0.2205,
         "level_index": 0,
-        "latency_ms": 117
+        "latency_ms": 52
       }
     },
     {
@@ -1726,17 +1689,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0202,
-          "feedback": 0.0017,
-          "chat": 0.0064,
-          "spam": 0.9688,
-          "insufficient": 0.0029
+          "technical": 0.0018,
+          "feedback": 0.0005,
+          "chat": 0.0034,
+          "spam": 0.9935,
+          "insufficient": 0.0009
         },
-        "confidence": 0.8944,
-        "noul": 0.0656,
-        "score": 0.2428,
+        "confidence": 0.9708,
+        "noul": 0.0213,
+        "score": 0.185,
         "level_index": 0,
-        "latency_ms": 77
+        "latency_ms": 55
       }
     },
     {
@@ -1751,17 +1714,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0049,
-          "feedback": 0.0019,
-          "chat": 0.0019,
-          "spam": 0.9894,
-          "insufficient": 0.0019
+          "technical": 0.0014,
+          "feedback": 0.0007,
+          "chat": 0.0011,
+          "spam": 0.9957,
+          "insufficient": 0.0011
         },
-        "confidence": 0.9552,
-        "noul": 0.038,
-        "score": 0.1376,
+        "confidence": 0.979,
+        "noul": 0.0378,
+        "score": 0.1971,
         "level_index": 0,
-        "latency_ms": 119
+        "latency_ms": 92
       }
     },
     {
@@ -1776,17 +1739,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0093,
-          "feedback": 0.003,
-          "chat": 0.0079,
-          "spam": 0.9747,
-          "insufficient": 0.0051
+          "technical": 0.0862,
+          "feedback": 0.009,
+          "chat": 0.0308,
+          "spam": 0.8545,
+          "insufficient": 0.0195
         },
-        "confidence": 0.9062,
-        "noul": 0.2083,
-        "score": 0.3231,
+        "confidence": 0.6446,
+        "noul": 0.1827,
+        "score": 0.2497,
         "level_index": 0,
-        "latency_ms": 98
+        "latency_ms": 62
       }
     },
     {
@@ -1801,17 +1764,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.1969,
-          "feedback": 0.0467,
-          "chat": 0.0258,
-          "spam": 0.7146,
-          "insufficient": 0.0161
+          "technical": 0.4379,
+          "feedback": 0.0419,
+          "chat": 0.0295,
+          "spam": 0.4673,
+          "insufficient": 0.0235
         },
-        "confidence": 0.4632,
-        "noul": 0.4433,
-        "score": 0.2591,
+        "confidence": 0.3525,
+        "noul": 0.4288,
+        "score": 0.446,
         "level_index": 0,
-        "latency_ms": 81
+        "latency_ms": 64
       }
     },
     {
@@ -1826,17 +1789,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0134,
-          "feedback": 0.0041,
-          "chat": 0.0147,
-          "spam": 0.9632,
-          "insufficient": 0.0046
+          "technical": 0.1105,
+          "feedback": 0.0089,
+          "chat": 0.0316,
+          "spam": 0.8301,
+          "insufficient": 0.0189
         },
-        "confidence": 0.8737,
-        "noul": 0.1932,
-        "score": 0.3127,
+        "confidence": 0.6123,
+        "noul": 0.2898,
+        "score": 0.2902,
         "level_index": 0,
-        "latency_ms": 90
+        "latency_ms": 59
       }
     },
     {
@@ -1851,17 +1814,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2658,
-          "feedback": 0.041,
-          "chat": 0.0775,
-          "spam": 0.0473,
-          "insufficient": 0.5684
+          "technical": 0.2935,
+          "feedback": 0.053,
+          "chat": 0.0862,
+          "spam": 0.0559,
+          "insufficient": 0.5114
         },
-        "confidence": 0.2875,
-        "noul": 0.2169,
-        "score": 0.5246,
-        "level_index": 1,
-        "latency_ms": 86
+        "confidence": 0.2352,
+        "noul": 0.4739,
+        "score": 0.3784,
+        "level_index": 0,
+        "latency_ms": 58
       }
     },
     {
@@ -1876,17 +1839,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7397,
-          "feedback": 0.0222,
-          "chat": 0.0229,
-          "spam": 0.0218,
-          "insufficient": 0.1934
+          "technical": 0.6504,
+          "feedback": 0.021,
+          "chat": 0.0207,
+          "spam": 0.0127,
+          "insufficient": 0.2952
         },
-        "confidence": 0.5059,
-        "noul": 0.2667,
-        "score": 1.2911,
-        "level_index": 1,
-        "latency_ms": 90
+        "confidence": 0.4676,
+        "noul": 0.1946,
+        "score": 0.2641,
+        "level_index": 0,
+        "latency_ms": 65
       }
     },
     {
@@ -1901,17 +1864,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6483,
-          "feedback": 0.0387,
-          "chat": 0.0395,
-          "spam": 0.0383,
-          "insufficient": 0.2351
+          "technical": 0.564,
+          "feedback": 0.0406,
+          "chat": 0.0424,
+          "spam": 0.0197,
+          "insufficient": 0.3333
         },
-        "confidence": 0.3787,
-        "noul": 0.0721,
-        "score": 1.2749,
+        "confidence": 0.3596,
+        "noul": 0.1668,
+        "score": 0.9404,
         "level_index": 1,
-        "latency_ms": 91
+        "latency_ms": 60
       }
     },
     {
@@ -1924,19 +1887,19 @@
       },
       "note": "差异无描述",
       "pred": {
-        "category": "technical",
+        "category": "chat",
         "probabilities": {
-          "technical": 0.4425,
-          "feedback": 0.0715,
-          "chat": 0.2128,
-          "spam": 0.0614,
-          "insufficient": 0.2117
+          "technical": 0.2809,
+          "feedback": 0.079,
+          "chat": 0.335,
+          "spam": 0.0347,
+          "insufficient": 0.2704
         },
-        "confidence": 0.1433,
-        "noul": 0.732,
-        "score": 0.7491,
+        "confidence": 0.1339,
+        "noul": 0.8278,
+        "score": 0.6576,
         "level_index": 1,
-        "latency_ms": 73
+        "latency_ms": 62
       }
     },
     {
@@ -1951,17 +1914,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.3108,
-          "feedback": 0.0406,
-          "chat": 0.1177,
-          "spam": 0.1454,
-          "insufficient": 0.3857
+          "technical": 0.3096,
+          "feedback": 0.0425,
+          "chat": 0.0916,
+          "spam": 0.0402,
+          "insufficient": 0.5161
         },
-        "confidence": 0.1346,
-        "noul": 0.1129,
-        "score": 0.4309,
-        "level_index": 0,
-        "latency_ms": 94
+        "confidence": 0.2626,
+        "noul": 0.2005,
+        "score": 0.8153,
+        "level_index": 1,
+        "latency_ms": 67
       }
     },
     {
@@ -1976,17 +1939,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.0992,
-          "feedback": 0.0096,
-          "chat": 0.0098,
-          "spam": 0.0094,
-          "insufficient": 0.8718
+          "technical": 0.1826,
+          "feedback": 0.018,
+          "chat": 0.0233,
+          "spam": 0.0117,
+          "insufficient": 0.7644
         },
-        "confidence": 0.6998,
-        "noul": 0.0907,
-        "score": 1.0632,
+        "confidence": 0.5479,
+        "noul": 0.1018,
+        "score": 0.9477,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 61
       }
     },
     {
@@ -1999,19 +1962,19 @@
       },
       "note": "声称有报错但未贴出",
       "pred": {
-        "category": "insufficient",
+        "category": "technical",
         "probabilities": {
-          "technical": 0.4316,
-          "feedback": 0.0246,
-          "chat": 0.0254,
-          "spam": 0.0232,
-          "insufficient": 0.4952
+          "technical": 0.5705,
+          "feedback": 0.0433,
+          "chat": 0.0401,
+          "spam": 0.0209,
+          "insufficient": 0.3252
         },
-        "confidence": 0.3896,
-        "noul": 0.606,
-        "score": 1.8302,
+        "confidence": 0.3592,
+        "noul": 0.4378,
+        "score": 1.7306,
         "level_index": 2,
-        "latency_ms": 94
+        "latency_ms": 51
       }
     },
     {
@@ -2024,19 +1987,19 @@
       },
       "note": "依赖前文",
       "pred": {
-        "category": "technical",
+        "category": "insufficient",
         "probabilities": {
-          "technical": 0.5494,
-          "feedback": 0.062,
-          "chat": 0.1475,
-          "spam": 0.0555,
-          "insufficient": 0.1856
+          "technical": 0.2011,
+          "feedback": 0.1084,
+          "chat": 0.2724,
+          "spam": 0.0492,
+          "insufficient": 0.3689
         },
-        "confidence": 0.2191,
-        "noul": 0.089,
-        "score": 0.3496,
+        "confidence": 0.1092,
+        "noul": 0.0947,
+        "score": 0.2192,
         "level_index": 0,
-        "latency_ms": 104
+        "latency_ms": 58
       }
     },
     {
@@ -2051,17 +2014,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0122,
-          "feedback": 0.9554,
-          "chat": 0.0124,
-          "spam": 0.0098,
-          "insufficient": 0.0101
+          "technical": 0.024,
+          "feedback": 0.917,
+          "chat": 0.0259,
+          "spam": 0.0102,
+          "insufficient": 0.0228
         },
-        "confidence": 0.8484,
-        "noul": 0.8214,
-        "score": 0.2111,
+        "confidence": 0.7535,
+        "noul": 0.9102,
+        "score": 0.236,
         "level_index": 0,
-        "latency_ms": 89
+        "latency_ms": 60
       }
     },
     {
@@ -2076,17 +2039,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8492,
-          "feedback": 0.0352,
-          "chat": 0.0362,
-          "spam": 0.0331,
-          "insufficient": 0.0463
+          "technical": 0.7333,
+          "feedback": 0.1037,
+          "chat": 0.0535,
+          "spam": 0.0329,
+          "insufficient": 0.0766
         },
-        "confidence": 0.6075,
-        "noul": 0.6928,
-        "score": 0.8973,
+        "confidence": 0.4233,
+        "noul": 0.9646,
+        "score": 0.5484,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 60
       }
     },
     {
@@ -2099,19 +2062,19 @@
       },
       "note": "边界对照：对象定位具体（第三行、报错）",
       "pred": {
-        "category": "technical",
+        "category": "insufficient",
         "probabilities": {
-          "technical": 0.7748,
-          "feedback": 0.0447,
-          "chat": 0.0364,
-          "spam": 0.0357,
-          "insufficient": 0.1084
+          "technical": 0.218,
+          "feedback": 0.2204,
+          "chat": 0.0957,
+          "spam": 0.0787,
+          "insufficient": 0.3872
         },
-        "confidence": 0.4924,
-        "noul": 0.8036,
-        "score": 1.5662,
-        "level_index": 2,
-        "latency_ms": 84
+        "confidence": 0.0945,
+        "noul": 0.9525,
+        "score": 1.4526,
+        "level_index": 1,
+        "latency_ms": 70
       }
     },
     {
@@ -2126,17 +2089,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.1125,
-          "feedback": 0.8219,
-          "chat": 0.03,
-          "spam": 0.0176,
-          "insufficient": 0.018
+          "technical": 0.0408,
+          "feedback": 0.935,
+          "chat": 0.0105,
+          "spam": 0.0043,
+          "insufficient": 0.0093
         },
-        "confidence": 0.5927,
-        "noul": 0.8925,
-        "score": 1.7324,
+        "confidence": 0.8084,
+        "noul": 0.9827,
+        "score": 2.0896,
         "level_index": 2,
-        "latency_ms": 93
+        "latency_ms": 61
       }
     },
     {
@@ -2151,17 +2114,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8529,
-          "feedback": 0.0181,
-          "chat": 0.0364,
-          "spam": 0.0149,
-          "insufficient": 0.0777
+          "technical": 0.7741,
+          "feedback": 0.0347,
+          "chat": 0.0518,
+          "spam": 0.0173,
+          "insufficient": 0.122
         },
-        "confidence": 0.6333,
-        "noul": 0.793,
-        "score": 1.0298,
+        "confidence": 0.5059,
+        "noul": 0.8512,
+        "score": 0.981,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 65
       }
     },
     {
@@ -2176,17 +2139,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8701,
-          "feedback": 0.0544,
-          "chat": 0.0217,
-          "spam": 0.0152,
-          "insufficient": 0.0385
+          "technical": 0.767,
+          "feedback": 0.1295,
+          "chat": 0.0212,
+          "spam": 0.013,
+          "insufficient": 0.0692
         },
-        "confidence": 0.6571,
-        "noul": 0.8557,
-        "score": 0.9994,
+        "confidence": 0.5083,
+        "noul": 0.9673,
+        "score": 0.8502,
         "level_index": 1,
-        "latency_ms": 108
+        "latency_ms": 63
       }
     },
     {
@@ -2201,17 +2164,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8142,
-          "feedback": 0.0141,
-          "chat": 0.0385,
-          "spam": 0.0134,
-          "insufficient": 0.1199
+          "technical": 0.7245,
+          "feedback": 0.0288,
+          "chat": 0.044,
+          "spam": 0.0195,
+          "insufficient": 0.1832
         },
-        "confidence": 0.5869,
-        "noul": 0.7927,
-        "score": 0.8721,
+        "confidence": 0.4651,
+        "noul": 0.8561,
+        "score": 0.8802,
         "level_index": 1,
-        "latency_ms": 88
+        "latency_ms": 67
       }
     },
     {
@@ -2226,17 +2189,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8814,
-          "feedback": 0.0302,
-          "chat": 0.0341,
-          "spam": 0.0212,
-          "insufficient": 0.0331
+          "technical": 0.8668,
+          "feedback": 0.0384,
+          "chat": 0.0296,
+          "spam": 0.0199,
+          "insufficient": 0.0452
         },
-        "confidence": 0.6727,
-        "noul": 0.8658,
-        "score": 0.9481,
+        "confidence": 0.645,
+        "noul": 0.9625,
+        "score": 0.8722,
         "level_index": 1,
-        "latency_ms": 82
+        "latency_ms": 66
       }
     },
     {
@@ -2251,17 +2214,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6536,
-          "feedback": 0.0489,
-          "chat": 0.172,
-          "spam": 0.045,
-          "insufficient": 0.0805
+          "technical": 0.7179,
+          "feedback": 0.0579,
+          "chat": 0.1237,
+          "spam": 0.0392,
+          "insufficient": 0.0612
         },
-        "confidence": 0.3348,
-        "noul": 0.8614,
-        "score": 1.1967,
+        "confidence": 0.4038,
+        "noul": 0.9601,
+        "score": 0.709,
         "level_index": 1,
-        "latency_ms": 94
+        "latency_ms": 62
       }
     },
     {
@@ -2276,17 +2239,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9558,
-          "feedback": 0.0106,
-          "chat": 0.0112,
-          "spam": 0.0109,
-          "insufficient": 0.0115
+          "technical": 0.8702,
+          "feedback": 0.0268,
+          "chat": 0.0277,
+          "spam": 0.0254,
+          "insufficient": 0.0498
         },
-        "confidence": 0.8495,
-        "noul": 0.7429,
-        "score": 1.0826,
+        "confidence": 0.6519,
+        "noul": 0.9377,
+        "score": 1.0024,
         "level_index": 1,
-        "latency_ms": 82
+        "latency_ms": 72
       }
     },
     {
@@ -2301,17 +2264,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.1643,
-          "feedback": 0.7518,
-          "chat": 0.0404,
-          "spam": 0.0212,
-          "insufficient": 0.0223
+          "technical": 0.4019,
+          "feedback": 0.4371,
+          "chat": 0.0844,
+          "spam": 0.0343,
+          "insufficient": 0.0422
         },
-        "confidence": 0.4983,
-        "noul": 0.8612,
-        "score": 1.0567,
+        "confidence": 0.263,
+        "noul": 0.9402,
+        "score": 1.0039,
         "level_index": 1,
-        "latency_ms": 86
+        "latency_ms": 61
       }
     },
     {
@@ -2326,17 +2289,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7793,
-          "feedback": 0.0759,
-          "chat": 0.0372,
-          "spam": 0.0357,
+          "technical": 0.7668,
+          "feedback": 0.0809,
+          "chat": 0.0409,
+          "spam": 0.0396,
           "insufficient": 0.0718
         },
-        "confidence": 0.4901,
-        "noul": 0.8844,
-        "score": 1.1,
+        "confidence": 0.4689,
+        "noul": 0.9346,
+        "score": 1.0226,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 49
       }
     },
     {
@@ -2351,17 +2314,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6495,
-          "feedback": 0.0604,
-          "chat": 0.1633,
-          "spam": 0.0488,
-          "insufficient": 0.078
+          "technical": 0.6574,
+          "feedback": 0.0651,
+          "chat": 0.1476,
+          "spam": 0.0597,
+          "insufficient": 0.0702
         },
-        "confidence": 0.3214,
-        "noul": 0.7696,
-        "score": 0.8098,
+        "confidence": 0.3223,
+        "noul": 0.7394,
+        "score": 0.7644,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 91
       }
     },
     {
@@ -2376,17 +2339,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.5946,
-          "feedback": 0.0619,
-          "chat": 0.227,
-          "spam": 0.0565,
-          "insufficient": 0.06
+          "technical": 0.6953,
+          "feedback": 0.056,
+          "chat": 0.1509,
+          "spam": 0.0355,
+          "insufficient": 0.0624
         },
-        "confidence": 0.286,
-        "noul": 0.8784,
-        "score": 0.2883,
-        "level_index": 0,
-        "latency_ms": 74
+        "confidence": 0.3843,
+        "noul": 0.9658,
+        "score": 0.8876,
+        "level_index": 1,
+        "latency_ms": 83
       }
     },
     {
@@ -2401,17 +2364,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7943,
-          "feedback": 0.0606,
-          "chat": 0.0525,
-          "spam": 0.0451,
-          "insufficient": 0.0475
+          "technical": 0.7285,
+          "feedback": 0.0763,
+          "chat": 0.0692,
+          "spam": 0.0569,
+          "insufficient": 0.0692
         },
-        "confidence": 0.5079,
-        "noul": 0.8134,
-        "score": 1.0037,
+        "confidence": 0.4037,
+        "noul": 0.9386,
+        "score": 1.2204,
         "level_index": 1,
-        "latency_ms": 86
+        "latency_ms": 90
       }
     },
     {
@@ -2426,17 +2389,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9294,
-          "feedback": 0.0133,
-          "chat": 0.0134,
-          "spam": 0.0127,
-          "insufficient": 0.0312
+          "technical": 0.9207,
+          "feedback": 0.0134,
+          "chat": 0.0137,
+          "spam": 0.014,
+          "insufficient": 0.0381
         },
-        "confidence": 0.7844,
-        "noul": 0.8282,
-        "score": 1.4844,
+        "confidence": 0.7656,
+        "noul": 0.7761,
+        "score": 1.2083,
         "level_index": 1,
-        "latency_ms": 83
+        "latency_ms": 76
       }
     },
     {
@@ -2451,16 +2414,16 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.4508,
-          "feedback": 0.095,
-          "chat": 0.0858,
-          "spam": 0.0443,
-          "insufficient": 0.3241
+          "technical": 0.5063,
+          "feedback": 0.1456,
+          "chat": 0.0934,
+          "spam": 0.0397,
+          "insufficient": 0.2151
         },
-        "confidence": 0.1943,
-        "noul": 0.8262,
-        "score": 0.6459,
-        "level_index": 1,
+        "confidence": 0.1891,
+        "noul": 0.8164,
+        "score": 0.4062,
+        "level_index": 0,
         "latency_ms": 81
       }
     },
@@ -2476,17 +2439,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9113,
-          "feedback": 0.0204,
-          "chat": 0.0206,
-          "spam": 0.019,
-          "insufficient": 0.0288
+          "technical": 0.7279,
+          "feedback": 0.0602,
+          "chat": 0.0636,
+          "spam": 0.0403,
+          "insufficient": 0.1081
         },
-        "confidence": 0.7383,
-        "noul": 0.7814,
-        "score": 1.0336,
+        "confidence": 0.4126,
+        "noul": 0.8099,
+        "score": 0.9292,
         "level_index": 1,
-        "latency_ms": 87
+        "latency_ms": 93
       }
     },
     {
@@ -2501,17 +2464,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9426,
-          "feedback": 0.0119,
-          "chat": 0.0133,
-          "spam": 0.0115,
-          "insufficient": 0.0206
+          "technical": 0.9245,
+          "feedback": 0.0175,
+          "chat": 0.0202,
+          "spam": 0.0141,
+          "insufficient": 0.0237
         },
-        "confidence": 0.8151,
-        "noul": 0.8529,
-        "score": 1.1792,
+        "confidence": 0.7695,
+        "noul": 0.9666,
+        "score": 1.0283,
         "level_index": 1,
-        "latency_ms": 94
+        "latency_ms": 77
       }
     },
     {
@@ -2526,17 +2489,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.95,
-          "feedback": 0.0121,
-          "chat": 0.0122,
-          "spam": 0.0121,
-          "insufficient": 0.0136
+          "technical": 0.964,
+          "feedback": 0.0082,
+          "chat": 0.0094,
+          "spam": 0.007,
+          "insufficient": 0.0115
         },
-        "confidence": 0.8335,
-        "noul": 0.732,
-        "score": 0.9836,
+        "confidence": 0.8729,
+        "noul": 0.7261,
+        "score": 0.8398,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 79
       }
     },
     {
@@ -2551,17 +2514,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9073,
-          "feedback": 0.0185,
-          "chat": 0.0187,
-          "spam": 0.0164,
-          "insufficient": 0.0391
+          "technical": 0.9099,
+          "feedback": 0.0178,
+          "chat": 0.0178,
+          "spam": 0.0134,
+          "insufficient": 0.041
         },
-        "confidence": 0.7325,
-        "noul": 0.873,
-        "score": 1.0149,
-        "level_index": 1,
-        "latency_ms": 84
+        "confidence": 0.7401,
+        "noul": 0.9463,
+        "score": 0.4704,
+        "level_index": 0,
+        "latency_ms": 66
       }
     },
     {
@@ -2576,17 +2539,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6232,
-          "feedback": 0.0598,
-          "chat": 0.1527,
-          "spam": 0.0726,
-          "insufficient": 0.0917
+          "technical": 0.7039,
+          "feedback": 0.0525,
+          "chat": 0.0743,
+          "spam": 0.0855,
+          "insufficient": 0.0837
         },
-        "confidence": 0.2795,
-        "noul": 0.7883,
-        "score": 0.375,
-        "level_index": 0,
-        "latency_ms": 85
+        "confidence": 0.3706,
+        "noul": 0.7732,
+        "score": 0.5731,
+        "level_index": 1,
+        "latency_ms": 75
       }
     },
     {
@@ -2601,17 +2564,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.877,
-          "feedback": 0.0822,
+          "technical": 0.9385,
+          "feedback": 0.0297,
           "chat": 0.0076,
-          "spam": 0.0077,
-          "insufficient": 0.0255
+          "spam": 0.0072,
+          "insufficient": 0.017
         },
-        "confidence": 0.6964,
-        "noul": 0.8521,
-        "score": 1.1703,
+        "confidence": 0.8101,
+        "noul": 0.9307,
+        "score": 1.1422,
         "level_index": 1,
-        "latency_ms": 83
+        "latency_ms": 70
       }
     },
     {
@@ -2626,17 +2589,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9562,
-          "feedback": 0.0083,
-          "chat": 0.0085,
-          "spam": 0.0083,
-          "insufficient": 0.0187
+          "technical": 0.735,
+          "feedback": 0.0197,
+          "chat": 0.0304,
+          "spam": 0.0101,
+          "insufficient": 0.2049
         },
-        "confidence": 0.8525,
-        "noul": 0.8322,
-        "score": 0.5485,
+        "confidence": 0.5148,
+        "noul": 0.8791,
+        "score": 0.6531,
         "level_index": 1,
-        "latency_ms": 84
+        "latency_ms": 91
       }
     },
     {
@@ -2651,17 +2614,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.756,
-          "feedback": 0.0211,
-          "chat": 0.0246,
-          "spam": 0.0197,
-          "insufficient": 0.1785
+          "technical": 0.6263,
+          "feedback": 0.0313,
+          "chat": 0.041,
+          "spam": 0.0247,
+          "insufficient": 0.2767
         },
-        "confidence": 0.5221,
-        "noul": 0.8205,
-        "score": 1.1289,
+        "confidence": 0.3915,
+        "noul": 0.9241,
+        "score": 1.059,
         "level_index": 1,
-        "latency_ms": 91
+        "latency_ms": 67
       }
     },
     {
@@ -2676,17 +2639,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7305,
-          "feedback": 0.2013,
-          "chat": 0.0226,
-          "spam": 0.0179,
-          "insufficient": 0.0277
+          "technical": 0.7283,
+          "feedback": 0.1265,
+          "chat": 0.0435,
+          "spam": 0.0264,
+          "insufficient": 0.0752
         },
-        "confidence": 0.4973,
-        "noul": 0.8797,
-        "score": 1.3901,
+        "confidence": 0.4286,
+        "noul": 0.9596,
+        "score": 1.318,
         "level_index": 1,
-        "latency_ms": 69
+        "latency_ms": 76
       }
     },
     {
@@ -2701,17 +2664,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9133,
-          "feedback": 0.015,
-          "chat": 0.0153,
-          "spam": 0.0224,
-          "insufficient": 0.034
+          "technical": 0.8577,
+          "feedback": 0.0235,
+          "chat": 0.0243,
+          "spam": 0.0232,
+          "insufficient": 0.0713
         },
-        "confidence": 0.7453,
-        "noul": 0.8139,
-        "score": 1.2139,
+        "confidence": 0.6361,
+        "noul": 0.8722,
+        "score": 1.0301,
         "level_index": 1,
-        "latency_ms": 102
+        "latency_ms": 71
       }
     },
     {
@@ -2724,19 +2687,19 @@
       },
       "note": "",
       "pred": {
-        "category": "feedback",
+        "category": "technical",
         "probabilities": {
-          "technical": 0.2005,
-          "feedback": 0.7332,
-          "chat": 0.0181,
-          "spam": 0.0299,
-          "insufficient": 0.0183
+          "technical": 0.5959,
+          "feedback": 0.3007,
+          "chat": 0.0313,
+          "spam": 0.0388,
+          "insufficient": 0.0334
         },
-        "confidence": 0.5025,
-        "noul": 0.7817,
-        "score": 0.8129,
+        "confidence": 0.3676,
+        "noul": 0.7679,
+        "score": 0.6906,
         "level_index": 1,
-        "latency_ms": 80
+        "latency_ms": 70
       }
     },
     {
@@ -2751,17 +2714,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.5783,
-          "feedback": 0.118,
-          "chat": 0.1381,
-          "spam": 0.0633,
-          "insufficient": 0.1023
+          "technical": 0.6651,
+          "feedback": 0.0953,
+          "chat": 0.1006,
+          "spam": 0.0554,
+          "insufficient": 0.0837
         },
-        "confidence": 0.2232,
-        "noul": 0.8679,
-        "score": 1.095,
+        "confidence": 0.3202,
+        "noul": 0.9304,
+        "score": 0.903,
         "level_index": 1,
-        "latency_ms": 81
+        "latency_ms": 65
       }
     },
     {
@@ -2776,17 +2739,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6571,
-          "feedback": 0.065,
-          "chat": 0.1071,
-          "spam": 0.0575,
-          "insufficient": 0.1133
+          "technical": 0.6311,
+          "feedback": 0.0991,
+          "chat": 0.1046,
+          "spam": 0.0595,
+          "insufficient": 0.1057
         },
-        "confidence": 0.3141,
-        "noul": 0.877,
-        "score": 1.3142,
+        "confidence": 0.2786,
+        "noul": 0.9771,
+        "score": 1.1009,
         "level_index": 1,
-        "latency_ms": 94
+        "latency_ms": 89
       }
     },
     {
@@ -2801,17 +2764,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.4975,
-          "feedback": 0.3421,
-          "chat": 0.044,
-          "spam": 0.0823,
-          "insufficient": 0.0341
+          "technical": 0.5058,
+          "feedback": 0.3931,
+          "chat": 0.0323,
+          "spam": 0.0364,
+          "insufficient": 0.0323
         },
-        "confidence": 0.2715,
-        "noul": 0.8371,
-        "score": 0.8202,
+        "confidence": 0.3449,
+        "noul": 0.9623,
+        "score": 0.8673,
         "level_index": 1,
-        "latency_ms": 83
+        "latency_ms": 104
       }
     },
     {
@@ -2826,17 +2789,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6966,
-          "feedback": 0.04,
-          "chat": 0.042,
-          "spam": 0.0779,
-          "insufficient": 0.1435
+          "technical": 0.7967,
+          "feedback": 0.0314,
+          "chat": 0.0324,
+          "spam": 0.0357,
+          "insufficient": 0.1039
         },
-        "confidence": 0.3842,
-        "noul": 0.6487,
-        "score": 0.2362,
-        "level_index": 0,
-        "latency_ms": 78
+        "confidence": 0.5309,
+        "noul": 0.2569,
+        "score": 0.7036,
+        "level_index": 1,
+        "latency_ms": 66
       }
     },
     {
@@ -2851,17 +2814,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7421,
-          "feedback": 0.1963,
-          "chat": 0.0212,
-          "spam": 0.0203,
-          "insufficient": 0.0201
+          "technical": 0.8821,
+          "feedback": 0.0742,
+          "chat": 0.0157,
+          "spam": 0.0142,
+          "insufficient": 0.0139
         },
-        "confidence": 0.5151,
-        "noul": 0.8846,
-        "score": 1.0401,
+        "confidence": 0.6965,
+        "noul": 0.9637,
+        "score": 0.9177,
         "level_index": 1,
-        "latency_ms": 77
+        "latency_ms": 84
       }
     },
     {
@@ -2876,17 +2839,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.5722,
-          "feedback": 0.0539,
-          "chat": 0.0545,
-          "spam": 0.0529,
-          "insufficient": 0.2665
+          "technical": 0.6477,
+          "feedback": 0.053,
+          "chat": 0.0559,
+          "spam": 0.0413,
+          "insufficient": 0.202
         },
-        "confidence": 0.2896,
-        "noul": 0.7725,
-        "score": 1.0592,
+        "confidence": 0.3457,
+        "noul": 0.9147,
+        "score": 1.0902,
         "level_index": 1,
-        "latency_ms": 79
+        "latency_ms": 69
       }
     },
     {
@@ -2899,19 +2862,19 @@
       },
       "note": "明确受阻报错",
       "pred": {
-        "category": "technical",
+        "category": "insufficient",
         "probabilities": {
-          "technical": 0.5575,
-          "feedback": 0.0263,
-          "chat": 0.043,
-          "spam": 0.0226,
-          "insufficient": 0.3506
+          "technical": 0.3392,
+          "feedback": 0.0295,
+          "chat": 0.0332,
+          "spam": 0.012,
+          "insufficient": 0.5862
         },
-        "confidence": 0.3725,
-        "noul": 0.8612,
-        "score": 1.2621,
+        "confidence": 0.41,
+        "noul": 0.6397,
+        "score": 0.9602,
         "level_index": 1,
-        "latency_ms": 100
+        "latency_ms": 81
       }
     },
     {
@@ -2926,17 +2889,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8668,
-          "feedback": 0.0161,
-          "chat": 0.0161,
-          "spam": 0.0163,
-          "insufficient": 0.0847
+          "technical": 0.806,
+          "feedback": 0.0251,
+          "chat": 0.0233,
+          "spam": 0.0262,
+          "insufficient": 0.1194
         },
-        "confidence": 0.6688,
-        "noul": 0.8665,
-        "score": 1.4492,
+        "confidence": 0.563,
+        "noul": 0.9706,
+        "score": 1.333,
         "level_index": 1,
-        "latency_ms": 94
+        "latency_ms": 76
       }
     },
     {
@@ -2951,17 +2914,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8663,
-          "feedback": 0.0221,
-          "chat": 0.0242,
-          "spam": 0.0217,
-          "insufficient": 0.0658
+          "technical": 0.869,
+          "feedback": 0.0277,
+          "chat": 0.0292,
+          "spam": 0.014,
+          "insufficient": 0.0601
         },
-        "confidence": 0.6516,
-        "noul": 0.7898,
-        "score": 1.3412,
+        "confidence": 0.6562,
+        "noul": 0.9462,
+        "score": 1.0635,
         "level_index": 1,
-        "latency_ms": 86
+        "latency_ms": 88
       }
     },
     {
@@ -2976,17 +2939,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9259,
-          "feedback": 0.009,
-          "chat": 0.0107,
-          "spam": 0.0448,
-          "insufficient": 0.0097
+          "technical": 0.9448,
+          "feedback": 0.011,
+          "chat": 0.0131,
+          "spam": 0.0137,
+          "insufficient": 0.0175
         },
-        "confidence": 0.7849,
-        "noul": 0.8026,
-        "score": 0.9362,
+        "confidence": 0.8202,
+        "noul": 0.8277,
+        "score": 0.8727,
         "level_index": 1,
-        "latency_ms": 79
+        "latency_ms": 84
       }
     },
     {
@@ -3001,17 +2964,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9478,
-          "feedback": 0.021,
-          "chat": 0.0106,
-          "spam": 0.0098,
-          "insufficient": 0.0109
+          "technical": 0.947,
+          "feedback": 0.013,
+          "chat": 0.0127,
+          "spam": 0.0091,
+          "insufficient": 0.0183
         },
-        "confidence": 0.8294,
-        "noul": 0.8641,
-        "score": 1.2176,
+        "confidence": 0.8265,
+        "noul": 0.9145,
+        "score": 0.9854,
         "level_index": 1,
-        "latency_ms": 77
+        "latency_ms": 87
       }
     },
     {
@@ -3026,17 +2989,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.874,
-          "feedback": 0.0078,
-          "chat": 0.0079,
-          "spam": 0.088,
-          "insufficient": 0.0223
+          "technical": 0.8633,
+          "feedback": 0.0079,
+          "chat": 0.0084,
+          "spam": 0.0986,
+          "insufficient": 0.0217
         },
-        "confidence": 0.694,
-        "noul": 0.851,
-        "score": 1.321,
-        "level_index": 1,
-        "latency_ms": 92
+        "confidence": 0.6788,
+        "noul": 0.9667,
+        "score": 0.3388,
+        "level_index": 0,
+        "latency_ms": 70
       }
     },
     {
@@ -3051,17 +3014,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8968,
-          "feedback": 0.0188,
-          "chat": 0.0167,
-          "spam": 0.016,
-          "insufficient": 0.0517
+          "technical": 0.8073,
+          "feedback": 0.0241,
+          "chat": 0.0228,
+          "spam": 0.0137,
+          "insufficient": 0.132
         },
-        "confidence": 0.7141,
-        "noul": 0.7757,
-        "score": 1.3515,
-        "level_index": 1,
-        "latency_ms": 83
+        "confidence": 0.5806,
+        "noul": 0.83,
+        "score": 1.5705,
+        "level_index": 2,
+        "latency_ms": 81
       }
     },
     {
@@ -3076,17 +3039,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6843,
-          "feedback": 0.0344,
-          "chat": 0.0738,
-          "spam": 0.0333,
-          "insufficient": 0.1742
+          "technical": 0.4405,
+          "feedback": 0.043,
+          "chat": 0.078,
+          "spam": 0.0253,
+          "insufficient": 0.4133
         },
-        "confidence": 0.3876,
-        "noul": 0.866,
-        "score": 0.5531,
+        "confidence": 0.2833,
+        "noul": 0.9606,
+        "score": 0.5032,
         "level_index": 1,
-        "latency_ms": 96
+        "latency_ms": 80
       }
     },
     {
@@ -3101,17 +3064,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8622,
-          "feedback": 0.0126,
-          "chat": 0.0126,
-          "spam": 0.0131,
-          "insufficient": 0.0996
+          "technical": 0.8314,
+          "feedback": 0.0189,
+          "chat": 0.0187,
+          "spam": 0.0152,
+          "insufficient": 0.1157
         },
-        "confidence": 0.6742,
-        "noul": 0.6338,
-        "score": 0.8833,
-        "level_index": 1,
-        "latency_ms": 78
+        "confidence": 0.617,
+        "noul": 0.6821,
+        "score": 0.4657,
+        "level_index": 0,
+        "latency_ms": 98
       }
     },
     {
@@ -3126,17 +3089,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9285,
-          "feedback": 0.0171,
-          "chat": 0.0162,
-          "spam": 0.015,
-          "insufficient": 0.0232
+          "technical": 0.9399,
+          "feedback": 0.013,
+          "chat": 0.0129,
+          "spam": 0.0079,
+          "insufficient": 0.0263
         },
-        "confidence": 0.779,
-        "noul": 0.7304,
-        "score": 0.7921,
-        "level_index": 1,
-        "latency_ms": 92
+        "confidence": 0.8107,
+        "noul": 0.6698,
+        "score": 0.312,
+        "level_index": 0,
+        "latency_ms": 87
       }
     },
     {
@@ -3151,17 +3114,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9524,
-          "feedback": 0.012,
-          "chat": 0.0119,
-          "spam": 0.011,
-          "insufficient": 0.0127
+          "technical": 0.9765,
+          "feedback": 0.0061,
+          "chat": 0.0049,
+          "spam": 0.0038,
+          "insufficient": 0.0088
         },
-        "confidence": 0.8402,
-        "noul": 0.8547,
-        "score": 1.0875,
+        "confidence": 0.9114,
+        "noul": 0.9789,
+        "score": 0.7178,
         "level_index": 1,
-        "latency_ms": 74
+        "latency_ms": 90
       }
     },
     {
@@ -3176,17 +3139,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6931,
-          "feedback": 0.061,
-          "chat": 0.0795,
-          "spam": 0.0629,
-          "insufficient": 0.1036
+          "technical": 0.6206,
+          "feedback": 0.1507,
+          "chat": 0.0757,
+          "spam": 0.0695,
+          "insufficient": 0.0835
         },
-        "confidence": 0.357,
-        "noul": 0.8586,
-        "score": 1.4298,
+        "confidence": 0.2735,
+        "noul": 0.9639,
+        "score": 1.1447,
         "level_index": 1,
-        "latency_ms": 94
+        "latency_ms": 108
       }
     },
     {
@@ -3201,17 +3164,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7906,
-          "feedback": 0.0468,
-          "chat": 0.0422,
-          "spam": 0.0414,
-          "insufficient": 0.079
+          "technical": 0.8423,
+          "feedback": 0.0401,
+          "chat": 0.0326,
+          "spam": 0.033,
+          "insufficient": 0.052
         },
-        "confidence": 0.5061,
-        "noul": 0.7685,
-        "score": 1.1549,
+        "confidence": 0.5953,
+        "noul": 0.8999,
+        "score": 0.9448,
         "level_index": 1,
-        "latency_ms": 113
+        "latency_ms": 103
       }
     },
     {
@@ -3226,17 +3189,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9421,
-          "feedback": 0.0307,
-          "chat": 0.0082,
-          "spam": 0.0082,
-          "insufficient": 0.0109
+          "technical": 0.9408,
+          "feedback": 0.0282,
+          "chat": 0.0106,
+          "spam": 0.0064,
+          "insufficient": 0.0139
         },
-        "confidence": 0.8192,
-        "noul": 0.8516,
-        "score": 0.8754,
+        "confidence": 0.8147,
+        "noul": 0.9761,
+        "score": 1.3498,
         "level_index": 1,
-        "latency_ms": 95
+        "latency_ms": 79
       }
     },
     {
@@ -3251,17 +3214,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.4481,
-          "feedback": 0.08,
-          "chat": 0.3381,
-          "spam": 0.0645,
-          "insufficient": 0.0693
+          "technical": 0.5184,
+          "feedback": 0.1247,
+          "chat": 0.1653,
+          "spam": 0.071,
+          "insufficient": 0.1207
         },
-        "confidence": 0.1983,
-        "noul": 0.8387,
-        "score": 1.0103,
+        "confidence": 0.167,
+        "noul": 0.9909,
+        "score": 1.1954,
         "level_index": 1,
-        "latency_ms": 87
+        "latency_ms": 85
       }
     },
     {
@@ -3276,17 +3239,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6958,
-          "feedback": 0.0303,
-          "chat": 0.21,
-          "spam": 0.0271,
-          "insufficient": 0.0368
+          "technical": 0.8301,
+          "feedback": 0.0305,
+          "chat": 0.0886,
+          "spam": 0.0138,
+          "insufficient": 0.037
         },
-        "confidence": 0.4375,
-        "noul": 0.7925,
-        "score": 0.9465,
+        "confidence": 0.5919,
+        "noul": 0.9151,
+        "score": 0.7852,
         "level_index": 1,
-        "latency_ms": 99
+        "latency_ms": 84
       }
     },
     {
@@ -3301,17 +3264,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.946,
-          "feedback": 0.0221,
-          "chat": 0.0097,
-          "spam": 0.0094,
-          "insufficient": 0.0127
+          "technical": 0.9586,
+          "feedback": 0.0126,
+          "chat": 0.0101,
+          "spam": 0.0067,
+          "insufficient": 0.012
         },
-        "confidence": 0.8251,
-        "noul": 0.877,
-        "score": 1.1254,
+        "confidence": 0.8579,
+        "noul": 0.9639,
+        "score": 1.1994,
         "level_index": 1,
-        "latency_ms": 90
+        "latency_ms": 108
       }
     },
     {
@@ -3326,17 +3289,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8847,
-          "feedback": 0.0088,
-          "chat": 0.0104,
-          "spam": 0.0085,
-          "insufficient": 0.0875
+          "technical": 0.8022,
+          "feedback": 0.0103,
+          "chat": 0.0102,
+          "spam": 0.0042,
+          "insufficient": 0.1731
         },
-        "confidence": 0.7196,
-        "noul": 0.6761,
-        "score": 1.104,
+        "confidence": 0.629,
+        "noul": 0.6764,
+        "score": 1.0084,
         "level_index": 1,
-        "latency_ms": 83
+        "latency_ms": 130
       }
     },
     {
@@ -3351,17 +3314,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.9135,
-          "feedback": 0.0163,
-          "chat": 0.0166,
-          "spam": 0.0163,
-          "insufficient": 0.0372
+          "technical": 0.8306,
+          "feedback": 0.0275,
+          "chat": 0.0278,
+          "spam": 0.0132,
+          "insufficient": 0.1009
         },
-        "confidence": 0.7467,
-        "noul": 0.8415,
-        "score": 1.7805,
+        "confidence": 0.6017,
+        "noul": 0.9672,
+        "score": 1.5445,
         "level_index": 2,
-        "latency_ms": 121
+        "latency_ms": 147
       }
     },
     {
@@ -3376,17 +3339,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7599,
-          "feedback": 0.0408,
-          "chat": 0.051,
-          "spam": 0.0456,
-          "insufficient": 0.1026
+          "technical": 0.7838,
+          "feedback": 0.042,
+          "chat": 0.0444,
+          "spam": 0.0425,
+          "insufficient": 0.0873
         },
-        "confidence": 0.4623,
-        "noul": 0.7922,
-        "score": 0.8081,
+        "confidence": 0.4971,
+        "noul": 0.9191,
+        "score": 0.8601,
         "level_index": 1,
-        "latency_ms": 119
+        "latency_ms": 117
       }
     },
     {
@@ -3401,17 +3364,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0112,
-          "feedback": 0.9717,
-          "chat": 0.0057,
-          "spam": 0.0057,
-          "insufficient": 0.0057
+          "technical": 0.0007,
+          "feedback": 0.9978,
+          "chat": 0.0005,
+          "spam": 0.0004,
+          "insufficient": 0.0006
         },
-        "confidence": 0.8966,
-        "noul": 0.8842,
-        "score": 1.6981,
-        "level_index": 2,
-        "latency_ms": 78
+        "confidence": 0.9886,
+        "noul": 0.9947,
+        "score": 2.636,
+        "level_index": 3,
+        "latency_ms": 106
       }
     },
     {
@@ -3426,17 +3389,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.005,
-          "feedback": 0.9807,
-          "chat": 0.0048,
-          "spam": 0.0045,
-          "insufficient": 0.0049
+          "technical": 0.0004,
+          "feedback": 0.9985,
+          "chat": 0.0004,
+          "spam": 0.0003,
+          "insufficient": 0.0004
         },
-        "confidence": 0.9243,
-        "noul": 0.8833,
-        "score": 2.138,
-        "level_index": 2,
-        "latency_ms": 104
+        "confidence": 0.9919,
+        "noul": 0.9945,
+        "score": 2.7436,
+        "level_index": 3,
+        "latency_ms": 87
       }
     },
     {
@@ -3451,17 +3414,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0016,
-          "feedback": 0.994,
-          "chat": 0.0015,
-          "spam": 0.0014,
-          "insufficient": 0.0015
+          "technical": 0.0004,
+          "feedback": 0.9987,
+          "chat": 0.0003,
+          "spam": 0.0002,
+          "insufficient": 0.0003
         },
-        "confidence": 0.9722,
-        "noul": 0.8895,
-        "score": 1.6784,
-        "level_index": 2,
-        "latency_ms": 84
+        "confidence": 0.9929,
+        "noul": 0.9935,
+        "score": 2.5342,
+        "level_index": 3,
+        "latency_ms": 110
       }
     },
     {
@@ -3476,17 +3439,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.768,
-          "feedback": 0.0421,
-          "chat": 0.0425,
-          "spam": 0.0416,
-          "insufficient": 0.1058
+          "technical": 0.6768,
+          "feedback": 0.0701,
+          "chat": 0.0589,
+          "spam": 0.0291,
+          "insufficient": 0.165
         },
-        "confidence": 0.4779,
-        "noul": 0.8617,
-        "score": 1.8387,
-        "level_index": 2,
-        "latency_ms": 95
+        "confidence": 0.3677,
+        "noul": 0.9868,
+        "score": 1.4596,
+        "level_index": 1,
+        "latency_ms": 107
       }
     },
     {
@@ -3501,17 +3464,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0161,
-          "feedback": 0.9725,
-          "chat": 0.0039,
-          "spam": 0.0037,
-          "insufficient": 0.0039
+          "technical": 0.0071,
+          "feedback": 0.9869,
+          "chat": 0.0021,
+          "spam": 0.0016,
+          "insufficient": 0.0022
         },
-        "confidence": 0.9022,
-        "noul": 0.8528,
-        "score": 1.8881,
+        "confidence": 0.9471,
+        "noul": 0.9744,
+        "score": 2.4541,
         "level_index": 2,
-        "latency_ms": 86
+        "latency_ms": 101
       }
     },
     {
@@ -3524,19 +3487,19 @@
       },
       "note": "直播中断类：无法正常接收内容",
       "pred": {
-        "category": "insufficient",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.083,
-          "feedback": 0.0832,
-          "chat": 0.242,
-          "spam": 0.0223,
-          "insufficient": 0.5695
+          "technical": 0.0099,
+          "feedback": 0.9678,
+          "chat": 0.0095,
+          "spam": 0.0035,
+          "insufficient": 0.0094
         },
-        "confidence": 0.2779,
-        "noul": 0.0379,
-        "score": 0.4019,
-        "level_index": 0,
-        "latency_ms": 104
+        "confidence": 0.8851,
+        "noul": 0.0055,
+        "score": 2.5997,
+        "level_index": 3,
+        "latency_ms": 109
       }
     },
     {
@@ -3551,17 +3514,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0249,
-          "feedback": 0.9502,
-          "chat": 0.0086,
-          "spam": 0.0081,
-          "insufficient": 0.0083
+          "technical": 0.0046,
+          "feedback": 0.9877,
+          "chat": 0.0028,
+          "spam": 0.0016,
+          "insufficient": 0.0033
         },
-        "confidence": 0.8385,
-        "noul": 0.7536,
-        "score": 1.6361,
+        "confidence": 0.9489,
+        "noul": 0.9782,
+        "score": 2.4107,
         "level_index": 2,
-        "latency_ms": 75
+        "latency_ms": 80
       }
     },
     {
@@ -3576,17 +3539,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0049,
-          "feedback": 0.9823,
-          "chat": 0.0044,
-          "spam": 0.004,
-          "insufficient": 0.0044
+          "technical": 0.0007,
+          "feedback": 0.9979,
+          "chat": 0.0005,
+          "spam": 0.0004,
+          "insufficient": 0.0005
         },
-        "confidence": 0.9296,
-        "noul": 0.9023,
-        "score": 1.3421,
-        "level_index": 1,
-        "latency_ms": 72
+        "confidence": 0.9891,
+        "noul": 0.9913,
+        "score": 1.512,
+        "level_index": 2,
+        "latency_ms": 118
       }
     },
     {
@@ -3601,17 +3564,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.8866,
-          "feedback": 0.0245,
-          "chat": 0.0243,
-          "spam": 0.0245,
-          "insufficient": 0.04
+          "technical": 0.7471,
+          "feedback": 0.1569,
+          "chat": 0.0293,
+          "spam": 0.017,
+          "insufficient": 0.0497
         },
-        "confidence": 0.6845,
-        "noul": 0.8464,
-        "score": 1.6513,
+        "confidence": 0.4841,
+        "noul": 0.9879,
+        "score": 1.9562,
         "level_index": 2,
-        "latency_ms": 85
+        "latency_ms": 112
       }
     },
     {
@@ -3626,17 +3589,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.4483,
-          "feedback": 0.5118,
-          "chat": 0.0133,
-          "spam": 0.0125,
-          "insufficient": 0.014
+          "technical": 0.1086,
+          "feedback": 0.8631,
+          "chat": 0.0104,
+          "spam": 0.0058,
+          "insufficient": 0.0121
         },
-        "confidence": 0.4565,
-        "noul": 0.8323,
-        "score": 1.7064,
+        "confidence": 0.69,
+        "noul": 0.9863,
+        "score": 2.2616,
         "level_index": 2,
-        "latency_ms": 111
+        "latency_ms": 95
       }
     },
     {
@@ -3651,17 +3614,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0034,
-          "feedback": 0.9876,
-          "chat": 0.0028,
-          "spam": 0.0028,
-          "insufficient": 0.0033
+          "technical": 0.0004,
+          "feedback": 0.9987,
+          "chat": 0.0003,
+          "spam": 0.0002,
+          "insufficient": 0.0004
         },
-        "confidence": 0.9479,
-        "noul": 0.801,
-        "score": 2.0161,
+        "confidence": 0.9928,
+        "noul": 0.9842,
+        "score": 1.9175,
         "level_index": 2,
-        "latency_ms": 76
+        "latency_ms": 108
       }
     },
     {
@@ -3676,17 +3639,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.85,
-          "feedback": 0.0345,
-          "chat": 0.0341,
-          "spam": 0.0341,
-          "insufficient": 0.0473
+          "technical": 0.4708,
+          "feedback": 0.4682,
+          "chat": 0.0191,
+          "spam": 0.0116,
+          "insufficient": 0.0302
         },
-        "confidence": 0.6091,
-        "noul": 0.857,
-        "score": 1.8052,
-        "level_index": 2,
-        "latency_ms": 84
+        "confidence": 0.414,
+        "noul": 0.9905,
+        "score": 2.5967,
+        "level_index": 3,
+        "latency_ms": 106
       }
     },
     {
@@ -3701,17 +3664,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0825,
-          "feedback": 0.7844,
-          "chat": 0.0443,
-          "spam": 0.035,
-          "insufficient": 0.0538
+          "technical": 0.0193,
+          "feedback": 0.9334,
+          "chat": 0.0187,
+          "spam": 0.0081,
+          "insufficient": 0.0206
         },
-        "confidence": 0.4973,
-        "noul": 0.4034,
-        "score": 1.893,
-        "level_index": 2,
-        "latency_ms": 72
+        "confidence": 0.7926,
+        "noul": 0.9459,
+        "score": 2.5094,
+        "level_index": 3,
+        "latency_ms": 86
       }
     },
     {
@@ -3726,17 +3689,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0122,
-          "feedback": 0.9737,
-          "chat": 0.0046,
-          "spam": 0.0045,
-          "insufficient": 0.0049
+          "technical": 0.0005,
+          "feedback": 0.9986,
+          "chat": 0.0003,
+          "spam": 0.0002,
+          "insufficient": 0.0003
         },
-        "confidence": 0.9037,
-        "noul": 0.8816,
-        "score": 1.9618,
+        "confidence": 0.9921,
+        "noul": 0.9944,
+        "score": 2.1179,
         "level_index": 2,
-        "latency_ms": 114
+        "latency_ms": 86
       }
     },
     {
@@ -3751,17 +3714,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0048,
-          "feedback": 0.9817,
-          "chat": 0.0045,
-          "spam": 0.0043,
-          "insufficient": 0.0047
+          "technical": 0.0008,
+          "feedback": 0.9973,
+          "chat": 0.0006,
+          "spam": 0.0004,
+          "insufficient": 0.0009
         },
-        "confidence": 0.9276,
-        "noul": 0.8371,
-        "score": 1.4767,
-        "level_index": 1,
-        "latency_ms": 82
+        "confidence": 0.9862,
+        "noul": 0.9807,
+        "score": 1.7651,
+        "level_index": 2,
+        "latency_ms": 84
       }
     },
     {
@@ -3776,17 +3739,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0028,
-          "feedback": 0.9893,
-          "chat": 0.0026,
-          "spam": 0.0026,
-          "insufficient": 0.0026
+          "technical": 0.0031,
+          "feedback": 0.9909,
+          "chat": 0.0021,
+          "spam": 0.0015,
+          "insufficient": 0.0023
         },
-        "confidence": 0.9541,
-        "noul": 0.5146,
-        "score": 1.94,
-        "level_index": 2,
-        "latency_ms": 77
+        "confidence": 0.9603,
+        "noul": 0.9987,
+        "score": 2.7071,
+        "level_index": 3,
+        "latency_ms": 83
       }
     },
     {
@@ -3801,17 +3764,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0841,
-          "feedback": 0.498,
-          "chat": 0.0348,
-          "spam": 0.0335,
-          "insufficient": 0.3495
+          "technical": 0.0267,
+          "feedback": 0.5373,
+          "chat": 0.0206,
+          "spam": 0.0101,
+          "insufficient": 0.4054
         },
-        "confidence": 0.2833,
-        "noul": 0.8773,
-        "score": 1.9592,
+        "confidence": 0.4266,
+        "noul": 0.9772,
+        "score": 2.4669,
         "level_index": 2,
-        "latency_ms": 82
+        "latency_ms": 77
       }
     },
     {
@@ -3824,19 +3787,19 @@
       },
       "note": "直播中断类：无法正常接收内容",
       "pred": {
-        "category": "technical",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.6365,
-          "feedback": 0.1149,
-          "chat": 0.0461,
-          "spam": 0.09,
-          "insufficient": 0.1126
+          "technical": 0.0523,
+          "feedback": 0.8804,
+          "chat": 0.0167,
+          "spam": 0.026,
+          "insufficient": 0.0246
         },
-        "confidence": 0.2913,
-        "noul": 0.4762,
-        "score": 1.8661,
+        "confidence": 0.6763,
+        "noul": 0.9988,
+        "score": 2.1046,
         "level_index": 2,
-        "latency_ms": 78
+        "latency_ms": 99
       }
     },
     {
@@ -3851,17 +3814,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0793,
-          "feedback": 0.8962,
-          "chat": 0.0057,
-          "spam": 0.0057,
-          "insufficient": 0.0132
+          "technical": 0.0228,
+          "feedback": 0.9669,
+          "chat": 0.0027,
+          "spam": 0.0021,
+          "insufficient": 0.0054
         },
-        "confidence": 0.7423,
-        "noul": 0.8823,
-        "score": 1.5984,
+        "confidence": 0.8904,
+        "noul": 0.9751,
+        "score": 1.5915,
         "level_index": 2,
-        "latency_ms": 68
+        "latency_ms": 84
       }
     },
     {
@@ -3876,17 +3839,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0025,
-          "feedback": 0.9916,
-          "chat": 0.0018,
-          "spam": 0.0016,
-          "insufficient": 0.0026
+          "technical": 0.0007,
+          "feedback": 0.9977,
+          "chat": 0.0005,
+          "spam": 0.0003,
+          "insufficient": 0.0007
         },
-        "confidence": 0.9627,
-        "noul": 0.7324,
-        "score": 2.4068,
-        "level_index": 2,
-        "latency_ms": 85
+        "confidence": 0.9881,
+        "noul": 0.9834,
+        "score": 2.5806,
+        "level_index": 3,
+        "latency_ms": 99
       }
     },
     {
@@ -3901,17 +3864,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0928,
-          "feedback": 0.7767,
-          "chat": 0.0184,
-          "spam": 0.0936,
-          "insufficient": 0.0184
+          "technical": 0.1065,
+          "feedback": 0.7634,
+          "chat": 0.0216,
+          "spam": 0.0865,
+          "insufficient": 0.0221
         },
-        "confidence": 0.5117,
-        "noul": 0.8078,
-        "score": 1.1908,
-        "level_index": 1,
-        "latency_ms": 97
+        "confidence": 0.4885,
+        "noul": 0.9397,
+        "score": 1.5618,
+        "level_index": 2,
+        "latency_ms": 88
       }
     },
     {
@@ -3926,17 +3889,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0461,
-          "feedback": 0.8756,
-          "chat": 0.0268,
-          "spam": 0.0255,
-          "insufficient": 0.026
+          "technical": 0.0679,
+          "feedback": 0.8148,
+          "chat": 0.0507,
+          "spam": 0.0253,
+          "insufficient": 0.0413
         },
-        "confidence": 0.6622,
-        "noul": 0.7604,
-        "score": 1.339,
+        "confidence": 0.5492,
+        "noul": 0.9592,
+        "score": 1.4242,
         "level_index": 1,
-        "latency_ms": 147
+        "latency_ms": 100
       }
     },
     {
@@ -3951,17 +3914,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.1462,
-          "feedback": 0.7335,
-          "chat": 0.0526,
-          "spam": 0.0329,
-          "insufficient": 0.0347
+          "technical": 0.0665,
+          "feedback": 0.8621,
+          "chat": 0.0281,
+          "spam": 0.0192,
+          "insufficient": 0.0241
         },
-        "confidence": 0.4455,
-        "noul": 0.8712,
-        "score": 1.5112,
+        "confidence": 0.6432,
+        "noul": 0.9857,
+        "score": 1.5379,
         "level_index": 2,
-        "latency_ms": 80
+        "latency_ms": 87
       }
     },
     {
@@ -3976,17 +3939,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.1799,
-          "feedback": 0.545,
-          "chat": 0.1475,
-          "spam": 0.056,
-          "insufficient": 0.0715
+          "technical": 0.0757,
+          "feedback": 0.8078,
+          "chat": 0.06,
+          "spam": 0.0251,
+          "insufficient": 0.0315
         },
-        "confidence": 0.2098,
-        "noul": 0.8674,
-        "score": 1.5302,
+        "confidence": 0.5417,
+        "noul": 0.9697,
+        "score": 1.5481,
         "level_index": 2,
-        "latency_ms": 90
+        "latency_ms": 82
       }
     },
     {
@@ -4001,17 +3964,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0677,
-          "feedback": 0.7482,
-          "chat": 0.0605,
-          "spam": 0.0605,
-          "insufficient": 0.063
+          "technical": 0.0197,
+          "feedback": 0.9324,
+          "chat": 0.0132,
+          "spam": 0.0118,
+          "insufficient": 0.0229
         },
-        "confidence": 0.4326,
-        "noul": 0.8648,
-        "score": 1.1728,
+        "confidence": 0.7896,
+        "noul": 0.9663,
+        "score": 1.0478,
         "level_index": 1,
-        "latency_ms": 96
+        "latency_ms": 72
       }
     },
     {
@@ -4024,19 +3987,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.3738,
-          "feedback": 0.338,
-          "chat": 0.0969,
-          "spam": 0.0612,
-          "insufficient": 0.1302
+          "technical": 0.0582,
+          "feedback": 0.8734,
+          "chat": 0.0286,
+          "spam": 0.0107,
+          "insufficient": 0.0292
         },
-        "confidence": 0.132,
-        "noul": 0.8975,
-        "score": 1.1132,
+        "confidence": 0.6663,
+        "noul": 0.9835,
+        "score": 1.3416,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 84
       }
     },
     {
@@ -4051,17 +4014,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.1742,
-          "feedback": 0.8118,
-          "chat": 0.0046,
-          "spam": 0.0046,
-          "insufficient": 0.0048
+          "technical": 0.3516,
+          "feedback": 0.6312,
+          "chat": 0.0058,
+          "spam": 0.0041,
+          "insufficient": 0.0073
         },
-        "confidence": 0.659,
-        "noul": 0.8498,
-        "score": 1.1467,
+        "confidence": 0.5362,
+        "noul": 0.8525,
+        "score": 1.2211,
         "level_index": 1,
-        "latency_ms": 101
+        "latency_ms": 118
       }
     },
     {
@@ -4076,17 +4039,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0626,
-          "feedback": 0.749,
-          "chat": 0.0485,
-          "spam": 0.0927,
-          "insufficient": 0.0471
+          "technical": 0.0557,
+          "feedback": 0.8102,
+          "chat": 0.0528,
+          "spam": 0.0267,
+          "insufficient": 0.0545
         },
-        "confidence": 0.44,
-        "noul": 0.3446,
-        "score": 0.5758,
-        "level_index": 1,
-        "latency_ms": 76
+        "confidence": 0.539,
+        "noul": 0.2983,
+        "score": 0.4618,
+        "level_index": 0,
+        "latency_ms": 65
       }
     },
     {
@@ -4101,17 +4064,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.5628,
-          "feedback": 0.0498,
-          "chat": 0.082,
-          "spam": 0.0432,
-          "insufficient": 0.2622
+          "technical": 0.5702,
+          "feedback": 0.0589,
+          "chat": 0.0739,
+          "spam": 0.0291,
+          "insufficient": 0.2678
         },
-        "confidence": 0.2764,
-        "noul": 0.7364,
-        "score": 1.093,
+        "confidence": 0.2945,
+        "noul": 0.6693,
+        "score": 1.005,
         "level_index": 1,
-        "latency_ms": 77
+        "latency_ms": 88
       }
     },
     {
@@ -4126,17 +4089,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0034,
-          "feedback": 0.9897,
-          "chat": 0.0024,
-          "spam": 0.0022,
-          "insufficient": 0.0024
+          "technical": 0.0007,
+          "feedback": 0.9982,
+          "chat": 0.0004,
+          "spam": 0.0003,
+          "insufficient": 0.0004
         },
-        "confidence": 0.9554,
-        "noul": 0.8634,
-        "score": 1.5999,
+        "confidence": 0.9905,
+        "noul": 0.9719,
+        "score": 1.8418,
         "level_index": 2,
-        "latency_ms": 92
+        "latency_ms": 97
       }
     },
     {
@@ -4151,17 +4114,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.193,
-          "feedback": 0.7875,
-          "chat": 0.0067,
-          "spam": 0.0064,
-          "insufficient": 0.0065
+          "technical": 0.0271,
+          "feedback": 0.9661,
+          "chat": 0.0027,
+          "spam": 0.0017,
+          "insufficient": 0.0025
         },
-        "confidence": 0.6246,
-        "noul": 0.8677,
-        "score": 1.6137,
+        "confidence": 0.893,
+        "noul": 0.9799,
+        "score": 1.7212,
         "level_index": 2,
-        "latency_ms": 85
+        "latency_ms": 127
       }
     },
     {
@@ -4176,17 +4139,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0776,
-          "feedback": 0.9022,
-          "chat": 0.0068,
-          "spam": 0.0066,
-          "insufficient": 0.0067
+          "technical": 0.0384,
+          "feedback": 0.9468,
+          "chat": 0.0056,
+          "spam": 0.0035,
+          "insufficient": 0.0057
         },
-        "confidence": 0.7563,
-        "noul": 0.8725,
-        "score": 1.4441,
-        "level_index": 1,
-        "latency_ms": 108
+        "confidence": 0.8415,
+        "noul": 0.9828,
+        "score": 1.7129,
+        "level_index": 2,
+        "latency_ms": 98
       }
     },
     {
@@ -4201,17 +4164,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0074,
-          "feedback": 0.9718,
-          "chat": 0.0072,
-          "spam": 0.0064,
-          "insufficient": 0.0072
+          "technical": 0.0535,
+          "feedback": 0.7887,
+          "chat": 0.0558,
+          "spam": 0.0288,
+          "insufficient": 0.0732
         },
-        "confidence": 0.8959,
-        "noul": 0.8686,
-        "score": 1.1617,
-        "level_index": 1,
-        "latency_ms": 88
+        "confidence": 0.5039,
+        "noul": 0.9863,
+        "score": 1.5209,
+        "level_index": 2,
+        "latency_ms": 75
       }
     },
     {
@@ -4226,17 +4189,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.1257,
-          "feedback": 0.1443,
-          "chat": 0.0765,
-          "spam": 0.0232,
-          "insufficient": 0.6304
+          "technical": 0.0397,
+          "feedback": 0.4524,
+          "chat": 0.0204,
+          "spam": 0.01,
+          "insufficient": 0.4776
         },
-        "confidence": 0.3073,
-        "noul": 0.5501,
-        "score": 1.0444,
-        "level_index": 1,
-        "latency_ms": 74
+        "confidence": 0.4003,
+        "noul": 0.8881,
+        "score": 2.1542,
+        "level_index": 2,
+        "latency_ms": 79
       }
     },
     {
@@ -4251,17 +4214,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0131,
-          "feedback": 0.971,
-          "chat": 0.0054,
-          "spam": 0.0052,
-          "insufficient": 0.0053
+          "technical": 0.0053,
+          "feedback": 0.9852,
+          "chat": 0.0036,
+          "spam": 0.0022,
+          "insufficient": 0.0037
         },
-        "confidence": 0.8952,
-        "noul": 0.8877,
-        "score": 0.9579,
-        "level_index": 1,
-        "latency_ms": 93
+        "confidence": 0.9397,
+        "noul": 0.9825,
+        "score": 1.6183,
+        "level_index": 2,
+        "latency_ms": 74
       }
     },
     {
@@ -4276,17 +4239,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0032,
-          "feedback": 0.9882,
-          "chat": 0.0029,
-          "spam": 0.0029,
-          "insufficient": 0.0029
+          "technical": 0.0006,
+          "feedback": 0.9982,
+          "chat": 0.0005,
+          "spam": 0.0003,
+          "insufficient": 0.0004
         },
-        "confidence": 0.9499,
-        "noul": 0.815,
-        "score": 0.6709,
+        "confidence": 0.9903,
+        "noul": 0.978,
+        "score": 0.8244,
         "level_index": 1,
-        "latency_ms": 146
+        "latency_ms": 70
       }
     },
     {
@@ -4301,17 +4264,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0186,
-          "feedback": 0.9462,
-          "chat": 0.0169,
-          "spam": 0.0091,
-          "insufficient": 0.0093
+          "technical": 0.0309,
+          "feedback": 0.9347,
+          "chat": 0.0131,
+          "spam": 0.009,
+          "insufficient": 0.0122
         },
-        "confidence": 0.8251,
-        "noul": 0.8016,
-        "score": 1.3258,
+        "confidence": 0.7988,
+        "noul": 0.9172,
+        "score": 1.1724,
         "level_index": 1,
-        "latency_ms": 170
+        "latency_ms": 79
       }
     },
     {
@@ -4326,17 +4289,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0135,
-          "feedback": 0.9677,
-          "chat": 0.0046,
-          "spam": 0.0045,
-          "insufficient": 0.0097
+          "technical": 0.0373,
+          "feedback": 0.9408,
+          "chat": 0.0062,
+          "spam": 0.0035,
+          "insufficient": 0.0122
         },
-        "confidence": 0.8856,
-        "noul": 0.867,
-        "score": 1.5657,
+        "confidence": 0.823,
+        "noul": 0.9747,
+        "score": 1.7716,
         "level_index": 2,
-        "latency_ms": 114
+        "latency_ms": 81
       }
     },
     {
@@ -4351,17 +4314,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.1334,
-          "feedback": 0.4625,
-          "chat": 0.1739,
-          "spam": 0.1133,
-          "insufficient": 0.1169
+          "technical": 0.0832,
+          "feedback": 0.7359,
+          "chat": 0.0806,
+          "spam": 0.0361,
+          "insufficient": 0.0642
         },
-        "confidence": 0.1132,
-        "noul": 0.8693,
-        "score": 1.3503,
+        "confidence": 0.4211,
+        "noul": 0.9718,
+        "score": 1.4792,
         "level_index": 1,
-        "latency_ms": 93
+        "latency_ms": 70
       }
     },
     {
@@ -4374,19 +4337,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.3963,
-          "feedback": 0.3844,
-          "chat": 0.0309,
-          "spam": 0.0268,
-          "insufficient": 0.1617
+          "technical": 0.2819,
+          "feedback": 0.4846,
+          "chat": 0.0289,
+          "spam": 0.0134,
+          "insufficient": 0.1913
         },
-        "confidence": 0.2338,
-        "noul": 0.8437,
-        "score": 1.3283,
-        "level_index": 1,
-        "latency_ms": 84
+        "confidence": 0.264,
+        "noul": 0.7222,
+        "score": 1.6061,
+        "level_index": 2,
+        "latency_ms": 70
       }
     },
     {
@@ -4401,17 +4364,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0162,
-          "feedback": 0.9652,
-          "chat": 0.0063,
-          "spam": 0.006,
-          "insufficient": 0.0063
+          "technical": 0.0019,
+          "feedback": 0.9955,
+          "chat": 0.001,
+          "spam": 0.0006,
+          "insufficient": 0.001
         },
-        "confidence": 0.8785,
-        "noul": 0.8707,
-        "score": 1.8352,
+        "confidence": 0.9786,
+        "noul": 0.9923,
+        "score": 1.9609,
         "level_index": 2,
-        "latency_ms": 89
+        "latency_ms": 88
       }
     },
     {
@@ -4426,17 +4389,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.1477,
-          "feedback": 0.4865,
-          "chat": 0.157,
-          "spam": 0.1013,
-          "insufficient": 0.1077
+          "technical": 0.1196,
+          "feedback": 0.5931,
+          "chat": 0.1196,
+          "spam": 0.0531,
+          "insufficient": 0.1145
         },
-        "confidence": 0.1329,
-        "noul": 0.886,
-        "score": 1.2689,
+        "confidence": 0.2408,
+        "noul": 0.9965,
+        "score": 1.348,
         "level_index": 1,
-        "latency_ms": 82
+        "latency_ms": 94
       }
     },
     {
@@ -4449,19 +4412,19 @@
       },
       "note": "",
       "pred": {
-        "category": "feedback",
+        "category": "technical",
         "probabilities": {
-          "technical": 0.1167,
-          "feedback": 0.8468,
-          "chat": 0.0118,
-          "spam": 0.0117,
-          "insufficient": 0.013
+          "technical": 0.7448,
+          "feedback": 0.1586,
+          "chat": 0.0269,
+          "spam": 0.0136,
+          "insufficient": 0.0562
         },
-        "confidence": 0.6567,
-        "noul": 0.8335,
-        "score": 1.3305,
-        "level_index": 1,
-        "latency_ms": 88
+        "confidence": 0.485,
+        "noul": 0.9762,
+        "score": 1.5126,
+        "level_index": 2,
+        "latency_ms": 97
       }
     },
     {
@@ -4476,17 +4439,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.006,
-          "feedback": 0.9515,
-          "chat": 0.0307,
-          "spam": 0.0058,
-          "insufficient": 0.006
+          "technical": 0.0142,
+          "feedback": 0.9223,
+          "chat": 0.042,
+          "spam": 0.0074,
+          "insufficient": 0.0141
         },
-        "confidence": 0.8475,
-        "noul": 0.7152,
-        "score": 1.4333,
+        "confidence": 0.7734,
+        "noul": 0.9262,
+        "score": 1.3804,
         "level_index": 1,
-        "latency_ms": 77
+        "latency_ms": 73
       }
     },
     {
@@ -4501,17 +4464,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0296,
-          "feedback": 0.9183,
-          "chat": 0.0176,
-          "spam": 0.0169,
-          "insufficient": 0.0176
+          "technical": 0.036,
+          "feedback": 0.9388,
+          "chat": 0.0084,
+          "spam": 0.0052,
+          "insufficient": 0.0117
         },
-        "confidence": 0.7553,
-        "noul": 0.8887,
-        "score": 1.4498,
+        "confidence": 0.8147,
+        "noul": 0.986,
+        "score": 1.4885,
         "level_index": 1,
-        "latency_ms": 91
+        "latency_ms": 73
       }
     },
     {
@@ -4526,17 +4489,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.3017,
-          "feedback": 0.6681,
-          "chat": 0.0068,
-          "spam": 0.0164,
-          "insufficient": 0.007
+          "technical": 0.414,
+          "feedback": 0.5312,
+          "chat": 0.0059,
+          "spam": 0.0407,
+          "insufficient": 0.0083
         },
-        "confidence": 0.5234,
-        "noul": 0.8504,
-        "score": 1.384,
+        "confidence": 0.44,
+        "noul": 0.9698,
+        "score": 1.1865,
         "level_index": 1,
-        "latency_ms": 107
+        "latency_ms": 92
       }
     },
     {
@@ -4551,17 +4514,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.4918,
-          "feedback": 0.1062,
-          "chat": 0.2317,
-          "spam": 0.0791,
-          "insufficient": 0.0912
+          "technical": 0.559,
+          "feedback": 0.1011,
+          "chat": 0.1719,
+          "spam": 0.0832,
+          "insufficient": 0.085
         },
-        "confidence": 0.1643,
-        "noul": 0.7558,
-        "score": 0.7753,
+        "confidence": 0.2073,
+        "noul": 0.8572,
+        "score": 0.6239,
         "level_index": 1,
-        "latency_ms": 83
+        "latency_ms": 91
       }
     },
     {
@@ -4576,17 +4539,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.895,
-          "feedback": 0.0521,
-          "chat": 0.017,
-          "spam": 0.0177,
-          "insufficient": 0.0182
+          "technical": 0.5668,
+          "feedback": 0.39,
+          "chat": 0.0145,
+          "spam": 0.0113,
+          "insufficient": 0.0173
         },
-        "confidence": 0.7099,
-        "noul": 0.8612,
-        "score": 1.617,
+        "confidence": 0.4585,
+        "noul": 0.9791,
+        "score": 1.8861,
         "level_index": 2,
-        "latency_ms": 77
+        "latency_ms": 81
       }
     },
     {
@@ -4601,17 +4564,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.5606,
-          "feedback": 0.0492,
-          "chat": 0.1621,
-          "spam": 0.0454,
-          "insufficient": 0.1827
+          "technical": 0.4444,
+          "feedback": 0.0712,
+          "chat": 0.2938,
+          "spam": 0.0352,
+          "insufficient": 0.1554
         },
-        "confidence": 0.2429,
-        "noul": 0.8786,
-        "score": 0.8532,
+        "confidence": 0.1825,
+        "noul": 0.988,
+        "score": 0.5441,
         "level_index": 1,
-        "latency_ms": 86
+        "latency_ms": 116
       }
     },
     {
@@ -4626,17 +4589,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6397,
-          "feedback": 0.2788,
-          "chat": 0.036,
-          "spam": 0.019,
-          "insufficient": 0.0265
+          "technical": 0.7067,
+          "feedback": 0.0614,
+          "chat": 0.0554,
+          "spam": 0.0235,
+          "insufficient": 0.153
         },
-        "confidence": 0.4203,
-        "noul": 0.7859,
-        "score": 1.238,
+        "confidence": 0.4083,
+        "noul": 0.6387,
+        "score": 1.1191,
         "level_index": 1,
-        "latency_ms": 91
+        "latency_ms": 82
       }
     },
     {
@@ -4651,17 +4614,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.2491,
-          "feedback": 0.0502,
-          "chat": 0.5104,
-          "spam": 0.0482,
-          "insufficient": 0.1421
+          "technical": 0.0852,
+          "feedback": 0.0599,
+          "chat": 0.6478,
+          "spam": 0.0238,
+          "insufficient": 0.1833
         },
-        "confidence": 0.2151,
-        "noul": 0.8737,
-        "score": 0.4384,
+        "confidence": 0.3416,
+        "noul": 0.8326,
+        "score": 0.3942,
         "level_index": 0,
-        "latency_ms": 95
+        "latency_ms": 89
       }
     },
     {
@@ -4676,17 +4639,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.1056,
-          "feedback": 0.1349,
-          "chat": 0.7049,
-          "spam": 0.0272,
-          "insufficient": 0.0274
+          "technical": 0.1053,
+          "feedback": 0.3168,
+          "chat": 0.5103,
+          "spam": 0.021,
+          "insufficient": 0.0467
         },
-        "confidence": 0.4092,
-        "noul": 0.8869,
-        "score": 0.126,
+        "confidence": 0.2739,
+        "noul": 0.9855,
+        "score": 0.1401,
         "level_index": 0,
-        "latency_ms": 84
+        "latency_ms": 78
       }
     },
     {
@@ -4701,17 +4664,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.181,
-          "feedback": 0.0462,
-          "chat": 0.6844,
-          "spam": 0.0422,
-          "insufficient": 0.0462
+          "technical": 0.1321,
+          "feedback": 0.0238,
+          "chat": 0.8068,
+          "spam": 0.0134,
+          "insufficient": 0.0238
         },
-        "confidence": 0.387,
-        "noul": 0.6908,
-        "score": 0.3706,
+        "confidence": 0.5796,
+        "noul": 0.8085,
+        "score": 0.2889,
         "level_index": 0,
-        "latency_ms": 94
+        "latency_ms": 87
       }
     },
     {
@@ -4726,17 +4689,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.2287,
-          "feedback": 0.0673,
-          "chat": 0.4258,
-          "spam": 0.0653,
-          "insufficient": 0.2129
+          "technical": 0.1828,
+          "feedback": 0.1394,
+          "chat": 0.3708,
+          "spam": 0.058,
+          "insufficient": 0.249
         },
-        "confidence": 0.1363,
-        "noul": 0.8797,
-        "score": 0.2739,
-        "level_index": 0,
-        "latency_ms": 94
+        "confidence": 0.0901,
+        "noul": 0.9286,
+        "score": 1.0284,
+        "level_index": 1,
+        "latency_ms": 110
       }
     },
     {
@@ -4751,17 +4714,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.0205,
-          "feedback": 0.0181,
-          "chat": 0.9255,
-          "spam": 0.0177,
-          "insufficient": 0.0181
+          "technical": 0.0399,
+          "feedback": 0.0362,
+          "chat": 0.8664,
+          "spam": 0.0213,
+          "insufficient": 0.0362
         },
-        "confidence": 0.7713,
-        "noul": 0.8801,
-        "score": 0.2301,
+        "confidence": 0.6427,
+        "noul": 0.97,
+        "score": 0.3955,
         "level_index": 0,
-        "latency_ms": 87
+        "latency_ms": 93
       }
     },
     {
@@ -4776,17 +4739,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.1232,
-          "feedback": 0.0505,
-          "chat": 0.6403,
-          "spam": 0.1189,
-          "insufficient": 0.0672
+          "technical": 0.108,
+          "feedback": 0.07,
+          "chat": 0.5791,
+          "spam": 0.1313,
+          "insufficient": 0.1116
         },
-        "confidence": 0.2987,
-        "noul": 0.7982,
-        "score": 0.6091,
-        "level_index": 1,
-        "latency_ms": 82
+        "confidence": 0.2208,
+        "noul": 0.8156,
+        "score": 0.3413,
+        "level_index": 0,
+        "latency_ms": 90
       }
     },
     {
@@ -4801,17 +4764,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.0144,
-          "feedback": 0.0242,
-          "chat": 0.9426,
-          "spam": 0.0094,
-          "insufficient": 0.0094
+          "technical": 0.017,
+          "feedback": 0.0192,
+          "chat": 0.9381,
+          "spam": 0.0106,
+          "insufficient": 0.0151
         },
-        "confidence": 0.8168,
-        "noul": 0.886,
-        "score": 0.2193,
+        "confidence": 0.8034,
+        "noul": 0.966,
+        "score": 0.2739,
         "level_index": 0,
-        "latency_ms": 99
+        "latency_ms": 86
       }
     },
     {
@@ -4824,19 +4787,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "chat",
         "probabilities": {
-          "technical": 0.4036,
-          "feedback": 0.0868,
-          "chat": 0.3071,
-          "spam": 0.0646,
-          "insufficient": 0.138
+          "technical": 0.3336,
+          "feedback": 0.0849,
+          "chat": 0.3979,
+          "spam": 0.0407,
+          "insufficient": 0.1429
         },
-        "confidence": 0.1356,
-        "noul": 0.8241,
-        "score": 0.475,
+        "confidence": 0.1608,
+        "noul": 0.9015,
+        "score": 0.3114,
         "level_index": 0,
-        "latency_ms": 91
+        "latency_ms": 97
       }
     },
     {
@@ -4849,19 +4812,19 @@
       },
       "note": "",
       "pred": {
-        "category": "insufficient",
+        "category": "technical",
         "probabilities": {
-          "technical": 0.3086,
-          "feedback": 0.0579,
-          "chat": 0.123,
-          "spam": 0.0567,
-          "insufficient": 0.4539
+          "technical": 0.3534,
+          "feedback": 0.0907,
+          "chat": 0.2512,
+          "spam": 0.0641,
+          "insufficient": 0.2406
         },
-        "confidence": 0.1881,
-        "noul": 0.5195,
-        "score": 1.0151,
+        "confidence": 0.0983,
+        "noul": 0.7045,
+        "score": 1.0906,
         "level_index": 1,
-        "latency_ms": 94
+        "latency_ms": 83
       }
     },
     {
@@ -4876,17 +4839,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.3553,
-          "feedback": 0.0307,
-          "chat": 0.5194,
-          "spam": 0.0289,
-          "insufficient": 0.0656
+          "technical": 0.0673,
+          "feedback": 0.0305,
+          "chat": 0.8548,
+          "spam": 0.0151,
+          "insufficient": 0.0322
         },
-        "confidence": 0.319,
-        "noul": 0.8689,
-        "score": 0.1665,
+        "confidence": 0.6295,
+        "noul": 0.9618,
+        "score": 0.237,
         "level_index": 0,
-        "latency_ms": 85
+        "latency_ms": 69
       }
     },
     {
@@ -4899,19 +4862,19 @@
       },
       "note": "",
       "pred": {
-        "category": "chat",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.1106,
-          "feedback": 0.0689,
-          "chat": 0.7829,
-          "spam": 0.0188,
-          "insufficient": 0.0188
+          "technical": 0.0369,
+          "feedback": 0.6168,
+          "chat": 0.3167,
+          "spam": 0.0136,
+          "insufficient": 0.016
         },
-        "confidence": 0.5223,
-        "noul": 0.8714,
-        "score": 0.4607,
-        "level_index": 0,
-        "latency_ms": 77
+        "confidence": 0.4356,
+        "noul": 0.9818,
+        "score": 1.7926,
+        "level_index": 2,
+        "latency_ms": 83
       }
     },
     {
@@ -4926,17 +4889,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.1493,
-          "feedback": 0.0766,
-          "chat": 0.4783,
-          "spam": 0.0536,
-          "insufficient": 0.2422
+          "technical": 0.2849,
+          "feedback": 0.076,
+          "chat": 0.3254,
+          "spam": 0.0689,
+          "insufficient": 0.2448
         },
-        "confidence": 0.1713,
-        "noul": 0.7596,
-        "score": 0.694,
+        "confidence": 0.1005,
+        "noul": 0.9004,
+        "score": 0.57,
         "level_index": 1,
-        "latency_ms": 80
+        "latency_ms": 67
       }
     },
     {
@@ -4949,19 +4912,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "insufficient",
         "probabilities": {
-          "technical": 0.5307,
-          "feedback": 0.0351,
-          "chat": 0.0785,
-          "spam": 0.1524,
-          "insufficient": 0.2033
+          "technical": 0.2895,
+          "feedback": 0.0327,
+          "chat": 0.1061,
+          "spam": 0.1111,
+          "insufficient": 0.4606
         },
-        "confidence": 0.2145,
-        "noul": 0.7874,
-        "score": 0.4005,
+        "confidence": 0.1861,
+        "noul": 0.8808,
+        "score": 0.3302,
         "level_index": 0,
-        "latency_ms": 90
+        "latency_ms": 83
       }
     },
     {
@@ -4976,17 +4939,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.0951,
-          "feedback": 0.1445,
-          "chat": 0.6478,
-          "spam": 0.056,
-          "insufficient": 0.0566
+          "technical": 0.1033,
+          "feedback": 0.3514,
+          "chat": 0.4046,
+          "spam": 0.0439,
+          "insufficient": 0.0968
         },
-        "confidence": 0.3113,
-        "noul": 0.6011,
-        "score": 0.3293,
+        "confidence": 0.1728,
+        "noul": 0.8446,
+        "score": 0.2725,
         "level_index": 0,
-        "latency_ms": 77
+        "latency_ms": 80
       }
     },
     {
@@ -5001,17 +4964,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.0861,
-          "feedback": 0.0579,
-          "chat": 0.745,
-          "spam": 0.055,
-          "insufficient": 0.0561
+          "technical": 0.0758,
+          "feedback": 0.0666,
+          "chat": 0.7354,
+          "spam": 0.0519,
+          "insufficient": 0.0703
         },
-        "confidence": 0.4306,
-        "noul": 0.8376,
-        "score": 0.3774,
+        "confidence": 0.4145,
+        "noul": 0.9551,
+        "score": 0.4147,
         "level_index": 0,
-        "latency_ms": 104
+        "latency_ms": 98
       }
     },
     {
@@ -5026,17 +4989,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.057,
-          "feedback": 0.0267,
-          "chat": 0.8703,
-          "spam": 0.0227,
-          "insufficient": 0.0234
+          "technical": 0.0345,
+          "feedback": 0.0278,
+          "chat": 0.9013,
+          "spam": 0.0108,
+          "insufficient": 0.0255
         },
-        "confidence": 0.6555,
-        "noul": 0.8799,
-        "score": 0.2348,
+        "confidence": 0.7191,
+        "noul": 0.5963,
+        "score": 0.2557,
         "level_index": 0,
-        "latency_ms": 89
+        "latency_ms": 108
       }
     },
     {
@@ -5051,17 +5014,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.4635,
-          "feedback": 0.0388,
-          "chat": 0.0898,
-          "spam": 0.2427,
-          "insufficient": 0.1652
+          "technical": 0.554,
+          "feedback": 0.0638,
+          "chat": 0.0695,
+          "spam": 0.1551,
+          "insufficient": 0.1576
         },
-        "confidence": 0.1674,
-        "noul": 0.2624,
-        "score": 0.3651,
+        "confidence": 0.2119,
+        "noul": 0.783,
+        "score": 0.3596,
         "level_index": 0,
-        "latency_ms": 79
+        "latency_ms": 94
       }
     },
     {
@@ -5076,17 +5039,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.2494,
-          "feedback": 0.0472,
-          "chat": 0.4886,
-          "spam": 0.0468,
-          "insufficient": 0.168
+          "technical": 0.1255,
+          "feedback": 0.0411,
+          "chat": 0.6918,
+          "spam": 0.0411,
+          "insufficient": 0.1005
         },
-        "confidence": 0.2026,
-        "noul": 0.8735,
-        "score": 0.3079,
+        "confidence": 0.3732,
+        "noul": 0.813,
+        "score": 0.2471,
         "level_index": 0,
-        "latency_ms": 104
+        "latency_ms": 94
       }
     },
     {
@@ -5101,17 +5064,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.3558,
-          "feedback": 0.2735,
-          "chat": 0.1186,
-          "spam": 0.0444,
-          "insufficient": 0.2077
+          "technical": 0.3036,
+          "feedback": 0.258,
+          "chat": 0.117,
+          "spam": 0.04,
+          "insufficient": 0.2814
         },
-        "confidence": 0.1054,
-        "noul": 0.3859,
-        "score": 0.7872,
+        "confidence": 0.1003,
+        "noul": 0.7843,
+        "score": 0.8276,
         "level_index": 1,
-        "latency_ms": 81
+        "latency_ms": 84
       }
     },
     {
@@ -5124,19 +5087,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.3698,
-          "feedback": 0.0788,
-          "chat": 0.1632,
-          "spam": 0.0683,
-          "insufficient": 0.3198
+          "technical": 0.0776,
+          "feedback": 0.6671,
+          "chat": 0.0938,
+          "spam": 0.0309,
+          "insufficient": 0.1306
         },
-        "confidence": 0.1228,
-        "noul": 0.4672,
-        "score": 0.3501,
-        "level_index": 0,
-        "latency_ms": 82
+        "confidence": 0.3391,
+        "noul": 0.4665,
+        "score": 0.5003,
+        "level_index": 1,
+        "latency_ms": 74
       }
     },
     {
@@ -5151,17 +5114,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.2048,
-          "feedback": 0.083,
-          "chat": 0.485,
-          "spam": 0.0373,
-          "insufficient": 0.1899
+          "technical": 0.1349,
+          "feedback": 0.0625,
+          "chat": 0.7081,
+          "spam": 0.0271,
+          "insufficient": 0.0674
         },
-        "confidence": 0.1796,
-        "noul": 0.8929,
-        "score": 0.3657,
+        "confidence": 0.3988,
+        "noul": 0.9466,
+        "score": 0.2407,
         "level_index": 0,
-        "latency_ms": 79
+        "latency_ms": 75
       }
     },
     {
@@ -5176,17 +5139,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.199,
-          "feedback": 0.0396,
-          "chat": 0.0727,
-          "spam": 0.659,
-          "insufficient": 0.0297
+          "technical": 0.2352,
+          "feedback": 0.1733,
+          "chat": 0.0617,
+          "spam": 0.4944,
+          "insufficient": 0.0355
         },
-        "confidence": 0.3668,
-        "noul": 0.4373,
-        "score": 1.1347,
+        "confidence": 0.2029,
+        "noul": 0.3655,
+        "score": 1.1978,
         "level_index": 1,
-        "latency_ms": 71
+        "latency_ms": 79
       }
     },
     {
@@ -5199,19 +5162,19 @@
       },
       "note": "",
       "pred": {
-        "category": "spam",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.1807,
-          "feedback": 0.2873,
-          "chat": 0.1124,
-          "spam": 0.4042,
-          "insufficient": 0.0153
+          "technical": 0.0739,
+          "feedback": 0.537,
+          "chat": 0.0884,
+          "spam": 0.2757,
+          "insufficient": 0.025
         },
-        "confidence": 0.1653,
-        "noul": 0.8502,
-        "score": 0.3219,
+        "confidence": 0.2617,
+        "noul": 0.9476,
+        "score": 0.3514,
         "level_index": 0,
-        "latency_ms": 88
+        "latency_ms": 69
       }
     },
     {
@@ -5226,17 +5189,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.1321,
-          "feedback": 0.0442,
-          "chat": 0.6578,
-          "spam": 0.0383,
-          "insufficient": 0.1275
+          "technical": 0.1893,
+          "feedback": 0.1708,
+          "chat": 0.4925,
+          "spam": 0.0343,
+          "insufficient": 0.1131
         },
-        "confidence": 0.3362,
-        "noul": 0.8925,
-        "score": 0.5693,
+        "confidence": 0.1748,
+        "noul": 0.9653,
+        "score": 0.5768,
         "level_index": 1,
-        "latency_ms": 82
+        "latency_ms": 83
       }
     },
     {
@@ -5251,17 +5214,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.4614,
-          "feedback": 0.0929,
-          "chat": 0.1242,
-          "spam": 0.0474,
-          "insufficient": 0.274
+          "technical": 0.3742,
+          "feedback": 0.0914,
+          "chat": 0.1641,
+          "spam": 0.0348,
+          "insufficient": 0.3355
         },
-        "confidence": 0.1698,
-        "noul": 0.8128,
-        "score": 0.3482,
+        "confidence": 0.151,
+        "noul": 0.8684,
+        "score": 0.3948,
         "level_index": 0,
-        "latency_ms": 83
+        "latency_ms": 91
       }
     },
     {
@@ -5274,19 +5237,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "insufficient",
         "probabilities": {
-          "technical": 0.3964,
-          "feedback": 0.0864,
-          "chat": 0.2571,
-          "spam": 0.0847,
-          "insufficient": 0.1754
+          "technical": 0.253,
+          "feedback": 0.082,
+          "chat": 0.2503,
+          "spam": 0.0348,
+          "insufficient": 0.3799
         },
-        "confidence": 0.1041,
-        "noul": 0.8333,
-        "score": 0.804,
+        "confidence": 0.14,
+        "noul": 0.9532,
+        "score": 1.1418,
         "level_index": 1,
-        "latency_ms": 159
+        "latency_ms": 85
       }
     },
     {
@@ -5301,17 +5264,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.1243,
-          "feedback": 0.0544,
-          "chat": 0.6476,
-          "spam": 0.0539,
-          "insufficient": 0.1199
+          "technical": 0.0593,
+          "feedback": 0.0515,
+          "chat": 0.6402,
+          "spam": 0.0252,
+          "insufficient": 0.2238
         },
-        "confidence": 0.3099,
-        "noul": 0.7824,
-        "score": 1.8719,
+        "confidence": 0.3577,
+        "noul": 0.9504,
+        "score": 2.1931,
         "level_index": 2,
-        "latency_ms": 155
+        "latency_ms": 110
       }
     },
     {
@@ -5324,19 +5287,19 @@
       },
       "note": "",
       "pred": {
-        "category": "chat",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.1763,
-          "feedback": 0.2369,
-          "chat": 0.4126,
-          "spam": 0.0765,
-          "insufficient": 0.0976
+          "technical": 0.067,
+          "feedback": 0.8524,
+          "chat": 0.0438,
+          "spam": 0.0198,
+          "insufficient": 0.017
         },
-        "confidence": 0.1077,
-        "noul": 0.8975,
-        "score": 0.3508,
-        "level_index": 0,
-        "latency_ms": 154
+        "confidence": 0.6264,
+        "noul": 0.98,
+        "score": 1.1225,
+        "level_index": 1,
+        "latency_ms": 79
       }
     },
     {
@@ -5351,17 +5314,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0233,
-          "feedback": 0.9268,
-          "chat": 0.0273,
-          "spam": 0.0119,
-          "insufficient": 0.0107
+          "technical": 0.0669,
+          "feedback": 0.8443,
+          "chat": 0.0443,
+          "spam": 0.0219,
+          "insufficient": 0.0226
         },
-        "confidence": 0.7778,
-        "noul": 0.8612,
-        "score": 1.1215,
+        "confidence": 0.6078,
+        "noul": 0.907,
+        "score": 1.3504,
         "level_index": 1,
-        "latency_ms": 125
+        "latency_ms": 91
       }
     },
     {
@@ -5376,17 +5339,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.0709,
-          "feedback": 0.0297,
-          "chat": 0.7507,
-          "spam": 0.0291,
-          "insufficient": 0.1196
+          "technical": 0.0531,
+          "feedback": 0.0337,
+          "chat": 0.7079,
+          "spam": 0.0156,
+          "insufficient": 0.1897
         },
-        "confidence": 0.463,
-        "noul": 0.7274,
-        "score": 0.2105,
+        "confidence": 0.4439,
+        "noul": 0.9147,
+        "score": 0.1808,
         "level_index": 0,
-        "latency_ms": 106
+        "latency_ms": 89
       }
     },
     {
@@ -5401,17 +5364,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.2232,
-          "feedback": 0.1224,
-          "chat": 0.4974,
-          "spam": 0.0678,
-          "insufficient": 0.0892
+          "technical": 0.0681,
+          "feedback": 0.1128,
+          "chat": 0.6742,
+          "spam": 0.0352,
+          "insufficient": 0.1098
         },
-        "confidence": 0.1692,
-        "noul": 0.7427,
-        "score": 0.2365,
-        "level_index": 0,
-        "latency_ms": 96
+        "confidence": 0.3444,
+        "noul": 0.9386,
+        "score": 0.8095,
+        "level_index": 1,
+        "latency_ms": 81
       }
     },
     {
@@ -5424,19 +5387,19 @@
       },
       "note": "",
       "pred": {
-        "category": "chat",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.1802,
-          "feedback": 0.1783,
-          "chat": 0.3743,
-          "spam": 0.0852,
-          "insufficient": 0.182
+          "technical": 0.026,
+          "feedback": 0.8987,
+          "chat": 0.038,
+          "spam": 0.0124,
+          "insufficient": 0.0249
         },
-        "confidence": 0.0655,
-        "noul": 0.8141,
-        "score": 0.1948,
+        "confidence": 0.7133,
+        "noul": 0.9563,
+        "score": 0.2474,
         "level_index": 0,
-        "latency_ms": 109
+        "latency_ms": 78
       }
     },
     {
@@ -5449,19 +5412,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "insufficient",
         "probabilities": {
-          "technical": 0.3638,
-          "feedback": 0.1821,
-          "chat": 0.1041,
-          "spam": 0.0256,
-          "insufficient": 0.3244
+          "technical": 0.2774,
+          "feedback": 0.1216,
+          "chat": 0.0648,
+          "spam": 0.0168,
+          "insufficient": 0.5194
         },
-        "confidence": 0.1472,
-        "noul": 0.7618,
-        "score": 0.4561,
-        "level_index": 0,
-        "latency_ms": 97
+        "confidence": 0.2555,
+        "noul": 0.8589,
+        "score": 0.5446,
+        "level_index": 1,
+        "latency_ms": 67
       }
     },
     {
@@ -5474,19 +5437,19 @@
       },
       "note": "",
       "pred": {
-        "category": "spam",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.228,
-          "feedback": 0.0454,
-          "chat": 0.0697,
-          "spam": 0.3819,
-          "insufficient": 0.2749
+          "technical": 0.2367,
+          "feedback": 0.5541,
+          "chat": 0.0518,
+          "spam": 0.047,
+          "insufficient": 0.1105
         },
-        "confidence": 0.1389,
-        "noul": 0.6229,
-        "score": 1.1812,
-        "level_index": 1,
-        "latency_ms": 98
+        "confidence": 0.2491,
+        "noul": 0.8181,
+        "score": 1.6092,
+        "level_index": 2,
+        "latency_ms": 67
       }
     },
     {
@@ -5499,19 +5462,19 @@
       },
       "note": "",
       "pred": {
-        "category": "spam",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.0806,
-          "feedback": 0.1346,
-          "chat": 0.273,
-          "spam": 0.4844,
-          "insufficient": 0.0274
+          "technical": 0.1357,
+          "feedback": 0.4954,
+          "chat": 0.1667,
+          "spam": 0.1104,
+          "insufficient": 0.0918
         },
-        "confidence": 0.2066,
-        "noul": 0.4581,
-        "score": 0.228,
+        "confidence": 0.1424,
+        "noul": 0.8884,
+        "score": 0.3718,
         "level_index": 0,
-        "latency_ms": 76
+        "latency_ms": 70
       }
     },
     {
@@ -5526,17 +5489,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0151,
-          "feedback": 0.0022,
-          "chat": 0.0032,
-          "spam": 0.9771,
-          "insufficient": 0.0024
+          "technical": 0.0791,
+          "feedback": 0.0042,
+          "chat": 0.0067,
+          "spam": 0.9039,
+          "insufficient": 0.0061
         },
-        "confidence": 0.9177,
-        "noul": 0.077,
-        "score": 0.4628,
-        "level_index": 0,
-        "latency_ms": 99
+        "confidence": 0.7641,
+        "noul": 0.1052,
+        "score": 0.6301,
+        "level_index": 1,
+        "latency_ms": 69
       }
     },
     {
@@ -5549,19 +5512,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.3957,
-          "feedback": 0.0636,
-          "chat": 0.18,
-          "spam": 0.2055,
-          "insufficient": 0.1552
+          "technical": 0.0921,
+          "feedback": 0.7869,
+          "chat": 0.0315,
+          "spam": 0.06,
+          "insufficient": 0.0295
         },
-        "confidence": 0.0897,
-        "noul": 0.1052,
-        "score": 0.2653,
-        "level_index": 0,
-        "latency_ms": 91
+        "confidence": 0.5093,
+        "noul": 0.8225,
+        "score": 0.5104,
+        "level_index": 1,
+        "latency_ms": 76
       }
     },
     {
@@ -5576,17 +5539,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.2417,
-          "feedback": 0.1169,
-          "chat": 0.5297,
-          "spam": 0.0403,
-          "insufficient": 0.0713
+          "technical": 0.154,
+          "feedback": 0.0808,
+          "chat": 0.649,
+          "spam": 0.0355,
+          "insufficient": 0.0808
         },
-        "confidence": 0.2242,
-        "noul": 0.0506,
-        "score": 0.9791,
-        "level_index": 1,
-        "latency_ms": 102
+        "confidence": 0.3205,
+        "noul": 0.9004,
+        "score": 0.4274,
+        "level_index": 0,
+        "latency_ms": 71
       }
     },
     {
@@ -5599,19 +5562,19 @@
       },
       "note": "已解决的消息",
       "pred": {
-        "category": "insufficient",
+        "category": "technical",
         "probabilities": {
-          "technical": 0.4502,
-          "feedback": 0.0166,
-          "chat": 0.0386,
-          "spam": 0.0161,
-          "insufficient": 0.4786
+          "technical": 0.6983,
+          "feedback": 0.027,
+          "chat": 0.046,
+          "spam": 0.0125,
+          "insufficient": 0.2161
         },
-        "confidence": 0.3961,
-        "noul": 0.623,
-        "score": 1.5849,
-        "level_index": 2,
-        "latency_ms": 80
+        "confidence": 0.4557,
+        "noul": 0.3871,
+        "score": 0.9789,
+        "level_index": 1,
+        "latency_ms": 78
       }
     },
     {
@@ -5626,17 +5589,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.053,
-          "feedback": 0.5116,
-          "chat": 0.4027,
-          "spam": 0.017,
-          "insufficient": 0.0157
+          "technical": 0.0822,
+          "feedback": 0.7298,
+          "chat": 0.1147,
+          "spam": 0.0508,
+          "insufficient": 0.0225
         },
-        "confidence": 0.3791,
-        "noul": 0.7198,
-        "score": 0.2127,
+        "confidence": 0.4282,
+        "noul": 0.836,
+        "score": 0.1575,
         "level_index": 0,
-        "latency_ms": 81
+        "latency_ms": 59
       }
     },
     {
@@ -5651,17 +5614,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6498,
-          "feedback": 0.0239,
-          "chat": 0.1065,
-          "spam": 0.1787,
-          "insufficient": 0.0411
+          "technical": 0.5698,
+          "feedback": 0.0482,
+          "chat": 0.0995,
+          "spam": 0.2312,
+          "insufficient": 0.0514
         },
-        "confidence": 0.3496,
-        "noul": 0.9561,
-        "score": 0.3971,
-        "level_index": 0,
-        "latency_ms": 82
+        "confidence": 0.2623,
+        "noul": 0.8137,
+        "score": 0.7055,
+        "level_index": 1,
+        "latency_ms": 85
       }
     },
     {
@@ -5676,17 +5639,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0144,
-          "feedback": 0.0045,
-          "chat": 0.0136,
-          "spam": 0.9621,
-          "insufficient": 0.0054
+          "technical": 0.0262,
+          "feedback": 0.0067,
+          "chat": 0.0449,
+          "spam": 0.8918,
+          "insufficient": 0.0304
         },
-        "confidence": 0.8699,
-        "noul": 0.063,
-        "score": 0.2393,
+        "confidence": 0.7039,
+        "noul": 0.1263,
+        "score": 0.3348,
         "level_index": 0,
-        "latency_ms": 81
+        "latency_ms": 92
       }
     },
     {
@@ -5701,17 +5664,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0098,
+          "technical": 0.0074,
           "feedback": 0.0045,
-          "chat": 0.0389,
-          "spam": 0.942,
-          "insufficient": 0.0048
+          "chat": 0.0206,
+          "spam": 0.9623,
+          "insufficient": 0.0052
         },
-        "confidence": 0.8274,
-        "noul": 0.1136,
-        "score": 0.1989,
+        "confidence": 0.8727,
+        "noul": 0.1736,
+        "score": 0.1639,
         "level_index": 0,
-        "latency_ms": 80
+        "latency_ms": 99
       }
     },
     {
@@ -5726,17 +5689,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0503,
-          "feedback": 0.0114,
-          "chat": 0.1274,
-          "spam": 0.7736,
-          "insufficient": 0.0373
+          "technical": 0.1343,
+          "feedback": 0.0116,
+          "chat": 0.0719,
+          "spam": 0.7432,
+          "insufficient": 0.039
         },
-        "confidence": 0.5122,
-        "noul": 0.0749,
-        "score": 0.2029,
+        "confidence": 0.4671,
+        "noul": 0.0657,
+        "score": 0.251,
         "level_index": 0,
-        "latency_ms": 70
+        "latency_ms": 73
       }
     },
     {
@@ -5751,17 +5714,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0076,
-          "feedback": 0.0019,
-          "chat": 0.0021,
-          "spam": 0.9861,
-          "insufficient": 0.0023
+          "technical": 0.0145,
+          "feedback": 0.0013,
+          "chat": 0.0017,
+          "spam": 0.9806,
+          "insufficient": 0.0019
         },
-        "confidence": 0.9443,
-        "noul": 0.0355,
-        "score": 0.4996,
+        "confidence": 0.9305,
+        "noul": 0.0044,
+        "score": 0.2448,
         "level_index": 0,
-        "latency_ms": 138
+        "latency_ms": 112
       }
     },
     {
@@ -5776,17 +5739,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.1457,
-          "feedback": 0.009,
-          "chat": 0.0203,
-          "spam": 0.8153,
-          "insufficient": 0.0097
+          "technical": 0.2121,
+          "feedback": 0.0095,
+          "chat": 0.0104,
+          "spam": 0.7577,
+          "insufficient": 0.0104
         },
-        "confidence": 0.6188,
-        "noul": 0.0709,
-        "score": 0.712,
+        "confidence": 0.5786,
+        "noul": 0.2478,
+        "score": 0.8579,
         "level_index": 1,
-        "latency_ms": 121
+        "latency_ms": 127
       }
     },
     {
@@ -5801,17 +5764,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0032,
-          "feedback": 0.0024,
-          "chat": 0.0025,
-          "spam": 0.9894,
-          "insufficient": 0.0025
+          "technical": 0.0021,
+          "feedback": 0.0012,
+          "chat": 0.0018,
+          "spam": 0.9931,
+          "insufficient": 0.0019
         },
-        "confidence": 0.9544,
-        "noul": 0.029,
-        "score": 0.5557,
-        "level_index": 1,
-        "latency_ms": 105
+        "confidence": 0.9684,
+        "noul": 0.3202,
+        "score": 0.4408,
+        "level_index": 0,
+        "latency_ms": 158
       }
     },
     {
@@ -5826,17 +5789,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.0931,
-          "feedback": 0.0322,
-          "chat": 0.6584,
-          "spam": 0.1802,
-          "insufficient": 0.0361
+          "technical": 0.3265,
+          "feedback": 0.0701,
+          "chat": 0.3841,
+          "spam": 0.1387,
+          "insufficient": 0.0807
         },
-        "confidence": 0.3566,
-        "noul": 0.5698,
-        "score": 0.261,
+        "confidence": 0.1324,
+        "noul": 0.6024,
+        "score": 0.3548,
         "level_index": 0,
-        "latency_ms": 102
+        "latency_ms": 111
       }
     },
     {
@@ -5851,17 +5814,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0641,
-          "feedback": 0.0034,
-          "chat": 0.0034,
-          "spam": 0.9256,
+          "technical": 0.0776,
+          "feedback": 0.0022,
+          "chat": 0.0032,
+          "spam": 0.9136,
           "insufficient": 0.0034
         },
-        "confidence": 0.81,
-        "noul": 0.0273,
-        "score": 0.5317,
-        "level_index": 1,
-        "latency_ms": 91
+        "confidence": 0.7938,
+        "noul": 0.0164,
+        "score": 0.2808,
+        "level_index": 0,
+        "latency_ms": 130
       }
     },
     {
@@ -5876,17 +5839,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0163,
-          "feedback": 0.0024,
-          "chat": 0.0027,
-          "spam": 0.976,
-          "insufficient": 0.0026
+          "technical": 0.0088,
+          "feedback": 0.0006,
+          "chat": 0.0008,
+          "spam": 0.9891,
+          "insufficient": 0.0008
         },
-        "confidence": 0.9151,
-        "noul": 0.0276,
-        "score": 0.3072,
+        "confidence": 0.9578,
+        "noul": 0.3128,
+        "score": 0.4402,
         "level_index": 0,
-        "latency_ms": 90
+        "latency_ms": 88
       }
     },
     {
@@ -5901,17 +5864,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.4915,
-          "feedback": 0.0899,
-          "chat": 0.1716,
-          "spam": 0.088,
-          "insufficient": 0.159
+          "technical": 0.4127,
+          "feedback": 0.1137,
+          "chat": 0.1697,
+          "spam": 0.1396,
+          "insufficient": 0.1643
         },
-        "confidence": 0.146,
-        "noul": 0.8458,
-        "score": 1.1319,
+        "confidence": 0.0773,
+        "noul": 0.9627,
+        "score": 0.9377,
         "level_index": 1,
-        "latency_ms": 98
+        "latency_ms": 77
       }
     },
     {
@@ -5924,19 +5887,19 @@
       },
       "note": "",
       "pred": {
-        "category": "technical",
+        "category": "spam",
         "probabilities": {
-          "technical": 0.4725,
-          "feedback": 0.0122,
-          "chat": 0.0353,
-          "spam": 0.4677,
-          "insufficient": 0.0123
+          "technical": 0.2234,
+          "feedback": 0.0089,
+          "chat": 0.0226,
+          "spam": 0.7357,
+          "insufficient": 0.0094
         },
-        "confidence": 0.4187,
-        "noul": 0.0207,
-        "score": 1.5822,
+        "confidence": 0.545,
+        "noul": 0.0715,
+        "score": 1.6236,
         "level_index": 2,
-        "latency_ms": 91
+        "latency_ms": 122
       }
     },
     {
@@ -5951,17 +5914,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0549,
-          "feedback": 0.0096,
-          "chat": 0.0202,
-          "spam": 0.8976,
-          "insufficient": 0.0177
+          "technical": 0.1276,
+          "feedback": 0.0133,
+          "chat": 0.0285,
+          "spam": 0.81,
+          "insufficient": 0.0206
         },
-        "confidence": 0.7197,
-        "noul": 0.1668,
-        "score": 0.2124,
+        "confidence": 0.5824,
+        "noul": 0.5545,
+        "score": 0.2247,
         "level_index": 0,
-        "latency_ms": 74
+        "latency_ms": 91
       }
     },
     {
@@ -5976,17 +5939,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.0261,
-          "feedback": 0.0062,
-          "chat": 0.016,
-          "spam": 0.9347,
-          "insufficient": 0.0169
+          "technical": 0.0451,
+          "feedback": 0.0093,
+          "chat": 0.0262,
+          "spam": 0.9,
+          "insufficient": 0.0194
         },
-        "confidence": 0.7979,
-        "noul": 0.0797,
-        "score": 0.3284,
+        "confidence": 0.7205,
+        "noul": 0.1148,
+        "score": 0.1683,
         "level_index": 0,
-        "latency_ms": 90
+        "latency_ms": 86
       }
     },
     {
@@ -6001,17 +5964,17 @@
       "pred": {
         "category": "spam",
         "probabilities": {
-          "technical": 0.1372,
-          "feedback": 0.0041,
-          "chat": 0.0041,
-          "spam": 0.8504,
-          "insufficient": 0.0042
+          "technical": 0.1433,
+          "feedback": 0.0028,
+          "chat": 0.0033,
+          "spam": 0.8471,
+          "insufficient": 0.0036
         },
-        "confidence": 0.7029,
-        "noul": 0.548,
-        "score": 0.5937,
+        "confidence": 0.7055,
+        "noul": 0.5773,
+        "score": 1.4685,
         "level_index": 1,
-        "latency_ms": 98
+        "latency_ms": 116
       }
     },
     {
@@ -6026,17 +5989,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2061,
-          "feedback": 0.0247,
-          "chat": 0.0316,
-          "spam": 0.024,
-          "insufficient": 0.7136
+          "technical": 0.261,
+          "feedback": 0.0387,
+          "chat": 0.0694,
+          "spam": 0.0325,
+          "insufficient": 0.5984
         },
-        "confidence": 0.468,
-        "noul": 0.264,
-        "score": 1.3213,
+        "confidence": 0.3288,
+        "noul": 0.2689,
+        "score": 1.1874,
         "level_index": 1,
-        "latency_ms": 87
+        "latency_ms": 104
       }
     },
     {
@@ -6051,17 +6014,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2906,
-          "feedback": 0.0413,
-          "chat": 0.1039,
-          "spam": 0.0392,
-          "insufficient": 0.525
+          "technical": 0.3127,
+          "feedback": 0.048,
+          "chat": 0.0679,
+          "spam": 0.0264,
+          "insufficient": 0.545
         },
-        "confidence": 0.2598,
-        "noul": 0.0941,
-        "score": 0.5623,
-        "level_index": 1,
-        "latency_ms": 82
+        "confidence": 0.305,
+        "noul": 0.0536,
+        "score": 0.3079,
+        "level_index": 0,
+        "latency_ms": 121
       }
     },
     {
@@ -6076,17 +6039,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.1439,
-          "feedback": 0.0371,
-          "chat": 0.0637,
-          "spam": 0.0353,
-          "insufficient": 0.72
+          "technical": 0.0628,
+          "feedback": 0.0297,
+          "chat": 0.0444,
+          "spam": 0.0164,
+          "insufficient": 0.8466
         },
-        "confidence": 0.4215,
-        "noul": 0.0506,
-        "score": 0.7749,
+        "confidence": 0.6116,
+        "noul": 0.0346,
+        "score": 0.5016,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 96
       }
     },
     {
@@ -6101,17 +6064,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.0968,
-          "feedback": 0.0103,
-          "chat": 0.0105,
-          "spam": 0.0103,
-          "insufficient": 0.8722
+          "technical": 0.0999,
+          "feedback": 0.0093,
+          "chat": 0.0104,
+          "spam": 0.0048,
+          "insufficient": 0.8755
         },
-        "confidence": 0.6975,
-        "noul": 0.0525,
-        "score": 1.0329,
-        "level_index": 1,
-        "latency_ms": 102
+        "confidence": 0.7121,
+        "noul": 0.0108,
+        "score": 1.8924,
+        "level_index": 2,
+        "latency_ms": 95
       }
     },
     {
@@ -6126,17 +6089,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.1201,
-          "feedback": 0.0171,
-          "chat": 0.0163,
-          "spam": 0.0161,
-          "insufficient": 0.8305
+          "technical": 0.1626,
+          "feedback": 0.0263,
+          "chat": 0.0241,
+          "spam": 0.0137,
+          "insufficient": 0.7732
         },
-        "confidence": 0.6199,
-        "noul": 0.3765,
-        "score": 1.2838,
+        "confidence": 0.5411,
+        "noul": 0.3726,
+        "score": 0.9845,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 95
       }
     },
     {
@@ -6151,17 +6114,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2568,
-          "feedback": 0.0541,
-          "chat": 0.1319,
-          "spam": 0.0483,
-          "insufficient": 0.5089
+          "technical": 0.2705,
+          "feedback": 0.0745,
+          "chat": 0.2287,
+          "spam": 0.0668,
+          "insufficient": 0.3595
         },
-        "confidence": 0.2145,
-        "noul": 0.8285,
-        "score": 0.5174,
-        "level_index": 1,
-        "latency_ms": 80
+        "confidence": 0.1095,
+        "noul": 0.8232,
+        "score": 0.2861,
+        "level_index": 0,
+        "latency_ms": 81
       }
     },
     {
@@ -6176,17 +6139,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.0964,
-          "feedback": 0.0279,
-          "chat": 0.0313,
-          "spam": 0.0294,
-          "insufficient": 0.815
+          "technical": 0.0708,
+          "feedback": 0.0276,
+          "chat": 0.0288,
+          "spam": 0.0258,
+          "insufficient": 0.847
         },
-        "confidence": 0.5625,
-        "noul": 0.1033,
-        "score": 0.2825,
+        "confidence": 0.6124,
+        "noul": 0.1204,
+        "score": 0.2136,
         "level_index": 0,
-        "latency_ms": 90
+        "latency_ms": 100
       }
     },
     {
@@ -6201,17 +6164,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2358,
-          "feedback": 0.0483,
-          "chat": 0.0719,
-          "spam": 0.0464,
-          "insufficient": 0.5975
+          "technical": 0.1895,
+          "feedback": 0.0591,
+          "chat": 0.0688,
+          "spam": 0.0254,
+          "insufficient": 0.6572
         },
-        "confidence": 0.3,
-        "noul": 0.2624,
-        "score": 0.7432,
+        "confidence": 0.3565,
+        "noul": 0.1597,
+        "score": 0.7848,
         "level_index": 1,
-        "latency_ms": 75
+        "latency_ms": 89
       }
     },
     {
@@ -6226,17 +6189,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.1906,
-          "feedback": 0.0315,
-          "chat": 0.0586,
-          "spam": 0.0293,
-          "insufficient": 0.69
+          "technical": 0.1735,
+          "feedback": 0.0422,
+          "chat": 0.1213,
+          "spam": 0.0315,
+          "insufficient": 0.6316
         },
-        "confidence": 0.4095,
-        "noul": 0.4652,
-        "score": 0.3024,
-        "level_index": 0,
-        "latency_ms": 85
+        "confidence": 0.3213,
+        "noul": 0.2105,
+        "score": 0.6217,
+        "level_index": 1,
+        "latency_ms": 91
       }
     },
     {
@@ -6251,17 +6214,17 @@
       "pred": {
         "category": "chat",
         "probabilities": {
-          "technical": 0.2985,
-          "feedback": 0.0392,
-          "chat": 0.3443,
-          "spam": 0.035,
-          "insufficient": 0.283
+          "technical": 0.3024,
+          "feedback": 0.0547,
+          "chat": 0.3774,
+          "spam": 0.0254,
+          "insufficient": 0.2402
         },
-        "confidence": 0.1739,
-        "noul": 0.361,
-        "score": 0.6982,
+        "confidence": 0.1772,
+        "noul": 0.1788,
+        "score": 0.5929,
         "level_index": 1,
-        "latency_ms": 103
+        "latency_ms": 82
       }
     },
     {
@@ -6276,17 +6239,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2428,
-          "feedback": 0.305,
-          "chat": 0.0985,
-          "spam": 0.0445,
-          "insufficient": 0.3092
+          "technical": 0.154,
+          "feedback": 0.1066,
+          "chat": 0.0745,
+          "spam": 0.0244,
+          "insufficient": 0.6405
         },
-        "confidence": 0.108,
-        "noul": 0.2232,
-        "score": 1.2167,
+        "confidence": 0.3189,
+        "noul": 0.1908,
+        "score": 1.0129,
         "level_index": 1,
-        "latency_ms": 81
+        "latency_ms": 82
       }
     },
     {
@@ -6301,17 +6264,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.3415,
-          "feedback": 0.0357,
-          "chat": 0.0368,
-          "spam": 0.0353,
-          "insufficient": 0.5507
+          "technical": 0.4111,
+          "feedback": 0.0289,
+          "chat": 0.0256,
+          "spam": 0.0127,
+          "insufficient": 0.5217
         },
-        "confidence": 0.3451,
-        "noul": 0.0635,
-        "score": 0.6198,
+        "confidence": 0.4056,
+        "noul": 0.0122,
+        "score": 0.9629,
         "level_index": 1,
-        "latency_ms": 93
+        "latency_ms": 68
       }
     },
     {
@@ -6324,19 +6287,19 @@
       },
       "note": "截图内容未说明",
       "pred": {
-        "category": "insufficient",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.1919,
-          "feedback": 0.0622,
-          "chat": 0.0616,
-          "spam": 0.2214,
-          "insufficient": 0.4628
+          "technical": 0.1224,
+          "feedback": 0.7358,
+          "chat": 0.0382,
+          "spam": 0.0366,
+          "insufficient": 0.0671
         },
-        "confidence": 0.1601,
-        "noul": 0.6932,
-        "score": 0.3738,
+        "confidence": 0.4347,
+        "noul": 0.9823,
+        "score": 0.2399,
         "level_index": 0,
-        "latency_ms": 84
+        "latency_ms": 96
       }
     },
     {
@@ -6351,15 +6314,15 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0981,
-          "feedback": 0.7175,
-          "chat": 0.0602,
-          "spam": 0.0583,
-          "insufficient": 0.0659
+          "technical": 0.2479,
+          "feedback": 0.3845,
+          "chat": 0.1155,
+          "spam": 0.1206,
+          "insufficient": 0.1315
         },
-        "confidence": 0.391,
-        "noul": 0.6055,
-        "score": 0.7583,
+        "confidence": 0.0777,
+        "noul": 0.5845,
+        "score": 0.7324,
         "level_index": 1,
         "latency_ms": 81
       }
@@ -6376,17 +6339,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.3471,
-          "feedback": 0.0346,
-          "chat": 0.035,
-          "spam": 0.0357,
-          "insufficient": 0.5477
+          "technical": 0.3515,
+          "feedback": 0.0263,
+          "chat": 0.0293,
+          "spam": 0.0281,
+          "insufficient": 0.5648
         },
-        "confidence": 0.3479,
-        "noul": 0.2736,
-        "score": 1.3491,
+        "confidence": 0.3851,
+        "noul": 0.1566,
+        "score": 0.5167,
         "level_index": 1,
-        "latency_ms": 89
+        "latency_ms": 97
       }
     },
     {
@@ -6401,17 +6364,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.3517,
-          "feedback": 0.024,
-          "chat": 0.024,
-          "spam": 0.0237,
-          "insufficient": 0.5766
+          "technical": 0.2905,
+          "feedback": 0.0281,
+          "chat": 0.0269,
+          "spam": 0.0208,
+          "insufficient": 0.6338
         },
-        "confidence": 0.408,
-        "noul": 0.1001,
-        "score": 1.4876,
+        "confidence": 0.4245,
+        "noul": 0.1884,
+        "score": 1.3251,
         "level_index": 1,
-        "latency_ms": 102
+        "latency_ms": 97
       }
     },
     {
@@ -6426,17 +6389,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6466,
-          "feedback": 0.0253,
-          "chat": 0.0493,
-          "spam": 0.0301,
-          "insufficient": 0.2487
+          "technical": 0.8322,
+          "feedback": 0.0209,
+          "chat": 0.0262,
+          "spam": 0.0207,
+          "insufficient": 0.1
         },
-        "confidence": 0.3942,
-        "noul": 0.4197,
-        "score": 0.5573,
-        "level_index": 1,
-        "latency_ms": 88
+        "confidence": 0.6025,
+        "noul": 0.2656,
+        "score": 0.3565,
+        "level_index": 0,
+        "latency_ms": 92
       }
     },
     {
@@ -6451,17 +6414,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.5117,
-          "feedback": 0.0332,
-          "chat": 0.053,
-          "spam": 0.0318,
-          "insufficient": 0.3703
+          "technical": 0.4529,
+          "feedback": 0.0466,
+          "chat": 0.0689,
+          "spam": 0.0293,
+          "insufficient": 0.4023
         },
-        "confidence": 0.3233,
-        "noul": 0.3066,
-        "score": 0.7821,
+        "confidence": 0.2819,
+        "noul": 0.2417,
+        "score": 0.5113,
         "level_index": 1,
-        "latency_ms": 73
+        "latency_ms": 72
       }
     },
     {
@@ -6476,17 +6439,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2948,
-          "feedback": 0.0631,
-          "chat": 0.0814,
-          "spam": 0.0625,
-          "insufficient": 0.4982
+          "technical": 0.2663,
+          "feedback": 0.0863,
+          "chat": 0.1049,
+          "spam": 0.046,
+          "insufficient": 0.4966
         },
-        "confidence": 0.2177,
-        "noul": 0.4307,
-        "score": 0.2567,
+        "confidence": 0.1988,
+        "noul": 0.4496,
+        "score": 0.184,
         "level_index": 0,
-        "latency_ms": 84
+        "latency_ms": 86
       }
     },
     {
@@ -6499,19 +6462,19 @@
       },
       "note": "缺对象与目标效果",
       "pred": {
-        "category": "technical",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.8734,
-          "feedback": 0.0386,
-          "chat": 0.0265,
-          "spam": 0.0221,
-          "insufficient": 0.0394
+          "technical": 0.4559,
+          "feedback": 0.5026,
+          "chat": 0.015,
+          "spam": 0.0116,
+          "insufficient": 0.0148
         },
-        "confidence": 0.6572,
-        "noul": 0.5036,
-        "score": 1.6868,
+        "confidence": 0.4526,
+        "noul": 0.951,
+        "score": 1.8509,
         "level_index": 2,
-        "latency_ms": 79
+        "latency_ms": 91
       }
     },
     {
@@ -6526,17 +6489,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.1068,
-          "feedback": 0.0111,
-          "chat": 0.011,
-          "spam": 0.011,
-          "insufficient": 0.8602
+          "technical": 0.081,
+          "feedback": 0.3035,
+          "chat": 0.0112,
+          "spam": 0.0068,
+          "insufficient": 0.5975
         },
-        "confidence": 0.6786,
-        "noul": 0.0193,
-        "score": 1.9946,
+        "confidence": 0.4051,
+        "noul": 0.0238,
+        "score": 1.9258,
         "level_index": 2,
-        "latency_ms": 92
+        "latency_ms": 96
       }
     },
     {
@@ -6551,17 +6514,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2394,
-          "feedback": 0.025,
-          "chat": 0.0221,
-          "spam": 0.0208,
-          "insufficient": 0.6927
+          "technical": 0.1609,
+          "feedback": 0.0563,
+          "chat": 0.0208,
+          "spam": 0.0119,
+          "insufficient": 0.7501
         },
-        "confidence": 0.4696,
-        "noul": 0.1649,
-        "score": 1.8312,
+        "confidence": 0.4998,
+        "noul": 0.105,
+        "score": 2.2576,
         "level_index": 2,
-        "latency_ms": 82
+        "latency_ms": 78
       }
     },
     {
@@ -6576,17 +6539,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2904,
-          "feedback": 0.048,
-          "chat": 0.0484,
-          "spam": 0.0456,
-          "insufficient": 0.5676
+          "technical": 0.2821,
+          "feedback": 0.0295,
+          "chat": 0.0343,
+          "spam": 0.0147,
+          "insufficient": 0.6394
         },
-        "confidence": 0.3081,
-        "noul": 0.1689,
-        "score": 0.5912,
+        "confidence": 0.4256,
+        "noul": 0.0348,
+        "score": 0.6361,
         "level_index": 1,
-        "latency_ms": 79
+        "latency_ms": 81
       }
     },
     {
@@ -6601,17 +6564,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2558,
-          "feedback": 0.1004,
-          "chat": 0.1112,
-          "spam": 0.0616,
-          "insufficient": 0.4711
+          "technical": 0.1851,
+          "feedback": 0.159,
+          "chat": 0.0774,
+          "spam": 0.0455,
+          "insufficient": 0.533
         },
-        "confidence": 0.1612,
-        "noul": 0.3999,
-        "score": 0.316,
+        "confidence": 0.2056,
+        "noul": 0.9448,
+        "score": 0.4551,
         "level_index": 0,
-        "latency_ms": 89
+        "latency_ms": 108
       }
     },
     {
@@ -6626,17 +6589,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.7108,
-          "feedback": 0.0281,
-          "chat": 0.0278,
-          "spam": 0.127,
-          "insufficient": 0.1063
+          "technical": 0.8179,
+          "feedback": 0.0165,
+          "chat": 0.0158,
+          "spam": 0.0212,
+          "insufficient": 0.1286
         },
-        "confidence": 0.4141,
-        "noul": 0.4979,
-        "score": 0.4249,
-        "level_index": 0,
-        "latency_ms": 98
+        "confidence": 0.6003,
+        "noul": 0.0436,
+        "score": 1.3282,
+        "level_index": 1,
+        "latency_ms": 100
       }
     },
     {
@@ -6651,17 +6614,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.3416,
-          "feedback": 0.12,
-          "chat": 0.2049,
-          "spam": 0.1123,
-          "insufficient": 0.2212
+          "technical": 0.2943,
+          "feedback": 0.0691,
+          "chat": 0.1295,
+          "spam": 0.2822,
+          "insufficient": 0.225
         },
-        "confidence": 0.0522,
-        "noul": 0.6324,
-        "score": 0.5072,
+        "confidence": 0.0668,
+        "noul": 0.5949,
+        "score": 0.5944,
         "level_index": 1,
-        "latency_ms": 112
+        "latency_ms": 89
       }
     },
     {
@@ -6676,17 +6639,17 @@
       "pred": {
         "category": "feedback",
         "probabilities": {
-          "technical": 0.0635,
-          "feedback": 0.8284,
-          "chat": 0.0355,
-          "spam": 0.0348,
-          "insufficient": 0.0378
+          "technical": 0.0237,
+          "feedback": 0.9233,
+          "chat": 0.0189,
+          "spam": 0.0104,
+          "insufficient": 0.0237
         },
-        "confidence": 0.5711,
-        "noul": 0.1038,
-        "score": 1.5358,
-        "level_index": 2,
-        "latency_ms": 121
+        "confidence": 0.768,
+        "noul": 0.4747,
+        "score": 1.2864,
+        "level_index": 1,
+        "latency_ms": 75
       }
     },
     {
@@ -6699,19 +6662,19 @@
       },
       "note": "有猜测但缺环境信息",
       "pred": {
-        "category": "insufficient",
+        "category": "feedback",
         "probabilities": {
-          "technical": 0.2666,
-          "feedback": 0.1223,
-          "chat": 0.0738,
-          "spam": 0.0634,
-          "insufficient": 0.474
+          "technical": 0.0076,
+          "feedback": 0.9748,
+          "chat": 0.0052,
+          "spam": 0.0046,
+          "insufficient": 0.0078
         },
-        "confidence": 0.1734,
-        "noul": 0.802,
-        "score": 1.4177,
+        "confidence": 0.9057,
+        "noul": 0.9618,
+        "score": 0.8885,
         "level_index": 1,
-        "latency_ms": 82
+        "latency_ms": 76
       }
     },
     {
@@ -6726,17 +6689,17 @@
       "pred": {
         "category": "insufficient",
         "probabilities": {
-          "technical": 0.2346,
-          "feedback": 0.0745,
-          "chat": 0.1155,
-          "spam": 0.0745,
-          "insufficient": 0.5008
+          "technical": 0.1804,
+          "feedback": 0.0554,
+          "chat": 0.1268,
+          "spam": 0.0513,
+          "insufficient": 0.5861
         },
-        "confidence": 0.1781,
-        "noul": 0.839,
-        "score": 0.2644,
+        "confidence": 0.2565,
+        "noul": 0.3797,
+        "score": 0.4546,
         "level_index": 0,
-        "latency_ms": 87
+        "latency_ms": 90
       }
     },
     {
@@ -6751,17 +6714,17 @@
       "pred": {
         "category": "technical",
         "probabilities": {
-          "technical": 0.6589,
-          "feedback": 0.0157,
-          "chat": 0.016,
-          "spam": 0.0149,
-          "insufficient": 0.2946
+          "technical": 0.7787,
+          "feedback": 0.0204,
+          "chat": 0.0202,
+          "spam": 0.0097,
+          "insufficient": 0.171
         },
-        "confidence": 0.4851,
-        "noul": 0.6761,
-        "score": 1.6605,
+        "confidence": 0.5651,
+        "noul": 0.3113,
+        "score": 2.0585,
         "level_index": 2,
-        "latency_ms": 99
+        "latency_ms": 80
       }
     }
   ]
