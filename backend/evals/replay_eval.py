@@ -1,9 +1,9 @@
-"""评估集回放：45 条独立评估集批量过决策引擎，输出准确率报告。
+"""评估集回放：独立评估集（230 条）批量过决策引擎，输出准确率报告。
 
 两种运行模式：
   http（默认）：复用运行中的决策服务（uvicorn 8313，DECISION_PROVIDER=laya）。
                 启动时校验 /api/health 的 provider 名，防止误测 mock；
-                模型已加载，45 条约 5 秒跑完。
+                模型已加载，230 条约 25 秒跑完。
   local：进程内直接加载 checkpoint（服务未启动时用，模型加载约 80s）。
 
 用法（backend 目录下）：
@@ -14,7 +14,7 @@
 输出：evals/reports/eval-report.json + eval-report.md
 口径：
   - choice：top-1 准确率 + 5×5 混淆矩阵 + 置信度 ≥60% 门槛子集准确率
-  - noul：P(可处理) ≥ 0.65 判 actionable，与真值一致的区间准确率 + 覆盖率
+  - noul：P(可处理) ≥ 0.60 判 actionable，与真值一致的区间准确率 + 覆盖率
   - score：等级 exact / ±1 命中率 + 与真值等级的 MAE
 """
 from __future__ import annotations
@@ -32,10 +32,10 @@ sys.path.insert(0, str(BACKEND))
 
 # 与 src/config/criteria.ts THRESHOLDS、app/main.py 保持一致
 CHOICE_CONF_MIN = 0.60
-NOUL_ACTIONABLE_MIN = 0.65
+NOUL_ACTIONABLE_MIN = 0.60
 CATEGORIES = ["technical", "feedback", "chat", "spam", "insufficient"]
 DEFAULT_BASE = "http://127.0.0.1:8313"
-DEFAULT_MODEL_DIR = "D:/AI/laya/danmaku-dm-v0.2"
+DEFAULT_MODEL_DIR = "D:/AI/laya/danmaku-dm-v0.3"
 
 
 def load_samples() -> list[dict]:
@@ -102,7 +102,7 @@ def build_local_decider(model_dir: str):
             "judgedAt": r.judged_at,
         }
 
-    return decide
+    return decide, provider
 
 
 def evaluate(rows: list[dict]) -> dict:
@@ -134,7 +134,7 @@ def evaluate(rows: list[dict]) -> dict:
     mae = sum(abs(r["pred"]["score"] - r["truth"]["impact_level"]) for r in rows) / n
 
     # ---------- 校准（reliability 分桶 / ECE / Brier）----------
-    N_BINS = 5  # 45 条样本用 5 等宽桶，每桶约 9 条，避免过稀
+    N_BINS = 5  # 5 等宽桶：230 条下兼顾分桶稳定性与粒度
 
     def _bins(conf_fn, correct_fn):
         out = []
@@ -247,7 +247,8 @@ def evaluate(rows: list[dict]) -> dict:
 def render_markdown(meta: dict, s: dict) -> str:
     lines: list[str] = []
     a = lines.append
-    a("# 评估集回放报告（Laya danmaku-dm-v0.2）")
+    label = Path(meta["model_dir"]).name if meta.get("model_dir") else meta["provider"]
+    a(f"# 评估集回放报告（{label}）")
     a("")
     a(f"- 时间：{meta['generated_at']}")
     a(f"- 模式：{meta['mode']}（provider：{meta['provider']}）")
@@ -359,8 +360,8 @@ def main() -> None:
         import os
 
         os.environ.setdefault("LAYA_MODEL_DIR", args.model_dir)
-        local_decide = build_local_decider(args.model_dir)
-        provider_name = "laya-finetuned-v0.2(local)"
+        local_decide, local_provider = build_local_decider(args.model_dir)
+        provider_name = f"{local_provider.name}(local)"
         decide = local_decide
 
     rows: list[dict] = []

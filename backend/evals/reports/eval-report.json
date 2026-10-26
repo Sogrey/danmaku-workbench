@@ -1,15 +1,15 @@
 {
   "meta": {
-    "generated_at": "2026-10-26T14:56:19.476272+00:00",
+    "generated_at": "2026-10-26T15:33:34.687357+00:00",
     "mode": "local",
-    "provider": "laya-finetuned-v0.2(local)",
+    "provider": "laya-finetuned-v0.3(local)",
     "model_dir": "D:/AI/laya/danmaku-dm-v0.3",
     "eval_dataset": "evals/eval_dataset.jsonl"
   },
   "summary": {
     "thresholds": {
       "choice_confidence_min": 0.6,
-      "noul_actionable_min": 0.65
+      "noul_actionable_min": 0.6
     },
     "choice": {
       "accuracy": 0.7478260869565218,
@@ -55,9 +55,9 @@
       "conf_pass_accuracy": 0.9021739130434783
     },
     "noul": {
-      "interval_accuracy": 0.8956521739130435,
-      "coverage": 0.7043478260869566,
-      "interval_accuracy_when_passed": 0.9444444444444444,
+      "interval_accuracy": 0.9043478260869565,
+      "coverage": 0.7217391304347827,
+      "interval_accuracy_when_passed": 0.9397590361445783,
       "mean_prob_truth_actionable": 0.8736583333333333,
       "mean_prob_truth_insufficient": 0.3293645161290323
     },
@@ -274,7 +274,7 @@
         "truth_category": "chat",
         "pred_category": "insufficient",
         "confidence": 0.3343,
-        "noul_ok": false,
+        "noul_ok": true,
         "noul": 0.6252,
         "truth_impact": 0,
         "pred_impact": 1
@@ -384,7 +384,7 @@
         "truth_category": "technical",
         "pred_category": "insufficient",
         "confidence": 0.41,
-        "noul_ok": false,
+        "noul_ok": true,
         "noul": 0.6397,
         "truth_impact": 2,
         "pred_impact": 1
@@ -527,7 +527,7 @@
         "truth_category": "feedback",
         "pred_category": "technical",
         "confidence": 0.4083,
-        "noul_ok": false,
+        "noul_ok": true,
         "noul": 0.6387,
         "truth_impact": 1,
         "pred_impact": 1
@@ -791,7 +791,7 @@
         "truth_category": "spam",
         "pred_category": "chat",
         "confidence": 0.1324,
-        "noul_ok": true,
+        "noul_ok": false,
         "noul": 0.6024,
         "truth_impact": 0,
         "pred_impact": 0
@@ -973,7 +973,7 @@
         "pred_impact": 2
       }
     ],
-    "latency_ms_avg": 91.80869565217391,
+    "latency_ms_avg": 99.22608695652174,
     "sample_count": 230
   },
   "rows": [
@@ -999,7 +999,7 @@
         "noul": 0.7646,
         "score": 0.4362,
         "level_index": 0,
-        "latency_ms": 2045
+        "latency_ms": 1830
       }
     },
     {
@@ -1024,7 +1024,7 @@
         "noul": 0.7659,
         "score": 0.8558,
         "level_index": 1,
-        "latency_ms": 80
+        "latency_ms": 83
       }
     },
     {
@@ -1049,7 +1049,7 @@
         "noul": 0.5335,
         "score": 0.6884,
         "level_index": 1,
-        "latency_ms": 93
+        "latency_ms": 85
       }
     },
     {
@@ -1074,7 +1074,7 @@
         "noul": 0.9525,
         "score": 0.8144,
         "level_index": 1,
-        "latency_ms": 93
+        "latency_ms": 90
       }
     },
     {
@@ -1099,7 +1099,7 @@
         "noul": 0.8942,
         "score": 0.151,
         "level_index": 0,
-        "latency_ms": 86
+        "latency_ms": 90
       }
     },
     {
@@ -1124,7 +1124,7 @@
         "noul": 0.9342,
         "score": 0.7049,
         "level_index": 1,
-        "latency_ms": 75
+        "latency_ms": 99
       }
     },
     {
@@ -1149,7 +1149,7 @@
         "noul": 0.3667,
         "score": 0.2192,
         "level_index": 0,
-        "latency_ms": 74
+        "latency_ms": 118
       }
     },
     {
@@ -1174,7 +1174,7 @@
         "noul": 0.892,
         "score": 0.9686,
         "level_index": 1,
-        "latency_ms": 66
+        "latency_ms": 102
       }
     },
     {
@@ -1199,7 +1199,7 @@
         "noul": 0.9525,
         "score": 1.4928,
         "level_index": 1,
-        "latency_ms": 56
+        "latency_ms": 92
       }
     },
     {
@@ -1224,7 +1224,7 @@
         "noul": 0.9932,
         "score": 2.3714,
         "level_index": 2,
-        "latency_ms": 64
+        "latency_ms": 104
       }
     },
     {
@@ -1249,7 +1249,7 @@
         "noul": 0.9212,
         "score": 0.9326,
         "level_index": 1,
-        "latency_ms": 72
+        "latency_ms": 86
       }
     },
     {
@@ -1274,7 +1274,7 @@
         "noul": 0.9645,
         "score": 2.6587,
         "level_index": 3,
-        "latency_ms": 58
+        "latency_ms": 87
       }
     },
     {
@@ -1299,7 +1299,7 @@
         "noul": 0.9687,
         "score": 1.4633,
         "level_index": 1,
-        "latency_ms": 61
+        "latency_ms": 87
       }
     },
     {
@@ -1324,7 +1324,7 @@
         "noul": 0.9767,
         "score": 2.283,
         "level_index": 2,
-        "latency_ms": 64
+        "latency_ms": 90
       }
     },
     {
@@ -1349,7 +1349,7 @@
         "noul": 0.9745,
         "score": 0.9665,
         "level_index": 1,
-        "latency_ms": 57
+        "latency_ms": 76
       }
     },
     {
@@ -1374,7 +1374,7 @@
         "noul": 0.9755,
         "score": 2.4362,
         "level_index": 2,
-        "latency_ms": 71
+        "latency_ms": 59
       }
     },
     {
@@ -1399,7 +1399,7 @@
         "noul": 0.9835,
         "score": 1.6623,
         "level_index": 2,
-        "latency_ms": 50
+        "latency_ms": 78
       }
     },
     {
@@ -1424,7 +1424,7 @@
         "noul": 0.9842,
         "score": 0.3382,
         "level_index": 0,
-        "latency_ms": 50
+        "latency_ms": 74
       }
     },
     {
@@ -1449,7 +1449,7 @@
         "noul": 0.2478,
         "score": 2.2516,
         "level_index": 2,
-        "latency_ms": 64
+        "latency_ms": 69
       }
     },
     {
@@ -1474,7 +1474,7 @@
         "noul": 0.9094,
         "score": 0.4575,
         "level_index": 0,
-        "latency_ms": 65
+        "latency_ms": 82
       }
     },
     {
@@ -1499,7 +1499,7 @@
         "noul": 0.9518,
         "score": 1.539,
         "level_index": 2,
-        "latency_ms": 63
+        "latency_ms": 78
       }
     },
     {
@@ -1524,7 +1524,7 @@
         "noul": 0.6252,
         "score": 0.6867,
         "level_index": 1,
-        "latency_ms": 61
+        "latency_ms": 64
       }
     },
     {
@@ -1549,7 +1549,7 @@
         "noul": 0.9649,
         "score": 0.2653,
         "level_index": 0,
-        "latency_ms": 54
+        "latency_ms": 81
       }
     },
     {
@@ -1574,7 +1574,7 @@
         "noul": 0.3408,
         "score": 0.17,
         "level_index": 0,
-        "latency_ms": 60
+        "latency_ms": 79
       }
     },
     {
@@ -1599,7 +1599,7 @@
         "noul": 0.9685,
         "score": 0.1444,
         "level_index": 0,
-        "latency_ms": 58
+        "latency_ms": 86
       }
     },
     {
@@ -1624,7 +1624,7 @@
         "noul": 0.492,
         "score": 0.2185,
         "level_index": 0,
-        "latency_ms": 74
+        "latency_ms": 79
       }
     },
     {
@@ -1649,7 +1649,7 @@
         "noul": 0.2345,
         "score": 0.1769,
         "level_index": 0,
-        "latency_ms": 66
+        "latency_ms": 122
       }
     },
     {
@@ -1674,7 +1674,7 @@
         "noul": 0.2313,
         "score": 0.2205,
         "level_index": 0,
-        "latency_ms": 52
+        "latency_ms": 118
       }
     },
     {
@@ -1699,7 +1699,7 @@
         "noul": 0.0213,
         "score": 0.185,
         "level_index": 0,
-        "latency_ms": 55
+        "latency_ms": 92
       }
     },
     {
@@ -1749,7 +1749,7 @@
         "noul": 0.1827,
         "score": 0.2497,
         "level_index": 0,
-        "latency_ms": 62
+        "latency_ms": 74
       }
     },
     {
@@ -1774,7 +1774,7 @@
         "noul": 0.4288,
         "score": 0.446,
         "level_index": 0,
-        "latency_ms": 64
+        "latency_ms": 89
       }
     },
     {
@@ -1799,7 +1799,7 @@
         "noul": 0.2898,
         "score": 0.2902,
         "level_index": 0,
-        "latency_ms": 59
+        "latency_ms": 78
       }
     },
     {
@@ -1824,7 +1824,7 @@
         "noul": 0.4739,
         "score": 0.3784,
         "level_index": 0,
-        "latency_ms": 58
+        "latency_ms": 83
       }
     },
     {
@@ -1849,7 +1849,7 @@
         "noul": 0.1946,
         "score": 0.2641,
         "level_index": 0,
-        "latency_ms": 65
+        "latency_ms": 63
       }
     },
     {
@@ -1874,7 +1874,7 @@
         "noul": 0.1668,
         "score": 0.9404,
         "level_index": 1,
-        "latency_ms": 60
+        "latency_ms": 70
       }
     },
     {
@@ -1899,7 +1899,7 @@
         "noul": 0.8278,
         "score": 0.6576,
         "level_index": 1,
-        "latency_ms": 62
+        "latency_ms": 67
       }
     },
     {
@@ -1924,7 +1924,7 @@
         "noul": 0.2005,
         "score": 0.8153,
         "level_index": 1,
-        "latency_ms": 67
+        "latency_ms": 76
       }
     },
     {
@@ -1949,7 +1949,7 @@
         "noul": 0.1018,
         "score": 0.9477,
         "level_index": 1,
-        "latency_ms": 61
+        "latency_ms": 87
       }
     },
     {
@@ -1974,7 +1974,7 @@
         "noul": 0.4378,
         "score": 1.7306,
         "level_index": 2,
-        "latency_ms": 51
+        "latency_ms": 79
       }
     },
     {
@@ -1999,7 +1999,7 @@
         "noul": 0.0947,
         "score": 0.2192,
         "level_index": 0,
-        "latency_ms": 58
+        "latency_ms": 78
       }
     },
     {
@@ -2024,7 +2024,7 @@
         "noul": 0.9102,
         "score": 0.236,
         "level_index": 0,
-        "latency_ms": 60
+        "latency_ms": 66
       }
     },
     {
@@ -2049,7 +2049,7 @@
         "noul": 0.9646,
         "score": 0.5484,
         "level_index": 1,
-        "latency_ms": 60
+        "latency_ms": 73
       }
     },
     {
@@ -2074,7 +2074,7 @@
         "noul": 0.9525,
         "score": 1.4526,
         "level_index": 1,
-        "latency_ms": 70
+        "latency_ms": 79
       }
     },
     {
@@ -2099,7 +2099,7 @@
         "noul": 0.9827,
         "score": 2.0896,
         "level_index": 2,
-        "latency_ms": 61
+        "latency_ms": 69
       }
     },
     {
@@ -2124,7 +2124,7 @@
         "noul": 0.8512,
         "score": 0.981,
         "level_index": 1,
-        "latency_ms": 65
+        "latency_ms": 79
       }
     },
     {
@@ -2149,7 +2149,7 @@
         "noul": 0.9673,
         "score": 0.8502,
         "level_index": 1,
-        "latency_ms": 63
+        "latency_ms": 94
       }
     },
     {
@@ -2174,7 +2174,7 @@
         "noul": 0.8561,
         "score": 0.8802,
         "level_index": 1,
-        "latency_ms": 67
+        "latency_ms": 96
       }
     },
     {
@@ -2199,7 +2199,7 @@
         "noul": 0.9625,
         "score": 0.8722,
         "level_index": 1,
-        "latency_ms": 66
+        "latency_ms": 84
       }
     },
     {
@@ -2224,7 +2224,7 @@
         "noul": 0.9601,
         "score": 0.709,
         "level_index": 1,
-        "latency_ms": 62
+        "latency_ms": 95
       }
     },
     {
@@ -2249,7 +2249,7 @@
         "noul": 0.9377,
         "score": 1.0024,
         "level_index": 1,
-        "latency_ms": 72
+        "latency_ms": 82
       }
     },
     {
@@ -2274,7 +2274,7 @@
         "noul": 0.9402,
         "score": 1.0039,
         "level_index": 1,
-        "latency_ms": 61
+        "latency_ms": 89
       }
     },
     {
@@ -2299,7 +2299,7 @@
         "noul": 0.9346,
         "score": 1.0226,
         "level_index": 1,
-        "latency_ms": 49
+        "latency_ms": 95
       }
     },
     {
@@ -2324,7 +2324,7 @@
         "noul": 0.7394,
         "score": 0.7644,
         "level_index": 1,
-        "latency_ms": 91
+        "latency_ms": 85
       }
     },
     {
@@ -2349,7 +2349,7 @@
         "noul": 0.9658,
         "score": 0.8876,
         "level_index": 1,
-        "latency_ms": 83
+        "latency_ms": 93
       }
     },
     {
@@ -2374,7 +2374,7 @@
         "noul": 0.9386,
         "score": 1.2204,
         "level_index": 1,
-        "latency_ms": 90
+        "latency_ms": 69
       }
     },
     {
@@ -2399,7 +2399,7 @@
         "noul": 0.7761,
         "score": 1.2083,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 59
       }
     },
     {
@@ -2424,7 +2424,7 @@
         "noul": 0.8164,
         "score": 0.4062,
         "level_index": 0,
-        "latency_ms": 81
+        "latency_ms": 69
       }
     },
     {
@@ -2449,7 +2449,7 @@
         "noul": 0.8099,
         "score": 0.9292,
         "level_index": 1,
-        "latency_ms": 93
+        "latency_ms": 88
       }
     },
     {
@@ -2474,7 +2474,7 @@
         "noul": 0.9666,
         "score": 1.0283,
         "level_index": 1,
-        "latency_ms": 77
+        "latency_ms": 76
       }
     },
     {
@@ -2499,7 +2499,7 @@
         "noul": 0.7261,
         "score": 0.8398,
         "level_index": 1,
-        "latency_ms": 79
+        "latency_ms": 72
       }
     },
     {
@@ -2524,7 +2524,7 @@
         "noul": 0.9463,
         "score": 0.4704,
         "level_index": 0,
-        "latency_ms": 66
+        "latency_ms": 87
       }
     },
     {
@@ -2549,7 +2549,7 @@
         "noul": 0.7732,
         "score": 0.5731,
         "level_index": 1,
-        "latency_ms": 75
+        "latency_ms": 81
       }
     },
     {
@@ -2574,7 +2574,7 @@
         "noul": 0.9307,
         "score": 1.1422,
         "level_index": 1,
-        "latency_ms": 70
+        "latency_ms": 77
       }
     },
     {
@@ -2599,7 +2599,7 @@
         "noul": 0.8791,
         "score": 0.6531,
         "level_index": 1,
-        "latency_ms": 91
+        "latency_ms": 78
       }
     },
     {
@@ -2624,7 +2624,7 @@
         "noul": 0.9241,
         "score": 1.059,
         "level_index": 1,
-        "latency_ms": 67
+        "latency_ms": 74
       }
     },
     {
@@ -2649,7 +2649,7 @@
         "noul": 0.9596,
         "score": 1.318,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 79
       }
     },
     {
@@ -2674,7 +2674,7 @@
         "noul": 0.8722,
         "score": 1.0301,
         "level_index": 1,
-        "latency_ms": 71
+        "latency_ms": 96
       }
     },
     {
@@ -2699,7 +2699,7 @@
         "noul": 0.7679,
         "score": 0.6906,
         "level_index": 1,
-        "latency_ms": 70
+        "latency_ms": 85
       }
     },
     {
@@ -2724,7 +2724,7 @@
         "noul": 0.9304,
         "score": 0.903,
         "level_index": 1,
-        "latency_ms": 65
+        "latency_ms": 90
       }
     },
     {
@@ -2749,7 +2749,7 @@
         "noul": 0.9771,
         "score": 1.1009,
         "level_index": 1,
-        "latency_ms": 89
+        "latency_ms": 82
       }
     },
     {
@@ -2774,7 +2774,7 @@
         "noul": 0.9623,
         "score": 0.8673,
         "level_index": 1,
-        "latency_ms": 104
+        "latency_ms": 95
       }
     },
     {
@@ -2799,7 +2799,7 @@
         "noul": 0.2569,
         "score": 0.7036,
         "level_index": 1,
-        "latency_ms": 66
+        "latency_ms": 92
       }
     },
     {
@@ -2849,7 +2849,7 @@
         "noul": 0.9147,
         "score": 1.0902,
         "level_index": 1,
-        "latency_ms": 69
+        "latency_ms": 81
       }
     },
     {
@@ -2874,7 +2874,7 @@
         "noul": 0.6397,
         "score": 0.9602,
         "level_index": 1,
-        "latency_ms": 81
+        "latency_ms": 87
       }
     },
     {
@@ -2899,7 +2899,7 @@
         "noul": 0.9706,
         "score": 1.333,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 91
       }
     },
     {
@@ -2924,7 +2924,7 @@
         "noul": 0.9462,
         "score": 1.0635,
         "level_index": 1,
-        "latency_ms": 88
+        "latency_ms": 75
       }
     },
     {
@@ -2949,7 +2949,7 @@
         "noul": 0.8277,
         "score": 0.8727,
         "level_index": 1,
-        "latency_ms": 84
+        "latency_ms": 78
       }
     },
     {
@@ -2974,7 +2974,7 @@
         "noul": 0.9145,
         "score": 0.9854,
         "level_index": 1,
-        "latency_ms": 87
+        "latency_ms": 72
       }
     },
     {
@@ -2999,7 +2999,7 @@
         "noul": 0.9667,
         "score": 0.3388,
         "level_index": 0,
-        "latency_ms": 70
+        "latency_ms": 71
       }
     },
     {
@@ -3024,7 +3024,7 @@
         "noul": 0.83,
         "score": 1.5705,
         "level_index": 2,
-        "latency_ms": 81
+        "latency_ms": 79
       }
     },
     {
@@ -3049,7 +3049,7 @@
         "noul": 0.9606,
         "score": 0.5032,
         "level_index": 1,
-        "latency_ms": 80
+        "latency_ms": 90
       }
     },
     {
@@ -3074,7 +3074,7 @@
         "noul": 0.6821,
         "score": 0.4657,
         "level_index": 0,
-        "latency_ms": 98
+        "latency_ms": 83
       }
     },
     {
@@ -3099,7 +3099,7 @@
         "noul": 0.6698,
         "score": 0.312,
         "level_index": 0,
-        "latency_ms": 87
+        "latency_ms": 78
       }
     },
     {
@@ -3124,7 +3124,7 @@
         "noul": 0.9789,
         "score": 0.7178,
         "level_index": 1,
-        "latency_ms": 90
+        "latency_ms": 106
       }
     },
     {
@@ -3149,7 +3149,7 @@
         "noul": 0.9639,
         "score": 1.1447,
         "level_index": 1,
-        "latency_ms": 108
+        "latency_ms": 85
       }
     },
     {
@@ -3174,7 +3174,7 @@
         "noul": 0.8999,
         "score": 0.9448,
         "level_index": 1,
-        "latency_ms": 103
+        "latency_ms": 77
       }
     },
     {
@@ -3199,7 +3199,7 @@
         "noul": 0.9761,
         "score": 1.3498,
         "level_index": 1,
-        "latency_ms": 79
+        "latency_ms": 74
       }
     },
     {
@@ -3224,7 +3224,7 @@
         "noul": 0.9909,
         "score": 1.1954,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 86
       }
     },
     {
@@ -3249,7 +3249,7 @@
         "noul": 0.9151,
         "score": 0.7852,
         "level_index": 1,
-        "latency_ms": 84
+        "latency_ms": 75
       }
     },
     {
@@ -3274,7 +3274,7 @@
         "noul": 0.9639,
         "score": 1.1994,
         "level_index": 1,
-        "latency_ms": 108
+        "latency_ms": 66
       }
     },
     {
@@ -3299,7 +3299,7 @@
         "noul": 0.6764,
         "score": 1.0084,
         "level_index": 1,
-        "latency_ms": 130
+        "latency_ms": 68
       }
     },
     {
@@ -3324,7 +3324,7 @@
         "noul": 0.9672,
         "score": 1.5445,
         "level_index": 2,
-        "latency_ms": 147
+        "latency_ms": 78
       }
     },
     {
@@ -3349,7 +3349,7 @@
         "noul": 0.9191,
         "score": 0.8601,
         "level_index": 1,
-        "latency_ms": 117
+        "latency_ms": 79
       }
     },
     {
@@ -3374,7 +3374,7 @@
         "noul": 0.9947,
         "score": 2.636,
         "level_index": 3,
-        "latency_ms": 106
+        "latency_ms": 78
       }
     },
     {
@@ -3399,7 +3399,7 @@
         "noul": 0.9945,
         "score": 2.7436,
         "level_index": 3,
-        "latency_ms": 87
+        "latency_ms": 67
       }
     },
     {
@@ -3424,7 +3424,7 @@
         "noul": 0.9935,
         "score": 2.5342,
         "level_index": 3,
-        "latency_ms": 110
+        "latency_ms": 74
       }
     },
     {
@@ -3449,7 +3449,7 @@
         "noul": 0.9868,
         "score": 1.4596,
         "level_index": 1,
-        "latency_ms": 107
+        "latency_ms": 84
       }
     },
     {
@@ -3474,7 +3474,7 @@
         "noul": 0.9744,
         "score": 2.4541,
         "level_index": 2,
-        "latency_ms": 101
+        "latency_ms": 71
       }
     },
     {
@@ -3499,7 +3499,7 @@
         "noul": 0.0055,
         "score": 2.5997,
         "level_index": 3,
-        "latency_ms": 109
+        "latency_ms": 74
       }
     },
     {
@@ -3524,7 +3524,7 @@
         "noul": 0.9782,
         "score": 2.4107,
         "level_index": 2,
-        "latency_ms": 80
+        "latency_ms": 76
       }
     },
     {
@@ -3549,7 +3549,7 @@
         "noul": 0.9913,
         "score": 1.512,
         "level_index": 2,
-        "latency_ms": 118
+        "latency_ms": 63
       }
     },
     {
@@ -3574,7 +3574,7 @@
         "noul": 0.9879,
         "score": 1.9562,
         "level_index": 2,
-        "latency_ms": 112
+        "latency_ms": 75
       }
     },
     {
@@ -3599,7 +3599,7 @@
         "noul": 0.9863,
         "score": 2.2616,
         "level_index": 2,
-        "latency_ms": 95
+        "latency_ms": 75
       }
     },
     {
@@ -3624,7 +3624,7 @@
         "noul": 0.9842,
         "score": 1.9175,
         "level_index": 2,
-        "latency_ms": 108
+        "latency_ms": 66
       }
     },
     {
@@ -3649,7 +3649,7 @@
         "noul": 0.9905,
         "score": 2.5967,
         "level_index": 3,
-        "latency_ms": 106
+        "latency_ms": 70
       }
     },
     {
@@ -3674,7 +3674,7 @@
         "noul": 0.9459,
         "score": 2.5094,
         "level_index": 3,
-        "latency_ms": 86
+        "latency_ms": 81
       }
     },
     {
@@ -3699,7 +3699,7 @@
         "noul": 0.9944,
         "score": 2.1179,
         "level_index": 2,
-        "latency_ms": 86
+        "latency_ms": 80
       }
     },
     {
@@ -3724,7 +3724,7 @@
         "noul": 0.9807,
         "score": 1.7651,
         "level_index": 2,
-        "latency_ms": 84
+        "latency_ms": 78
       }
     },
     {
@@ -3749,7 +3749,7 @@
         "noul": 0.9987,
         "score": 2.7071,
         "level_index": 3,
-        "latency_ms": 83
+        "latency_ms": 107
       }
     },
     {
@@ -3774,7 +3774,7 @@
         "noul": 0.9772,
         "score": 2.4669,
         "level_index": 2,
-        "latency_ms": 77
+        "latency_ms": 139
       }
     },
     {
@@ -3799,7 +3799,7 @@
         "noul": 0.9988,
         "score": 2.1046,
         "level_index": 2,
-        "latency_ms": 99
+        "latency_ms": 98
       }
     },
     {
@@ -3824,7 +3824,7 @@
         "noul": 0.9751,
         "score": 1.5915,
         "level_index": 2,
-        "latency_ms": 84
+        "latency_ms": 81
       }
     },
     {
@@ -3849,7 +3849,7 @@
         "noul": 0.9834,
         "score": 2.5806,
         "level_index": 3,
-        "latency_ms": 99
+        "latency_ms": 104
       }
     },
     {
@@ -3874,7 +3874,7 @@
         "noul": 0.9397,
         "score": 1.5618,
         "level_index": 2,
-        "latency_ms": 88
+        "latency_ms": 105
       }
     },
     {
@@ -3899,7 +3899,7 @@
         "noul": 0.9592,
         "score": 1.4242,
         "level_index": 1,
-        "latency_ms": 100
+        "latency_ms": 96
       }
     },
     {
@@ -3924,7 +3924,7 @@
         "noul": 0.9857,
         "score": 1.5379,
         "level_index": 2,
-        "latency_ms": 87
+        "latency_ms": 95
       }
     },
     {
@@ -3949,7 +3949,7 @@
         "noul": 0.9697,
         "score": 1.5481,
         "level_index": 2,
-        "latency_ms": 82
+        "latency_ms": 91
       }
     },
     {
@@ -3974,7 +3974,7 @@
         "noul": 0.9663,
         "score": 1.0478,
         "level_index": 1,
-        "latency_ms": 72
+        "latency_ms": 100
       }
     },
     {
@@ -3999,7 +3999,7 @@
         "noul": 0.9835,
         "score": 1.3416,
         "level_index": 1,
-        "latency_ms": 84
+        "latency_ms": 114
       }
     },
     {
@@ -4024,7 +4024,7 @@
         "noul": 0.8525,
         "score": 1.2211,
         "level_index": 1,
-        "latency_ms": 118
+        "latency_ms": 121
       }
     },
     {
@@ -4049,7 +4049,7 @@
         "noul": 0.2983,
         "score": 0.4618,
         "level_index": 0,
-        "latency_ms": 65
+        "latency_ms": 127
       }
     },
     {
@@ -4074,7 +4074,7 @@
         "noul": 0.6693,
         "score": 1.005,
         "level_index": 1,
-        "latency_ms": 88
+        "latency_ms": 142
       }
     },
     {
@@ -4099,7 +4099,7 @@
         "noul": 0.9719,
         "score": 1.8418,
         "level_index": 2,
-        "latency_ms": 97
+        "latency_ms": 136
       }
     },
     {
@@ -4124,7 +4124,7 @@
         "noul": 0.9799,
         "score": 1.7212,
         "level_index": 2,
-        "latency_ms": 127
+        "latency_ms": 140
       }
     },
     {
@@ -4149,7 +4149,7 @@
         "noul": 0.9828,
         "score": 1.7129,
         "level_index": 2,
-        "latency_ms": 98
+        "latency_ms": 147
       }
     },
     {
@@ -4174,7 +4174,7 @@
         "noul": 0.9863,
         "score": 1.5209,
         "level_index": 2,
-        "latency_ms": 75
+        "latency_ms": 140
       }
     },
     {
@@ -4199,7 +4199,7 @@
         "noul": 0.8881,
         "score": 2.1542,
         "level_index": 2,
-        "latency_ms": 79
+        "latency_ms": 109
       }
     },
     {
@@ -4224,7 +4224,7 @@
         "noul": 0.9825,
         "score": 1.6183,
         "level_index": 2,
-        "latency_ms": 74
+        "latency_ms": 120
       }
     },
     {
@@ -4249,7 +4249,7 @@
         "noul": 0.978,
         "score": 0.8244,
         "level_index": 1,
-        "latency_ms": 70
+        "latency_ms": 107
       }
     },
     {
@@ -4274,7 +4274,7 @@
         "noul": 0.9172,
         "score": 1.1724,
         "level_index": 1,
-        "latency_ms": 79
+        "latency_ms": 116
       }
     },
     {
@@ -4299,7 +4299,7 @@
         "noul": 0.9747,
         "score": 1.7716,
         "level_index": 2,
-        "latency_ms": 81
+        "latency_ms": 83
       }
     },
     {
@@ -4324,7 +4324,7 @@
         "noul": 0.9718,
         "score": 1.4792,
         "level_index": 1,
-        "latency_ms": 70
+        "latency_ms": 92
       }
     },
     {
@@ -4349,7 +4349,7 @@
         "noul": 0.7222,
         "score": 1.6061,
         "level_index": 2,
-        "latency_ms": 70
+        "latency_ms": 93
       }
     },
     {
@@ -4374,7 +4374,7 @@
         "noul": 0.9923,
         "score": 1.9609,
         "level_index": 2,
-        "latency_ms": 88
+        "latency_ms": 75
       }
     },
     {
@@ -4399,7 +4399,7 @@
         "noul": 0.9965,
         "score": 1.348,
         "level_index": 1,
-        "latency_ms": 94
+        "latency_ms": 107
       }
     },
     {
@@ -4424,7 +4424,7 @@
         "noul": 0.9762,
         "score": 1.5126,
         "level_index": 2,
-        "latency_ms": 97
+        "latency_ms": 80
       }
     },
     {
@@ -4449,7 +4449,7 @@
         "noul": 0.9262,
         "score": 1.3804,
         "level_index": 1,
-        "latency_ms": 73
+        "latency_ms": 82
       }
     },
     {
@@ -4474,7 +4474,7 @@
         "noul": 0.986,
         "score": 1.4885,
         "level_index": 1,
-        "latency_ms": 73
+        "latency_ms": 121
       }
     },
     {
@@ -4499,7 +4499,7 @@
         "noul": 0.9698,
         "score": 1.1865,
         "level_index": 1,
-        "latency_ms": 92
+        "latency_ms": 98
       }
     },
     {
@@ -4549,7 +4549,7 @@
         "noul": 0.9791,
         "score": 1.8861,
         "level_index": 2,
-        "latency_ms": 81
+        "latency_ms": 84
       }
     },
     {
@@ -4574,7 +4574,7 @@
         "noul": 0.988,
         "score": 0.5441,
         "level_index": 1,
-        "latency_ms": 116
+        "latency_ms": 85
       }
     },
     {
@@ -4599,7 +4599,7 @@
         "noul": 0.6387,
         "score": 1.1191,
         "level_index": 1,
-        "latency_ms": 82
+        "latency_ms": 113
       }
     },
     {
@@ -4624,7 +4624,7 @@
         "noul": 0.8326,
         "score": 0.3942,
         "level_index": 0,
-        "latency_ms": 89
+        "latency_ms": 135
       }
     },
     {
@@ -4649,7 +4649,7 @@
         "noul": 0.9855,
         "score": 0.1401,
         "level_index": 0,
-        "latency_ms": 78
+        "latency_ms": 123
       }
     },
     {
@@ -4674,7 +4674,7 @@
         "noul": 0.8085,
         "score": 0.2889,
         "level_index": 0,
-        "latency_ms": 87
+        "latency_ms": 123
       }
     },
     {
@@ -4699,7 +4699,7 @@
         "noul": 0.9286,
         "score": 1.0284,
         "level_index": 1,
-        "latency_ms": 110
+        "latency_ms": 112
       }
     },
     {
@@ -4724,7 +4724,7 @@
         "noul": 0.97,
         "score": 0.3955,
         "level_index": 0,
-        "latency_ms": 93
+        "latency_ms": 92
       }
     },
     {
@@ -4749,7 +4749,7 @@
         "noul": 0.8156,
         "score": 0.3413,
         "level_index": 0,
-        "latency_ms": 90
+        "latency_ms": 92
       }
     },
     {
@@ -4774,7 +4774,7 @@
         "noul": 0.966,
         "score": 0.2739,
         "level_index": 0,
-        "latency_ms": 86
+        "latency_ms": 89
       }
     },
     {
@@ -4799,7 +4799,7 @@
         "noul": 0.9015,
         "score": 0.3114,
         "level_index": 0,
-        "latency_ms": 97
+        "latency_ms": 99
       }
     },
     {
@@ -4824,7 +4824,7 @@
         "noul": 0.7045,
         "score": 1.0906,
         "level_index": 1,
-        "latency_ms": 83
+        "latency_ms": 100
       }
     },
     {
@@ -4849,7 +4849,7 @@
         "noul": 0.9618,
         "score": 0.237,
         "level_index": 0,
-        "latency_ms": 69
+        "latency_ms": 92
       }
     },
     {
@@ -4874,7 +4874,7 @@
         "noul": 0.9818,
         "score": 1.7926,
         "level_index": 2,
-        "latency_ms": 83
+        "latency_ms": 93
       }
     },
     {
@@ -4899,7 +4899,7 @@
         "noul": 0.9004,
         "score": 0.57,
         "level_index": 1,
-        "latency_ms": 67
+        "latency_ms": 80
       }
     },
     {
@@ -4924,7 +4924,7 @@
         "noul": 0.8808,
         "score": 0.3302,
         "level_index": 0,
-        "latency_ms": 83
+        "latency_ms": 89
       }
     },
     {
@@ -4949,7 +4949,7 @@
         "noul": 0.8446,
         "score": 0.2725,
         "level_index": 0,
-        "latency_ms": 80
+        "latency_ms": 104
       }
     },
     {
@@ -4974,7 +4974,7 @@
         "noul": 0.9551,
         "score": 0.4147,
         "level_index": 0,
-        "latency_ms": 98
+        "latency_ms": 103
       }
     },
     {
@@ -4999,7 +4999,7 @@
         "noul": 0.5963,
         "score": 0.2557,
         "level_index": 0,
-        "latency_ms": 108
+        "latency_ms": 99
       }
     },
     {
@@ -5024,7 +5024,7 @@
         "noul": 0.783,
         "score": 0.3596,
         "level_index": 0,
-        "latency_ms": 94
+        "latency_ms": 110
       }
     },
     {
@@ -5049,7 +5049,7 @@
         "noul": 0.813,
         "score": 0.2471,
         "level_index": 0,
-        "latency_ms": 94
+        "latency_ms": 96
       }
     },
     {
@@ -5074,7 +5074,7 @@
         "noul": 0.7843,
         "score": 0.8276,
         "level_index": 1,
-        "latency_ms": 84
+        "latency_ms": 98
       }
     },
     {
@@ -5099,7 +5099,7 @@
         "noul": 0.4665,
         "score": 0.5003,
         "level_index": 1,
-        "latency_ms": 74
+        "latency_ms": 95
       }
     },
     {
@@ -5124,7 +5124,7 @@
         "noul": 0.9466,
         "score": 0.2407,
         "level_index": 0,
-        "latency_ms": 75
+        "latency_ms": 81
       }
     },
     {
@@ -5149,7 +5149,7 @@
         "noul": 0.3655,
         "score": 1.1978,
         "level_index": 1,
-        "latency_ms": 79
+        "latency_ms": 117
       }
     },
     {
@@ -5174,7 +5174,7 @@
         "noul": 0.9476,
         "score": 0.3514,
         "level_index": 0,
-        "latency_ms": 69
+        "latency_ms": 67
       }
     },
     {
@@ -5199,7 +5199,7 @@
         "noul": 0.9653,
         "score": 0.5768,
         "level_index": 1,
-        "latency_ms": 83
+        "latency_ms": 70
       }
     },
     {
@@ -5224,7 +5224,7 @@
         "noul": 0.8684,
         "score": 0.3948,
         "level_index": 0,
-        "latency_ms": 91
+        "latency_ms": 84
       }
     },
     {
@@ -5249,7 +5249,7 @@
         "noul": 0.9532,
         "score": 1.1418,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 70
       }
     },
     {
@@ -5274,7 +5274,7 @@
         "noul": 0.9504,
         "score": 2.1931,
         "level_index": 2,
-        "latency_ms": 110
+        "latency_ms": 79
       }
     },
     {
@@ -5299,7 +5299,7 @@
         "noul": 0.98,
         "score": 1.1225,
         "level_index": 1,
-        "latency_ms": 79
+        "latency_ms": 113
       }
     },
     {
@@ -5324,7 +5324,7 @@
         "noul": 0.907,
         "score": 1.3504,
         "level_index": 1,
-        "latency_ms": 91
+        "latency_ms": 116
       }
     },
     {
@@ -5349,7 +5349,7 @@
         "noul": 0.9147,
         "score": 0.1808,
         "level_index": 0,
-        "latency_ms": 89
+        "latency_ms": 113
       }
     },
     {
@@ -5374,7 +5374,7 @@
         "noul": 0.9386,
         "score": 0.8095,
         "level_index": 1,
-        "latency_ms": 81
+        "latency_ms": 105
       }
     },
     {
@@ -5399,7 +5399,7 @@
         "noul": 0.9563,
         "score": 0.2474,
         "level_index": 0,
-        "latency_ms": 78
+        "latency_ms": 105
       }
     },
     {
@@ -5424,7 +5424,7 @@
         "noul": 0.8589,
         "score": 0.5446,
         "level_index": 1,
-        "latency_ms": 67
+        "latency_ms": 109
       }
     },
     {
@@ -5449,7 +5449,7 @@
         "noul": 0.8181,
         "score": 1.6092,
         "level_index": 2,
-        "latency_ms": 67
+        "latency_ms": 81
       }
     },
     {
@@ -5474,7 +5474,7 @@
         "noul": 0.8884,
         "score": 0.3718,
         "level_index": 0,
-        "latency_ms": 70
+        "latency_ms": 71
       }
     },
     {
@@ -5499,7 +5499,7 @@
         "noul": 0.1052,
         "score": 0.6301,
         "level_index": 1,
-        "latency_ms": 69
+        "latency_ms": 82
       }
     },
     {
@@ -5524,7 +5524,7 @@
         "noul": 0.8225,
         "score": 0.5104,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 97
       }
     },
     {
@@ -5549,7 +5549,7 @@
         "noul": 0.9004,
         "score": 0.4274,
         "level_index": 0,
-        "latency_ms": 71
+        "latency_ms": 91
       }
     },
     {
@@ -5574,7 +5574,7 @@
         "noul": 0.3871,
         "score": 0.9789,
         "level_index": 1,
-        "latency_ms": 78
+        "latency_ms": 86
       }
     },
     {
@@ -5599,7 +5599,7 @@
         "noul": 0.836,
         "score": 0.1575,
         "level_index": 0,
-        "latency_ms": 59
+        "latency_ms": 96
       }
     },
     {
@@ -5624,7 +5624,7 @@
         "noul": 0.8137,
         "score": 0.7055,
         "level_index": 1,
-        "latency_ms": 85
+        "latency_ms": 71
       }
     },
     {
@@ -5649,7 +5649,7 @@
         "noul": 0.1263,
         "score": 0.3348,
         "level_index": 0,
-        "latency_ms": 92
+        "latency_ms": 91
       }
     },
     {
@@ -5674,7 +5674,7 @@
         "noul": 0.1736,
         "score": 0.1639,
         "level_index": 0,
-        "latency_ms": 99
+        "latency_ms": 106
       }
     },
     {
@@ -5699,7 +5699,7 @@
         "noul": 0.0657,
         "score": 0.251,
         "level_index": 0,
-        "latency_ms": 73
+        "latency_ms": 120
       }
     },
     {
@@ -5724,7 +5724,7 @@
         "noul": 0.0044,
         "score": 0.2448,
         "level_index": 0,
-        "latency_ms": 112
+        "latency_ms": 128
       }
     },
     {
@@ -5749,7 +5749,7 @@
         "noul": 0.2478,
         "score": 0.8579,
         "level_index": 1,
-        "latency_ms": 127
+        "latency_ms": 101
       }
     },
     {
@@ -5774,7 +5774,7 @@
         "noul": 0.3202,
         "score": 0.4408,
         "level_index": 0,
-        "latency_ms": 158
+        "latency_ms": 100
       }
     },
     {
@@ -5799,7 +5799,7 @@
         "noul": 0.6024,
         "score": 0.3548,
         "level_index": 0,
-        "latency_ms": 111
+        "latency_ms": 81
       }
     },
     {
@@ -5824,7 +5824,7 @@
         "noul": 0.0164,
         "score": 0.2808,
         "level_index": 0,
-        "latency_ms": 130
+        "latency_ms": 78
       }
     },
     {
@@ -5849,7 +5849,7 @@
         "noul": 0.3128,
         "score": 0.4402,
         "level_index": 0,
-        "latency_ms": 88
+        "latency_ms": 120
       }
     },
     {
@@ -5874,7 +5874,7 @@
         "noul": 0.9627,
         "score": 0.9377,
         "level_index": 1,
-        "latency_ms": 77
+        "latency_ms": 121
       }
     },
     {
@@ -5899,7 +5899,7 @@
         "noul": 0.0715,
         "score": 1.6236,
         "level_index": 2,
-        "latency_ms": 122
+        "latency_ms": 95
       }
     },
     {
@@ -5924,7 +5924,7 @@
         "noul": 0.5545,
         "score": 0.2247,
         "level_index": 0,
-        "latency_ms": 91
+        "latency_ms": 102
       }
     },
     {
@@ -5949,7 +5949,7 @@
         "noul": 0.1148,
         "score": 0.1683,
         "level_index": 0,
-        "latency_ms": 86
+        "latency_ms": 111
       }
     },
     {
@@ -5974,7 +5974,7 @@
         "noul": 0.5773,
         "score": 1.4685,
         "level_index": 1,
-        "latency_ms": 116
+        "latency_ms": 109
       }
     },
     {
@@ -5999,7 +5999,7 @@
         "noul": 0.2689,
         "score": 1.1874,
         "level_index": 1,
-        "latency_ms": 104
+        "latency_ms": 118
       }
     },
     {
@@ -6024,7 +6024,7 @@
         "noul": 0.0536,
         "score": 0.3079,
         "level_index": 0,
-        "latency_ms": 121
+        "latency_ms": 105
       }
     },
     {
@@ -6049,7 +6049,7 @@
         "noul": 0.0346,
         "score": 0.5016,
         "level_index": 1,
-        "latency_ms": 96
+        "latency_ms": 68
       }
     },
     {
@@ -6074,7 +6074,7 @@
         "noul": 0.0108,
         "score": 1.8924,
         "level_index": 2,
-        "latency_ms": 95
+        "latency_ms": 100
       }
     },
     {
@@ -6099,7 +6099,7 @@
         "noul": 0.3726,
         "score": 0.9845,
         "level_index": 1,
-        "latency_ms": 95
+        "latency_ms": 88
       }
     },
     {
@@ -6124,7 +6124,7 @@
         "noul": 0.8232,
         "score": 0.2861,
         "level_index": 0,
-        "latency_ms": 81
+        "latency_ms": 113
       }
     },
     {
@@ -6149,7 +6149,7 @@
         "noul": 0.1204,
         "score": 0.2136,
         "level_index": 0,
-        "latency_ms": 100
+        "latency_ms": 105
       }
     },
     {
@@ -6174,7 +6174,7 @@
         "noul": 0.1597,
         "score": 0.7848,
         "level_index": 1,
-        "latency_ms": 89
+        "latency_ms": 99
       }
     },
     {
@@ -6199,7 +6199,7 @@
         "noul": 0.2105,
         "score": 0.6217,
         "level_index": 1,
-        "latency_ms": 91
+        "latency_ms": 129
       }
     },
     {
@@ -6224,7 +6224,7 @@
         "noul": 0.1788,
         "score": 0.5929,
         "level_index": 1,
-        "latency_ms": 82
+        "latency_ms": 138
       }
     },
     {
@@ -6249,7 +6249,7 @@
         "noul": 0.1908,
         "score": 1.0129,
         "level_index": 1,
-        "latency_ms": 82
+        "latency_ms": 122
       }
     },
     {
@@ -6274,7 +6274,7 @@
         "noul": 0.0122,
         "score": 0.9629,
         "level_index": 1,
-        "latency_ms": 68
+        "latency_ms": 88
       }
     },
     {
@@ -6299,7 +6299,7 @@
         "noul": 0.9823,
         "score": 0.2399,
         "level_index": 0,
-        "latency_ms": 96
+        "latency_ms": 113
       }
     },
     {
@@ -6324,7 +6324,7 @@
         "noul": 0.5845,
         "score": 0.7324,
         "level_index": 1,
-        "latency_ms": 81
+        "latency_ms": 96
       }
     },
     {
@@ -6349,7 +6349,7 @@
         "noul": 0.1566,
         "score": 0.5167,
         "level_index": 1,
-        "latency_ms": 97
+        "latency_ms": 96
       }
     },
     {
@@ -6374,7 +6374,7 @@
         "noul": 0.1884,
         "score": 1.3251,
         "level_index": 1,
-        "latency_ms": 97
+        "latency_ms": 82
       }
     },
     {
@@ -6399,7 +6399,7 @@
         "noul": 0.2656,
         "score": 0.3565,
         "level_index": 0,
-        "latency_ms": 92
+        "latency_ms": 87
       }
     },
     {
@@ -6424,7 +6424,7 @@
         "noul": 0.2417,
         "score": 0.5113,
         "level_index": 1,
-        "latency_ms": 72
+        "latency_ms": 108
       }
     },
     {
@@ -6449,7 +6449,7 @@
         "noul": 0.4496,
         "score": 0.184,
         "level_index": 0,
-        "latency_ms": 86
+        "latency_ms": 101
       }
     },
     {
@@ -6474,7 +6474,7 @@
         "noul": 0.951,
         "score": 1.8509,
         "level_index": 2,
-        "latency_ms": 91
+        "latency_ms": 101
       }
     },
     {
@@ -6499,7 +6499,7 @@
         "noul": 0.0238,
         "score": 1.9258,
         "level_index": 2,
-        "latency_ms": 96
+        "latency_ms": 113
       }
     },
     {
@@ -6524,7 +6524,7 @@
         "noul": 0.105,
         "score": 2.2576,
         "level_index": 2,
-        "latency_ms": 78
+        "latency_ms": 59
       }
     },
     {
@@ -6549,7 +6549,7 @@
         "noul": 0.0348,
         "score": 0.6361,
         "level_index": 1,
-        "latency_ms": 81
+        "latency_ms": 76
       }
     },
     {
@@ -6574,7 +6574,7 @@
         "noul": 0.9448,
         "score": 0.4551,
         "level_index": 0,
-        "latency_ms": 108
+        "latency_ms": 99
       }
     },
     {
@@ -6599,7 +6599,7 @@
         "noul": 0.0436,
         "score": 1.3282,
         "level_index": 1,
-        "latency_ms": 100
+        "latency_ms": 103
       }
     },
     {
@@ -6624,7 +6624,7 @@
         "noul": 0.5949,
         "score": 0.5944,
         "level_index": 1,
-        "latency_ms": 89
+        "latency_ms": 95
       }
     },
     {
@@ -6649,7 +6649,7 @@
         "noul": 0.4747,
         "score": 1.2864,
         "level_index": 1,
-        "latency_ms": 75
+        "latency_ms": 87
       }
     },
     {
@@ -6674,7 +6674,7 @@
         "noul": 0.9618,
         "score": 0.8885,
         "level_index": 1,
-        "latency_ms": 76
+        "latency_ms": 78
       }
     },
     {
@@ -6699,7 +6699,7 @@
         "noul": 0.3797,
         "score": 0.4546,
         "level_index": 0,
-        "latency_ms": 90
+        "latency_ms": 109
       }
     },
     {
@@ -6724,7 +6724,7 @@
         "noul": 0.3113,
         "score": 2.0585,
         "level_index": 2,
-        "latency_ms": 80
+        "latency_ms": 97
       }
     }
   ]

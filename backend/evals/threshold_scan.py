@@ -163,15 +163,15 @@ def main() -> None:
     args = parser.parse_args()
 
     rows = load_rows(Path(args.report))
-    adopted = {"choice_min": 0.60, "noul_min": 0.65}
+    adopted = {"choice_min": 0.60, "noul_min": 0.60}
 
     noul_scan = scan_noul(rows)
     choice_scan = scan_choice(rows)
 
     sims = [
-        simulate_routing(rows, 0.60, 0.65),  # 当前
+        simulate_routing(rows, 0.60, 0.60),  # 当前
         simulate_routing(rows, 0.60, 0.80),  # noul 更保守
-        simulate_routing(rows, 0.70, 0.65),  # choice 更保守
+        simulate_routing(rows, 0.70, 0.60),  # choice 更保守
         simulate_routing(rows, 0.50, 0.50),  # 双双放宽
         simulate_routing(rows, 0.70, 0.80),  # 双双收紧
     ]
@@ -183,7 +183,7 @@ def main() -> None:
     cur = sims[0]
     print(f"样本 {len(rows)} 条")
     print(f"当前门槛(0.60/0.65)：完全自动 {cur['auto_ok']:.1%} | 进错队列 {cur['auto_wrong']:.1%} | 漏/错放 {cur['auto_leak']:.1%} | 人工兜底 {cur['confirm_ok']:.1%}")
-    print(f"noul 0.65 → 覆盖 {noul_scan[3]['coverage']:.1%} 区间一致 {noul_scan[3]['interval']:.1%} 通过内实际 {noul_scan[3]['passed_acc']:.1%}")
+    print(f"noul 0.60 → 覆盖 {noul_scan[2]['coverage']:.1%} 区间一致 {noul_scan[2]['interval']:.1%} 通过内实际 {noul_scan[2]['passed_acc']:.1%}")
     print(f"报告已写入 {out_path}")
 
 

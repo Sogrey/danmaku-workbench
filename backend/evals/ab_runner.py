@@ -15,7 +15,7 @@
 输出：evals/reports/ab-report.json + ab-report.md
 口径：
   - 各自三原语指标（复用 replay_eval.evaluate，含 ECE/Brier 可靠性）
-  - 一致率：choice 类别相同 / noul ≥0.65 判定相同 / score 等级相同与 ±1
+  - 一致率：choice 类别相同 / noul ≥门槛（NOUL_ACTIONABLE_MIN，现 0.60）判定相同 / score 等级相同与 ±1
   - 分歧样本：类别、noul 判定、score 等级任一不同的全量清单（md 展示前 20 条）
 """
 from __future__ import annotations
