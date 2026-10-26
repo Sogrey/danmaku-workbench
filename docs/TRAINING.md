@@ -1,8 +1,8 @@
 # Laya 微调训练指南
 
-> danmaku-workbench v0.3 · 基于实测的训练全流程文档（环境 → 数据 → 训练 → 校准 → 应用 → 调优）
+> danmaku-workbench v0.4 · 基于实测的训练全流程文档（环境 → 数据 → 训练 → 校准 → 应用 → 调优）
 >
-> 正文记录 2026-10-25 首训（v0.2）实测数据，§7.5 记录 v0.3 L3 补强迭代；均为 RTX 3060 Laptop（6GB）真实训练记录，可直接复现。
+> 正文记录 2026-10-25 首训（v0.2）实测数据，§7.5 记录 v0.3 → v0.6 模型迭代全程；均为 RTX 3060 Laptop（6GB）真实训练记录，可直接复现。
 
 ---
 
@@ -89,8 +89,8 @@ D:\AI\laya\
 │  │  ├─ encoder\config.json        # mmBERT 架构配置（build_model 用）
 │  │  └─ tokenizer\                 # tokenizer.json 34MB（256k 词表）
 │  └─ ...
-├─ danmaku-dm-v0.2\                 # v0.2 首训产物（§5 实测；保留可回退）
-└─ danmaku-dm-v0.3\                 # ★ 当前引擎（L3 补强迭代产物，§7.5）
+├─ danmaku-dm-v0.2\ ~ v0.5\         # 历代迭代产物（§5 实测 / §7.5 案例；保留可回退）
+└─ danmaku-dm-v0.6\                 # ★ 当前引擎（L3 补强 + chat 口径修正版，§7.5）
 ```
 
 ### 2.5 环境自检清单
@@ -266,7 +266,7 @@ encoder/ · tokenizer/       # 架构与分词器（自基线复制）
 import sys; sys.path.insert(0, "D:/AI/laya/repo-laya-hf")
 from rl_agent_api import RLAgent
 
-agent = RLAgent("D:/AI/laya/danmaku-dm-v0.3")   # 当前默认引擎；自动加载校准温度
+agent = RLAgent("D:/AI/laya/danmaku-dm-v0.6")   # 当前默认引擎；自动加载校准温度
 result = agent.system_one(
     "老师说话声音有点小，调高一点吧",
     {"category": {"type": "choice", "instructions": "这条直播弹幕属于哪一类？",
@@ -365,7 +365,21 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
   475 条量级的小数据 LoRA 尤其明显。
 - 结论：v0.3 综合最优维持默认（noul 90.4 / L3 命中 9 零误报 / 端到端 48.7% 无短板）；
   v0.4/v0.5 checkpoint 归档为迭代试验记录。后续若再迭代，应同时评估三原语权衡，
-  或以真实弹幕回流扩大数据量打破瓶颈（主动学习闭环，见 §7.1）。
+  或以真实弹幕回流扩大数据量打破瓶颈（主动学习闭环，见 §7.1）——次日的 v0.6 走出第三条路（案例三）。
+
+**实战案例三（v0.6 = 破局采纳 · 撤掉过矫正对照）**：
+
+- 背景：v0.5 暴露跷跷板（noul 87.0% 未达 89% 验收线、L3 命中 15→8、score exact 66.1%→58.7%）。
+  复盘归因：v0.5 新增的 3 条「部分受损可接收」L2/L1 对照是过矫正——把「画面定格有声 / 480p 可读」
+  这类可部分跟随的反馈往低等级压，与训练集既有「视听受阻 = 高等级」口径互相拉扯。
+- 措施：仅撤掉这 3 条对照种子（train_seeds 165→162），其余同 v0.5；训练集 475→466 条（L3 占 19.3%）。
+- 实测（**全部验收线达标，v0.6 已采纳为默认引擎**）：best epoch 12、eval_acc **0.7710（历史最高）**；
+  回放 choice 76.5% / noul @0.60 **89.6%**（覆盖 71.3%）/ score exact **63.0%**（±1 95.7%）；
+  ECE choice 0.029 / noul **0.027** 双历史最佳；L3 命中 **13/22（59%）**、误报 2 条
+  （ev-0129/ev-0137，真值 L1 升格，排序偏高由待确认队列人工兜底消化）——唯一让步；
+  端到端全自动正确 **51.3%**（历史新高）、漏处理 10.0%（历史新低）。
+- 启示：跷跷板的破局点不是继续加种子，而是**撤掉上一轮过矫正的对照种子**——
+  每轮迭代后重新审视新增种子的实际效果，敢于做减法。
 
 **三个已踩过的坑（重训前必读）**：
 
@@ -410,7 +424,7 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
 | `backend/training/train_dataset.jsonl` | 训练集（首训 322 条 → v0.3 重建 379 条） |
 | `backend/evals/eval_dataset.jsonl` | 独立评估集（首训 45 条 → 现 230 条） |
 | `D:/AI/laya/repo-laya-hf/rl_common.py` | 官方训练基建（只读复用，勿改） |
-| `D:/AI/laya/danmaku-dm-v0.2/` | v0.2 首训 checkpoint（模型资产，不进 git，保留可回退） |
-| `D:/AI/laya/danmaku-dm-v0.3/` | ★ 当前引擎 checkpoint（v0.3 L3 补强；模型资产，不进 git） |
+| `D:/AI/laya/danmaku-dm-v0.2/` ~ `v0.5/` | 历代迭代 checkpoint（模型资产，不进 git，保留可回退） |
+| `D:/AI/laya/danmaku-dm-v0.6/` | ★ 当前引擎 checkpoint（L3 补强 + chat 口径修正版；模型资产，不进 git） |
 
 > AI生成

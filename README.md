@@ -20,11 +20,11 @@
 | 判断详情可追溯 | 抽屉展示对齐 Jev `/v1/systemone` 的请求/响应 JSON（questions / answers / routing） |
 | 分类与记录页 | 规则卡（五类 criteria + 阈值 + 分工）· 全量判断记录表 · CSV / JSON 导出 |
 | 失败降级 | 判断失败保持「未判断」，原文保留、可稍后重试，不误入任何队列 |
-| 决策引擎可插拔 | Provider 抽象层：当前接入 Laya 微调模型 v0.3（eval_acc 77% · L3 直播中断类补强 · 分桶温度校准），可一键切回 Mock 规则引擎 |
+| 决策引擎可插拔 | Provider 抽象层：当前接入 Laya 微调模型 v0.6（eval_acc 77% · L3 直播中断类补强 + chat 口径修正 · 分桶温度校准），可一键切回 Mock 规则引擎 |
 | 判断记录持久化 | IndexedDB 快照，刷新/重启页面记录不丢；判断中断的消息恢复为「失败可重试」，待办由记录自动重建 |
 | 校准与阈值页 | 分桶温度、Noul 门槛量化（0.80→0.65→0.60）、ECE 可靠性曲线（SVG）、230 条回放指标与混淆矩阵、A/B 引擎对比可视化 |
-| 评估集回放 | `backend/evals/replay_eval.py` 回放 230 条独立评估集（v0.3 @noul 0.60：choice 74.8% / noul 90.4% / score ±1 95.7%；ECE choice 0.030 / noul 0.043） |
-| A/B 引擎对比 | `backend/evals/ab_runner.py`：零样本基线 / v0.2 / v0.3 三引擎可配对比（当前默认 v0.2 vs v0.3：一致率 choice 86.1% · noul 89.6% · score±1 99.1%，分歧 48/230 附样本清单） |
+| 评估集回放 | `backend/evals/replay_eval.py` 回放 230 条独立评估集（v0.6 @noul 0.60：choice 76.5% / noul 89.6% / score exact 63.0%、±1 95.7%；ECE choice 0.029 / noul 0.027） |
+| A/B 引擎对比 | `backend/evals/ab_runner.py`：零样本基线 / v0.2 ~ v0.6 六引擎可配对比（当前默认 v0.3 vs v0.6：一致率 choice 85.7% · noul 93.9% · score±1 98.7%，分歧 45/230 附样本清单） |
 | 阈值调优 | `backend/evals/threshold_scan.py` 扫描覆盖率-准确率曲线；量化依据见 [docs/threshold-tuning.md](docs/threshold-tuning.md) |
 | 本地 E2E | `npm run e2e`：后端语法 + 前端类型/构建 + mock API 契约断言 + laya 服务探测 |
 
@@ -116,7 +116,7 @@ npm run dev          # http://localhost:8312（默认 ACTIVE_PROVIDER='http'）
 │  backend/app/providers/  DECISION_PROVIDER=mock | jev | laya     │
 │    mock.py   规则引擎（与前端 Mock 同构）                          │
 │    jev_stub.py   TypeSafe Jev 官方 API 插槽（后续补全）            │
-│    laya.py      Laya 微调模型进程内 GPU 推理（当前 v0.3）              │
+│    laya.py      Laya 微调模型进程内 GPU 推理（当前 v0.6）              │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -124,7 +124,7 @@ npm run dev          # http://localhost:8312（默认 ACTIVE_PROVIDER='http'）
 
 ## 已接入真实模型（Laya 微调）
 
-当前引擎 **v0.3**（L3 补强迭代）：Laya multilingual（mmBERT-base 322M）LoRA 微调（379 条训练集，eval_acc 77%）+ 分桶温度校准（choice 2.88 / noul 1.72 / score 3.67），直播中断类（等级 3）命中 0 → 41% 且零误报；checkpoint 位于 `D:/AI/laya/danmaku-dm-v0.3`（v0.2 保留可回退），由 [`backend/app/providers/laya.py`](backend/app/providers/laya.py) 进程内 GPU 推理，默认已指向 v0.3。
+当前引擎 **v0.6**（L3 补强 + chat 口径修正迭代）：Laya multilingual（mmBERT-base 322M）LoRA 微调（466 条训练集，eval_acc 77%）+ 分桶温度校准（choice 3.64 / noul 2.58 / score 5.47），直播中断类（等级 3）命中 0 → 59%（13/22，仅 2 条 L1 升格误报）；经 v0.3→v0.6 四代迭代破跷跷板（noul 89.6% / score exact 63.0% / ECE 双历史最佳，迭代教训见 TRAINING.md 7.5）；checkpoint 位于 `D:/AI/laya/danmaku-dm-v0.6`（v0.2~v0.5 归档可回退），由 [`backend/app/providers/laya.py`](backend/app/providers/laya.py) 进程内 GPU 推理，默认已指向 v0.6。
 
 - 训练 / 校准 / 阈值量化全流程：**[docs/TRAINING.md](docs/TRAINING.md)** + **[docs/threshold-tuning.md](docs/threshold-tuning.md)**
 - 校准与评估实测数据：[`src/data/calibration.ts`](src/data/calibration.ts)（页面「校准与阈值」可视化）
@@ -170,14 +170,14 @@ danmaku-workbench/
 
 完整开发计划（含各阶段验收标准与计划生成文件清单）见 **[docs/ROADMAP.md](docs/ROADMAP.md)**，五个阶段：
 
-1. **阶段一 · 真实决策模型（v0.2）**：✅ 已完成 —— Laya 微调 + 分桶温度校准 + 进程内接入，端到端跑通（模型已迭代至 v0.3：L3 直播中断类补强，eval_acc 77%）
+1. **阶段一 · 真实决策模型（v0.2）**：✅ 已完成 —— Laya 微调 + 分桶温度校准 + 进程内接入，端到端跑通（模型已迭代至 v0.6：L3 直播中断类补强 + chat 口径修正，eval_acc 77%）
 2. **阶段二 · 真实弹幕源（v0.3）**：弹幕源 Provider / WebSocket 网关（暂缓：暂无真实弹幕源，当前以模拟流驱动）
 3. **阶段三 · 工程化完善（v0.3 并行）**：记录持久化（IndexedDB）✅ · 本地 E2E（npm run e2e）✅ · Playwright UI 用例与云端 CI（待做）
-4. **阶段四 · 决策质量工程（v0.4）**：✅ 已完成 —— 评估集回放（230 条）· 校准与阈值可视化 · ECE 可靠性曲线 · A/B 引擎对比（ab_runner.py，v0.2 vs v0.3）· 阈值扫描（threshold_scan.py）· L3 补强重训（模型 v0.3，命中 0 → 41% 零误报）
+4. **阶段四 · 决策质量工程（v0.4）**：✅ 已完成 —— 评估集回放（230 条）· 校准与阈值可视化 · ECE 可靠性曲线 · A/B 引擎对比（ab_runner.py，v0.3 vs v0.6）· 阈值扫描（threshold_scan.py）· L3 补强重训（模型经 v0.3→v0.6 四代迭代收敛，命中 0 → 59%）
 5. **阶段五 · 招投标业务迁移（v1.0）**：判据问卷迁移至招投标场景（标讯过滤 / 商机评分 / 信息充分性 / 动作安全门）
 
 ---
 
-> 本项目为学习与工程复现用途；决策引擎为自微调 Laya 模型（danmaku-dm-v0.3，eval_acc 77%），判断质量实测数据见「校准与阈值」页与 docs/TRAINING.md。
+> 本项目为学习与工程复现用途；决策引擎为自微调 Laya 模型（danmaku-dm-v0.6，eval_acc 77%），判断质量实测数据见「校准与阈值」页与 docs/TRAINING.md。
 
 > AI生成
