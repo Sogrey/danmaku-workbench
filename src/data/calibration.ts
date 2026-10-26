@@ -1,11 +1,11 @@
 /**
- * 校准与评估数据（静态快照，全部来自 danmaku-dm-v0.2 checkpoint 实测）
+ * 校准与评估数据（静态快照，v0.3 数据来自 danmaku-dm-v0.3 checkpoint 实测）
  *
  * 数据来源（重跑后需同步更新本模块）：
- *  - 分桶温度：D:/AI/laya/danmaku-dm-v0.2/calibration_report.json（calibrate.py 产出）
- *  - 门槛量化：v0.2 温度校准后的分位分析（2026-10-25）
- *  - 评估回放：backend/evals/reports/eval-report.json（replay_eval.py 产出，
- *    http 模式，45 条独立评估集，与训练集零重叠）
+ *  - 分桶温度：D:/AI/laya/danmaku-dm-v0.3/calibration_report.json（calibrate.py 产出）
+ *  - 门槛量化：threshold_scan.py 230 条扫描（noul 0.60 于 2026-10-26 业务采纳）
+ *  - 评估回放：backend/evals/reports/eval-report.json（replay_eval.py --local 产出，
+ *    230 条独立评估集，与训练集零重叠）
  *
  * 注意：分桶温度的校准目标是 NLL（决策一致性），不是 ECE；
  * T>1 会拉平概率分布，ECE 变化仅作参考。
@@ -58,11 +58,18 @@ export interface ThresholdOption {
 
 export const NOUL_THRESHOLD_OPTIONS: ThresholdOption[] = [
   {
+    threshold: 0.6,
+    coverage: 0.722,
+    accuracy: 0.904,
+    adopted: true,
+    note: '当前采用（2026-10-26 业务采纳，v0.3 扫描）：覆盖 72.2%，区间一致 90.4%（最优），通过内实际 94.0%',
+  },
+  {
     threshold: 0.65,
     coverage: 0.704,
     accuracy: 0.896,
-    adopted: true,
-    note: '当前采用（v0.3 实测）：覆盖 70.4%，区间一致 89.6%，通过内实际 94.4%',
+    adopted: false,
+    note: '上一代门槛（v0.2 期量化）：覆盖 70.4%，区间一致 89.6%，通过内实际 94.4%',
   },
   {
     threshold: 0.8,
@@ -85,16 +92,16 @@ export const CHOICE_THRESHOLD = {
 export const EVAL_REPLAY = {
   generatedAt: '2026-10-26',
   sampleCount: 230,
-  avgLatencyMs: 92,
+  avgLatencyMs: 99,
   choice: {
     accuracy: 0.748,
     confPassCoverage: 0.4,
     confPassAccuracy: 0.902,
   },
   noul: {
-    intervalAccuracy: 0.896,
-    coverage: 0.704,
-    passedAccuracy: 0.944,
+    intervalAccuracy: 0.904,
+    coverage: 0.722,
+    passedAccuracy: 0.94,
     meanProbTruthActionable: 0.874,
     meanProbTruthInsufficient: 0.329,
   },
@@ -128,7 +135,7 @@ export const ERROR_PROFILE = {
 }
 
 /**
- * 校准可靠性分桶（5 等宽桶，来自 replay_eval.py --local 重跑，2026-10-25）：
+ * 校准可靠性分桶（5 等宽桶，来自 replay_eval.py --local 重跑，2026-10-26）：
  * x = 模型输出概率，y = 实际频率；对角线为完美校准；ECE = Σ n/N × |acc − conf|。
  */
 export interface ReliabilityBin {
@@ -173,7 +180,7 @@ export const RELIABILITY = {
   ],
 }
 
-/** A/B 引擎对比（v0.2 → v0.3 迭代验证，230 条独立评估集，ab_runner.py，2026-10-26） */
+/** A/B 引擎对比（v0.2 → v0.3 迭代验证，230 条独立评估集，ab_runner.py，2026-10-26，noul 门槛 0.60） */
 export interface AbEngine {
   name: string
   desc: string
@@ -194,40 +201,40 @@ export const AB_COMPARISON = {
     name: 'laya-v0.2',
     desc: '上一代微调 checkpoint（L3 补强前，322 条训练集）',
     choiceAcc: 0.765,
-    noulAcc: 0.857,
-    noulCoverage: 0.665,
+    noulAcc: 0.87,
+    noulCoverage: 0.704,
     scoreExact: 0.574,
     scoreWithin1: 0.961,
     mae: 0.56,
     choiceEce: 0.0593,
     noulEce: 0.0992,
-    latencyMs: 91,
+    latencyMs: 87,
   } as AbEngine,
   engineB: {
     name: 'laya-v0.3（当前）',
     desc: 'L3 补强版（379 条训练集，L3 占 15.8%）+ 重新校准',
     choiceAcc: 0.748,
-    noulAcc: 0.896,
-    noulCoverage: 0.704,
+    noulAcc: 0.904,
+    noulCoverage: 0.722,
     scoreExact: 0.587,
     scoreWithin1: 0.957,
     mae: 0.55,
     choiceEce: 0.0303,
     noulEce: 0.0429,
-    latencyMs: 82,
+    latencyMs: 98,
   } as AbEngine,
   agreement: {
     choice: 0.861,
-    noul: 0.9,
+    noul: 0.896,
     scoreExact: 0.73,
     scoreWithin1: 0.991,
-    diffCount: 47,
+    diffCount: 48,
   },
   findings: [
     '★ L3 突破：22 条直播中断类真值 0 → 9 命中（41%）且零误报；剩余 12 条判 L2 进「优先协助」，不漏处理',
-    'noul 区间准确 85.7% → 89.6%（+3.9pp），覆盖 66.5% → 70.4%；校准质量翻倍（ECE choice 0.059→0.030、noul 0.099→0.043）',
+    'noul 区间准确（@0.60 门槛）87.0% → 90.4%（+3.4pp），覆盖 70.4% → 72.2%；校准质量翻倍（ECE choice 0.059→0.030、noul 0.099→0.043）',
     'choice 76.5% → 74.8%（-1.7pp 容差内）；technical 57/60 主力保持，chat→feedback 误判 10 条为新增噪声',
-    '迭代稳定性：一致率 choice 86.1% / noul 90.0% / score±1 99.1%，分歧仅 47/230——两代模型行为高度连续',
+    '迭代稳定性：一致率 choice 86.1% / noul 89.6% / score±1 99.1%，分歧仅 48/230——两代模型行为高度连续',
     '相对零样本基线（choice 43.5%）微调路线整体增益 +31.3pp，且 v0.3 首次具备最高优先级识别能力',
   ],
 }

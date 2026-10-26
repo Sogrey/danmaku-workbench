@@ -130,8 +130,8 @@ const abMetrics = [
     <section class="card">
       <header class="sec-head">
         <div>
-          <h2>Noul 门槛量化（0.80 → 0.65）</h2>
-          <p>校准后在独立评估分位上对比两档门槛的自动化收益，当前生效 {{ pct(THRESHOLDS.actionableProbability) }}</p>
+          <h2>Noul 门槛量化（0.80 → 0.65 → 0.60）</h2>
+          <p>校准后在独立评估集上对比各档门槛的自动化收益，当前生效 {{ pct(THRESHOLDS.actionableProbability) }}</p>
         </div>
       </header>
 
@@ -236,7 +236,7 @@ const abMetrics = [
           </svg>
           <p class="fig-note">
             低概率区判「不可处理」更准（0–0.2 实际仅 6.7%）；0.6–0.8 区间实际 94.7%、
-            0.8–1.0 区间实际 93.9%，与 0.65 门槛语义吻合（中段 0.4–0.6 样本稀疏仅 13 条）。
+            0.8–1.0 区间实际 93.9%，与 0.60 门槛语义吻合（中段 0.4–0.6 样本稀疏仅 13 条）。
           </p>
         </figure>
       </div>
