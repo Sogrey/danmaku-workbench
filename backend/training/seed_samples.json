@@ -1059,72 +1059,72 @@
     {
       "text": "老师声音真好听，听着很舒服",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：夸声音无诉求（与「请调大音量」对照）"
+      "note": "chat/feedback 边界对照：夸声音无诉求（与「请调大音量」对照）（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "这节奏太舒服了，完全跟得上",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：夸节奏无放慢请求"
+      "note": "chat/feedback 边界对照：夸节奏无放慢请求（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "讲得真稳，全程没有废话",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：夸讲解节奏"
+      "note": "chat/feedback 边界对照：夸讲解节奏（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "这场直播质量拉满，氛围也特别好",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：夸直播氛围无诉求（针对 ev-0156/ev-0185 类误判）"
+      "note": "chat/feedback 边界对照：夸直播氛围无诉求（针对 ev-0156/ev-0185 类误判）（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "老师今天状态真好，干货满满",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：夸状态无诉求"
+      "note": "chat/feedback 边界对照：夸状态无诉求（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "听得津津有味，一晃就到点了",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：感想类闲聊"
+      "note": "chat/feedback 边界对照：感想类闲聊（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "弹幕氛围绝了，大家都在认真讨论",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：夸讨论氛围（针对 ev-0156 类误判）"
+      "note": "chat/feedback 边界对照：夸讨论氛围（针对 ev-0156 类误判）（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "先给老师点个赞，讲得太细了",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：点赞无诉求（针对 ev-0173/ev-0180 类误判）"
+      "note": "chat/feedback 边界对照：点赞无诉求（针对 ev-0173/ev-0180 类误判）（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "老师这语速可以出教程了，纯夸",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：玩笑式夸赞（针对 ev-0168 类误判）"
+      "note": "chat/feedback 边界对照：玩笑式夸赞（针对 ev-0168 类误判）（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "打卡今日直播，收获满满下班",
       "category": "chat",
-      "actionable": false,
+      "actionable": true,
       "impact_level": 0,
-      "note": "chat/feedback 边界对照：打卡收尾闲聊（针对 ev-0182 类误判）"
+      "note": "chat/feedback 边界对照：打卡收尾闲聊（针对 ev-0182 类误判）（v0.5 口径修正：chat 语义完整 → actionable=true，对齐训练集 chat 全 true 口径）"
     },
     {
       "text": "讲得有点快，能放慢一些吗",
@@ -1153,6 +1153,27 @@
       "actionable": true,
       "impact_level": 1,
       "note": "chat/feedback 边界对照：明确翻页节奏请求"
+    },
+    {
+      "text": "画面停在一帧不动，好在声音是连续的，还能跟着听",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 2,
+      "note": "L2/L3 对照：画面定格但声音正常可继续听=L2（针对 v0.4 的 ev-0010 类 L3 误报）"
+    },
+    {
+      "text": "声音只有一边耳朵有，另一边没有，大体能听清",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 1,
+      "note": "L2/L3 对照：单声道缺陷但可接收=L1（针对 v0.4 的 ev-0014 类 L3 误报）"
+    },
+    {
+      "text": "清晰度只有 480p 上不去，代码勉强还能看清",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 2,
+      "note": "L2/L3 对照：画质受限但内容可读=L2（针对 v0.4 的 ev-0016 类 L3 误报）"
     }
   ],
   "eval_samples": [
