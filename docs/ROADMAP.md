@@ -10,11 +10,11 @@
 | --- | --- |
 | 前端三栏工作台 | ✅ 完成（直播窗弹幕动画 / Choice·Noul·Score 判断卡 / 三队列待办 / 记录页 / JSON 详情抽屉） |
 | 决策引擎 | ✅ **laya-finetuned-v0.3（L3 补强版）**：379 条训练集（L3 占 15.8%），best epoch 7，eval_acc 0.7667（choice 0.757 / noul 0.896 / score 0.648）；provider 名随 checkpoint 目录自动跟随版本 |
-| 校准 | ✅ v0.3 分桶温度（choice:3-5 T=2.88 / noul:2 T=1.72 / score:3-5 T=3.67）；noul 门槛 65%（0.60 为数据推荐最优解，待业务确认） |
-| 决策抽象层 | ✅ Provider 接口 + 双门槛分流规则（60% / 65%），模型可插拔 |
+| 校准 | ✅ v0.3 分桶温度（choice:3-5 T=2.88 / noul:2 T=1.72 / score:3-5 T=3.67）；noul 门槛 60%（2026-10-26 业务采纳：v0.3 扫描一致率最优 90.4%、覆盖 72.2%） |
+| 决策抽象层 | ✅ Provider 接口 + 双门槛分流规则（60% / 60%），模型可插拔 |
 | 后端 | ✅ FastAPI 决策服务接入（laya.py 进程内 GPU 推理 + 分桶校准温度；lifespan 预热 ~90ms/条；`DECISION_PROVIDER=mock\|laya\|jev`） |
 | 工程化 | ✅ 判断记录 IndexedDB 持久化（刷新不丢）；npm run e2e 本地 CI；评估集回放；校准与阈值可视化页 |
-| 决策质量 | ✅ v0.3 回放 230 条（choice 74.8% / noul 89.6% / score ±1 95.7%）；ECE 可靠性曲线（choice 0.030 / noul 0.043，双双 ≤0.1）；A/B 迭代对比（v0.2→v0.3：一致率 choice 86.1% / score±1 99.1%，分歧 47/230）；阈值扫描工具与量化文档 |
+| 决策质量 | ✅ v0.3 回放 230 条（choice 74.8% / noul 90.4% @0.60 门槛、覆盖 72.2% / score ±1 95.7%）；ECE 可靠性曲线（choice 0.030 / noul 0.043，双双 ≤0.1）；A/B 迭代对比（v0.2→v0.3：一致率 choice 86.1% / noul 89.6% / score±1 99.1%，分歧 48/230）；阈值扫描工具与量化文档 |
 | 质量 | ✅ vue-tsc 零错误；vite build 成功；训练 12 epochs 约 5 分钟（RTX 3060 3.7GB 显存） |
 | 仓库 | ✅ 已推送 [github.com/Sogrey/danmaku-workbench](https://github.com/Sogrey/danmaku-workbench) main |
 | 已知边界 | ★ L3 已突破：22 条直播中断类真值 0 → 9 命中（41% 零误报），12 条仍判 L2（不漏处理仅排序略低，待补 L2/L3 对照种子）；低置信区（choice 0.2–0.4）仍过度自信（实际 29.4% vs 置信 35.8%，由 60% 门槛拦下人工兑底）；v0.3 新增 chat→feedback 噪声 10 条（节奏/语速类闲聊） |
@@ -116,7 +116,8 @@ backend/app/db.py                         ← SQLite 记录表（待做；当前
 - [x] A/B 引擎对比模式：ab_runner.py（零样本基线 vs 微调：choice 43.5%→76.5%、noul 64.3%→85.7%、分歧 164/230；基线 score 坍缩）；校准页对比卡 ✅ 2026-10-25
 - [x] 阈值调优工具：threshold_scan.py（noul/choice 双门槛扫描 + 端到端分流模拟）；量化文档 **[docs/threshold-tuning.md](threshold-tuning.md)**（含 0.50–0.60 一致率 87% 平台与 noul 可降至 0.60 的建议）✅ 2026-10-25
 - [x] 验收：ECE ≤ 0.1（choice 0.059 / noul 0.099 双双达标）；阈值选择量化依据已达成（threshold-tuning.md）
-- [ ] 后续迭代：补 L2/L3 对照种子提升剩余 12 条直播中断类的等级判定（L3 命中已从 0 → 9，零误报）；noul 门槛 0.65→0.60 待业务确认（v0.3 下 0.60 为一致率最优 90.4%）
+- [x] noul 门槛 0.65→0.60 已采纳（2026-10-26 业务确认：v0.3 扫描一致率最优 90.4%、覆盖 72.2%；criteria.ts 已生效）
+- [ ] v0.4 迭代：29 条种子已注入（L3 边缘词汇 10 + L2/L3 对照 5 + chat/feedback 边界 14），训练集 379→466，待重训验证剩余 12 条直播中断类与 chat→feedback 噪声修正
 
 **阶段四完成。文件清单：**
 

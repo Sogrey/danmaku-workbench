@@ -15,16 +15,16 @@
 | --- | --- |
 | 三栏工作台 | 01 直播画面与弹幕（直播窗 + 弹幕漂浮动画 + 筛选/跟随最新）· 02 当前消息处理 · 03 课堂待办 |
 | 五类意图分类 | 技术提问 / 听课反馈 / 普通聊天 / 推广干扰 / 信息不足（Choice 原语，返回全候选概率分布） |
-| 双置信度门槛 | 分类概率 ≥ 60% 且 处理条件概率 ≥ 65% 才进待办，其余进待确认（Confidence-Gated Routing；65% 为 Laya 微调校准后的量化最优值） |
+| 双置信度门槛 | 分类概率 ≥ 60% 且 处理条件概率 ≥ 60% 才进待办，其余进待确认（Confidence-Gated Routing；noul 门槛 0.80→0.65→0.60 为微调校准后的量化最优值） |
 | 优先级排序 | Score 原语 0~3 级加权分，队列内按分数从高到低、同分按接收顺序 |
 | 判断详情可追溯 | 抽屉展示对齐 Jev `/v1/systemone` 的请求/响应 JSON（questions / answers / routing） |
 | 分类与记录页 | 规则卡（五类 criteria + 阈值 + 分工）· 全量判断记录表 · CSV / JSON 导出 |
 | 失败降级 | 判断失败保持「未判断」，原文保留、可稍后重试，不误入任何队列 |
 | 决策引擎可插拔 | Provider 抽象层：当前接入 Laya 微调模型 v0.3（eval_acc 77% · L3 直播中断类补强 · 分桶温度校准），可一键切回 Mock 规则引擎 |
 | 判断记录持久化 | IndexedDB 快照，刷新/重启页面记录不丢；判断中断的消息恢复为「失败可重试」，待办由记录自动重建 |
-| 校准与阈值页 | 分桶温度、Noul 门槛量化（0.80→0.65）、ECE 可靠性曲线（SVG）、230 条回放指标与混淆矩阵、A/B 引擎对比可视化 |
-| 评估集回放 | `backend/evals/replay_eval.py` 回放 230 条独立评估集（v0.3：choice 74.8% / noul 89.6% / score ±1 95.7%；ECE choice 0.030 / noul 0.043） |
-| A/B 引擎对比 | `backend/evals/ab_runner.py`：零样本基线 / v0.2 / v0.3 三引擎可配对比（当前默认 v0.2 vs v0.3：一致率 choice 86.1% · noul 90.0% · score±1 99.1%，分歧 47/230 附样本清单） |
+| 校准与阈值页 | 分桶温度、Noul 门槛量化（0.80→0.65→0.60）、ECE 可靠性曲线（SVG）、230 条回放指标与混淆矩阵、A/B 引擎对比可视化 |
+| 评估集回放 | `backend/evals/replay_eval.py` 回放 230 条独立评估集（v0.3 @noul 0.60：choice 74.8% / noul 90.4% / score ±1 95.7%；ECE choice 0.030 / noul 0.043） |
+| A/B 引擎对比 | `backend/evals/ab_runner.py`：零样本基线 / v0.2 / v0.3 三引擎可配对比（当前默认 v0.2 vs v0.3：一致率 choice 86.1% · noul 89.6% · score±1 99.1%，分歧 48/230 附样本清单） |
 | 阈值调优 | `backend/evals/threshold_scan.py` 扫描覆盖率-准确率曲线；量化依据见 [docs/threshold-tuning.md](docs/threshold-tuning.md) |
 | 本地 E2E | `npm run e2e`：后端语法 + 前端类型/构建 + mock API 契约断言 + laya 服务探测 |
 
@@ -92,7 +92,7 @@ npm run dev          # http://localhost:8312（默认 ACTIVE_PROVIDER='http'）
 
 ### 置信度门槛（程序规则，不是模型属性）
 
-- **分类概率 ≥ 60%** 且 **处理条件概率 ≥ 65%** → 进入讲师/助教待办
+- **分类概率 ≥ 60%** 且 **处理条件概率 ≥ 60%** → 进入讲师/助教待办
 - 其余 → 待确认（人工核对）
 - 「听课反馈」是模型选择，「交给助教」是程序规则 —— 分流逻辑全部在 [`src/decision/routing.ts`](src/decision/routing.ts)
 

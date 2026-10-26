@@ -212,7 +212,7 @@ backend\.venv\Scripts\python.exe backend\training\finetune.py --out-dir D:/AI/la
 backend\.venv\Scripts\python.exe backend\training\calibrate.py --model-dir D:/AI/laya/danmaku-dm-v0.2
 ```
 
-**为什么必做**：multilingual 出厂温度全 1.0、分桶温度为空；微调只改权重不改校准。不校准则置信度不可信，前端 60%/65% 门槛全部失真。
+**为什么必做**：multilingual 出厂温度全 1.0、分桶温度为空；微调只改权重不改校准。不校准则置信度不可信，前端 60%/60% 门槛全部失真。
 
 ---
 
@@ -352,7 +352,7 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
 - **实测结果（全部达标，v0.3 已采纳为默认引擎）**：best epoch 7、eval_acc 0.7667；
   L3 命中 0 → **9 条（41%）且零误报**（被判 L3 的 9 条真值全为 3，分箱 mean_truth=3.0），
   其余 12 条判 L2（不漏处理，仅排序偏低）；choice 76.5%→74.8%、Score ±1 96.1%→95.7%（均容差内微降）、
-  noul 85.7%→**89.6%**（覆盖 70.4%）；ECE choice 0.059→**0.030** / noul 0.099→**0.043**；
+  noul 85.7%→**89.6%**（@0.65 门槛，覆盖 70.4%；门槛后调至 0.60：区间一致 90.4%、覆盖 72.2%）；ECE choice 0.059→**0.030** / noul 0.099→**0.043**；
   分桶温度 choice 2.88 / noul 1.72 / score 3.67（noul 3.81→1.72，模型显著更自信）。
 
 **两个已踩过的坑（重训前必读）**：
