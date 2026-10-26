@@ -355,7 +355,19 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
   noul 85.7%→**89.6%**（@0.65 门槛，覆盖 70.4%；门槛后调至 0.60：区间一致 90.4%、覆盖 72.2%）；ECE choice 0.059→**0.030** / noul 0.099→**0.043**；
   分桶温度 choice 2.88 / noul 1.72 / score 3.67（noul 3.81→1.72，模型显著更自信）。
 
-**两个已踩过的坑（重训前必读）**：
+**实战案例二（v0.4 → v0.5 = 口径事故修复 + 跷跷板效应）**：
+
+- 背景：v0.4 注入 29 条种子后 choice 76.5% / score 66.1% / L3 命中 15（68%）全面超越 v0.3，
+  但 noul 90.4%→79.6% 崩溃（根因见「坑 3」）；v0.5 修复口径（10 条 false→true）并补 3 条
+  「部分受损可接收」L2/L1 对照（画面定格有声/单声道/480p 可读）。
+- v0.5 实测：noul 修复至 87.0%（ECE 0.100→0.069、Brier 0.141→0.094），但 L3 命中 15→8 回落、
+  score exact 66.1%→58.7%——**跷跷板效应：三原语共享编码器表征，单点补强会在原语间传导扰动**，
+  475 条量级的小数据 LoRA 尤其明显。
+- 结论：v0.3 综合最优维持默认（noul 90.4 / L3 命中 9 零误报 / 端到端 48.7% 无短板）；
+  v0.4/v0.5 checkpoint 归档为迭代试验记录。后续若再迭代，应同时评估三原语权衡，
+  或以真实弹幕回流扩大数据量打破瓶颈（主动学习闭环，见 §7.1）。
+
+**三个已踩过的坑（重训前必读）**：
 
 1. **build 会覆盖评估集**：`build_dataset.py` 每次用 `seed_samples.json` 的 `eval_samples`
    重写 `eval_dataset.jsonl`——扩充评估集后必须把新样本同步进 `eval_samples`（2026-10-25
@@ -363,6 +375,11 @@ backend\.venv\Scripts\pip.exe install "laya[serve]"
 2. **RoPE inv_freq 污染权重文件**：transformers/peft 升级后，`named_buffers()` 会包含
    rotary_emb 的 `*_inv_freq`，写入文件导致 strict 加载报 unexpected key
    （已在 finetune.py 保存侧过滤修复，2026-10-25）。
+3. **标注口径与既有训练集冲突（v0.4 事故）**：新种子的标签必须先核对同类既有种子的口径——
+   v0.4 把 10 条夸赞类 chat 标了 `actionable=false`（把「无需处理」误当「信息不足」），
+   而训练集口径是 chat 语义完整全 true（铁证：v0.2 分布 false 103 = spam 40 + insufficient 63，
+   chat 63 条全 true）；build 校验只强制 spam/insufficient=false，拦不住 chat。
+   后果：noul 一致率 90.4%→79.6%、校准温度 1.72→3.85，v0.4 整代报废。
 
 ---
 

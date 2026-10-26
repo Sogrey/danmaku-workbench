@@ -117,7 +117,8 @@ backend/app/db.py                         ← SQLite 记录表（待做；当前
 - [x] 阈值调优工具：threshold_scan.py（noul/choice 双门槛扫描 + 端到端分流模拟）；量化文档 **[docs/threshold-tuning.md](threshold-tuning.md)**（含 0.50–0.60 一致率 87% 平台与 noul 可降至 0.60 的建议）✅ 2026-10-25
 - [x] 验收：ECE ≤ 0.1（choice 0.059 / noul 0.099 双双达标）；阈值选择量化依据已达成（threshold-tuning.md）
 - [x] noul 门槛 0.65→0.60 已采纳（2026-10-26 业务确认：v0.3 扫描一致率最优 90.4%、覆盖 72.2%；criteria.ts 已生效）
-- [ ] v0.4 迭代：29 条种子已注入（L3 边缘词汇 10 + L2/L3 对照 5 + chat/feedback 边界 14），训练集 379→466，待重训验证剩余 12 条直播中断类与 chat→feedback 噪声修正
+- [x] v0.4 迭代（2026-10-27）：choice 76.5% / score 66.1% / L3 命中 15（68%）全面提升，但 10 条 chat 种子误标 actionable=false 教坏 noul（90.4%→79.6%），未采纳
+- [x] v0.5 迭代（2026-10-27）：口径修复后 noul 回 87.0%（ECE 0.069），但 L3 命中回落至 8、score 66.1%→58.7%（跷跷板效应），综合仍劣于 v0.3，未采纳——v0.3 维持默认，两代 checkpoint 归档，教训固化至 TRAINING.md 7.5
 
 **阶段四完成。文件清单：**
 
