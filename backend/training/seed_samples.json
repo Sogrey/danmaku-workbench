@@ -1153,27 +1153,6 @@
       "actionable": true,
       "impact_level": 1,
       "note": "chat/feedback 边界对照：明确翻页节奏请求"
-    },
-    {
-      "text": "画面停在一帧不动，好在声音是连续的，还能跟着听",
-      "category": "feedback",
-      "actionable": true,
-      "impact_level": 2,
-      "note": "L2/L3 对照：画面定格但声音正常可继续听=L2（针对 v0.4 的 ev-0010 类 L3 误报）"
-    },
-    {
-      "text": "声音只有一边耳朵有，另一边没有，大体能听清",
-      "category": "feedback",
-      "actionable": true,
-      "impact_level": 1,
-      "note": "L2/L3 对照：单声道缺陷但可接收=L1（针对 v0.4 的 ev-0014 类 L3 误报）"
-    },
-    {
-      "text": "清晰度只有 480p 上不去，代码勉强还能看清",
-      "category": "feedback",
-      "actionable": true,
-      "impact_level": 2,
-      "note": "L2/L3 对照：画质受限但内容可读=L2（针对 v0.4 的 ev-0016 类 L3 误报）"
     }
   ],
   "eval_samples": [
