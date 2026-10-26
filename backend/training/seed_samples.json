@@ -950,6 +950,209 @@
       "actionable": true,
       "impact_level": 2,
       "note": "受阻但可部分跟随（L2/L3 对照）"
+    },
+    {
+      "text": "直播掉线了，重连半天连不上",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：掉线-重连循环（v0.4 补强，针对误判样本 ev-0099 类措辞）"
+    },
+    {
+      "text": "一直在转圈缓冲，进不去直播间",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：加载不进去=无法接收（针对 ev-0106 类措辞）"
+    },
+    {
+      "text": "手机端闪退，重装了还是黑屏",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：闪退重装仍黑屏（针对 ev-0113 类措辞）"
+    },
+    {
+      "text": "满屏马赛克花屏，代码一行都看不清",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：花屏到不可读=无法接收（针对 ev-0103/ev-0114 类措辞）"
+    },
+    {
+      "text": "画面定格了，声音也停了，一点动静都没有",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：画面定格+无声（针对 ev-0100/ev-0110 类措辞）"
+    },
+    {
+      "text": "共享画面僵住了，喊老师也没反应",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：疑似讲师端中断（针对 ev-0110 类措辞）"
+    },
+    {
+      "text": "音画不同步，声音慢了好几秒",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：音画不同步到无法跟课（针对 ev-0105 类措辞）"
+    },
+    {
+      "text": "声音时有时无，讲课内容漏听大半",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：断续漏听大半（针对 ev-0112 类措辞）"
+    },
+    {
+      "text": "共享画面只剩黑屏，课件一页都看不到",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：共享黑屏=无法接收（针对 ev-0102 类措辞）"
+    },
+    {
+      "text": "老师麦克风彻底没声，什么都听不见",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 3,
+      "note": "L3 边缘词汇：彻底无声含背景音（针对 ev-0045 类措辞）"
+    },
+    {
+      "text": "画面偶尔卡一下，声音是连续的，还能跟着思路走",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 2,
+      "note": "L2/L3 对照：部分卡顿仍可跟随=L2（与 L3 掉线/定格对照）"
+    },
+    {
+      "text": "共享画面有点糊，大标题还看得清",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 2,
+      "note": "L2/L3 对照：糊但能看大标题=L2（与 L3 花屏不可读对照）"
+    },
+    {
+      "text": "声音偶尔断半秒，大体能听清讲课",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 2,
+      "note": "L2/L3 对照：瞬断大体可听=L2（与 L3 断续漏大半对照）"
+    },
+    {
+      "text": "直播有点卡，音还是连续的，凑合能看",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 2,
+      "note": "L2/L3 对照：卡但音连续凑合能看=L2（与 L3 完全无法接收对照）"
+    },
+    {
+      "text": "画面轻微拖影，代码大体还能看清",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 2,
+      "note": "L2/L3 对照：轻微拖影大体可读=L2（与 L3 糊到数不清行号对照）"
+    },
+    {
+      "text": "老师声音真好听，听着很舒服",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：夸声音无诉求（与「请调大音量」对照）"
+    },
+    {
+      "text": "这节奏太舒服了，完全跟得上",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：夸节奏无放慢请求"
+    },
+    {
+      "text": "讲得真稳，全程没有废话",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：夸讲解节奏"
+    },
+    {
+      "text": "这场直播质量拉满，氛围也特别好",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：夸直播氛围无诉求（针对 ev-0156/ev-0185 类误判）"
+    },
+    {
+      "text": "老师今天状态真好，干货满满",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：夸状态无诉求"
+    },
+    {
+      "text": "听得津津有味，一晃就到点了",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：感想类闲聊"
+    },
+    {
+      "text": "弹幕氛围绝了，大家都在认真讨论",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：夸讨论氛围（针对 ev-0156 类误判）"
+    },
+    {
+      "text": "先给老师点个赞，讲得太细了",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：点赞无诉求（针对 ev-0173/ev-0180 类误判）"
+    },
+    {
+      "text": "老师这语速可以出教程了，纯夸",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：玩笑式夸赞（针对 ev-0168 类误判）"
+    },
+    {
+      "text": "打卡今日直播，收获满满下班",
+      "category": "chat",
+      "actionable": false,
+      "impact_level": 0,
+      "note": "chat/feedback 边界对照：打卡收尾闲聊（针对 ev-0182 类误判）"
+    },
+    {
+      "text": "讲得有点快，能放慢一些吗",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 1,
+      "note": "chat/feedback 边界对照：明确放慢请求（与夸节奏对照）"
+    },
+    {
+      "text": "音量有点小，能调大一点吗",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 1,
+      "note": "chat/feedback 边界对照：明确音量请求（与夸声音对照）"
+    },
+    {
+      "text": "帧率太低了，滚动的代码有拖影，调一下画质吧",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 2,
+      "note": "chat/feedback 边界对照：画质拖影影响跟课=明确请求（L2）"
+    },
+    {
+      "text": "幻灯片翻得慢一点吧，笔记来不及记",
+      "category": "feedback",
+      "actionable": true,
+      "impact_level": 1,
+      "note": "chat/feedback 边界对照：明确翻页节奏请求"
     }
   ],
   "eval_samples": [

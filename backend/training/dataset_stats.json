@@ -1,22 +1,22 @@
 {
   "train": {
-    "total": 379,
+    "total": 466,
     "category": {
       "technical": 90,
-      "feedback": 123,
-      "chat": 63,
+      "feedback": 180,
+      "chat": 93,
       "spam": 40,
       "insufficient": 63
     },
     "impact_level": {
-      "0": 139,
-      "1": 108,
-      "2": 72,
-      "3": 60
+      "0": 169,
+      "1": 117,
+      "2": 90,
+      "3": 90
     },
     "actionable": {
-      "true": 276,
-      "false": 103
+      "true": 333,
+      "false": 133
     }
   },
   "eval": {
@@ -40,7 +40,7 @@
     }
   },
   "train_source": {
-    "seed": 133,
-    "variant": 246
+    "seed": 162,
+    "variant": 304
   }
 }
