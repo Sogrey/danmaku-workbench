@@ -182,7 +182,7 @@ def main() -> None:
 
     cur = sims[0]
     print(f"样本 {len(rows)} 条")
-    print(f"当前门槛(0.60/0.65)：完全自动 {cur['auto_ok']:.1%} | 进错队列 {cur['auto_wrong']:.1%} | 漏/错放 {cur['auto_leak']:.1%} | 人工兜底 {cur['confirm_ok']:.1%}")
+    print(f"当前门槛(0.60/0.60)：完全自动 {cur['auto_ok']:.1%} | 进错队列 {cur['auto_wrong']:.1%} | 漏/错放 {cur['auto_leak']:.1%} | 人工兜底 {cur['confirm_ok']:.1%}")
     print(f"noul 0.60 → 覆盖 {noul_scan[2]['coverage']:.1%} 区间一致 {noul_scan[2]['interval']:.1%} 通过内实际 {noul_scan[2]['passed_acc']:.1%}")
     print(f"报告已写入 {out_path}")
 
